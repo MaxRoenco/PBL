@@ -1,0 +1,155 @@
+#settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+#blockSettings {
+    width: 800px;
+    height: 800px;
+    max-width: 1200px;
+    padding: 20px 40px;
+    margin: 20px auto;
+    background-color: #209A45;
+    border-radius: 37px;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#langs_label {
+    font-family: 'Modak';
+    font-weight: 400;
+    color: white;
+    font-size: 64px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+}
+
+#lang_flags {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#lang_flags>div {
+    width: 120px;
+    padding: 20px;
+    border: 2px solid #209A45;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+#lang_flags>div:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+#lang_flags>div>img {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.languageSelected {
+    border-color: #45D12E !important;
+    background-color: #45D12E !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2) !important;
+    transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+
+#home_btn_settings {
+    display: flex;
+    justify-content: center;
+}
+
+.settings-home {
+    display: inline-block;
+    margin-bottom: 70px;
+    font-family: 'Modak';
+    font-weight: 400;
+    color: white;
+    font-size: 45px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1px 100px;
+    border-radius: 37px;
+    border: 3px solid black;
+    background-color: #209A45;
+    transition: filter 0.3s ease;
+    text-shadow: -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+    box-shadow: 16px 15px 23px -10px rgba(0, 0, 0, 0.75);
+}
+
+.settings-home:hover {
+    filter: brightness(1.2) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+}
+
+#soundsDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+}
+
+#soundsText {
+    width: 50%;
+}
+
+#soundsText>p {
+    font-family: 'Modak';
+    font-weight: 400;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+}
+
+#soundsImageContainer {
+    width: 50%;
+    position: relative;
+}
+
+#settingsImageSoundsOn,
+#settingsImageSoundsOff {
+    width: 150px;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+#settingsImageSoundsOn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#settingsImageSoundsOff {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
