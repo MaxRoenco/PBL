@@ -130,3 +130,19 @@
 #frame6 {
     background: #14579b;
 }
+
+.returnContainer {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 100px;
+    filter: invert(1);
+}
+
+.returnContainer:hover {
+    cursor: pointer;
+}
+
+.returnImage {
+    width: 100%;
+}
