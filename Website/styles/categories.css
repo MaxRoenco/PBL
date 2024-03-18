@@ -78,18 +78,18 @@
 }
 
 #frame1>img {
-    width: 110%;
-    top: -30px;
+    width: 70%;
+    top: 10px;
 }
 
 #frame2>img {
-    width: 90%;
+    width: 70%;
     top: 10px;
 }
 
 #frame3>img {
     width: 70%;
-    top: 20px;
+    top: 10px;
 }
 
 #frame4>img {
@@ -99,11 +99,12 @@
 
 #frame5>img {
     height: 70%;
+    top: 5px;
 }
 
 #frame6>img {
-    width: 70%;
-    top: 10px;
+    width: 80%;
+    top: 0px;
 }
 
 #frame1 {
@@ -115,17 +116,17 @@
 }
 
 #frame3 {
-    background: #1E1E1E;
+    background: #d2d81f;
 }
 
 #frame4 {
-    background: #45D12E;
+    background: blueviolet;
 }
 
 #frame5 {
-    background: #D12E2E;
+    background: #7b2380;
 }
 
 #frame6 {
-    background: #E97838;
+    background: #14579b;
 }

@@ -30,9 +30,9 @@ let barCorrect = id("barCorrect");
 
 //categories
 let cats = {
-    'en': ['HTML', 'CSS', 'JavaScript', 'Python', 'C', 'C++'],
-    'ro': ['HTML', 'CSS', 'JavaScript', 'Python', 'C', 'C++'],
-    'ru': ['HTML', 'CSS', 'JavaScript', 'Python', 'C', 'C++'],
+    'en': ['HTML', 'CSS', 'JavaScript', 'PYTHON', 'C', 'C++'],
+    'ro': ['HTML', 'CSS', 'JavaScript', 'PYTHON', 'C', 'C++'],
+    'ru': ['HTML', 'CSS', 'JavaScript', 'PYTHON', 'C', 'C++'],
 }
 let frames = document.querySelectorAll(".category-frame");
 frames.forEach((ele, i) => {
