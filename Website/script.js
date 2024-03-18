@@ -17,9 +17,9 @@ quizContainer.addEventListener("click", e => {
         cancelRecognition();
     } else {
         let arg = '';
-        if(language === 'en') arg = 'en-US';
-        if(language === 'ro') arg = 'ro-RO';
-        if(language === 'ru') arg = 'ru-RU';
+        if (language === 'en') arg = 'en-US';
+        if (language === 'ro') arg = 'ro-RO';
+        if (language === 'ru') arg = 'ru-RU';
         recognizeSpeech(arg);
     }
 })
@@ -30,9 +30,9 @@ let barCorrect = id("barCorrect");
 
 //categories
 let cats = {
-    'en': ['HISTORY', 'TOURISM', 'JOBS', 'TECHNOLOGY', 'CULTURE', 'ART'],
-    'ro': ['ISTORIE', 'TURISM', 'MUNCI', 'TEHNOLOGIE', 'CULTURĂ', 'ARTĂ'],
-    'ru': ['ИСТОРИЯ', 'ТУРИЗМ', 'РАБОТЫ', 'ТЕХНОЛОГИИ', 'КУЛЬТУРА', 'ИСКУССТВО'],
+    'en': ['HTML', 'CSS', 'JavaScript', 'Python', 'C', 'C++'],
+    'ro': ['HTML', 'CSS', 'JavaScript', 'Python', 'C', 'C++'],
+    'ru': ['HTML', 'CSS', 'JavaScript', 'Python', 'C', 'C++'],
 }
 let frames = document.querySelectorAll(".category-frame");
 frames.forEach((ele, i) => {
@@ -48,14 +48,14 @@ let score = 0;
 let currentCategory = -1;
 
 //wrong ans
-let correctCounter =  document.querySelector(".correct_ans-headline");
+let correctCounter = document.querySelector(".correct_ans-headline");
 //correct ans
-let wrongCounter =  document.querySelector(".wrong_ans-headline");
+let wrongCounter = document.querySelector(".wrong_ans-headline");
 
 //profile stats
 let correctCountElement = id("profilecorrect_counter");
 let wrongCountElement = id("profilewrong_counter");
-let quizCountElement =id("profilequizz_done");
+let quizCountElement = id("profilequizz_done");
 
 //langs
 let langFlags = id("lang_flags");
@@ -66,14 +66,14 @@ let quiz = {};
 let language = localStorage.getItem('language') || 'en';
 updateLanguage(language);
 fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quizes')
-.then(response => response.json())
-.then(data => {
-    dataSet = data[0];
-    quiz = dataSet[language];
-})
-.catch(error => {
-    console.error('Error fetching data:', error);
-});
+    .then(response => response.json())
+    .then(data => {
+        dataSet = data[0];
+        quiz = dataSet[language];
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
 window.onload = function () {
     let body = document.body;
     body.style.opacity = "1";
@@ -171,7 +171,7 @@ function showResults() {
     root.style.setProperty('--wrong-content', `"${wrongPercentage.toFixed(2)}%"`);
     let gp = Math.floor(goodPercentage);
     let wp = Math.floor(wrongPercentage);
-    barCorrect.textContent =  gp >= 10 ? `${gp}%` : '';
+    barCorrect.textContent = gp >= 10 ? `${gp}%` : '';
     barWrong.textContent = wp >= 10 ? `${wp}%` : '';
     setActive("final_score");
     show(document.querySelector("#correct_answer"));
@@ -252,7 +252,7 @@ function recognizeSpeech(language) {
     canRecognise = false;
     if ('webkitSpeechRecognition' in window) {
         recognition = new webkitSpeechRecognition();
-        
+
         // Set the language dynamically
         recognition.lang = language;
         recognition.continuous = false;
@@ -267,8 +267,8 @@ function recognizeSpeech(language) {
         recognition.onresult = function (event) {
             var transcript = event.results[0][0].transcript;
             let theAnswer = transcript.trim().toLowerCase();
-            let yess = ['yes', 'да','da','desigur']
-            let nos = ['no', 'нет','nu']
+            let yess = ['yes', 'да', 'da', 'desigur']
+            let nos = ['no', 'нет', 'nu']
             if (yess.some(e => theAnswer === e)) {
                 checkAnswer(1);
             } else if (nos.some(e => theAnswer === e)) {
@@ -276,9 +276,9 @@ function recognizeSpeech(language) {
             } else {
                 console.log(language);
                 if (!isMuted) {
-                    if(language === 'en-US') {
+                    if (language === 'en-US') {
                         speak("Sorry, can you repeat that?");
-                    } else if(language == 'ru-RU') {
+                    } else if (language == 'ru-RU') {
                         speak("Пожалуйста, повторите сказанноe!!!");
                     } else {
                         speak("Sorry, can you repeat that?");
@@ -289,9 +289,9 @@ function recognizeSpeech(language) {
         recognition.onerror = function (event) {
             console.error('Speech Recognition Error:', event.error);
             if (!isMuted && event.error === 'no-speech') {
-                if(language === 'en') {
+                if (language === 'en') {
                     speak("Sorry, can you repeat that?");
-                } else if(language == 'ru') {
+                } else if (language == 'ru') {
                     speak("Пожалуйста, повторите сказанное");
                 } else {
                     speak("Sorry, can you repeat that?");
@@ -362,7 +362,7 @@ function resetStats() {
 }
 
 function playSound(path) {
-    if(!SFX) return;
+    if (!SFX) return;
     var audio = new Audio(path);
     audio.play();
 }
@@ -384,14 +384,14 @@ function updateLanguage(lang) {
     localStorage.setItem('language', lang);
     Array.from(langFlags.children).forEach(ele => {
         ele.classList = [];
-        if(ele.dataset.lang === lang) {
+        if (ele.dataset.lang === lang) {
             ele.classList.add("languageSelected");
         }
     })
     Array.from(frames).forEach((ele, i) => {
         ele.children[1].textContent = cats[language][i];
     })
-    if(language === 'ro') {
+    if (language === 'ro') {
         document.querySelector("#langs_label").textContent = "Limbi";
         document.querySelector(".settings-home").textContent = "Acasă";
         document.querySelector(".start").textContent = "Începe";
@@ -402,76 +402,76 @@ function updateLanguage(lang) {
         document.querySelector("#yes").textContent = "Da";
         document.querySelector(".final_score-headline").setAttribute('style', 'white-space: pre;');
         document.querySelector(".final_score-headline").textContent = "Scorul tău \r\nfinal: ";
-        document.querySelector(".final_score-home").textContent =     "Acasă";
-        document.querySelector(".wrong_ans-headline").textContent =   "Scorul răspunsurilor greșite: ";
-        document.querySelector(".wrong_ans-next").textContent =       "Următorul";
+        document.querySelector(".final_score-home").textContent = "Acasă";
+        document.querySelector(".wrong_ans-headline").textContent = "Scorul răspunsurilor greșite: ";
+        document.querySelector(".wrong_ans-next").textContent = "Următorul";
         document.querySelector(".correct_ans-headline").textContent = "Scorul răspunsurilor corecte: ";
-        document.querySelector(".correct_ans-next").textContent =     "Următorul";
-        document.querySelector("#total_right").textContent =          "Total răspunsuri corecte: ";
-        document.querySelector("#total_wrong").textContent =          "Total răspunsuri greșite: ";
-        document.querySelector("#total_quizzes").textContent =        "Quizuri făcute: ";
-        document.querySelector("#resetBoxP").textContent =            "Resetare";
-        document.querySelector(".profile_stats-home").textContent =   "Acasă";
-        document.querySelector("#SFXText").textContent =              "Efecte Sonore";
-    } else if(language === 'ru') {
-        document.querySelector("#langs_label").textContent =          "Языки";
-        document.querySelector(".settings-home").textContent =        "Главная";
-        document.querySelector(".start").textContent =                "Начать";
-        document.querySelector(".categories_headline").textContent =  "Категории";
-        document.querySelector(".quiz-headline").textContent =        "Викторина";
-        document.querySelector("#question").textContent =             "Вопрос";
-        document.querySelector("#no").textContent =                   "Нет";
-        document.querySelector("#yes").textContent =                  "Да";
+        document.querySelector(".correct_ans-next").textContent = "Următorul";
+        document.querySelector("#total_right").textContent = "Total răspunsuri corecte: ";
+        document.querySelector("#total_wrong").textContent = "Total răspunsuri greșite: ";
+        document.querySelector("#total_quizzes").textContent = "Quizuri făcute: ";
+        document.querySelector("#resetBoxP").textContent = "Resetare";
+        document.querySelector(".profile_stats-home").textContent = "Acasă";
+        document.querySelector("#SFXText").textContent = "Efecte Sonore";
+    } else if (language === 'ru') {
+        document.querySelector("#langs_label").textContent = "Языки";
+        document.querySelector(".settings-home").textContent = "Главная";
+        document.querySelector(".start").textContent = "Начать";
+        document.querySelector(".categories_headline").textContent = "Категории";
+        document.querySelector(".quiz-headline").textContent = "Викторина";
+        document.querySelector("#question").textContent = "Вопрос";
+        document.querySelector("#no").textContent = "Нет";
+        document.querySelector("#yes").textContent = "Да";
         document.querySelector(".final_score-headline").setAttribute('style', 'white-space: pre;');
         document.querySelector(".final_score-headline").textContent = "Ваш итоговый\r\nбалл: ";
-        document.querySelector(".final_score-home").textContent =     "Главная";
-        document.querySelector(".wrong_ans-headline").textContent =   "Очки за неправильные ответы: ";
-        document.querySelector(".wrong_ans-next").textContent =       "Следующий";
+        document.querySelector(".final_score-home").textContent = "Главная";
+        document.querySelector(".wrong_ans-headline").textContent = "Очки за неправильные ответы: ";
+        document.querySelector(".wrong_ans-next").textContent = "Следующий";
         document.querySelector(".correct_ans-headline").textContent = "Очки за правильные ответы: ";
-        document.querySelector(".correct_ans-next").textContent =     "Следующий";
-        document.querySelector("#total_right").textContent =          "Всего правильных ответов: ";
-        document.querySelector("#total_wrong").textContent =          "Всего неправильных ответов: ";
-        document.querySelector("#total_quizzes").textContent =        "Пройденные викторины: ";
-        document.querySelector("#resetBoxP").textContent =            "Сбросить";
-        document.querySelector(".profile_stats-home").textContent =   "Главная";
-        document.querySelector("#SFXText").textContent =              "Звуковые Эффекты";
+        document.querySelector(".correct_ans-next").textContent = "Следующий";
+        document.querySelector("#total_right").textContent = "Всего правильных ответов: ";
+        document.querySelector("#total_wrong").textContent = "Всего неправильных ответов: ";
+        document.querySelector("#total_quizzes").textContent = "Пройденные викторины: ";
+        document.querySelector("#resetBoxP").textContent = "Сбросить";
+        document.querySelector(".profile_stats-home").textContent = "Главная";
+        document.querySelector("#SFXText").textContent = "Звуковые Эффекты";
     } else {
-        document.querySelector("#langs_label").textContent =          "Languages";
-        document.querySelector(".settings-home").textContent =        "Home";
-        document.querySelector(".start").textContent =                "Start";
-        document.querySelector(".categories_headline").textContent =  "Categories";
-        document.querySelector(".quiz-headline").textContent =        "Quiz";
-        document.querySelector("#question").textContent =             "Question";
+        document.querySelector("#langs_label").textContent = "Languages";
+        document.querySelector(".settings-home").textContent = "Home";
+        document.querySelector(".start").textContent = "Start";
+        document.querySelector(".categories_headline").textContent = "Categories";
+        document.querySelector(".quiz-headline").textContent = "Quiz";
+        document.querySelector("#question").textContent = "Question";
         document.querySelector("#no").textContent = "No";
-        document.querySelector("#yes").textContent =                  "Yes";
+        document.querySelector("#yes").textContent = "Yes";
         document.querySelector(".final_score-headline").setAttribute('style', 'white-space: pre;');
         document.querySelector(".final_score-headline").textContent = "Your final \r\nScore: ";
-        document.querySelector(".final_score-home").textContent =     "Home";
-        document.querySelector(".wrong_ans-headline").textContent =   "Wrong answer Score: ";
-        document.querySelector(".wrong_ans-next").textContent =       "Next";
+        document.querySelector(".final_score-home").textContent = "Home";
+        document.querySelector(".wrong_ans-headline").textContent = "Wrong answer Score: ";
+        document.querySelector(".wrong_ans-next").textContent = "Next";
         document.querySelector(".correct_ans-headline").textContent = "Correct answer Score: ";
-        document.querySelector(".correct_ans-next").textContent =     "Next";
-        document.querySelector("#total_right").textContent =          "Total right answers: ";
-        document.querySelector("#total_wrong").textContent =          "Total wrong answers: ";
-        document.querySelector("#total_quizzes").textContent =        "Quizzes done: ";
-        document.querySelector("#resetBoxP").textContent =            "Reset";
-        document.querySelector(".profile_stats-home").textContent =   "Home";
-        document.querySelector("#SFXText").textContent =              "Sound Effects";
+        document.querySelector(".correct_ans-next").textContent = "Next";
+        document.querySelector("#total_right").textContent = "Total right answers: ";
+        document.querySelector("#total_wrong").textContent = "Total wrong answers: ";
+        document.querySelector("#total_quizzes").textContent = "Quizzes done: ";
+        document.querySelector("#resetBoxP").textContent = "Reset";
+        document.querySelector(".profile_stats-home").textContent = "Home";
+        document.querySelector("#SFXText").textContent = "Sound Effects";
     }
-    
-     //correct_ans_counter
-     let correctSpan = document.createElement("span");
-     correctSpan.classList.add("correct_ans-nr");
-     correctSpan.textContent = '0';
-     correctCounter.append(correctSpan);
 
-     //wrong_ans_counter
-     let wrongSpan = document.createElement("span");
-     wrongSpan.classList.add("wrong_ans-nr");
-     wrongSpan.textContent = '0';
-     wrongCounter.append(wrongSpan);
+    //correct_ans_counter
+    let correctSpan = document.createElement("span");
+    correctSpan.classList.add("correct_ans-nr");
+    correctSpan.textContent = '0';
+    correctCounter.append(correctSpan);
 
-     //final score
+    //wrong_ans_counter
+    let wrongSpan = document.createElement("span");
+    wrongSpan.classList.add("wrong_ans-nr");
+    wrongSpan.textContent = '0';
+    wrongCounter.append(wrongSpan);
+
+    //final score
     let finalResult = document.createElement("span");
     finalResult.classList.add("final_score-nr");
     finalResult.textContent = '0';
