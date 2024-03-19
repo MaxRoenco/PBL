@@ -65,7 +65,7 @@ let dataSet = {};
 let quiz = {};
 let language = localStorage.getItem('language') || 'en';
 updateLanguage(language);
-fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/quizes')
+fetch('https://65f5f30b41d90c1c5e0a6f6a.mockapi.io/quiz/idk')
     .then(response => response.json())
     .then(data => {
         dataSet = data[0];
