@@ -109,6 +109,7 @@ function nextQuestion() {
     document.querySelector("#quiz").style.transform = "translateX(0)";
     document.querySelector("#wrong_answer").style.transform = "translateX(300%)";
     document.querySelector("#correct_answer").style.transform = "translateX(300%)";
+    console.log(index);
     index++;
     if (index >= quiz[currentCategory].length) {
         index = -1;
@@ -524,5 +525,5 @@ function updateSFX(bool) {
 
 function returnHome(str) {
     setActive(str);
-    let index = -1;
+    index = -1;
 }
