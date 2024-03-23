@@ -57,7 +57,7 @@
             <img src="./assets/images/home.png" id="homeimage" draggable="false">
         </div>
         <div class="imagecontainer">
-            <img src="./assets/images/Quizer.png" class="image" draggable="false">
+            <img src="./assets/images/codify.png" class="image" draggable="false">
         </div>
         <button id="start" role="button" onclick="setActive('categories')">
             <p class="start">Start</p>
@@ -72,24 +72,30 @@
         <h2 class="categories_headline">Categories:</h2>
         <div id="wrapper_categories">
             <div class="row">
-                <div class="category-frame" id="frame1"><img src="./assets/images/1.png" draggable="false">
+                <div class="category-frame" id="frame1" onclick="toMap('html')"><img src="./assets/images/1.png"
+                        draggable="false">
                     <div class="label">HTML</div>
                 </div>
-                <div class="category-frame" id="frame2"><img src="./assets/images/2.png" draggable="false">
+                <div class="category-frame" id="frame2" onclick="toMap('css')"><img src="./assets/images/2.png"
+                        draggable="false">
                     <div class="label">CSS</div>
                 </div>
-                <div class="category-frame" id="frame3"><img src="./assets/images/3.png" draggable="false">
+                <div class="category-frame" id="frame3" onclick="toMap('javascript')"><img src="./assets/images/3.png"
+                        draggable="false">
                     <div class="label">JAVASCRIPT</div>
                 </div>
             </div>
             <div class="row">
-                <div class="category-frame" id="frame4"><img src="./assets/images/4.png" draggable="false">
+                <div class="category-frame" id="frame4" onclick="toMap('python')"><img src="./assets/images/4.png"
+                        draggable="false">
                     <div class="label">PYTHON</div>
                 </div>
-                <div class="category-frame" id="frame5"><img src="./assets/images/5.png" draggable="false">
+                <div class="category-frame" id="frame5" onclick="toMap('c')"><img src="./assets/images/5.png"
+                        draggable="false">
                     <div class="label">C</div>
                 </div>
-                <div class="category-frame" id="frame6"><img src="./assets/images/6.png" draggable="false">
+                <div class="category-frame" id="frame6" onclick="toMap('c++')"><img src="./assets/images/6.png"
+                        draggable="false">
                     <div class="label">C++</div>
                 </div>
             </div>
@@ -98,7 +104,7 @@
 
     <!-- Quizz -->
     <div id="quiz">
-        <div class="returnContainer" onclick="returnHome('categories')">
+        <div class="returnContainer" onclick="setActive('categories')">
             <img src="./assets/images/return.png" class="returnImage">
         </div>
         <div id="soundContainer" onclick="toggleSound()">
