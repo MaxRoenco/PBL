@@ -1,3 +1,17 @@
+let map = [
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+    {type: 'lesson', content: 'this is some testing content...'},
+]
 let SFX = (localStorage.getItem('SFX') || 'true') === 'true';
 let id = (s) => document.getElementById(s);
 
@@ -34,14 +48,14 @@ let cats = {
     'ro': ['HTML', 'CSS', 'JavaScript', 'PYTHON', 'C', 'C++'],
     'ru': ['HTML', 'CSS', 'JavaScript', 'PYTHON', 'C', 'C++'],
 }
-let frames = document.querySelectorAll(".category-frame");
-frames.forEach((ele, i) => {
-    ele.addEventListener("click", e => {
-        let key = Object.keys(quiz)[i];
-        currentCategory = key;
-        nextQuestion();
-    })
-})
+// let frames = document.querySelectorAll(".category-frame");
+// frames.forEach((ele, i) => {
+//     ele.addEventListener("click", e => {
+//         let key = Object.keys(quiz)[i];
+//         currentCategory = key;
+//         nextQuestion();
+//     })
+// })
 
 // artiom
 let score = 0;
@@ -523,7 +537,21 @@ function updateSFX(bool) {
     }
 }
 
-function returnHome(str) {
-    setActive(str);
+function returnHome(s) {
+    setActive(s);
     index = -1;
+}
+
+function toMap(s) {
+    setActive("map");
+    map.forEach((ele, i) => {
+        let lvlNode = document.createElement("div");
+        lvlNode.classList.add("lvl");
+        lvlNode.textContent = "Lesson " + (i+1);
+        id("map").append(lvlNode);
+        lvlNode.addEventListener("onclick", e => {
+            setActive("lesson");
+            id("lesson-content").textContent = ele.content;
+        })
+    })
 }
