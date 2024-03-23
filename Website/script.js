@@ -521,3 +521,8 @@ function updateSFX(bool) {
         hide(document.querySelector("#settingsImageSoundsOn"));
     }
 }
+
+function returnHome(str) {
+    setActive(str);
+    let index = -1;
+}
