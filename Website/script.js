@@ -521,3 +521,8 @@ function updateSFX(bool) {
         hide(document.querySelector("#settingsImageSoundsOn"));
     }
 }
+
+function returnHome() {
+    setActive("menu");
+    let index = -1;
+}
