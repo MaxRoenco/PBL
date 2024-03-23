@@ -522,7 +522,7 @@ function updateSFX(bool) {
     }
 }
 
-function returnHome() {
-    setActive("menu");
+function returnHome(str) {
+    setActive(str);
     let index = -1;
 }
