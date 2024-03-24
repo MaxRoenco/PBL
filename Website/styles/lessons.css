@@ -1,0 +1,22 @@
+#lessons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow-y: auto;
+    padding: 20px;
+}
+.lesson {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    background-color: #424769;
+    border: white solid 3px;
+    border-radius: 10px;
+    margin: 15px;
+    font-size: 2rem;
+    font-family: "Manrope", sans-serif;
+}
