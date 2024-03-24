@@ -1,3 +1,8 @@
+function main() {
+    openTab("tab3");
+    fetchData();
+}
+
 function openTab(tabName) {
     let tabs = document.getElementById("tabs").children;
     Array.from(tabs).forEach(ele => {
@@ -10,4 +15,17 @@ function openTab(tabName) {
     });
 }
 
-openTab("tab3");
+async function fetchData() {
+    try {
+        const response = await fetch('test.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error fetching JSON:', error);
+    }
+}
+
+main();

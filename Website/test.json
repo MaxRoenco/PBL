@@ -1,0 +1,15 @@
+{
+    "en": {
+        "elements": {
+            "id": "en-text"
+        },
+        "categories": {
+            "html": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
+            "css": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
+            "js": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
+            "python": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
+            "c": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
+            "c++": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"]
+        }
+    }
+}
