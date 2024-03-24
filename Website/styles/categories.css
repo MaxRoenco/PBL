@@ -2,13 +2,17 @@
     border: solid black 3px;
     border-radius: 30px;
     padding: 10px;
-    background-color: #ddd; /* Background color of grid items */
-    padding: 20px; /* Padding for grid items */
-    text-align: center; /* Center text horizontally */
-    aspect-ratio: 1; /* Maintain aspect ratio 1:1 */
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+    aspect-ratio: 1;
     width: 100%;
     max-width: 200px;
     max-height: 200px;
+}
+.category:hover {
+    filter: brightness(1.2);
+    transition: filter 250ms ease;
 }
 .category>img {
     width: 100%;
@@ -24,7 +28,7 @@
 
 @media (max-width: 900px) {
     #categories-container {
-        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        grid-template-columns: repeat(2, 1fr);
     }
     .category {
         max-width: 130px;
@@ -34,7 +38,7 @@
 
 @media (max-width: 500px) {
     #categories-container {
-        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        grid-template-columns: repeat(2, 1fr);
     }
     .category {
         max-width: 120px;
