@@ -43,3 +43,10 @@
 .buttons {
     padding: 20px;
 }
+
+.rubik-scribble-regular {
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
