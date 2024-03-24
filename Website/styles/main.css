@@ -33,8 +33,7 @@
     width: 100px;
 }
 
-@media (max-width: 650px) {
-
+@media (max-width: 650px), (max-height: 650px) {
     .profileImage {
         max-width: 70px;
         position: absolute;
@@ -59,6 +58,17 @@
     align-items: center;
     overflow: hidden;
     background-color: #424769;
+}
+
+body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+img {
+    pointer-events: none;
 }
 
 .container {
@@ -89,10 +99,18 @@
 }
 
 .image {
+    
     width: 70%;
     max-width: 700px;
     transition: filter 0.5s ease;
 }
+
+@media (max-height: 450px) {
+    .image {
+        margin-top: 20px;
+    }
+}
+
 
 .image:hover {
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
