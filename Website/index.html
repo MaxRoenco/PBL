@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./styles/categories.css">
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/settings.css">
+    <link rel="stylesheet" href="./styles/lessons.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +30,7 @@
     </div>
 
     <div id="tabs">
+
         <!-- MAIN TAB -->
         <div class="container" data-tab="main">
             <div class="titleContainer">
@@ -39,6 +41,7 @@
                 <button class="button" id="buttonStart" onclick="openTab('categories')">Start</button>
             </div>
         </div>
+
         <!-- SETTINGS TAB -->
         <div class="container" id="settings-container" data-tab="settings">
             <div class="titleContainerSettings">
@@ -66,8 +69,25 @@
             <div class="category"><img src="./assets/images/c.png" onclick="moveToLesson('c')"></div>
             <div class="category"><img src="./assets/images/c++.png" onclick="moveToLesson('c++')"></div>
         </div>
+
+        <!-- LESSONS TAB -->
+        <div class="container" data-tab="lessons" id="lessons-container">
+            <div class="lesson">lesson 1</div>
+            <div class="lesson">lesson 2</div>
+            <div class="lesson">lesson 3</div>
+            <div class="lesson">lesson 4</div>
+            <div class="lesson">lesson 5</div>
+            <div class="lesson">lesson 6</div>
+            <div class="lesson">lesson 7</div>
+            <div class="lesson">lesson 8</div>
+            <div class="lesson">lesson 9</div>
+            <div class="lesson">lesson 10</div>
+            <div class="lesson">lesson 11</div>
+            <div class="lesson">lesson 12</div>
+        </div>
     </div>
 </body>
+
 <script type="module" src="./script.js"></script>
 <script type="module" src="./main.js"></script>
 
