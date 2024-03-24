@@ -1,8 +1,11 @@
-*,*::after,*::before {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 #tabs {
     width: 100vw;
     height: 100vh;
@@ -21,7 +24,22 @@
     border: solid rgb(255, 255, 255) 4px;
     color: white;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleContainer {
+    width: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 5rem;
+}
+
+.title {
+    font-size: 64px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.buttons {
+    padding: 20px;
 }
