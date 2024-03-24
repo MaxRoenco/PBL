@@ -4,12 +4,12 @@
             "id": "en-text"
         },
         "categories": {
-            "html": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
-            "css": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
-            "js": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
-            "python": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
-            "c": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"],
-            "c++": ["Intorduction to HTML", "What are tags?", "the <html> tag", "the <head> tag", "the <body> tag"]
-        }
+            "html": ["Introduction", "Tags Overview", "Basic Structure", "Text Formatting", "Links", "Images", "Lists", "Tables", "Forms", "Introduction to CSS"],
+            "css": ["Introduction", "Selectors", "Properties", "Values", "Box Model", "Layout", "Colors", "Typography", "Backgrounds", "Transitions"],
+            "js": ["Introduction", "Variables", "Data Types", "Operators", "Functions", "Arrays", "Loops", "Conditions", "DOM Manipulation", "Events"],
+            "python": ["Introduction", "Variables", "Data Types", "Lists", "Tuples", "Dictionaries", "Functions", "Loops", "Conditions", "File Handling"],
+            "c": ["Introduction", "Variables", "Data Types", "Operators", "Functions", "Arrays", "Pointers", "Structures", "File Handling", "Memory Management"],
+            "c++": ["Introduction", "Variables", "Data Types", "Operators", "Functions", "Classes", "Inheritance", "Polymorphism", "Templates", "STL"]
+        }        
     }
 }
