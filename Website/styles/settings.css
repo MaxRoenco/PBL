@@ -5,3 +5,14 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
+.titleContainerSettings {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.englishFlag,
+.romanianFlag,
+.russianFlag {}
