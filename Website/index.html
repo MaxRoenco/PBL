@@ -7,17 +7,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/categories.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/settings.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Rubik+Scribble&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Rubik+Scribble&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <div class="settingsContainer">
-        <img src="./assets/images/settings.png" alt="" class="settingsImage">
+        <img src="./assets/images/settings.png" alt="" class="settingsImage" onclick="openTab('settings')">
     </div>
     <div class="profileContainer">
         <img src="./assets/images/home.png" alt="" class="profileImage">
@@ -29,9 +34,26 @@
             <div class="titleContainer">
                 <p class="title" id="titleMain"></p>
             </div>
-            <img src="./assets/images/codify.png" alt="" class="image">
+            <img src="./assets/images/codify.png" alt="" class="codify">
             <div class="buttonContainer">
                 <button class="button" id="buttonStart" onclick="openTab('categories')">Start</button>
+            </div>
+        </div>
+        <!-- SETTINGS TAB -->
+        <div class="container" id="settings-container" data-tab="settings">
+            <div class="titleContainer">
+                <p class="title" id="titleMain">Settings</p>
+            </div>
+            <div class="flagsContainer">
+                <div class="englishFlag">
+                    <img src="./assets/images/en.png" alt="">
+                </div>
+                <div class="romanianFlag">
+                    <img src="./assets/images/md.png" alt="">
+                </div>
+                <div class="russianFlag">
+                    <img src="./assets/images/ru.png" alt="">
+                </div>
             </div>
         </div>
 
