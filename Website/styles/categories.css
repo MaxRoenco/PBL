@@ -13,6 +13,7 @@
 .category:hover {
     filter: brightness(1.2);
     transition: filter 250ms ease;
+    cursor: pointer;
 }
 .category>img {
     width: 100%;
