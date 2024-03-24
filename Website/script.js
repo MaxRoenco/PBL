@@ -12,7 +12,6 @@ function openTab(tabName) {
 }
 window.openTab = openTab;
 
-
 async function fetchData() {
     try {
         const response = await fetch('test.json');
