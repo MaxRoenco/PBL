@@ -20,3 +20,8 @@
     font-size: 2rem;
     font-family: "Manrope", sans-serif;
 }
+.lesson:hover {
+    cursor: pointer;
+    filter: brightness(1.4);
+    transition: filter 250ms ease;
+}
