@@ -1,5 +1,5 @@
 function main() {
-    openTab("main");
+    openTab("categories");
     fetchData();
 }
 
