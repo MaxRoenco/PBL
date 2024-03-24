@@ -1,12 +1,8 @@
-function main() {
-    openTab("main");
-    fetchData();
-}
+let currentLesson = 'none';
 
 function openTab(tabName) {
     let tabs = document.getElementById("tabs").children;
     Array.from(tabs).forEach(ele => {
-        console.log(ele.getAttribute("data-tab") === tabName);
         if (ele.getAttribute("data-tab") === tabName) {
             ele.style.display = "";
         } else {
@@ -14,6 +10,8 @@ function openTab(tabName) {
         }
     });
 }
+window.openTab = openTab;
+
 
 async function fetchData() {
     try {
@@ -28,4 +26,10 @@ async function fetchData() {
     }
 }
 
-main();
+function moveToLesson(lessonName) {
+    openTab("lessons");
+    currentLesson = lessonName;
+}
+window.moveToLesson = moveToLesson;
+
+export { openTab, fetchData };
