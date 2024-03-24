@@ -1,4 +1,4 @@
-let currentLesson = 'none';
+let dataSet = {};
 
 function openTab(tabName) {
     let tabs = document.getElementById("tabs").children;
@@ -19,7 +19,7 @@ async function fetchData() {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log(data);
+        dataSet = data;
     } catch (error) {
         console.error('Error fetching JSON:', error);
     }
@@ -27,7 +27,13 @@ async function fetchData() {
 
 function moveToLesson(lessonName) {
     openTab("lessons");
-    currentLesson = lessonName;
+    let container = document.getElementById("lessons-container");
+    dataSet["en"]["categories"][lessonName].forEach((ele, i) => {
+        let lessonElement = document.createElement("div");
+        lessonElement.classList.add("lesson");
+        lessonElement.textContent = `Lesson ${i+1}: \n${ele}`
+        container.append(lessonElement);
+    })
 }
 window.moveToLesson = moveToLesson;
 
