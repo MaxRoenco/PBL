@@ -17,9 +17,11 @@
 .romanianFlag,
 .russianFlag {
     padding: 20px;
+    margin-top: 10px;
     border: 1px solid;
     border-radius: 20px;
     background: #7077A1;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease, filter 0.5s ease;
 }
 
@@ -27,12 +29,13 @@
 .romanianFlag:hover,
 .russianFlag:hover {
     cursor: pointer;
-    filter: brightness(1.3);
+    filter: brightness(1.3) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
     transform: translateY(-5px);
 }
 
-.englishFlag.selected,
-.romanianFlag.selected,
-.russianFlag.selected {
-    filter: brightness(1.3);
+.englishFlag.active,
+.romanianFlag.active,
+.russianFlag.active {
+    filter: brightness(1.3) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
+    transform: translateY(-5px);
 }
