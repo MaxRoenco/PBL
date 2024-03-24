@@ -30,23 +30,35 @@
 
 .titleContainer {
     width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 
 .title {
     font-size: 64px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.buttons {
-    padding: 20px;
-}
-
-.rubik-scribble-regular {
     font-family: "Rubik Scribble", system-ui;
     font-weight: 400;
     font-style: normal;
-  }
-  
+}
+
+.image {
+    width: 70%;
+    max-width: 700px;
+}
+
+.buttonContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.button {
+    padding: 20px 40px;
+    border: 3px solid;
+    border-radius: 20px;
+}
