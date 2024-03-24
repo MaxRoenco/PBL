@@ -30,9 +30,17 @@ function moveToLesson(lessonName) {
     let container = document.getElementById("lessons-container");
     dataSet["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
+        let lessonNumSpan = document.createElement("span");
+        lessonNumSpan.textContent = `Lesson ${i+1}:`;
+        lessonNumSpan.classList.add("lesson-span");
         lessonElement.classList.add("lesson");
-        lessonElement.textContent = `Lesson ${i+1}: \n${ele}`
+        let newLine = document.createElement("br");
+        let lessonContentSpan = document.createElement("span");
+        lessonContentSpan.textContent = ele;
         container.append(lessonElement);
+        lessonElement.append(lessonNumSpan);
+        lessonElement.append(newLine);
+        lessonElement.append(lessonContentSpan);
     })
 }
 window.moveToLesson = moveToLesson;
