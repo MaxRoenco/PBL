@@ -1,8 +1,8 @@
 function main() {
-    openTab("main");
+    openTab("categories");
     fetchData();
 }
-d
+
 function openTab(tabName) {
     let tabs = document.getElementById("tabs").children;
     Array.from(tabs).forEach(ele => {
