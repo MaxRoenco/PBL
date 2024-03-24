@@ -6,6 +6,24 @@
     box-sizing: border-box;
 }
 
+.settingsContainer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+}
+
+.settingsImage {
+    width: 100%;
+    filter: invert(1);
+    transition: filter 0.5s ease;
+}
+
+.settingsImage:hover {
+    cursor: pointer;
+    filter: invert(1) drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+
 #tabs {
     width: 100vw;
     height: 100vh;
@@ -13,13 +31,13 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: rgb(15, 15, 15);
+    background-color: #424769;
 }
 
 .container {
     width: 70%;
     height: 70%;
-    background-color: rgb(48, 48, 48);
+    background-color: #2D3250;
     border-radius: 40px;
     border: solid rgb(255, 255, 255) 4px;
     color: white;
@@ -46,6 +64,11 @@
 .image {
     width: 70%;
     max-width: 700px;
+    transition: filter 0.5s ease;
+}
+
+.image:hover {
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 }
 
 .buttonContainer {
@@ -59,9 +82,10 @@
 
 .button {
     padding: 20px 40px;
+    max-width: 400px;
     border: 3px solid;
     border-radius: 20px;
-    background: rgb(34, 34, 34);
+    background: #424769;
     color: white;
     /* Font */
     font-size: 32px;
@@ -69,4 +93,13 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+
+    box-shadow: 0px 0px 1px 1px white;
+    transition: 0.5s ease;
+}
+
+.button:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 5px white;
+    filter: brightness(1.5);
 }
