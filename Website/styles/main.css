@@ -52,26 +52,3 @@ body {
     font-weight: 400;
     font-style: normal;
 }
-
-.soundEffectsContainer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
-
-.soundEffectsTextContainer {
-    width: 50%;
-}
-
-.soundEffectsImageContainer {
-    width: 50%;
-    position: relative;
-}
-
-.soundEffectsOnImageContainer,
-.soundEffectsOffImageContainer {
-    width: 100%;
-    position: absolute;
-
-}
