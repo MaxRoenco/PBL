@@ -48,13 +48,19 @@ function moveToLesson(lessonName) {
 function setActiveLanguage(lang) {
     let langs = ['en', 'ru', 'ro'];
     langs.forEach( ele => {
-        document.getElementById.classList = [ele];
         if(lang == ele) {
-            document.getElementById.classList.add('active');
+            document.getElementById(ele).classList.add("active");
+        } else {
+            document.getElementById(ele).classList.remove("active");
         }
     })
 }
 
+function toggleSoundEffects() {
+    
+}
+
 window.moveToLesson = moveToLesson;
+window.setActiveLanguage = setActiveLanguage;
 
 export { openTab, fetchData };
