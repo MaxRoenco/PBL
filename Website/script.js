@@ -28,6 +28,7 @@ async function fetchData() {
 function moveToLesson(lessonName) {
     openTab("lessons");
     let container = document.getElementById("lessons-container");
+    container.replaceChildren(); // removes all children
     dataSet["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
@@ -43,6 +44,23 @@ function moveToLesson(lessonName) {
         lessonElement.append(lessonContentSpan);
     })
 }
+
+function setActiveLanguage(lang) {
+    let langs = ['en', 'ru', 'ro'];
+    langs.forEach( ele => {
+        if(lang == ele) {
+            document.getElementById(ele).classList.add("active");
+        } else {
+            document.getElementById(ele).classList.remove("active");
+        }
+    })
+}
+
+function toggleSoundEffects() {
+    
+}
+
 window.moveToLesson = moveToLesson;
+window.setActiveLanguage = setActiveLanguage;
 
 export { openTab, fetchData };
