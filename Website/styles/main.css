@@ -52,3 +52,10 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+
+.text {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 28px;
+}

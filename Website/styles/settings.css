@@ -114,6 +114,17 @@
 
 .buttonReturnContainer {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonReturn {
+    position: absolute;
+    bottom: 5%;
+    padding: 20px 60px;
+    border: 2px solid;
+    border-radius: 20px;
+
 }
 
 @media (max-width: 650px),
