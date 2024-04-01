@@ -6,16 +6,14 @@
 }
 
 .profileImage,
-.settingsImage,
-.returnImage {
+.settingsImage {
     width: 100%;
     filter: invert(1);
     transition: filter 0.5s ease;
 }
 
 .profileImage:hover,
-.settingsImage:hover,
-.returnImage:hover {
+.settingsImage:hover {
     cursor: pointer;
     filter: invert(1) drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 }
@@ -42,20 +40,6 @@
         left: 5px;
         top: 5px;
     }
-
-    .returnImage {
-        max-width: 120px;
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-    }
-}
-
-.returnContainer {
-    position: absolute;
-    width: 200px;
-    bottom: 32%;
-    left: 0px;
 }
 
 .codify {

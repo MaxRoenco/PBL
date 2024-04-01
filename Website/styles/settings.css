@@ -134,3 +134,26 @@
     }
 
 }
+
+@media (max-width: 1100px){
+    .containerSettings {
+        width: 70%;
+        height: 70%;
+    }
+}
+
+@media (max-width: 600px){
+    .containerSettings {
+        width: 80%;
+        height: 60%;
+    }
+    .titleSettings {
+        font-size: 30px;
+    }
+    .en,
+    .ro,
+    .ru {
+        width: 70px;
+        height: 70px;
+    }
+}
