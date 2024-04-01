@@ -1,3 +1,15 @@
+.containerSettings {
+    width: 50%;
+    height: 60%;
+    background-color: #2D3250;
+    border-radius: 40px;
+    border: solid rgb(255, 255, 255) 4px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .flagsContainer {
     width: 100%;
     display: flex;
@@ -13,9 +25,9 @@
     justify-content: center;
 }
 
-.englishFlag,
-.romanianFlag,
-.russianFlag {
+.en,
+.ro,
+.ru {
     padding: 20px;
     margin-top: 10px;
     border: 1px solid;
@@ -25,17 +37,17 @@
     transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-.englishFlag:hover,
-.romanianFlag:hover,
-.russianFlag:hover {
+.en:hover,
+.ro:hover,
+.ru:hover {
     cursor: pointer;
     filter: brightness(1.3) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
     transform: translateY(-5px);
 }
 
-.englishFlag.active,
-.romanianFlag.active,
-.russianFlag.active {
+.en.active,
+.ro.active,
+.ru.active {
     filter: brightness(1.3) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
     transform: translateY(-5px);
 }
