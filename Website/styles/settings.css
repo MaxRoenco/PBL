@@ -10,6 +10,13 @@
     align-items: center;
 }
 
+.titleSettings {
+    font-size: 50px;
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .flagsContainer {
     width: 100%;
     display: flex;
@@ -28,13 +35,23 @@
 .en,
 .ro,
 .ru {
-    padding: 20px;
+    width: 100px;
+    height: 100px;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid;
     border-radius: 20px;
     background: #7077A1;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.en>img,
+.ro>img,
+.ru>img {
+    width: 60%;
 }
 
 .en:hover,
