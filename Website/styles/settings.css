@@ -111,6 +111,13 @@
     filter: drop-shadow(5px 5px 3px #7077A1);
 }
 
+.returnContainer {
+    position: absolute;
+    width: 200px;
+    bottom: 32%;
+    left: 0px;
+}
+
 @media (max-width: 650px),
 (max-height: 650px) {
     .title {
