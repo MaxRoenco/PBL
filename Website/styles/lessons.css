@@ -1,4 +1,4 @@
-#lessons-container {
+#lessons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,6 +6,8 @@
     flex-direction: row;
     overflow-y: auto;
     padding: 20px;
+    width: 100%;
+    height: 100%;
 }
 .lesson {
     display: flex;

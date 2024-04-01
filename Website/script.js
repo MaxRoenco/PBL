@@ -12,7 +12,6 @@ function openTab(tabName) {
         }
     });
 }
-window.openTab = openTab;
 
 async function fetchData() {
     try {
@@ -29,7 +28,7 @@ async function fetchData() {
 
 function moveToLesson(lessonName) {
     openTab("lessons");
-    let container = document.getElementById("lessons-container");
+    let container = document.getElementById("lessons");
     container.replaceChildren(); // removes all children
     dataSet["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
@@ -70,6 +69,7 @@ function toggleSoundEffects() {
     }
 }
 
+window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
 window.toggleSoundEffects = toggleSoundEffects;
