@@ -1,4 +1,6 @@
 let dataSet = {};
+let language = 'en';
+let soundOn = true;
 
 function openTab(tabName) {
     let tabs = document.getElementById("tabs").children;
@@ -46,6 +48,7 @@ function moveToLesson(lessonName) {
 }
 
 function setActiveLanguage(lang) {
+    language = lang;
     let langs = ['en', 'ru', 'ro'];
     langs.forEach( ele => {
         if(lang == ele) {
@@ -57,10 +60,18 @@ function setActiveLanguage(lang) {
 }
 
 function toggleSoundEffects() {
-    
+    soundOn = !soundOn;
+    if(soundOn) {
+        document.getElementById("soundOff").style.display = 'none';
+        document.getElementById("soundOn").style.display = 'inherit';
+    } else {
+        document.getElementById("soundOn").style.display = 'none';
+        document.getElementById("soundOff").style.display = 'inherit';
+    }
 }
 
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
+window.toggleSoundEffects = toggleSoundEffects;
 
 export { openTab, fetchData };
