@@ -1,12 +1,13 @@
 .containerSettings {
-    width: 50%;
-    height: 60%;
+    width: 60%;
+    height: 70%;
     background-color: #2D3250;
     border-radius: 40px;
     border: solid rgb(255, 255, 255) 4px;
     color: white;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -15,6 +16,7 @@
     font-family: "Rubik Scribble", system-ui;
     font-weight: 400;
     font-style: normal;
+    text-align: center;
 }
 
 .flagsContainer {
@@ -62,6 +64,14 @@
     transform: translateY(-5px);
 }
 
+.en:active,
+.ro:active,
+.ru:active {
+    cursor: pointer;
+    filter: brightness(1.7) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
+    transform: translateY(-5px);
+}
+
 .active {
     filter: brightness(1.3) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
     transform: translateY(-5px);
@@ -71,10 +81,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: row;
-    margin-top: 20px;
-    margin-left: 40px;
 }
 
 .soundEffectsTextContainer {
@@ -89,6 +97,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .soundEffectsOnImageContainer,
@@ -112,19 +121,11 @@
     filter: drop-shadow(5px 5px 3px #7077A1);
 }
 
-.buttonReturnContainer {
+.buttonContainerSettings {
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
-}
-
-.buttonReturn {
-    position: absolute;
-    bottom: 5%;
-    padding: 20px 60px;
-    border: 2px solid;
-    border-radius: 20px;
-
 }
 
 @media (max-width: 650px),
@@ -135,25 +136,32 @@
 
 }
 
-@media (max-width: 1100px){
+@media (max-width: 1100px) {
     .containerSettings {
         width: 70%;
         height: 70%;
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
     .containerSettings {
         width: 80%;
         height: 60%;
     }
+
     .titleSettings {
         font-size: 30px;
     }
+
     .en,
     .ro,
     .ru {
         width: 70px;
         height: 70px;
     }
+
+    .button {
+        padding: 10px 20px;
+    }
+
 }

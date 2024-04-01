@@ -35,6 +35,7 @@ body {
     color: white;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -60,8 +61,6 @@ body {
     font-size: 28px;
 }
 
-
-
 .returnImage {
     width: 100%;
     filter: invert(1);
@@ -78,12 +77,13 @@ body {
     left: 0%;
     width: 170px;
 }
+
 .returnImage:hover {
     cursor: pointer;
     filter: invert(1) drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 }
 
-@media (max-width: 1100px){
+@media (max-width: 1100px) {
     .returnContainer {
         top: 5%;
         left: 5%;
