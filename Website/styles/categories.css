@@ -9,15 +9,26 @@
     width: 100%;
     max-width: 200px;
     max-height: 200px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, filter 0.5s ease;
 }
+
 .category:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.2) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
     transition: filter 250ms ease;
     cursor: pointer;
 }
+
+.category:active {
+    filter: brightness(1.5);
+    transition: filter 250ms ease;
+    cursor: pointer;
+}
+
 .category>img {
     width: 100%;
 }
+
 #categories-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -33,6 +44,7 @@
     #categories-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .category {
         max-width: 130px;
         max-height: 130px;
@@ -43,6 +55,7 @@
     #categories-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .category {
         max-width: 120px;
         max-height: 120px;
@@ -54,20 +67,20 @@
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     margin: 30px 0;
     background: #f1f1f100;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: #555;
-  }
+}

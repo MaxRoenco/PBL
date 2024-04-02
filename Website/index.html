@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/settings.css">
     <link rel="stylesheet" href="./styles/lessons.css">
+    <link rel="stylesheet" href="./styles/profile.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +36,7 @@
                 <img src="./assets/images/settings.png" alt="" class="settingsImage" onclick="openTab('settings')">
             </div>
             <div class="profileContainer">
-                <img src="./assets/images/home.png" alt="" class="profileImage">
+                <img src="./assets/images/home.png" alt="" class="profileImage" onclick="openTab('profile')">
             </div>
             <div class="titleContainer">
                 <p class="title" id="titleMain"></p>
@@ -78,6 +79,34 @@
                 </div>
             </div>
         </div>
+        <!-- PROFILE TAB -->
+        <div class="containerProfile" data-tab="profile">
+            <div class="leftProfile">
+                <div class="avatarProfile">
+                    <img src="./assets/images/avatar.png">
+                </div>
+                <div class="infoProfile">
+                    <span class="name">Roenco Maxim</span>
+                    <span class="id">HJDHFU9347</span>
+                    <span class="registration">Data of registration: 12 April</span>
+                </div>
+                <div class="statisticsProfile">
+                    <span class="title">Statistics</span>
+                    <div class="statsBlock">HTML <div class="lineHTML">100%</div>
+                    </div>
+                    <div class="statsBlock">CSS <div class="lineCSS">100%</div>
+                    </div>
+                    <div class="statsBlock">JavaScript <div class="lineJavaScript">100%</div>
+                    </div>
+                    <div class="statsBlock">Python <div class="linePython">100%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="rightProfile">
+                <div class="topProfile"></div>
+            </div>
+        </div>
+
 
         <!-- CATEGORIES TAB -->
         <div class="container" id="categories-container" data-tab="categories">

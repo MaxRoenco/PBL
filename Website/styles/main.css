@@ -37,6 +37,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 0 8px 12px rgba(0.2, 0.2, 0.2, 0.5);
 }
 
 .titleContainer {
@@ -61,6 +62,15 @@ body {
     font-size: 28px;
 }
 
+img {
+    -drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
 .returnImage {
     width: 100%;
     filter: invert(1);
@@ -74,7 +84,7 @@ body {
     justify-content: center;
     align-items: center;
     top: 40%;
-    left: 0%;
+    left: 1%;
     width: 170px;
 }
 
@@ -83,7 +93,7 @@ body {
     filter: invert(1) drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
     .returnContainer {
         top: 5%;
         left: 5%;
