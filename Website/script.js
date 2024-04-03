@@ -3,7 +3,7 @@ let language = 'en';
 let soundOn = true;
 let currentTab = "home";
 
-function openTab(tabName) {
+function openTab(tabName, dir) {
     let buttons = [
         {id: "settingsIcon", tab: "home"}, 
         {id: "profileIcon", tab: "home"}, 
@@ -25,8 +25,14 @@ function openTab(tabName) {
         return;
     };
     let next = document.querySelector(`[data-tab="${tabName}"]`);
-    next.style.transform = "translate(-200%)";
-    curr.style.transform = "translate(200%)";
+    if(dir === 'l') {
+        next.style.transform = "translate(-200%)";
+        curr.style.transform = "translate(200%)";
+    } else {
+        next.style.transform = "translate(200%)";
+        curr.style.transform = "translate(-200%)";
+    }
+    
     setTimeout(_ => {
         curr.style.display = "none";
         next.style.display = "";
@@ -51,7 +57,7 @@ async function fetchData() {
 }
 
 function moveToLesson(lessonName) {
-    openTab("lessons");
+    openTab("lessons", 'r');
     let container = document.getElementById("lessons");
     container.replaceChildren();
     dataSet["en"]["categories"][lessonName].forEach((ele, i) => {
@@ -62,23 +68,35 @@ function moveToLesson(lessonName) {
         lessonElement.classList.add("lesson");
         let newLine = document.createElement("br");
         let lessonContentSpan = document.createElement("span");
-        lessonContentSpan.textContent = ele["lesson"];
+        lessonContentSpan.textContent = ele["title"];
         container.append(lessonElement);
         lessonElement.append(lessonNumSpan);
         lessonElement.append(newLine);
         lessonElement.append(lessonContentSpan);
 
         lessonElement.addEventListener("click", _ => {
-            openLesson(ele["content"]);
+            openContent(ele);
         })
     })
 }
 
-function openLesson(string) {
-    openTab("content");
+function openContent(obj) {
+    openTab("content", 'r');
     let container = document.querySelector('#textContent');
     container.replaceChildren();
-    compileLesson(string, container);
+    compileLesson(obj["content"], container);
+    let button = document.querySelector('#openLesson');
+    button = removeAllEventListeners(button);
+    button.addEventListener("click", _ => {
+        openLesson(obj);
+    })
+}
+
+function openLesson(obj) {
+    openTab("lesson", 'r');
+    let container = document.querySelector('#textLesson');
+    container.replaceChildren();
+    compileLesson(obj["lesson"], container);
 }
 
 function setActiveLanguage(lang) {
@@ -130,6 +148,12 @@ function compileLesson(string, parent) {
         }
         parent.append(element);
     });
+}
+
+function removeAllEventListeners(element) {
+    const clonedElement = element.cloneNode(true);
+    element.parentNode.replaceChild(clonedElement, element);
+    return clonedElement;
 }
 
 window.openTab = openTab;
