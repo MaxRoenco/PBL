@@ -8,7 +8,29 @@
                 {
                     "title" : "HTML Basics",
                     "content" : "# Introduction\nHTML, the backbone of web development, is a markup language used to structure and present content on the internet. It utilizes tags enclosed in angle brackets to define elements within a document.\n\n## Understanding Tags and Elements\nTags are the building blocks of HTML, representing elements such as headings, paragraphs, images, and links. Each tag serves a specific purpose in formatting and organizing content.\n\n## Basic HTML Document Structure\nA typical HTML document starts with a document type declaration (`<!DOCTYPE html>`), followed by an HTML element (`<html>`), which contains the document's structure within `<head>` and `<body>` sections.",
-                    "lesson" : "# your lesson will be here"
+                    "lesson" : "# your lesson will be here",
+                    "quiz": [
+                        {
+                            "question": "How are you today?",
+                            "options": ["VERY BAD", "bad", "meh", "good", "AMAZING"],
+                            "correctAnswer": 4
+                        },
+                        {
+                            "question": "How is your mom?",
+                            "options": ["VERY FAT", "Fat", "Fatty", "Too fat", "EXTREMELY FAT"],
+                            "correctAnswer": 4
+                        },
+                        {
+                            "question": "LOOOOL DID YOU JUST SAY YOUR MOM FAT??",
+                            "options": ["...", "YES LOL", "She fat", "No you fat", "I like fat"],
+                            "correctAnswer": 1
+                        },
+                        {
+                            "question": "Bruh.. anyways how old are you?",
+                            "options": ["10 years old", "3.14 years old", "I just got borned", "My mom fat", "Yes"],
+                            "correctAnswer": 3
+                        }
+                    ]
                 },
                 {
                     "title" : "Document Structure",

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./styles/lessons.css">
     <link rel="stylesheet" href="./styles/content.css">
     <link rel="stylesheet" href="./styles/profile.css">
+    <link rel="stylesheet" href="./styles/quiz.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap" rel="stylesheet">
@@ -204,12 +205,38 @@
                 <div class="button contentBTN" onclick="openTab('content', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button contentBTN" onclick="openTab('quiz', 'r')">
+                <div class="button contentBTN" id="quizStart">
                     <p class="text">Start &gt;</p>
                 </div>
             </div>
         </div>
 
+        <!-- QUESTION TAB -->
+        <div class="container" data-tab="question0">
+            <h1 id="questionNum0" style="font-size: 2rem;">Question 1</h1>
+            <h1 id="questionText0" style="font-size: 2.5rem;">How are you today?</h1>
+            <div id="options0" style="display: flex; justify-content: space-evenly; width: 100%;">
+                <div class="button option" onclick="openTab('question2')">VERY BAD</div>
+                <div class="button option" onclick="openTab('question2')">Bad</div>
+                <div class="button option" onclick="openTab('question2')">Meh</div>
+                <div class="button option" onclick="openTab('question2')">good</div>
+                <div class="button option" onclick="openTab('question2')">AMAZING</div>
+            </div>
+        </div>
+        <div class="container" data-tab="question1">
+            <h1 id="questionNum1" style="font-size: 2rem;">Question 2</h1>
+            <h1 id="questionText1" style="font-size: 2.5rem;">How is your mom?</h1>
+            <div id="options1" style="display: flex; justify-content: space-evenly; width: 100%;">
+                <div class="button option" onclick="openTab('question1')">VERY FAT</div>
+                <div class="button option" onclick="openTab('question1')">Fat</div>
+                <div class="button option" onclick="openTab('question1')">Fatty</div>
+                <div class="button option" onclick="openTab('question1')">Too fat</div>
+                <div class="button option" onclick="openTab('question1')">Extra fat</div>
+            </div>
+        </div>
+
+        <!-- RESULTS TAB -->
+        
     </div>
 </body>
 

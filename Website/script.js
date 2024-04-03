@@ -2,6 +2,7 @@ let dataSet = {};
 let language = 'en';
 let soundOn = true;
 let currentTab = "home";
+let questionIndex = 0;
 
 function openTab(tabName, dir) {
     let buttons = [
@@ -97,6 +98,39 @@ function openLesson(obj) {
     let container = document.querySelector('#textLesson');
     container.replaceChildren();
     compileLesson(obj["lesson"], container);
+    let quizButton = document.getElementById("quizStart");
+    quizButton = removeAllEventListeners(quizButton);
+    quizButton.addEventListener("click", _ => {
+        startQuiz(obj);
+    })
+}
+
+function startQuiz(obj) {
+    questionIndex = 0;
+    nextQuestion(obj['quiz']);
+}
+
+function nextQuestion(questions) {
+    if(questionIndex >= questions.length) {
+        showResults();
+        return;
+    }
+
+    document.getElementById(`questionNum${questionIndex%2}`).textContent = `Question ${questionIndex+1}`;
+    document.getElementById(`questionText${questionIndex%2}`).textContent = questions[questionIndex]['question'];
+    let optionsEle = document.getElementById(`options${questionIndex%2}`);
+    optionsEle.replaceChildren();
+    questions[questionIndex]['options'].forEach((ele, i) => {
+        let opt = document.createElement("div");
+        opt.classList.add("button", "option");
+        opt.addEventListener("click", e => {
+            nextQuestion(questions);
+        })
+        opt.textContent = ele;
+        optionsEle.append(opt);
+    })
+    openTab(`question${questionIndex%2}`, 'r');
+    questionIndex++;
 }
 
 function setActiveLanguage(lang) {
@@ -109,6 +143,10 @@ function setActiveLanguage(lang) {
             document.getElementById(ele).classList.remove("active");
         }
     })
+}
+
+function showResults() {
+
 }
 
 function toggleSoundEffects() {
