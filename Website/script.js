@@ -22,6 +22,17 @@ function openTab(tabName) {
         }, 15)
     }, 250)
     currentTab = tabName;
+
+    let buttons = [
+        {id: "settingsIcon", tab: "home"}, 
+        {id: "profileIcon", tab: "home"}, 
+        {id: "categoriesReturn", tab: "categories"}, 
+        {id: "lessonsReturn", tab: "lessons"}
+    ]
+
+    buttons.forEach(ele => {
+            document.getElementById(ele.id).style.display = currentTab === ele.tab ? "" : "hidden";
+    })
 }
 
 async function fetchData() {
