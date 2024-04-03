@@ -256,8 +256,8 @@
             </div>
         </div>
         <div class="container" data-tab="question1">
-            <h1 id="questionNum1" style="font-size: 2rem;">Question 2</h1>
-            <h1 id="questionText1" style="font-size: 2.5rem;">How is your mom?</h1>
+            <h1 id="questionNum1" style="font-size: 2rem; text-align: center;">Question 2</h1>
+            <h1 id="questionText1" style="font-size: 2.5rem; text-align: center;">How is your mom?</h1>
             <div id="options1" style="display: flex; justify-content: space-evenly; width: 100%;">
                 <div class="button option" onclick="openTab('question1')">VERY FAT</div>
                 <div class="button option" onclick="openTab('question1')">Fat</div>
@@ -268,7 +268,11 @@
         </div>
 
         <!-- RESULTS TAB -->
-        
+        <div class="container" data-tab="results">
+            <h1 style="font-size: 2rem; text-align: center;">Results:</h1>
+            <h1 id="resultsElement" style="font-size: 2rem; text-align: center;"></h1>
+            <div class="button" onclick="openTab('home', 'l')">Home</div>
+        </div>
     </div>
 </body>
 

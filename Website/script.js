@@ -3,6 +3,7 @@ let language = 'en';
 let soundOn = true;
 let currentTab = "home";
 let questionIndex = 0;
+let correct = 0;
 
 function openTab(tabName, dir) {
     let buttons = [
@@ -107,12 +108,13 @@ function openLesson(obj) {
 
 function startQuiz(obj) {
     questionIndex = 0;
+    correct = 0;
     nextQuestion(obj['quiz']);
 }
 
 function nextQuestion(questions) {
     if(questionIndex >= questions.length) {
-        showResults();
+        showResults(questions.length);
         return;
     }
 
@@ -124,6 +126,9 @@ function nextQuestion(questions) {
         let opt = document.createElement("div");
         opt.classList.add("button", "option");
         opt.addEventListener("click", e => {
+            if(questions[questionIndex-1]["correctAnswer"] === i) {
+                correct++;
+            }
             nextQuestion(questions);
         })
         opt.textContent = ele;
@@ -145,8 +150,9 @@ function setActiveLanguage(lang) {
     })
 }
 
-function showResults() {
-
+function showResults(total) {
+    document.getElementById("resultsElement").textContent = "You got " + correct + '/' + total + " correct";
+    openTab("results", 'r');
 }
 
 function toggleSoundEffects() {

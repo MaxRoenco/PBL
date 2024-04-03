@@ -39,7 +39,7 @@
 .leftProfile,
 .rightProfile {
     width: 50%;
-    min-width: 500px;
+    /* min-width: 400px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -190,7 +190,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 40px;
+    padding: 40px;
     border: 3px solid;
     border-radius: 20px;
     margin-top: 20px;
@@ -257,7 +257,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 400px;
+    max-width: 400px;
     height: 150px;
     border: 3px solid lightgray;
     border-radius: 20px;
@@ -321,7 +321,10 @@
     }
 }
 
-@media (max-width: 500px) {
+/* @media (max-width: 530px) {
+    .avatarContainer {
+        background-color: red;
+    }
     .heartContainer {
         width: 50%;
         height: 10px;
@@ -340,5 +343,37 @@
         position: absolute;
         top: -45px;
         right: 30px;
+    }
+} */
+
+@media (max-width: 818px) {
+    .avatarContainer {
+        /* background-color: green; */
+        /* width: 90%; */
+    }
+    .leftProfile, .rightProfile {
+        width: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .achievements>.blocks {
+        /* padding: */
+    }
+
+    .text {
+        font-size: 20px;
+    }
+
+    .textLittle {
+        font-size: 15px;
+    }
+
+    .avatarProfile {
+        width: 50%;
+    }
+
+    .statsBlock {
+        padding: 10px;
     }
 }
