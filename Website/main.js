@@ -4,5 +4,5 @@ setTimeout(() => {
     document.body.style.opacity = "1";
 }, 500);
 
-openTab("home");
+openTab("content");
 fetchData();
