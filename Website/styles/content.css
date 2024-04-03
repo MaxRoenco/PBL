@@ -1,5 +1,25 @@
 .contentContainer {
+    text-align:left;
+    font-family: sans-serif;
     width: 90%;
     height: 90%;
+}
+
+.contentContainer>.button {
+    margin: 20px 0;
+}
+
+#textContent>img {
+    width: 400px;
+}
+
+#textContent {
     padding: 30px;
+    overflow-y: scroll;
+}
+
+#contentButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }

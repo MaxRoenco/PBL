@@ -6,8 +6,44 @@
         "categories": {
             "html": [
                 {
-                    "lesson" : "Introduction",
-                    "content" : "# Title 1\nThis is a testing text, bla bla bla tra lya lya lya, lorem ipsum dolor your face has a shitty color\n\n#Title 2\nWow owwohapgoasg this is some testing text as well because why not llololl this is very funny boy anyways here is an image\n$https://media.istockphoto.com/id/184959366/photo/chrysanthemum.jpg?s=612x612&w=0&k=20&c=zoeORoKyu0J_lqIHjJVg3jyPSf2Xl1MOsATEFxKwtLo="
+                    "lesson" : "HTML Basics",
+                    "content" : "# Introduction\nHTML, the backbone of web development, is a markup language used to structure and present content on the internet. It utilizes tags enclosed in angle brackets to define elements within a document.\n\n## Understanding Tags and Elements\nTags are the building blocks of HTML, representing elements such as headings, paragraphs, images, and links. Each tag serves a specific purpose in formatting and organizing content.\n\n## Basic HTML Document Structure\nA typical HTML document starts with a document type declaration (`<!DOCTYPE html>`), followed by an HTML element (`<html>`), which contains the document's structure within `<head>` and `<body>` sections."
+                },
+                {
+                    "lesson" : "Document Structure",
+                    "content" : "# Anatomy of an HTML Document\nAn HTML document is comprised of various elements including headings, paragraphs, lists, and divs, which are structured to convey information in a logical and hierarchical manner.\n\n## Headings and Paragraphs\nHeadings, denoted by `<h1>` to `<h6>` tags, provide hierarchical structure to content, with `<h1>` being the most important. Paragraphs, defined by the `<p>` tag, separate text into distinct blocks.\n\n## Divisions and Spans\nDivisions (`<div>`) are container elements used to group and style content, while spans (`<span>`) are inline elements used to apply styles to specific portions of text."
+                },
+                {
+                    "lesson" : "Text Formatting",
+                    "content" : "# Bold and Italic Text\nText can be emphasized using bold (`<strong>`) or italic (`<em>`) tags to denote importance or emphasis, respectively.\n\n## Line Breaks and Horizontal Rules\nLine breaks (`<br>`) are used to create line breaks within paragraphs, while horizontal rules (`<hr>`) create visual separators between content sections.\n\n## Preformatted Text\nThe `<pre>` tag preserves the formatting of text, including line breaks and whitespace, making it suitable for displaying code snippets or poetry."
+                },
+                {
+                    "lesson" : "Links & Anchors",
+                    "content" : "# Creating Hyperlinks\nHyperlinks are essential for connecting web pages. They are created using the `<a>` (anchor) tag, with the `href` attribute specifying the URL of the linked page.\n\n## Linking to External Websites\nTo link to external websites, the `href` attribute contains the full URL of the destination webpage. Users can click on these links to navigate to the specified website.\n\n## Anchor Tags and Internal Links\nAnchor tags can also be used to create internal links within the same webpage. This is achieved by setting the `href` attribute to the ID of another element on the page, allowing users to jump to a specific section."
+                },
+                {
+                    "lesson" : "Images & Media",
+                    "content" : "# Embedding Images\nImages can be embedded into web pages using the `<img>` tag. The `src` attribute specifies the path to the image file, while the `alt` attribute provides alternative text for accessibility purposes.\n\n## Adding Audio and Video\nAudio and video content can enhance user engagement. They are added to web pages using the `<audio>` and `<video>` tags, respectively. These tags include attributes like `src` for specifying the media file and controls for playback.\n\n## Alternative Text and Accessibility\nProviding alternative text for images using the `alt` attribute ensures that users with visual impairments can understand the content. It also improves search engine optimization by providing context for the image."
+                },
+                {
+                    "lesson" : "Lists in HTML",
+                    "content" : "# Ordered Lists\nOrdered lists (`<ol>`) are used for items with a specific sequence or order. Each list item (`<li>`) is numbered automatically by the browser.\n\n## Unordered Lists\nUnordered lists (`<ul>`) are used for items without a particular order. Bullets or other markers are used to denote each list item (`<li>`).\n\n## Definition Lists\nDefinition lists (`<dl>`) consist of terms (`<dt>`) and their definitions (`<dd>`). They are commonly used for glossaries or dictionaries."
+                },
+                {
+                    "lesson" : "HTML Tables",
+                    "content" : "# Creating Tables\nTables are structured using the `<table>` tag, with rows defined by `<tr>` tags and cells within each row defined by `<td>` tags.\n\n## Table Rows and Columns\nRows (`<tr>`) and columns (`<td>`) form the basic structure of a table. Additional tags like `<th>` are used for table headers to specify column headings.\n\n## Table Headers and Footers\nTable headers (`<th>`) can be used to define headers for rows or columns, while the `<tfoot>` tag specifies a footer for a table."
+                },
+                {
+                    "lesson" : "Forms & Inputs",
+                    "content" : "# Creating HTML Forms\nForms are created using the `<form>` tag, which contains various input elements such as text fields, checkboxes, radio buttons, and dropdown menus.\n\n## Form Input Elements\nInput elements collect user data. These include text fields (`<input type=\"text\">`), checkboxes (`<input type=\"checkbox\">`), radio buttons (`<input type=\"radio\">`), and dropdown menus (`<select>`).\n\n## Submitting Form Data\nForm data is submitted to a server for processing using the `<form>` tag's `action` attribute, which specifies the URL where the form data should be sent."
+                },
+                {
+                    "lesson" : "Semantic HTML",
+                    "content" : "# Introduction to Semantic Elements\nSemantic HTML elements provide meaning to content beyond just presentation. They include elements like `<header>`, `<footer>`, `<nav>`, `<article>`, `<section>`, and `<aside>`.\n\n## Header and Footer Elements\n`<header>` and `<footer>` define the top and bottom sections of a webpage, respectively. They typically contain navigation links, copyright information, and other metadata.\n\n## Sectioning Elements\nSectioning elements like `<section>`, `<article>`, `<nav>`, and `<aside>` are used to divide the content of a webpage into meaningful sections, improving accessibility and SEO."
+                },
+                {
+                    "lesson" : "HTML5 Features",
+                    "content" : "# Introduction to HTML5\nHTML5 introduces new features and elements for modern web development, including multimedia support, semantic elements, and improved forms and APIs.\n\n## Canvas and SVG Graphics\nThe `<canvas>` element allows for dynamic rendering of graphics using JavaScript, while SVG (Scalable Vector Graphics) provides resolution-independent images and animations.\n\n## Audio and Video Playback\nHTML5 introduces native support for audio and video playback using the `<audio>` and `<video>` elements. This eliminates the need for third-party plugins like Flash."
                 }
             ]
         }        
