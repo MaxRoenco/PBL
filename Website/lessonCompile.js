@@ -13,12 +13,16 @@ copyButton.addEventListener("click", e => {
 })
 
 
-function compile(string, parent) {
+function compileLesson(string, parent) {
     let lines = string.split("\n");
     lines.forEach(line => {
         let sign = line[0];
+        let sign2 = line[1];
         let element;
-        if(sign === '#') {
+        if(sign === '#' && sign2 === "#") {
+            element = document.createElement("h2");
+            element.textContent = line.slice(2);
+        } else if(sign === '#') {
             element = document.createElement("h1");
             element.textContent = line.slice(1);
         } else if(sign === '$') {

@@ -172,16 +172,41 @@
 
         <!-- CONTENT TAB -->
         <div class="container contentContainer" data-tab="content">
+            <h1 id="title" style="font-size: 3rem;">What you'll discover</h1>
             <div id="textContent"></div>
-            <div id="contentButtons">
+            <div class="contentButtons">
                 <div class="button" onclick="openTab('lessons')">
                     <p class="text">&lt; Lessons</p>
+                </div>
+                <div class="button" id="openLesson">
+                    <p class="text">Start lesson &gt;</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LESSON TAB -->
+        <div class="container contentContainer" data-tab="lesson">
+            <div id="textLesson"></div>
+            <div class="contentButtons">
+                <div class="button" onclick="openTab('content')">
+                    <p class="text">&lt; Introduction</p>
                 </div>
                 <div class="button" onclick="openTab('quiz')">
                     <p class="text">Quiz &gt;</p>
                 </div>
             </div>
         </div>
+
+        <!-- QUIZ TAB -->
+        <div class="container contentContainer" data-tab="quiz">
+            <h1 id="title" style="font-size: 3rem;">The quiz will be here.</h1>
+            <div class="contentButtons">
+                <div class="button" onclick="openTab('lesson')">
+                    <p class="text">&lt; Back</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 
