@@ -27,15 +27,24 @@
 </head>
 
 <body>
+    <!-- ICONS TAB -->
+    <div class="settingsContainer" id="settingsIcon">
+        <img src="./assets/images/settings.png" alt="" class="settingsImage" onclick="openTab('settings')">
+    </div>
+    <div class="profileContainer" id="profileIcon">
+        <img src="./assets/images/home.png" alt="" class="profileImage" onclick="openTab('profile')">
+    </div>
+    <div class="returnContainer" id="categoriesReturn">
+        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('home')">
+    </div>
+    <div class="returnContainer" id="lessonsReturn">
+        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('categories')">
+    </div>
+
     <div id="tabs">
+
         <!-- HOME TAB -->
         <div class="container" data-tab="home">
-            <div class="settingsContainer">
-                <img src="./assets/images/settings.png" alt="" class="settingsImage" onclick="openTab('settings')">
-            </div>
-            <div class="profileContainer">
-                <img src="./assets/images/home.png" alt="" class="profileImage" onclick="openTab('profile')">
-            </div>
             <div class="titleContainer">
                 <p class="title" id="titleMain"></p>
             </div>
@@ -67,7 +76,8 @@
                 </div>
                 <div class="soundEffectsImageContainer" onclick="toggleSoundEffects()">
                     <img src="./assets/images/settingsSoundsOn.png" class="soundEffectsOnImageContainer" id="soundOn">
-                    <img src="./assets/images/settingsSoundsOff.png" class="soundEffectsOffImageContainer" id="soundOff">
+                    <img src="./assets/images/settingsSoundsOff.png" class="soundEffectsOffImageContainer"
+                        id="soundOff">
                 </div>
             </div>
             <div class="buttonContainerSettings">
@@ -151,9 +161,6 @@
             <div class="category"><img src="./assets/images/python.png" onclick="moveToLesson('python')"></div>
             <div class="category"><img src="./assets/images/c.png" onclick="moveToLesson('c')"></div>
             <div class="category"><img src="./assets/images/c++.png" onclick="moveToLesson('c++')"></div>
-            <div class="returnContainer">
-                <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('home')">
-            </div>
         </div>
 
         <!-- LESSONS TAB -->
@@ -161,15 +168,14 @@
             <div id="lessons">
 
             </div>
-            <div class="returnContainer">
-                <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('categories')">
-            </div>
         </div>
 
         <!-- CONTENT TAB -->
         <div class="container" data-tab="content">
             <h1 id="contentTitle">What you'll discover</h1>
-            <p id="contentText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quasi cum facere, dolores tempora nisi nostrum, necessitatibus aperiam eveniet veniam delectus iure earum harum mollitia culpa maiores provident nulla! Quia?</p>
+            <p id="contentText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quasi cum facere,
+                dolores tempora nisi nostrum, necessitatibus aperiam eveniet veniam delectus iure earum harum mollitia
+                culpa maiores provident nulla! Quia?</p>
         </div>
     </div>
 </body>
