@@ -1,16 +1,27 @@
 let dataSet = {};
 let language = 'en';
 let soundOn = true;
+let currentTab = "home";
 
 function openTab(tabName) {
-    let tabs = document.getElementById("tabs").children;
-    Array.from(tabs).forEach(ele => {
-        if (ele.getAttribute("data-tab") === tabName) {
-            ele.style.display = "";
-        } else {
-            ele.style.display = "none";
-        }
-    });
+    let curr = document.querySelector(`[data-tab="${currentTab}"]`);
+    if(tabName === currentTab) {
+        curr.style.display = "";
+        return;
+    };
+    let next = document.querySelector(`[data-tab="${tabName}"]`);
+    console.log(tabName);
+    console.log(next);
+    next.style.transform = "translate(-200%)";
+    curr.style.transform = "translate(200%)";
+    setTimeout(_ => {
+        curr.style.display = "none";
+        next.style.display = "";
+        setTimeout(_ => {
+            next.style.transform = "translate(0%)";
+        }, 15)
+    }, 250)
+    currentTab = tabName;
 }
 
 async function fetchData() {
