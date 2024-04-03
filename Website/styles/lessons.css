@@ -9,6 +9,7 @@
     width: 100%;
     height: 100%;
 }
+
 .lesson {
     display: flex;
     justify-content: center;
@@ -25,12 +26,22 @@
     padding: 5px;
     text-align: center;
     text-wrap: wrap;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, filter 0.5s ease;
 }
+
 .lesson:hover {
     cursor: pointer;
-    filter: brightness(1.4);
+    filter: brightness(1.2) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
     transition: filter 250ms ease;
 }
+
+.lesson:active {
+    cursor: pointer;
+    filter: brightness(1.5) drop-shadow(10px 12px 14px rgba(0, 0, 0, 0.5));
+    transition: filter 250ms ease;
+}
+
 .lesson-span {
     font-size: 1.5rem;
     overflow-y: auto;
