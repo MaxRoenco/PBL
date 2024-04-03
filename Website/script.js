@@ -53,7 +53,7 @@ async function fetchData() {
 function moveToLesson(lessonName) {
     openTab("lessons");
     let container = document.getElementById("lessons");
-    container.replaceChildren(); // removes all children
+    container.replaceChildren();
     dataSet["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
@@ -62,12 +62,21 @@ function moveToLesson(lessonName) {
         lessonElement.classList.add("lesson");
         let newLine = document.createElement("br");
         let lessonContentSpan = document.createElement("span");
-        lessonContentSpan.textContent = ele;
+        lessonContentSpan.textContent = ele["lesson"];
         container.append(lessonElement);
         lessonElement.append(lessonNumSpan);
         lessonElement.append(newLine);
         lessonElement.append(lessonContentSpan);
+
+        lessonElement.addEventListener("click", _ => {
+            openLesson(ele["content"]);
+        })
     })
+}
+
+function openLesson(string) {
+    openTab("content");
+    compileLesson(string, document.querySelector('[data-tab="content"'));
 }
 
 function setActiveLanguage(lang) {
@@ -91,6 +100,30 @@ function toggleSoundEffects() {
         document.getElementById("soundOn").style.display = 'none';
         document.getElementById("soundOff").style.display = 'inherit';
     }
+}
+
+function compileLesson(string, parent) {
+    let lines = string.split("\n");
+    lines.forEach(line => {
+        let sign = line[0];
+        let element;
+        if(sign === '#') {
+            element = document.createElement("h1");
+            element.textContent = line.slice(1);
+        } else if(sign === '$') {
+            element = document.createElement("img");
+            element.src = line.slice(1);
+        } else if(sign === '>' || sign === '\r' || line.length === 0) {
+            element = document.createElement("br");
+        } else if(sign === '\\') {
+            element = document.createElement("p");
+            element.textContent = line.slice(1);
+        } else {
+            element = document.createElement("p");
+            element.textContent = line;
+        }
+        parent.append(element);
+    });
 }
 
 window.openTab = openTab;

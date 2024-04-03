@@ -4,12 +4,12 @@
             "id": "en-text"
         },
         "categories": {
-            "html": ["Introduction", "Tags Overview", "Basic Structure", "Text Formatting", "Links", "Images", "Lists", "Tables", "Forms", "Introduction to CSS"],
-            "css": ["Introduction", "Selectors", "Properties", "Values", "Box Model", "Layout", "Colors", "Typography", "Backgrounds", "Transitions"],
-            "js": ["Introduction", "Variables", "Data Types", "Operators", "Functions", "Arrays", "Loops", "Conditions", "DOM Manipulation", "Events"],
-            "python": ["Introduction", "Variables", "Data Types", "Lists", "Tuples", "Dictionaries", "Functions", "Loops", "Conditions", "File Handling"],
-            "c": ["Introduction", "Variables", "Data Types", "Operators", "Functions", "Arrays", "Pointers", "Structures", "File Handling", "Memory Management"],
-            "c++": ["Introduction", "Variables", "Data Types", "Operators", "Functions", "Classes", "Inheritance", "Polymorphism", "Templates", "STL"]
+            "html": [
+                {
+                    "lesson" : "Introduction",
+                    "content" : "# Title 1\nThis is a testing text, bla bla bla tra lya lya lya, lorem ipsum dolor your face has a shitty color\n\n#Title 2\nWow owwohapgoasg this is some testing text as well because why not llololl this is very funny boy anyways here is an image\n$https://media.istockphoto.com/id/184959366/photo/chrysanthemum.jpg?s=612x612&w=0&k=20&c=zoeORoKyu0J_lqIHjJVg3jyPSf2Xl1MOsATEFxKwtLo="
+                }
+            ]
         }        
     }
 }
