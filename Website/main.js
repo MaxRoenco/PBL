@@ -20,7 +20,5 @@ buttons.forEach(ele => {
         document.getElementById(ele.id).classList.add("hidden");
 })
 
-
-console.log("ran once")
 openTab("home");
 fetchData();

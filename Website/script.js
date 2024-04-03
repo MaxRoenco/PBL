@@ -25,8 +25,6 @@ function openTab(tabName) {
         return;
     };
     let next = document.querySelector(`[data-tab="${tabName}"]`);
-    console.log(tabName);
-    console.log(next);
     next.style.transform = "translate(-200%)";
     curr.style.transform = "translate(200%)";
     setTimeout(_ => {
