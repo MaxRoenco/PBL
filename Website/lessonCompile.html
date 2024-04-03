@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: flex; flex-direction: column; font-family: 'Courier New', Courier, monospace;">
+    <h2>Rules:</h2>
+    <ul>
+        <li>Put each element on a different line.</li>
+        <li>Start a line with "#" to create a title element.</li>
+        <li>Start a line with "$" and then follow it with a link for an image.</li>
+        <li>Don't start a line with anything for a paragraph.</li>
+        <li>Make empty newlines for line breaks.</li>
+        <li>if you want a paragraph to start with "$" or "#" without making a title or image element, you can start it with "\" and then follow it with the symbol you want.</li>
+    </ul>
+    <h3>Example:</h3>
+    <p># Title 1<br>
+    This is a paragraph, lorem ipsum dolor I like your shirt's color.<br>
+    $./localImage.png<br>
+    $https//:www.example.com/publicImage.png<br>
+    #Title 2<br>
+    \# this is a paragraph and it will appear having the symbol # at the beggining because I use "\"</p>
+    <textarea id="textInput" cols="30" rows="10"></textarea>
+    <button id="but">Submit</button>
+    <p>JSON text:</p>
+    <div id="or"></div>
+    <button id="copy">Copy</button>
+</body>
+<script src="./test.js"></script>
+</html>

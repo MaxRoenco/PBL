@@ -21,4 +21,5 @@ buttons.forEach(ele => {
 })
 
 openTab("home");
+setActiveLanguage("en");
 fetchData();
