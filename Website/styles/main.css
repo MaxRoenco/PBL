@@ -52,7 +52,7 @@ body {
 
 .title {
     font-size: 64px;
-    font-family: "Rubik Scribble", system-ui;
+    font-family: 'Trebuchet MS', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -62,6 +62,13 @@ body {
     font-weight: 700;
     font-style: normal;
     font-size: 28px;
+}
+
+.textLittle {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
 }
 
 img {
