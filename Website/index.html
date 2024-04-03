@@ -29,16 +29,16 @@
 <body>
     <!-- ICONS TAB -->
     <div class="settingsContainer" id="settingsIcon">
-        <img src="./assets/images/settings.png" alt="" class="settingsImage" onclick="openTab('settings')">
+        <img src="./assets/images/settings.png" alt="" class="settingsImage" onclick="openTab('settings', 'l')">
     </div>
     <div class="profileContainer" id="profileIcon">
-        <img src="./assets/images/home.png" alt="" class="profileImage" onclick="openTab('profile')">
+        <img src="./assets/images/home.png" alt="" class="profileImage" onclick="openTab('profile', 'r')">
     </div>
     <div class="returnContainer" id="categoriesReturn">
-        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('home')">
+        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('home', 'l')">
     </div>
     <div class="returnContainer" id="lessonsReturn">
-        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('categories')">
+        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('categories', 'l')">
     </div>
 
     <div id="tabs">
@@ -50,7 +50,7 @@
             </div>
             <img src="./assets/images/codify.png" alt="" class="codify">
             <div class="buttonContainer">
-                <button class="button" id="buttonStart" onclick="openTab('categories')">Start</button>
+                <button class="button" id="buttonStart" onclick="openTab('categories', 'r')">Start</button>
             </div>
         </div>
 
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="buttonContainerSettings">
-                <div class="button" onclick="openTab('home')">
+                <div class="button" onclick="openTab('home', 'r')">
                     <p class="text">Home</p>
                 </div>
             </div>
@@ -146,7 +146,7 @@
                 </div>
             </div>
             <div class="buttonContainerSettings">
-                <div class="button" onclick="openTab('home')">
+                <div class="button" onclick="openTab('home', 'l')">
                     <p class="text">Home</p>
                 </div>
             </div>
@@ -175,7 +175,7 @@
             <h1 id="title" style="font-size: 3rem;">What you'll discover</h1>
             <div id="textContent"></div>
             <div class="contentButtons">
-                <div class="button" onclick="openTab('lessons')">
+                <div class="button" onclick="openTab('lessons', 'l')">
                     <p class="text">&lt; Lessons</p>
                 </div>
                 <div class="button" id="openLesson">
@@ -188,10 +188,10 @@
         <div class="container contentContainer" data-tab="lesson">
             <div id="textLesson"></div>
             <div class="contentButtons">
-                <div class="button" onclick="openTab('content')">
+                <div class="button" onclick="openTab('content', 'l')">
                     <p class="text">&lt; Introduction</p>
                 </div>
-                <div class="button" onclick="openTab('quiz')">
+                <div class="button" onclick="openTab('quiz', 'r')">
                     <p class="text">Quiz &gt;</p>
                 </div>
             </div>
@@ -199,10 +199,13 @@
 
         <!-- QUIZ TAB -->
         <div class="container contentContainer" data-tab="quiz">
-            <h1 id="title" style="font-size: 3rem;">The quiz will be here.</h1>
+            <h1 id="title" style="font-size: 3rem;">Do you want to start the quiz?</h1>
             <div class="contentButtons">
-                <div class="button" onclick="openTab('lesson')">
+                <div class="button" onclick="openTab('content', 'l')">
                     <p class="text">&lt; Back</p>
+                </div>
+                <div class="button" onclick="openTab('quiz', 'r')">
+                    <p class="text">Start &gt;</p>
                 </div>
             </div>
         </div>

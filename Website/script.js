@@ -3,7 +3,7 @@ let language = 'en';
 let soundOn = true;
 let currentTab = "home";
 
-function openTab(tabName) {
+function openTab(tabName, dir) {
     let buttons = [
         {id: "settingsIcon", tab: "home"}, 
         {id: "profileIcon", tab: "home"}, 
@@ -25,8 +25,14 @@ function openTab(tabName) {
         return;
     };
     let next = document.querySelector(`[data-tab="${tabName}"]`);
-    next.style.transform = "translate(-200%)";
-    curr.style.transform = "translate(200%)";
+    if(dir === 'l') {
+        next.style.transform = "translate(-200%)";
+        curr.style.transform = "translate(200%)";
+    } else {
+        next.style.transform = "translate(200%)";
+        curr.style.transform = "translate(-200%)";
+    }
+    
     setTimeout(_ => {
         curr.style.display = "none";
         next.style.display = "";
@@ -51,7 +57,7 @@ async function fetchData() {
 }
 
 function moveToLesson(lessonName) {
-    openTab("lessons");
+    openTab("lessons", 'r');
     let container = document.getElementById("lessons");
     container.replaceChildren();
     dataSet["en"]["categories"][lessonName].forEach((ele, i) => {
@@ -75,7 +81,7 @@ function moveToLesson(lessonName) {
 }
 
 function openContent(obj) {
-    openTab("content");
+    openTab("content", 'r');
     let container = document.querySelector('#textContent');
     container.replaceChildren();
     compileLesson(obj["content"], container);
@@ -87,8 +93,7 @@ function openContent(obj) {
 }
 
 function openLesson(obj) {
-    console.log("ran")
-    openTab("lesson");
+    openTab("lesson", 'r');
     let container = document.querySelector('#textLesson');
     container.replaceChildren();
     compileLesson(obj["lesson"], container);
