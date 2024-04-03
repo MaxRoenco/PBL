@@ -50,7 +50,7 @@
 
 .avatarProfile>img {
     width: 100px;
-    border: 10px solid;
+    border: 3px dashed black;
     border-radius: 99999px;
 }
 
