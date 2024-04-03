@@ -87,11 +87,17 @@ img {
     top: 40%;
     left: 1%;
     width: 170px;
+    transition: opacity 500ms ease-in-out;
 }
 
 .returnImage:hover {
     cursor: pointer;
     filter: invert(1) drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 @media (max-width: 1300px) {

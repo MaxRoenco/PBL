@@ -4,6 +4,21 @@ let soundOn = true;
 let currentTab = "home";
 
 function openTab(tabName) {
+    let buttons = [
+        {id: "settingsIcon", tab: "home"}, 
+        {id: "profileIcon", tab: "home"}, 
+        {id: "categoriesReturn", tab: "categories"}, 
+        {id: "lessonsReturn", tab: "lessons"}
+    ]
+
+    buttons.forEach(ele => {
+        if(tabName === ele.tab) {
+            document.getElementById(ele.id).classList.remove("hidden");
+        } else {
+            document.getElementById(ele.id).classList.add("hidden");
+        }
+    })
+
     let curr = document.querySelector(`[data-tab="${currentTab}"]`);
     if(tabName === currentTab) {
         curr.style.display = "";
@@ -22,17 +37,6 @@ function openTab(tabName) {
         }, 15)
     }, 250)
     currentTab = tabName;
-
-    let buttons = [
-        {id: "settingsIcon", tab: "home"}, 
-        {id: "profileIcon", tab: "home"}, 
-        {id: "categoriesReturn", tab: "categories"}, 
-        {id: "lessonsReturn", tab: "lessons"}
-    ]
-
-    buttons.forEach(ele => {
-            document.getElementById(ele.id).style.display = currentTab === ele.tab ? "" : "hidden";
-    })
 }
 
 async function fetchData() {
