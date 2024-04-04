@@ -186,18 +186,30 @@
 }
 
 .statsBlock {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 40px;
+    padding: 15px;
     border: 3px solid;
     border-radius: 20px;
     margin-top: 20px;
     background: #656da2;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.leftStat {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.leftStat>img {
+    width: 100px;
 }
 
 .lineHTML,
@@ -207,12 +219,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     width: 200px;
-    height: 30px;
-    border: 3px solid;
+    height: 35px;
+    border: 3px solid white;
     border-radius: 20px;
-    background: rgb(4, 110, 4);
+    background: linear-gradient(to right, rgb(219, 176, 56) 60%, rgb(153, 153, 153) 40%);
     margin-left: 10px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.lineHTML>img,
+.lineCSS>img,
+.lineJavaScript>img,
+.linePython>img {
+    width: 60px;
+    position: absolute;
+    right: -8px;
 }
 
 .statsBlock:hover {
@@ -319,37 +346,13 @@
         height: 40px;
         border: 3px solid;
         border-radius: 20px;
-        background: rgb(4, 110, 4);
     }
 }
 
-/* @media (max-width: 530px) {
-    .avatarContainer {
-        background-color: red;
-    }
-    .heartContainer {
-        width: 50%;
-        height: 10px;
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        top: -45px;
-        left: 50px;
-    }
-
-    .diamandContainer {
-        width: 50%;
-        height: 10px;
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        top: -45px;
-        right: 30px;
-    }
-} */
-
 @media (max-width: 818px) {
-    .leftProfile, .rightProfile {
+
+    .leftProfile,
+    .rightProfile {
         width: 90%;
     }
 }
@@ -359,6 +362,7 @@
         flex-direction: column;
         align-items: center;
     }
+
     .text {
         font-size: 25px;
     }
@@ -375,7 +379,27 @@
         padding: 10px;
     }
 
+    .leftStat>img {
+        width: 50px;
+    }
 
+    .leftStat>.text {
+        font-size: 14px;
+    }
+
+    .lineHTML,
+    .lineCSS,
+    .lineJavaScript,
+    .linePython {
+        height: 25px;
+    }
+
+    .lineHTML>img,
+    .lineCSS>img,
+    .lineJavaScript>img,
+    .linePython>img {
+        width: 40px;
+    }
 }
 
 @media (max-width: 890px) {
@@ -383,23 +407,30 @@
         flex-direction: column;
         align-items: center;
     }
-    .leftProfile, .rightProfile {
+
+    .leftProfile,
+    .rightProfile {
         width: 90%;
     }
+
     .achievements>.blocks {
         width: 90%;
         padding-left: 5px;
         height: 200px;
     }
+
     .achievements>.blocks>img {
         width: 50%;
     }
+
     .textGray {
         top: -15px;
         right: -20px;
         position: absolute;
     }
-    .achievements>.title, .statisticsProfile>.title {
+
+    .achievements>.title,
+    .statisticsProfile>.title {
         font-size: 40px;
     }
 }
