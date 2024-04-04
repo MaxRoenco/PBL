@@ -68,7 +68,6 @@ function moveToLesson(lessonName, data) {
     openTab("lessons", 'r');
     let container = document.getElementById("lessons");
     container.replaceChildren();
-    console.log(data);
     data["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
@@ -232,7 +231,6 @@ function compileLesson(string, parent) {
             }
         }
         parent.append(element);
-        console.log(string[i])
     }
 }
 
@@ -318,7 +316,6 @@ function saveData(obj) {
 
 function getData(key) {
   const storedItem = localStorage.getItem("dataSet");
-  console.log(storedItem)
   if(storedItem) {
     dataSet = JSON.parse(storedItem);
     window.dataSet = dataSet;
@@ -343,6 +340,62 @@ function copyJson() {
     });
 }
 
+function addAnswer() {
+    let input = document.getElementById("addAnswerInput");
+    let answersContainer = document.getElementById("answersList");
+    let element = document.createElement("li");
+    let removeBtn = document.createElement("button");
+    if(input.value.trim() === "") return;
+    element.textContent = input.value;
+    removeBtn.textContent = "Remove";
+    element.append(removeBtn);
+    answersContainer.append(element);
+    
+    let selector = document.getElementById("selectCorrectAnswer");
+    let opt = document.createElement("option");
+    opt.value = input.value;
+    opt.textContent = input.value;
+    selector.append(opt);
+    removeBtn.addEventListener("click", e => {
+        element.remove();
+        opt.remove();
+    })
+    input.value = "";
+}
+
+function addQuestion() {
+    let question = document.getElementById("addQuestionInput");
+    let answersElements = document.getElementById("answersList");
+    let correctAnswer = document.getElementById("selectCorrectAnswer").value;
+    let answers = Array.from(answersElements.children).map(e => e.textContent.replace("Remove", ""));
+
+
+    console.log(question, answers, correctAnswer)
+
+    let questionContainer = document.createElement("div");
+    let questionText = document.createElement("h3");
+    let answersContainer = document.createElement("ul")
+    let correctAnswerText = document.createElement("h3");
+
+    questionText.textContent = "Question: " + question.value;
+    answers.forEach(answer => {
+        let li = document.createElement("li");
+        li.textContent = answer;
+        answersContainer.append(li);
+    })
+    correctAnswerText.textContent = "Answer: " + correctAnswer;
+
+    questionContainer.append(questionText, answersContainer, correctAnswerText);
+    questionContainer.classList.add("qContainer");
+    question.value = ""
+    answersElements.replaceChildren();
+    document.getElementById("selectCorrectAnswer").replaceChildren();
+
+    document.getElementById("allQuestions").append(questionContainer);
+
+
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
@@ -356,6 +409,8 @@ window.openRemoveTab = openRemoveTab;
 window.fetchData = fetchData;
 window.resetDataSet = resetDataSet;
 window.copyJson = copyJson;
+window.addAnswer = addAnswer;
+window.addQuestion = addQuestion;
 window.dataSet = dataSet;
 
 export { openTab, fetchData, getData };

@@ -338,6 +338,33 @@
                 <div class="button" onclick="openTab('contentCreator', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
+                <div class="button" onclick="openTab('quizCreator', 'r')">
+                    <p class="text">Next</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" data-tab="quizCreator">
+            <div class="questionThing">
+                <h1>Add a question</h2>
+                <h3>The question: <input type="text" id="addQuestionInput"></h3>
+                <h3>The answers: </h3>
+                <ul id="answersList">
+                </ul>
+                <div>
+                    <input type="text" id="addAnswerInput">
+                    <button id="addAnwerBtn" onclick="addAnswer()">Add answer </button>
+                </div>
+                <h3>The correct answer:</h3>
+                <select id="selectCorrectAnswer"></select>
+                <br>
+                <br>
+                <button id="addQuestionBtn" onclick="addQuestion()">Add question</button>
+            </div>
+            <div id="allQuestions"></div>
+            <div class="contentButtons">
+                <div class="button" onclick="openTab('lessonCreator', 'l')">
+                    <p class="text">&lt; Back</p>
+                </div>
                 <div class="button" onclick="createLesson()">
                     <p class="text">Next</p>
                 </div>
@@ -357,18 +384,6 @@
                 </div>
                 <div class="button" onclick="cancelAdding()" >
                     <p class="text">Cancel</p>
-                </div>
-            </div>
-        </div>
-        <div class="container" data-tab="quizCreator">
-            <h1 id="title" style="font-size: 2.5rem;">Here will be the quiz creator</h1>
-
-            <div class="contentButtons">
-                <div class="button" onclick="openTab('lessonCreator', 'l')">
-                    <p class="text">&lt; Back</p>
-                </div>
-                <div class="button" onclick="openTab('quizCreator', 'r')" >
-                    <p class="text">Next &gt;</p>
                 </div>
             </div>
         </div>
