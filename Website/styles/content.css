@@ -1,5 +1,5 @@
 .contentContainer {
-    text-align:left;
+    text-align: left;
     font-family: sans-serif;
     width: 90%;
     height: 90%;
@@ -41,9 +41,11 @@
     justify-content: space-evenly;
     padding: 15px;
 }
+
 .contentBTN {
     margin: 10px;
 }
+
 .contentBTN>p {
     text-wrap: nowrap;
 }
@@ -52,6 +54,7 @@
     .contentBTN {
         padding: 5px;
     }
+
     .contentBTN>p {
         font-size: 25px;
     }
@@ -61,6 +64,7 @@
     .contentBTN {
         padding: 5px;
     }
+
     .contentBTN>p {
         font-size: 20px;
     }
