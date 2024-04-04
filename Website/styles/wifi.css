@@ -1,0 +1,69 @@
+.wifiWindow {
+    text-align: center;
+    margin: 20px 10px 0;
+}
+
+.wifi-symbol {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin-top: -112.5px;
+}
+
+.wifi-circle {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-color: #FFFFCC;
+    border-style: solid;
+    border-width: 1em 1em 0 0;
+    border-radius: 0 100% 0 0;
+    opacity: 0;
+    animation: wifianimation 3s infinite;
+}
+
+.wifi-circle.first {
+    animation-delay: 0.8s;
+}
+
+.wifi-circle.second {
+    width: 5em;
+    height: 5em;
+    animation-delay: 0.4s;
+}
+
+.wifi-circle.third {
+    width: 3em;
+    height: 3em;
+}
+
+.wifi-circle.fourth {
+    width: 1em;
+    height: 1em;
+    opacity: 1;
+    background-color: #FFFFCC;
+    animation: none;
+}
+
+@keyframes wifianimation {
+    0% {
+        opacity: 0.4
+    }
+
+    5% {
+        opacity: 1
+    }
+
+    6% {
+        opacity: 0.1
+    }
+
+    100% {
+        opacity: 0.1
+    }
+}
