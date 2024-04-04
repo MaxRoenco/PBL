@@ -41,6 +41,7 @@
     <div class="returnContainer" id="lessonsReturn">
         <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('categories', 'l')">
     </div>
+    <div id="createBtn" onclick="startCreating()">+</div>
 
     <div id="tabs">
 
@@ -273,6 +274,65 @@
             <h1 style="font-size: 2rem; text-align: center;">Results:</h1>
             <h1 id="resultsElement" style="font-size: 2rem; text-align: center;"></h1>
             <div class="button" onclick="openTab('home', 'l')">Home</div>
+        </div>
+
+        <!-- CREATOR TAB -->
+        <div class="container" data-tab="titleCreator">
+            <h1 id="title" style="font-size: 2.5rem;">Choose the category of the lesson</h1>
+            <select id="chooseCategory">
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JS</option>
+                <option value="pythong">Python</option>
+                <option value="c">C</option>
+                <option value="c++">C++</option>
+            </select>
+            <h1 id="title" style="font-size: 2.5rem;">Enter the title of the lesson</h1>
+            <input type="text" id="chooseTitle">
+            <div class="contentButtons">
+                <div class="button" onclick="openTab('home', 'l')">
+                    <p class="text">&lt; Back</p>
+                </div>
+                <div class="button" onclick="openTab('contentCreator', 'r')" >
+                    <p class="text">Next &gt;</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" data-tab="contentCreator">
+            <h1 id="title" style="font-size: 2.5rem;">Enter the content of the introduction:</h1>
+            <textarea name="" id="" cols="80" rows="20"></textarea>
+            <div class="contentButtons">
+                <div class="button" onclick="openTab('titleCreator', 'l')">
+                    <p class="text">&lt; Back</p>
+                </div>
+                <div class="button" onclick="">
+                    <p class="text" id="contentBut">Next &gt;</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" data-tab="lessonCreator">
+            <h1 id="title" style="font-size: 2.5rem;">Enter the content of the lesson:</h1>
+            <textarea name="" id="" cols="80" rows="20"></textarea>
+            <div class="contentButtons">
+                <div class="button" onclick="openTab('contentCreator', 'l')">
+                    <p class="text">&lt; Back</p>
+                </div>
+                <div class="button" onclick="openTab('quizCreator', 'r')" >
+                    <p class="text">Next &gt;</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" data-tab="quizCreator">
+            <h1 id="title" style="font-size: 2.5rem;">Here will be the quiz creator</h1>
+
+            <div class="contentButtons">
+                <div class="button" onclick="openTab('lessonCreator', 'l')">
+                    <p class="text">&lt; Back</p>
+                </div>
+                <div class="button" onclick="openTab('quizCreator', 'r')" >
+                    <p class="text">Next &gt;</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>

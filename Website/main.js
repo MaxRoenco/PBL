@@ -1,4 +1,4 @@
-import { openTab, fetchData } from './script.js';
+import { openTab, fetchData, startCreating } from './script.js';
 
 setTimeout(() => {
     document.body.style.opacity = "1";
@@ -13,11 +13,16 @@ let buttons = [
     {id: "settingsIcon", tab: "home"}, 
     {id: "profileIcon", tab: "home"}, 
     {id: "categoriesReturn", tab: "categories"}, 
-    {id: "lessonsReturn", tab: "lessons"}
+    {id: "lessonsReturn", tab: "lessons"},
+    {id: "createBtn", tab: "home"},
 ]
 
 buttons.forEach(ele => {
         document.getElementById(ele.id).classList.add("hidden");
+})
+
+document.getElementById("createBtn").addEventListener("click", _ => {
+    startCreating();
 })
 
 openTab("home");
