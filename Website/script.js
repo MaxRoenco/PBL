@@ -5,6 +5,45 @@ let currentTab = "home";
 let questionIndex = 0;
 let correct = 0;
 let previewMode = false;
+let progression = {
+    "html": 0,
+    "css": 0,
+    "js": 0,
+    "python": 0,
+    "c":0,
+    "c++": 0,
+}
+
+let currCategory = "";
+let currLevel = 0;
+
+function loadProgression() {
+    let loadedProgress = localStorage.getItem("progress");
+    if(!loadedProgress) {
+        localStorage.setItem("progress", JSON.stringify(progression));
+    } else {
+        progression = JSON.parse(loadedProgress);
+    }
+}
+
+function updateProgression(cat, val) {
+    progression[cat] = val;
+    localStorage.setItem("progress", JSON.stringify(progression));
+}
+
+function resetProgression() {
+    let newProgression = {
+        "html": 0,
+        "css": 0,
+        "js": 0,
+        "python": 0,
+        "c":0,
+        "c++": 0,
+    }
+    progression = newProgression;
+    localStorage.setItem("progress", JSON.stringify(newProgression));
+    openTab("home", 'l')
+}
 
 function openTab(tabName, dir) {
     let buttons = [
@@ -74,6 +113,7 @@ function moveToLesson(lessonName, data) {
         lessonNumSpan.textContent = `Lesson ${i+1}:`;
         lessonNumSpan.classList.add("lesson-span");
         lessonElement.classList.add("lesson");
+        if(+progression[lessonName] < i) lessonElement.classList.add("locked");
         let newLine = document.createElement("br");
         let lessonContentSpan = document.createElement("span");
         lessonContentSpan.textContent = ele["title"];
@@ -83,6 +123,8 @@ function moveToLesson(lessonName, data) {
         lessonElement.append(lessonContentSpan);
 
         lessonElement.addEventListener("click", _ => {
+            currCategory = lessonName;
+            currLevel = i;
             openContent(ele);
         })
     })
@@ -158,6 +200,7 @@ function setActiveLanguage(lang) {
 
 function showResults(total) {
     document.getElementById("resultsElement").textContent = "You got " + correct + '/' + total + " correct";
+    document.getElementById("resultsHomeBtn").textContent = previewMode ? "End Preview" : "Home";
     openTab("results", 'r');
 }
 
@@ -247,6 +290,7 @@ function createLesson() {
         "title" : document.getElementById("chooseTitle").value,
         "content" : document.getElementById("contentArea").value,
         "lesson" : document.getElementById("lessonArea").value,
+        "quiz" : []
     }
     let addBtn = document.getElementById("addBtn");
     addBtn = removeAllEventListeners(addBtn);
@@ -266,8 +310,18 @@ function createLesson() {
     })
 
     let allQuestions = Array.from(document.getElementById("allQuestions").children);
-    allQuestions.forEach
-    console.log(allQuestions)
+    allQuestions.forEach(e => {
+        let elements = Array.from(e.children);
+        let question = elements[0].textContent.replace("Question: ", "");
+        let options = Array.from(elements[1].children).map(ele => ele.textContent);
+        let correctAnswer = options.indexOf(elements[2].textContent.replace("Answer: ", ""));
+        let quiz = {
+            "question": question,
+            "options": options,
+            "correctAnswer": correctAnswer
+        }
+        obj.quiz.push(quiz);
+    })
 }
 
 function lessonsReturnHandler() {
@@ -374,13 +428,12 @@ function addQuestion() {
     let answers = Array.from(answersElements.children).map(e => e.textContent.replace("Remove", ""));
 
 
-    console.log(question, answers, correctAnswer)
-
     let questionContainer = document.createElement("div");
     let questionText = document.createElement("h3");
     let answersContainer = document.createElement("ul")
     let correctAnswerText = document.createElement("h3");
     let removeButton = document.createElement("button");
+    document.getElementById("addAnswerInput").value = "";
 
     questionText.textContent = "Question: " + question.value;
     answers.forEach(answer => {
@@ -401,6 +454,19 @@ function addQuestion() {
     })
 }
 
+function resultsHome() {
+    if(previewMode) {
+        openTab('finalCreator', 'l');
+    } else {
+        openTab('home', 'l');
+        console.log(currLevel, currCategory, progression[currCategory])
+        if(currLevel >= +progression[currCategory]) {
+            updateProgression(currCategory, currLevel+1);
+        }
+    }
+    previewMode = false;
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
@@ -416,6 +482,8 @@ window.resetDataSet = resetDataSet;
 window.copyJson = copyJson;
 window.addAnswer = addAnswer;
 window.addQuestion = addQuestion;
+window.resultsHome = resultsHome;
+window.resetProgression = resetProgression;
 window.dataSet = dataSet;
 
-export { openTab, fetchData, getData };
+export { openTab, fetchData, getData, loadProgression };

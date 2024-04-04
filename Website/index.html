@@ -274,7 +274,7 @@
         <div class="container" data-tab="results">
             <h1 style="font-size: 2rem; text-align: center;">Results:</h1>
             <h1 id="resultsElement" style="font-size: 2rem; text-align: center;"></h1>
-            <div class="button" onclick="openTab('home', 'l')">Home</div>
+            <div class="button" onclick="resultsHome()" id="resultsHomeBtn">Home</div>
         </div>
         <!-- WIFI TAB -->
         <div class="container wifiWindow" data-tab="wifi">
@@ -299,6 +299,9 @@
                 </div>
                 <div class="button" onclick="resetDataSet()">
                     <p class="text">Reset data set</p>
+                </div>
+                <div class="button" onclick="resetProgression()">
+                    <p class="text">Reset progression</p>
                 </div>
                 <div class="button" onclick="copyJson()">
                     <p class="text">Copy JSON object into clipboard</p>

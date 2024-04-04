@@ -1,4 +1,4 @@
-import { openTab, getData } from './script.js';
+import { openTab, getData, loadProgression } from './script.js';
 
 setTimeout(() => {
     document.body.style.opacity = "1";
@@ -25,3 +25,4 @@ buttons.forEach(ele => {
 setActiveLanguage("en");
 openTab("home");
 getData();
+loadProgression();
