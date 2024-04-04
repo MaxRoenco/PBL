@@ -13,7 +13,7 @@ copyButton.addEventListener("click", e => {
 })
 
 
-function compileLesson(string, parent) {
+function compile(string, parent) {
     let lines = string.split("\n");
     lines.forEach(line => {
         let sign = line[0];
