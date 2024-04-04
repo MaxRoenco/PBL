@@ -24,6 +24,8 @@ body {
     background-color: #424769;
     opacity: 0;
     transition: opacity 5s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .container {

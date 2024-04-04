@@ -1,0 +1,16 @@
+.verticalButtons {
+    flex-wrap: wrap;
+}
+.verticalButtons>div {
+    margin: 10px;
+}
+
+.questionThing {
+    border: white 3px solid;
+    padding: 10px;
+}
+
+.qContainer {
+    border: white 3px solid;
+    padding: 10px;
+}

@@ -4,13 +4,15 @@ let soundOn = true;
 let currentTab = "home";
 let questionIndex = 0;
 let correct = 0;
+let previewMode = false;
 
 function openTab(tabName, dir) {
     let buttons = [
         {id: "settingsIcon", tab: "home"}, 
         {id: "profileIcon", tab: "home"}, 
         {id: "categoriesReturn", tab: "categories"}, 
-        {id: "lessonsReturn", tab: "lessons"}
+        {id: "lessonsReturn", tab: "lessons"},
+        {id: "createBtn", tab: "home"},
     ]
 
     buttons.forEach(ele => {
@@ -26,6 +28,7 @@ function openTab(tabName, dir) {
         curr.style.display = "";
         return;
     };
+
     let next = document.querySelector(`[data-tab="${tabName}"]`);
     if(dir === 'l') {
         next.style.transform = "translate(-200%)";
@@ -53,16 +56,19 @@ async function fetchData() {
         }
         const data = await response.json();
         dataSet = data;
+        window.dataSet = dataSet;
+        saveData(dataSet);
+        catDeleteChangehandler();
     } catch (error) {
         console.error('Error fetching JSON:', error);
     }
 }
 
-function moveToLesson(lessonName) {
+function moveToLesson(lessonName, data) {
     openTab("lessons", 'r');
     let container = document.getElementById("lessons");
     container.replaceChildren();
-    dataSet["en"]["categories"][lessonName].forEach((ele, i) => {
+    data["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
         lessonNumSpan.textContent = `Lesson ${i+1}:`;
@@ -167,31 +173,65 @@ function toggleSoundEffects() {
 }
 
 function compileLesson(string, parent) {
-    let lines = string.split("\n");
-    lines.forEach(line => {
-        let sign = line[0];
-        let sign2 = line[1];
+    string += '\n';
+    let i = 0;  
+    while(i < string.length)
+    {
         let element;
-        if(sign === '#' && sign2 === "#") {
+        if(string[i] === '#' && string[i+1] === "#") {
             element = document.createElement("h2");
-            element.textContent = line.slice(2);
-        } else if(sign === '#') {
+            i+=2;
+            while(string[i] !== '\n' && i < string.length) {
+                element.textContent += string[i];
+                i++;
+            }
+        } else if(string[i] === '#') {
             element = document.createElement("h1");
-            element.textContent = line.slice(1);
-        } else if(sign === '$') {
+            i++;
+            while(string[i] !== '\n' && i < string.length) {
+                element.textContent += string[i];
+                i++;
+            }
+        } else if(string[i] === '$') {
             element = document.createElement("img");
-            element.src = line.slice(1);
-        } else if(sign === '>' || sign === '\r' || line.length === 0) {
+            let s = ""
+            i++;
+            while(string[i] !== '\n' && i < string.length) {
+                s += string[i];
+                i++;
+            }
+            element.src = s;
+        } else if(string[i] === '>' || string[i] === '\r' || string[i] === '\n') {
             element = document.createElement("br");
-        } else if(sign === '\\') {
+            i++;
+        } else if(string[i] === '\\') {
             element = document.createElement("p");
-            element.textContent = line.slice(1);
+            i++;
+            while(string[i] !== '\n' && i < string.length) {
+                element.textContent += string[i];
+                i++;
+            }
+        } else if(string[i] === '`') {
+            element = document.createElement("code");
+            element.setAttribute('style', 'white-space: pre;');
+            i++;
+            while(string[i] !== '`' && i < string.length) {
+                if(string[i] === '\n') {
+                    element.textContent += '\n\r';
+                } else {
+                    element.textContent += string[i];
+                }
+                i++;
+            }
         } else {
             element = document.createElement("p");
-            element.textContent = line;
+            while(string[i] !== '\n' && i < string.length) {
+                element.textContent += string[i];
+                i++
+            }
         }
         parent.append(element);
-    });
+    }
 }
 
 function removeAllEventListeners(element) {
@@ -200,9 +240,177 @@ function removeAllEventListeners(element) {
     return clonedElement;
 }
 
+function createLesson() {
+    openTab("finalCreator", "r");
+    let cat = document.getElementById("chooseCategory").value;
+    let obj = {
+        "title" : document.getElementById("chooseTitle").value,
+        "content" : document.getElementById("contentArea").value,
+        "lesson" : document.getElementById("lessonArea").value,
+    }
+    let addBtn = document.getElementById("addBtn");
+    addBtn = removeAllEventListeners(addBtn);
+    let previewBtn = document.getElementById("previewBtn");
+    previewBtn = removeAllEventListeners(previewBtn);
+
+    previewBtn.addEventListener("click", _ => {
+        let previewObj = {"en": {"categories": {}}}
+        previewObj["en"]["categories"][cat] = [obj];
+        moveToLesson(cat, previewObj);
+        previewMode = true;
+    })
+    addBtn.addEventListener("click", _ => {
+        dataSet["en"]["categories"][cat].push(obj);
+        saveData(dataSet);
+        moveToLesson(cat, dataSet);
+    })
+}
+
+function lessonsReturnHandler() {
+    if(previewMode) {
+        openTab("finalCreator", 'l');
+        previewMode = false;
+    } else {
+        openTab("categories", 'l');
+    }
+}
+
+function cancelAdding() {
+    openTab("home", 'l');
+    document.getElementById("chooseCategory").value = "html";
+    document.getElementById("chooseTitle").value = "";
+    document.getElementById("contentArea").value = "";
+    document.getElementById("lessonArea").value = "";
+}
+
+function catDeleteChangehandler() {
+    let cat = document.getElementById("chooseCategoryDelete").value;
+    let lessons = dataSet["en"]["categories"][cat].map(ele => ele.title);
+    lessons.forEach((ele, i) => {
+        let opt = document.createElement("option");
+        opt.textContent = ele;
+        opt.value = ele;
+        document.getElementById("chooseLessonDelete").append(opt);
+    })
+
+}
+
+function removeLessonHandler() {
+    let cat = document.getElementById("chooseCategoryDelete").value;
+    let lesson = document.getElementById("chooseLessonDelete").value;
+    dataSet["en"]["categories"][cat] = dataSet["en"]["categories"][cat].filter(ele => ele.title !== lesson);
+    saveData(dataSet);
+    openTab("home", 'l');
+}
+
+function openRemoveTab() {
+    catDeleteChangehandler();
+    openTab("removeLesson", 'r');
+}
+
+
+function saveData(obj) {
+  localStorage.setItem("dataSet", JSON.stringify(obj));
+  window.dataSet = dataSet;
+}
+
+function getData(key) {
+  const storedItem = localStorage.getItem("dataSet");
+  if(storedItem) {
+    dataSet = JSON.parse(storedItem);
+    window.dataSet = dataSet;
+  } else {
+    fetchData();
+  }
+}
+
+function resetDataSet() {
+    fetchData();
+    openTab("home", "l");
+}
+
+function copyJson() {
+    navigator.clipboard.writeText(JSON.stringify(dataSet))
+    .then(() => {
+        alert("Json object was copied! paste it in this site to make it pretty!");
+        window.open("https://jsonformatter.org/json-pretty-print", '_blank');
+    })
+    .catch(err => {
+        console.error('Failed to copy:', err);
+    });
+}
+
+function addAnswer() {
+    let input = document.getElementById("addAnswerInput");
+    let answersContainer = document.getElementById("answersList");
+    let element = document.createElement("li");
+    let removeBtn = document.createElement("button");
+    if(input.value.trim() === "") return;
+    element.textContent = input.value;
+    removeBtn.textContent = "Remove";
+    element.append(removeBtn);
+    answersContainer.append(element);
+    
+    let selector = document.getElementById("selectCorrectAnswer");
+    let opt = document.createElement("option");
+    opt.value = input.value;
+    opt.textContent = input.value;
+    selector.append(opt);
+    removeBtn.addEventListener("click", e => {
+        element.remove();
+        opt.remove();
+    })
+    input.value = "";
+}
+
+function addQuestion() {
+    let question = document.getElementById("addQuestionInput");
+    let answersElements = document.getElementById("answersList");
+    let correctAnswer = document.getElementById("selectCorrectAnswer").value;
+    let answers = Array.from(answersElements.children).map(e => e.textContent.replace("Remove", ""));
+
+
+    console.log(question, answers, correctAnswer)
+
+    let questionContainer = document.createElement("div");
+    let questionText = document.createElement("h3");
+    let answersContainer = document.createElement("ul")
+    let correctAnswerText = document.createElement("h3");
+
+    questionText.textContent = "Question: " + question.value;
+    answers.forEach(answer => {
+        let li = document.createElement("li");
+        li.textContent = answer;
+        answersContainer.append(li);
+    })
+    correctAnswerText.textContent = "Answer: " + correctAnswer;
+
+    questionContainer.append(questionText, answersContainer, correctAnswerText);
+    questionContainer.classList.add("qContainer");
+    question.value = ""
+    answersElements.replaceChildren();
+    document.getElementById("selectCorrectAnswer").replaceChildren();
+
+    document.getElementById("allQuestions").append(questionContainer);
+
+
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
 window.toggleSoundEffects = toggleSoundEffects;
+window.lessonsReturnHandler = lessonsReturnHandler;
+window.cancelAdding = cancelAdding;
+window.createLesson = createLesson;
+window.catDeleteChangehandler = catDeleteChangehandler;
+window.removeLessonHandler = removeLessonHandler;
+window.openRemoveTab = openRemoveTab;
+window.fetchData = fetchData;
+window.resetDataSet = resetDataSet;
+window.copyJson = copyJson;
+window.addAnswer = addAnswer;
+window.addQuestion = addQuestion;
+window.dataSet = dataSet;
 
-export { openTab, fetchData };
+export { openTab, fetchData, getData };

@@ -35,7 +35,7 @@
                 {
                     "title" : "Document Structure",
                     "content" : "# Anatomy of an HTML Document\nAn HTML document is comprised of various elements including headings, paragraphs, lists, and divs, which are structured to convey information in a logical and hierarchical manner.\n\n## Headings and Paragraphs\nHeadings, denoted by `<h1>` to `<h6>` tags, provide hierarchical structure to content, with `<h1>` being the most important. Paragraphs, defined by the `<p>` tag, separate text into distinct blocks.\n\n## Divisions and Spans\nDivisions (`<div>`) are container elements used to group and style content, while spans (`<span>`) are inline elements used to apply styles to specific portions of text.",
-                    "lesson" : "# your lesson will be here"
+                    "lesson" : "#this is title\n##this is subtitle\nthis is some random paragraph hello there omg lol lmao xd this is super cool ahahha lmao.\n#another title\nI want to eat this cake omg\n`\nconsole.log(\"idk\");\nfor(int i = 0; i < 3; i++) {\n  console.log(i);\n}\n\n`"
                 },
                 {
                     "title" : "Text Formatting",
@@ -77,7 +77,12 @@
                     "content" : "# Introduction to HTML5\nHTML5 introduces new features and elements for modern web development, including multimedia support, semantic elements, and improved forms and APIs.\n\n## Canvas and SVG Graphics\nThe `<canvas>` element allows for dynamic rendering of graphics using JavaScript, while SVG (Scalable Vector Graphics) provides resolution-independent images and animations.\n\n## Audio and Video Playback\nHTML5 introduces native support for audio and video playback using the `<audio>` and `<video>` elements. This eliminates the need for third-party plugins like Flash.",
                     "lesson" : "# your lesson will be here"
                 }
-            ]
+            ],
+            "css": [],
+            "js": [],
+            "python": [],
+            "c": [],
+            "c++": []
         }        
     }
 }

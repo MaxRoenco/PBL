@@ -15,6 +15,7 @@
         <li>Don't start a line with anything for a paragraph.</li>
         <li>Make empty newlines for line breaks.</li>
         <li>if you want a paragraph to start with "$" or "#" without making a title or image element, you can start it with "\" and then follow it with the symbol you want.</li>
+        <li>for a code segment, start a line with a "`" write your code and close it with the same symbol, if you don't close it, unexpected results might happen.</li>
     </ul>
     <h3>Example:</h3>
     <p># Title 1<br>
@@ -22,12 +23,20 @@
     $./localImage.png<br>
     $https//:www.example.com/publicImage.png<br>
     ## Subtitle 2<br>
-    \# this is a paragraph and it will appear having the symbol # at the beggining because I used "\"</p>
+    \# this is a paragraph and it will appear having the symbol # at the beggining because I used "\"<br>
+    `console.log("this is a code segment");<br>
+    for(let i = 0; i &lt; 5: i++) {<br>
+        console.log(i);<br>
+    }`<br>
+    </p>
+    <h3>Convert text into json:</h3>
     <textarea id="textInput" cols="30" rows="10"></textarea>
     <button id="but">Submit</button>
     <p>JSON text:</p>
     <div id="or"></div>
     <button id="copy">Copy</button>
+    <h3>Preview:</h3>
+    <div id="preview"></div>
 </body>
 <script src="./lessonCompile.js"></script>
 </html>

@@ -5,7 +5,9 @@ let copyButton = document.getElementById("copy");
 
 button.addEventListener("click", e => {
     output.textContent = printText(textArea.value);
-    compile(textArea.value, document.body);
+    let parent = document.getElementById("preview");
+    parent.replaceChildren();
+    compile(textArea.value, parent);
 })
 
 copyButton.addEventListener("click", e => {
@@ -14,31 +16,64 @@ copyButton.addEventListener("click", e => {
 
 
 function compile(string, parent) {
-    let lines = string.split("\n");
-    lines.forEach(line => {
-        let sign = line[0];
-        let sign2 = line[1];
+    string += '\n';
+    let i = 0;  
+    while(i < string.length)
+    {
         let element;
-        if(sign === '#' && sign2 === "#") {
+        if(string[i] === '#' && string[i+1] === "#") {
             element = document.createElement("h2");
-            element.textContent = line.slice(2);
-        } else if(sign === '#') {
+            i+=2;
+            while(string[i] !== '\n' && i < string.length) {
+                element.textContent += string[i];
+                i++;
+            }
+        } else if(string[i] === '#') {
             element = document.createElement("h1");
-            element.textContent = line.slice(1);
-        } else if(sign === '$') {
+            i++;
+            while(string[i] !== '\n' && i < string.length) {
+                element.textContent += string[i];
+                i++;
+            }
+        } else if(string[i] === '$') {
             element = document.createElement("img");
-            element.src = line.slice(1);
-        } else if(sign === '>' || sign === '\r' || line.length === 0) {
+            i++;
+            while(string[i] !== '\n' && i < string.length) {
+                element.src += string[i];
+                i++;
+            }
+        } else if(string[i] === '>' || string[i] === '\r' || string[i] === '\n') {
             element = document.createElement("br");
-        } else if(sign === '\\') {
+            i++;
+        } else if(string[i] === '\\') {
             element = document.createElement("p");
-            element.textContent = line.slice(1);
+            i++;
+            while(string[i] !== '\n' && i < string.length) {
+                element.textContent += string[i];
+                i++;
+            }
+        } else if(string[i] === '`') {
+            element = document.createElement("code");
+            element.setAttribute('style', 'white-space: pre;');
+            i++;
+            while(string[i] !== '`' && i < string.length) {
+                if(string[i] === '\n') {
+                    element.textContent += '\n\r';
+                } else {
+                    element.textContent += string[i];
+                }
+                i++;
+            }
         } else {
             element = document.createElement("p");
-            element.textContent = line;
+            while(string[i] !== '\n' && i < string.length) {
+                element.textContent += string[i];
+                i++
+            }
         }
         parent.append(element);
-    });
+        console.log(string[i])
+    }
 }
 
 function printText(string) {
@@ -48,6 +83,10 @@ function printText(string) {
             result += "\\n";
         } else if(string[i] === '\r') {
             result += "\\r";
+        } else if(string[i] === '\"') {
+            result += "\\\"";
+        } else if(string[i] === '\'') {
+            result += "\\\'";
         } else {
             result += string[i];
         }
