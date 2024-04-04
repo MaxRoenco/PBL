@@ -49,5 +49,11 @@
 
 .locked {
     background-color: red;
+    position: relative;
     pointer-events: none;
+}
+
+.lockImage {
+    position: absolute;
+    width: 200px;
 }
