@@ -110,9 +110,7 @@ function moveToLesson(lessonName, data) {
     data["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
-        let img = document.createElement("img");
-        img.src = "./assets/images/lock.png";
-        img.classList.add("lockImage");
+        
         lessonNumSpan.textContent = `Lesson ${i+1}:`;
         lessonNumSpan.classList.add("lesson-span");
         lessonElement.classList.add("lesson");
@@ -121,6 +119,8 @@ function moveToLesson(lessonName, data) {
         if(+progression[lessonName] < i) {
             lessonElement.classList.add("locked")
             let img = document.createElement("img");
+            img.src = "./assets/images/lock.png";
+            img.classList.add("lockImage");
             lessonElement.append(img);
         };
         lessonContentSpan.textContent = ele["title"];
