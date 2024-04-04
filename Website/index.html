@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./styles/content.css">
     <link rel="stylesheet" href="./styles/profile.css">
     <link rel="stylesheet" href="./styles/quiz.css">
+    <link rel="stylesheet" href="./styles/creator.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap" rel="stylesheet">
@@ -41,7 +42,7 @@
     <div class="returnContainer" id="lessonsReturn">
         <img src="./assets/images/return.png" alt="" class="returnImage" onclick="lessonsReturnHandler()">
     </div>
-    <div id="createBtn">+</div>
+    <div id="createBtn" onclick="openTab('actions')">+</div>
 
     <div id="tabs">
 
@@ -201,7 +202,6 @@
         <!-- LESSONS TAB -->
         <div class="container" data-tab="lessons" id="lessons-container">
             <div id="lessons">
-
             </div>
         </div>
 
@@ -236,7 +236,7 @@
         <div class="container contentContainer" data-tab="quiz">
             <h1 id="title" style="font-size: 2.5rem;">Do you want to start the quiz?</h1>
             <div class="contentButtons">
-                <div class="button contentBTN" onclick="openTab('content', 'l')">
+                <div class="button contentBTN" onclick="openTab('lesson', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
                 <div class="button contentBTN" id="quizStart">
@@ -277,6 +277,27 @@
         </div>
 
         <!-- CREATOR TAB -->
+        <div class="container" data-tab="actions">
+            <h1 id="title" style="font-size: 2.5rem;">Choose an action</h1>
+
+            <div class="contentButtons verticalButtons">
+                <div class="button" onclick="openTab('titleCreator', 'r')">
+                    <p class="text">Add a lesson</p>
+                </div>
+                <div class="button" onclick="openRemoveTab()" >
+                    <p class="text">Remove a lesson</p>
+                </div>
+                <div class="button" onclick="resetDataSet()" >
+                    <p class="text">Reset data set</p>
+                </div>
+                <div class="button" onclick="copyJson()" >
+                    <p class="text">Copy JSON object into clipboard</p>
+                </div>
+                <div class="button" onclick="cancelAdding()" >
+                    <p class="text">Home</p>
+                </div>
+            </div>
+        </div>
         <div class="container" data-tab="titleCreator">
             <h1 id="title" style="font-size: 2.5rem;">Choose the category of the lesson</h1>
             <select id="chooseCategory">
@@ -290,10 +311,10 @@
             <h1 id="title" style="font-size: 2.5rem;">Enter the title of the lesson</h1>
             <input type="text" id="chooseTitle">
             <div class="contentButtons">
-                <div class="button" onclick="openTab('home', 'l')">
+                <div class="button" onclick="openTab('actions', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" id="titleBtn">
+                <div class="button" onclick="openTab('contentCreator', 'r')">
                     <p class="text">Next &gt;</p>
                 </div>
             </div>
@@ -305,7 +326,7 @@
                 <div class="button" onclick="openTab('titleCreator', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" id="contentBtn">
+                <div class="button" onclick="openTab('lessonCreator', 'r')">
                     <p class="text">Next &gt;</p>
                 </div>
             </div>
@@ -317,11 +338,25 @@
                 <div class="button" onclick="openTab('contentCreator', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
+                <div class="button" onclick="createLesson()">
+                    <p class="text">Next</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" data-tab="finalCreator">
+            <h1 id="title" style="font-size: 2.5rem;">Choose an operation:</h1>
+            <div class="contentButtons">
+                <div class="button" onclick="openTab('contentCreator', 'l')">
+                    <p class="text">&lt; Edit</p>
+                </div>
                 <div class="button" id="addBtn">
                     <p class="text">Add</p>
                 </div>
-                <div class="button" id="lessonBtn" >
+                <div class="button" id="previewBtn" >
                     <p class="text">Preview</p>
+                </div>
+                <div class="button" onclick="cancelAdding()" >
+                    <p class="text">Cancel</p>
                 </div>
             </div>
         </div>
@@ -334,6 +369,27 @@
                 </div>
                 <div class="button" onclick="openTab('quizCreator', 'r')" >
                     <p class="text">Next &gt;</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" data-tab="removeLesson">
+            <h1 style="font-size: 2.5rem;">Remove from what category?</h1>
+            <select id="chooseCategoryDelete" onchange="catDeleteChangehandler()">
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JS</option>
+                <option value="pythong">Python</option>
+                <option value="c">C</option>
+                <option value="c++">C++</option>
+            </select>
+            <h1 style="font-size: 2.5rem;">What lesson to remove?</h1>
+            <select id="chooseLessonDelete"></select>
+            <div class="contentButtons">
+                <div class="button" onclick="openTab('lessonCreator', 'l')">
+                    <p class="text">&lt; Back</p>
+                </div>
+                <div class="button" onclick="removeLessonHandler()" >
+                    <p class="text">Remove</p>
                 </div>
             </div>
         </div>

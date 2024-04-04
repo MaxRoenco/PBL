@@ -1,4 +1,4 @@
-import { openTab, fetchData, startCreating } from './script.js';
+import { openTab, getData } from './script.js';
 
 setTimeout(() => {
     document.body.style.opacity = "1";
@@ -21,10 +21,6 @@ buttons.forEach(ele => {
         document.getElementById(ele.id).classList.add("hidden");
 })
 
-document.getElementById("createBtn").addEventListener("click", _ => {
-    startCreating();
-})
-
-openTab("home");
 setActiveLanguage("en");
-fetchData();
+openTab("home");
+getData();

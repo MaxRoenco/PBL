@@ -1,0 +1,6 @@
+.verticalButtons {
+    flex-wrap: wrap;
+}
+.verticalButtons>div {
+    margin: 10px;
+}

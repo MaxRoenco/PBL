@@ -77,7 +77,12 @@
                     "content" : "# Introduction to HTML5\nHTML5 introduces new features and elements for modern web development, including multimedia support, semantic elements, and improved forms and APIs.\n\n## Canvas and SVG Graphics\nThe `<canvas>` element allows for dynamic rendering of graphics using JavaScript, while SVG (Scalable Vector Graphics) provides resolution-independent images and animations.\n\n## Audio and Video Playback\nHTML5 introduces native support for audio and video playback using the `<audio>` and `<video>` elements. This eliminates the need for third-party plugins like Flash.",
                     "lesson" : "# your lesson will be here"
                 }
-            ]
+            ],
+            "css": [],
+            "js": [],
+            "python": [],
+            "c": [],
+            "c++": []
         }        
     }
 }

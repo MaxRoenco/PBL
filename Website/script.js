@@ -28,6 +28,7 @@ function openTab(tabName, dir) {
         curr.style.display = "";
         return;
     };
+
     let next = document.querySelector(`[data-tab="${tabName}"]`);
     if(dir === 'l') {
         next.style.transform = "translate(-200%)";
@@ -56,6 +57,8 @@ async function fetchData() {
         const data = await response.json();
         dataSet = data;
         window.dataSet = dataSet;
+        saveData(dataSet);
+        catDeleteChangehandler();
     } catch (error) {
         console.error('Error fetching JSON:', error);
     }
@@ -65,6 +68,7 @@ function moveToLesson(lessonName, data) {
     openTab("lessons", 'r');
     let container = document.getElementById("lessons");
     container.replaceChildren();
+    console.log(data);
     data["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
@@ -238,69 +242,105 @@ function removeAllEventListeners(element) {
     return clonedElement;
 }
 
-function startCreating() {
-    let cat = "";
+function createLesson() {
+    openTab("finalCreator", "r");
+    let cat = document.getElementById("chooseCategory").value;
     let obj = {
-        "title" : "",
-        "content" : "",
-        "lesson" : "",
+        "title" : document.getElementById("chooseTitle").value,
+        "content" : document.getElementById("contentArea").value,
+        "lesson" : document.getElementById("lessonArea").value,
     }
-    openTab("titleCreator", 'r');
-    let catField = document.getElementById("chooseCategory");
-    let titField = document.getElementById("chooseTitle");
-    titField.value = "";
-    let nextBtn = document.getElementById("titleBtn");
-    nextBtn = removeAllEventListeners(nextBtn);
-    nextBtn.addEventListener("click", _ => {
-        cat = catField.value;
-        obj.title = titField.value;
-        contentCreate(cat, obj);
-    })
-}
-
-function contentCreate(cat, obj) {
-    openTab("contentCreator", "r");
-    let textArea = document.getElementById("contentArea");
-    let nextBtn = document.getElementById("contentBtn");
-    nextBtn = removeAllEventListeners(nextBtn);
-    nextBtn.addEventListener("click", _ => {
-        obj.content = textArea.value;
-        lessonCreate(cat, obj);
-    })
-}
-
-function lessonCreate(cat, obj) {
-    openTab("lessonCreator", "r");
-    let textArea = document.getElementById("lessonArea");
-    let nextBtn = document.getElementById("lessonBtn");
-    nextBtn = removeAllEventListeners(nextBtn);
     let addBtn = document.getElementById("addBtn");
     addBtn = removeAllEventListeners(addBtn);
-    nextBtn.addEventListener("click", _ => {
-        obj.lesson = textArea.value;
-        let previewObj = {
-            "en": {
-                "categories": {
-                }
-            }
-        }
+    let previewBtn = document.getElementById("previewBtn");
+    previewBtn = removeAllEventListeners(previewBtn);
+
+    previewBtn.addEventListener("click", _ => {
+        let previewObj = {"en": {"categories": {}}}
         previewObj["en"]["categories"][cat] = [obj];
-        console.log(cat, previewObj)
         moveToLesson(cat, previewObj);
         previewMode = true;
     })
     addBtn.addEventListener("click", _ => {
+        dataSet["en"]["categories"][cat].push(obj);
+        saveData(dataSet);
         moveToLesson(cat, dataSet);
     })
 }
 
 function lessonsReturnHandler() {
     if(previewMode) {
-        openTab("lessonCreator", 'l');
+        openTab("finalCreator", 'l');
         previewMode = false;
     } else {
         openTab("categories", 'l');
     }
+}
+
+function cancelAdding() {
+    openTab("home", 'l');
+    document.getElementById("chooseCategory").value = "html";
+    document.getElementById("chooseTitle").value = "";
+    document.getElementById("contentArea").value = "";
+    document.getElementById("lessonArea").value = "";
+}
+
+function catDeleteChangehandler() {
+    let cat = document.getElementById("chooseCategoryDelete").value;
+    let lessons = dataSet["en"]["categories"][cat].map(ele => ele.title);
+    lessons.forEach((ele, i) => {
+        let opt = document.createElement("option");
+        opt.textContent = ele;
+        opt.value = ele;
+        document.getElementById("chooseLessonDelete").append(opt);
+    })
+
+}
+
+function removeLessonHandler() {
+    let cat = document.getElementById("chooseCategoryDelete").value;
+    let lesson = document.getElementById("chooseLessonDelete").value;
+    dataSet["en"]["categories"][cat] = dataSet["en"]["categories"][cat].filter(ele => ele.title !== lesson);
+    saveData(dataSet);
+    openTab("home", 'l');
+}
+
+function openRemoveTab() {
+    catDeleteChangehandler();
+    openTab("removeLesson", 'r');
+}
+
+
+function saveData(obj) {
+  localStorage.setItem("dataSet", JSON.stringify(obj));
+  window.dataSet = dataSet;
+}
+
+function getData(key) {
+  const storedItem = localStorage.getItem("dataSet");
+  console.log(storedItem)
+  if(storedItem) {
+    dataSet = JSON.parse(storedItem);
+    window.dataSet = dataSet;
+  } else {
+    fetchData();
+  }
+}
+
+function resetDataSet() {
+    fetchData();
+    openTab("home", "l");
+}
+
+function copyJson() {
+    navigator.clipboard.writeText(JSON.stringify(dataSet))
+    .then(() => {
+        alert("Json object was copied! paste it in this site to make it pretty!");
+        window.open("https://jsonformatter.org/json-pretty-print", '_blank');
+    })
+    .catch(err => {
+        console.error('Failed to copy:', err);
+    });
 }
 
 window.openTab = openTab;
@@ -308,6 +348,14 @@ window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
 window.toggleSoundEffects = toggleSoundEffects;
 window.lessonsReturnHandler = lessonsReturnHandler;
+window.cancelAdding = cancelAdding;
+window.createLesson = createLesson;
+window.catDeleteChangehandler = catDeleteChangehandler;
+window.removeLessonHandler = removeLessonHandler;
+window.openRemoveTab = openRemoveTab;
+window.fetchData = fetchData;
+window.resetDataSet = resetDataSet;
+window.copyJson = copyJson;
 window.dataSet = dataSet;
 
-export { openTab, fetchData, startCreating };
+export { openTab, fetchData, getData };
