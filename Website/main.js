@@ -22,5 +22,5 @@ buttons.forEach(ele => {
 })
 
 setActiveLanguage("en");
-openTab("quizCreator");
+openTab("home");
 getData();
