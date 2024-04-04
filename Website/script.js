@@ -4,6 +4,7 @@ let soundOn = true;
 let currentTab = "home";
 let questionIndex = 0;
 let correct = 0;
+let previewMode = false;
 
 function openTab(tabName, dir) {
     let buttons = [
@@ -54,16 +55,17 @@ async function fetchData() {
         }
         const data = await response.json();
         dataSet = data;
+        window.dataSet = dataSet;
     } catch (error) {
         console.error('Error fetching JSON:', error);
     }
 }
 
-function moveToLesson(lessonName) {
+function moveToLesson(lessonName, data) {
     openTab("lessons", 'r');
     let container = document.getElementById("lessons");
     container.replaceChildren();
-    dataSet["en"]["categories"][lessonName].forEach((ele, i) => {
+    data["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
         lessonNumSpan.textContent = `Lesson ${i+1}:`;
@@ -189,11 +191,13 @@ function compileLesson(string, parent) {
             }
         } else if(string[i] === '$') {
             element = document.createElement("img");
+            let s = ""
             i++;
             while(string[i] !== '\n' && i < string.length) {
-                element.src += string[i];
+                s += string[i];
                 i++;
             }
+            element.src = s;
         } else if(string[i] === '>' || string[i] === '\r' || string[i] === '\n') {
             element = document.createElement("br");
             i++;
@@ -242,16 +246,68 @@ function startCreating() {
         "lesson" : "",
     }
     openTab("titleCreator", 'r');
-    let 
+    let catField = document.getElementById("chooseCategory");
     let titField = document.getElementById("chooseTitle");
     titField.value = "";
+    let nextBtn = document.getElementById("titleBtn");
+    nextBtn = removeAllEventListeners(nextBtn);
+    nextBtn.addEventListener("click", _ => {
+        cat = catField.value;
+        obj.title = titField.value;
+        contentCreate(cat, obj);
+    })
 }
 
+function contentCreate(cat, obj) {
+    openTab("contentCreator", "r");
+    let textArea = document.getElementById("contentArea");
+    let nextBtn = document.getElementById("contentBtn");
+    nextBtn = removeAllEventListeners(nextBtn);
+    nextBtn.addEventListener("click", _ => {
+        obj.content = textArea.value;
+        lessonCreate(cat, obj);
+    })
+}
 
+function lessonCreate(cat, obj) {
+    openTab("lessonCreator", "r");
+    let textArea = document.getElementById("lessonArea");
+    let nextBtn = document.getElementById("lessonBtn");
+    nextBtn = removeAllEventListeners(nextBtn);
+    let addBtn = document.getElementById("addBtn");
+    addBtn = removeAllEventListeners(addBtn);
+    nextBtn.addEventListener("click", _ => {
+        obj.lesson = textArea.value;
+        let previewObj = {
+            "en": {
+                "categories": {
+                }
+            }
+        }
+        previewObj["en"]["categories"][cat] = [obj];
+        console.log(cat, previewObj)
+        moveToLesson(cat, previewObj);
+        previewMode = true;
+    })
+    addBtn.addEventListener("click", _ => {
+        moveToLesson(cat, dataSet);
+    })
+}
+
+function lessonsReturnHandler() {
+    if(previewMode) {
+        openTab("lessonCreator", 'l');
+        previewMode = false;
+    } else {
+        openTab("categories", 'l');
+    }
+}
 
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
 window.toggleSoundEffects = toggleSoundEffects;
+window.lessonsReturnHandler = lessonsReturnHandler;
+window.dataSet = dataSet;
 
 export { openTab, fetchData, startCreating };

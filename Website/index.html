@@ -39,9 +39,9 @@
         <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('home', 'l')">
     </div>
     <div class="returnContainer" id="lessonsReturn">
-        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('categories', 'l')">
+        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="lessonsReturnHandler()">
     </div>
-    <div id="createBtn" onclick="startCreating()">+</div>
+    <div id="createBtn">+</div>
 
     <div id="tabs">
 
@@ -190,12 +190,12 @@
 
         <!-- CATEGORIES TAB -->
         <div class="container" id="categories-container" data-tab="categories">
-            <div class="category" onclick="moveToLesson('html')"><img src="./assets/images/html.png"></div>
-            <div class="category" onclick="moveToLesson('css')"><img src="./assets/images/css.png"></div>
-            <div class="category" onclick="moveToLesson('js')"><img src="./assets/images/js.png"></div>
-            <div class="category" onclick="moveToLesson('python')"><img src="./assets/images/python.png"></div>
-            <div class="category" onclick="moveToLesson('c')"><img src="./assets/images/c.png"></div>
-            <div class="category" onclick="moveToLesson('c++')"><img src="./assets/images/c++.png"></div>
+            <div class="category" onclick="moveToLesson('html', dataSet)"><img src="./assets/images/html.png"></div>
+            <div class="category" onclick="moveToLesson('css', dataSet)"><img src="./assets/images/css.png"></div>
+            <div class="category" onclick="moveToLesson('js', dataSet)"><img src="./assets/images/js.png"></div>
+            <div class="category" onclick="moveToLesson('python', dataSet)"><img src="./assets/images/python.png"></div>
+            <div class="category" onclick="moveToLesson('c', dataSet)"><img src="./assets/images/c.png"></div>
+            <div class="category" onclick="moveToLesson('c++', dataSet)"><img src="./assets/images/c++.png"></div>
         </div>
 
         <!-- LESSONS TAB -->
@@ -293,32 +293,35 @@
                 <div class="button" onclick="openTab('home', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" onclick="openTab('contentCreator', 'r')" >
+                <div class="button" id="titleBtn">
                     <p class="text">Next &gt;</p>
                 </div>
             </div>
         </div>
         <div class="container" data-tab="contentCreator">
             <h1 id="title" style="font-size: 2.5rem;">Enter the content of the introduction:</h1>
-            <textarea name="" id="" cols="80" rows="20"></textarea>
+            <textarea name="" id="contentArea" cols="80" rows="20"></textarea>
             <div class="contentButtons">
                 <div class="button" onclick="openTab('titleCreator', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" onclick="">
-                    <p class="text" id="contentBut">Next &gt;</p>
+                <div class="button" id="contentBtn">
+                    <p class="text">Next &gt;</p>
                 </div>
             </div>
         </div>
         <div class="container" data-tab="lessonCreator">
             <h1 id="title" style="font-size: 2.5rem;">Enter the content of the lesson:</h1>
-            <textarea name="" id="" cols="80" rows="20"></textarea>
+            <textarea name="" id="lessonArea" cols="80" rows="20"></textarea>
             <div class="contentButtons">
                 <div class="button" onclick="openTab('contentCreator', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" onclick="openTab('quizCreator', 'r')" >
-                    <p class="text">Next &gt;</p>
+                <div class="button" id="addBtn">
+                    <p class="text">Add</p>
+                </div>
+                <div class="button" id="lessonBtn" >
+                    <p class="text">Preview</p>
                 </div>
             </div>
         </div>
