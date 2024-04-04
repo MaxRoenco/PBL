@@ -226,10 +226,7 @@
     width: 100px;
 }
 
-.lineHTML,
-.lineCSS,
-.lineJavaScript,
-.linePython {
+.statisticsLine {
     display: flex;
     justify-content: center;
     align-items: center;

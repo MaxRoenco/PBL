@@ -110,6 +110,9 @@ function moveToLesson(lessonName, data) {
     data["en"]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
+        let img = document.createElement("img");
+        img.src = "./assets/lock.png";
+        img.classList.add("lockImage");
         lessonNumSpan.textContent = `Lesson ${i+1}:`;
         lessonNumSpan.classList.add("lesson-span");
         lessonElement.classList.add("lesson");
@@ -121,6 +124,7 @@ function moveToLesson(lessonName, data) {
         lessonElement.append(lessonNumSpan);
         lessonElement.append(newLine);
         lessonElement.append(lessonContentSpan);
+        lessonElement.append(img);
 
         lessonElement.addEventListener("click", _ => {
             currCategory = lessonName;
@@ -468,14 +472,24 @@ function resultsHome() {
 }
 
 function openProfile() {
-    openTab("profile", 'r');
+
+    //html
     let htmlBar = document.querySelector(".lineHTML");
     let htmlPerc = document.querySelector("#htmlPerc");
     console.log(progression["html"]);
     let htmlPercentage = Math.floor((progression["html"]/dataSet["en"]["categories"]["html"].length)*100);
     htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${htmlPercentage}%, rgb(153, 153, 153) ${1 - htmlPercentage}%)`;
     htmlPerc.textContent = htmlPercentage+"%";
-    console.log(htmlPercentage)
+
+    //css
+    let htmlBar = document.querySelector(".lineHTML");
+    let htmlPerc = document.querySelector("#htmlPerc");
+    console.log(progression["html"]);
+    let htmlPercentage = Math.floor((progression["html"]/dataSet["en"]["categories"]["html"].length)*100);
+    htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${htmlPercentage}%, rgb(153, 153, 153) ${1 - htmlPercentage}%)`;
+    htmlPerc.textContent = htmlPercentage+"%";
+
+    openTab("profile", 'r');
 }
 
 window.openTab = openTab;
