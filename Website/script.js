@@ -116,15 +116,18 @@ function moveToLesson(lessonName, data) {
         lessonNumSpan.textContent = `Lesson ${i+1}:`;
         lessonNumSpan.classList.add("lesson-span");
         lessonElement.classList.add("lesson");
-        if(+progression[lessonName] < i) lessonElement.classList.add("locked");
         let newLine = document.createElement("br");
         let lessonContentSpan = document.createElement("span");
+        if(+progression[lessonName] < i) {
+            lessonElement.classList.add("locked")
+            let img = document.createElement("img");
+            lessonElement.append(img);
+        };
         lessonContentSpan.textContent = ele["title"];
         container.append(lessonElement);
         lessonElement.append(lessonNumSpan);
         lessonElement.append(newLine);
         lessonElement.append(lessonContentSpan);
-        lessonElement.append(img);
 
         lessonElement.addEventListener("click", _ => {
             currCategory = lessonName;
@@ -474,7 +477,7 @@ function resultsHome() {
 function openProfile() {
 
     //html
-    let htmlBar = document.querySelector(".lineHTML");
+    let htmlBar = document.querySelector("#htmlLine");
     let htmlPerc = document.querySelector("#htmlPerc");
     console.log(progression["html"]);
     let htmlPercentage = Math.floor((progression["html"]/dataSet["en"]["categories"]["html"].length)*100);
