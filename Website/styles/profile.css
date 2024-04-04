@@ -185,6 +185,20 @@
     margin-bottom: 20px;
 }
 
+.titleStat {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 64px;
+}
+
+.titleAchiv {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 64px;
+}
+
 .statsBlock {
     width: 90%;
     display: flex;
@@ -220,8 +234,8 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 200px;
-    height: 35px;
+    width: 3500px;
+    height: 40px;
     border: 3px solid white;
     border-radius: 20px;
     background: linear-gradient(to right, rgb(219, 176, 56) 60%, rgb(153, 153, 153) 40%);
@@ -342,18 +356,47 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
         width: 350px;
         height: 40px;
-        border: 3px solid;
+        border: 3px solid white;
         border-radius: 20px;
+        background: linear-gradient(to right, rgb(219, 176, 56) 60%, rgb(153, 153, 153) 40%);
+        margin-left: 10px;
+
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 20px;
     }
 }
 
-@media (max-width: 818px) {
+@media (max-width: 870px) {
 
     .leftProfile,
     .rightProfile {
         width: 90%;
+    }
+
+    .lineHTML,
+    .lineCSS,
+    .lineJavaScript,
+    .linePython {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 3500px;
+        height: 40px;
+        border: 3px solid white;
+        border-radius: 20px;
+        background: linear-gradient(to right, rgb(219, 176, 56) 60%, rgb(153, 153, 153) 40%);
+        margin-left: 10px;
+
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 20px;
     }
 }
 
@@ -399,6 +442,13 @@
     .lineJavaScript>img,
     .linePython>img {
         width: 40px;
+    }
+
+    .titleAchiv {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 50px;
     }
 }
 
