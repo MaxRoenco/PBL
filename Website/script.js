@@ -485,12 +485,12 @@ function openProfile() {
     htmlPerc.textContent = htmlPercentage+"%";
 
     //css
-    let htmlBar = document.querySelector(".lineHTML");
-    let htmlPerc = document.querySelector("#htmlPerc");
+    let cssBar = document.querySelector(".lineHTML");
+    let cssPerc = document.querySelector("#htmlPerc");
     console.log(progression["html"]);
-    let htmlPercentage = Math.floor((progression["html"]/dataSet["en"]["categories"]["html"].length)*100);
-    htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${htmlPercentage}%, rgb(153, 153, 153) ${1 - htmlPercentage}%)`;
-    htmlPerc.textContent = htmlPercentage+"%";
+    let cssPercentage = Math.floor((progression["css"]/dataSet["en"]["categories"]["css"].length)*100);
+    cssBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cssPercentage}%, rgb(153, 153, 153) ${1 - cssPercentage}%)`;
+    cssPerc.textContent = cssPercentage+"%";
 
     openTab("profile", 'r');
 }
