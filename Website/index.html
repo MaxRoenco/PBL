@@ -35,7 +35,7 @@
         <img src="./assets/images/settings.png" alt="" class="settingsImage" onclick="openTab('settings', 'l')">
     </div>
     <div class="profileContainer" id="profileIcon">
-        <img src="./assets/images/home.png" alt="" class="profileImage" onclick="openTab('profile', 'r')">
+        <img src="./assets/images/home.png" alt="" class="profileImage" onclick="openProfile()">
     </div>
     <div class="returnContainer" id="categoriesReturn">
         <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('home', 'l')">
@@ -218,37 +218,37 @@
 
         <!-- CATEGORIES TAB -->
         <div class="container" id="categories-container" data-tab="categories">
-            <div class="category" onclick="moveToLesson('html', dataSet)">
+            <div class="category" onclick="moveToLesson('html', dataSet)" id="html">
                 <img src="./assets/images/html.png">
                 <div class="text textCategories">
                     <div class="textC">HTML</div>
                 </div>
             </div>
-            <div class="category" onclick="moveToLesson('css', dataSet)">
+            <div class="category" onclick="moveToLesson('css', dataSet)" id="css">
                 <img src="./assets/images/css.png">
                 <div class="text textCategories">
                     <div class="textC">CSS</div>
                 </div>
             </div>
-            <div class="category" onclick="moveToLesson('js', dataSet)">
+            <div class="category" onclick="moveToLesson('js', dataSet)" id="js">
                 <img src="./assets/images/js.png">
                 <div class="text textCategories">
                     <div class="textC">JavaScript</div>
                 </div>
             </div>
-            <div class="category" onclick="moveToLesson('python', dataSet)">
+            <div class="category" onclick="moveToLesson('python', dataSet)" id="python">
                 <img src="./assets/images/python.png">
                 <div class="text textCategories">
                     <div class="textC">Python</div>
                 </div>
             </div>
-            <div class="category" onclick="moveToLesson('c', dataSet)">
+            <div class="category" onclick="moveToLesson('c', dataSet)" id="c">
                 <img src="./assets/images/c.png">
                 <div class="text textCategories">
                     <div class="textC">C</div>
                 </div>
             </div>
-            <div class="category" onclick="moveToLesson('c++', dataSet)">
+            <div class="category" onclick="moveToLesson('c++', dataSet)" id="c++">
                 <img src="./assets/images/c++.png">
                 <div class="text textCategories">
                     <div class="textC">C++</div>

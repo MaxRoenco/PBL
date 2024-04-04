@@ -467,6 +467,14 @@ function resultsHome() {
     previewMode = false;
 }
 
+function openProfile() {
+    openTab("profile", 'r');
+    let htmlBar = document.querySelector(".lineHTML");
+    console.log(progression["html"]);
+    let htmlPercentage = (progression["html"]/dataSet["en"]["categories"]["html"].length)*100;
+    htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) 60%, rgb(153, 153, 153) ${htmlPercentage}%)`;
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
@@ -484,6 +492,7 @@ window.addAnswer = addAnswer;
 window.addQuestion = addQuestion;
 window.resultsHome = resultsHome;
 window.resetProgression = resetProgression;
+window.openProfile = openProfile;
 window.dataSet = dataSet;
 
 export { openTab, fetchData, getData, loadProgression };
