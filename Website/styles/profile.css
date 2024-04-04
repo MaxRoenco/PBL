@@ -14,10 +14,10 @@
 .sidesProfile {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     overflow: scroll;
 }
 
@@ -39,7 +39,6 @@
 .leftProfile,
 .rightProfile {
     width: 50%;
-    /* min-width: 400px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -357,16 +356,12 @@
 }
 
 @media (max-width: 500px) {
-    .achievements>.blocks {
-        /* padding: */
-    }
-
     .text {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .textLittle {
-        font-size: 15px;
+        font-size: 20px;
     }
 
     .avatarProfile {
@@ -375,5 +370,32 @@
 
     .statsBlock {
         padding: 10px;
+    }
+
+    
+}
+
+@media (max-width: 890px) {
+    .sidesProfile {
+        flex-direction: column;
+        align-items: center;
+    }
+    .leftProfile, .rightProfile {
+        width: 90%;
+    }
+    .achievements>.blocks {
+        width: 90%;
+        padding-left: 5px;
+        height: 200px;
+    }
+    .achievements>.blocks>img {
+        width: 50%;
+    }
+    .textGray {
+        top: -15px;
+        position: absolute;
+    }
+    .achievements>.title, .statisticsProfile>.title {
+        font-size: 40px;
     }
 }
