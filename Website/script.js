@@ -111,7 +111,7 @@ function moveToLesson(lessonName, data) {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
         let img = document.createElement("img");
-        img.src = "./assets/lock.png";
+        img.src = "./assets/images/lock.png";
         img.classList.add("lockImage");
         lessonNumSpan.textContent = `Lesson ${i+1}:`;
         lessonNumSpan.classList.add("lesson-span");
@@ -485,8 +485,8 @@ function openProfile() {
     htmlPerc.textContent = htmlPercentage+"%";
 
     //css
-    let cssBar = document.querySelector(".lineHTML");
-    let cssPerc = document.querySelector("#htmlPerc");
+    let cssBar = document.querySelector("#cssLine");
+    let cssPerc = document.querySelector("#cssPerc");
     console.log(progression["html"]);
     let cssPercentage = Math.floor((progression["css"]/dataSet["en"]["categories"]["css"].length)*100);
     cssBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cssPercentage}%, rgb(153, 153, 153) ${1 - cssPercentage}%)`;
