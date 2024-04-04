@@ -243,10 +243,7 @@
     font-size: 20px;
 }
 
-.lineHTML>img,
-.lineCSS>img,
-.lineJavaScript>img,
-.linePython>img {
+.statisticsLine>img {
     width: 60px;
     position: absolute;
     right: -8px;

@@ -466,7 +466,6 @@ function resultsHome() {
         openTab('finalCreator', 'l');
     } else {
         openTab('home', 'l');
-        console.log(currLevel, currCategory, progression[currCategory])
         if(currLevel >= +progression[currCategory]) {
             updateProgression(currCategory, currLevel+1);
         }
@@ -479,18 +478,58 @@ function openProfile() {
     //html
     let htmlBar = document.querySelector("#htmlLine");
     let htmlPerc = document.querySelector("#htmlPerc");
-    console.log(progression["html"]);
-    let htmlPercentage = Math.floor((progression["html"]/dataSet["en"]["categories"]["html"].length)*100);
+    let htmlTotal = dataSet["en"]["categories"]["html"].length;
+    let htmlDone = progression["html"];
+    let htmlPercentage = htmlTotal ? Math.floor(htmlDone*100/htmlTotal) : 0;
     htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${htmlPercentage}%, rgb(153, 153, 153) ${1 - htmlPercentage}%)`;
     htmlPerc.textContent = htmlPercentage+"%";
 
     //css
     let cssBar = document.querySelector("#cssLine");
     let cssPerc = document.querySelector("#cssPerc");
-    console.log(progression["html"]);
-    let cssPercentage = Math.floor((progression["css"]/dataSet["en"]["categories"]["css"].length)*100);
+    let cssTotal = dataSet["en"]["categories"]["css"].length;
+    let cssDone = progression["css"];
+    let cssPercentage = cssTotal ? Math.floor(cssDone*100/cssTotal) : 0;
     cssBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cssPercentage}%, rgb(153, 153, 153) ${1 - cssPercentage}%)`;
     cssPerc.textContent = cssPercentage+"%";
+
+    //js
+    let jsBar = document.querySelector("#jsLine");
+    let jsPerc = document.querySelector("#jsPerc");
+    let jsTotal = dataSet["en"]["categories"]["js"].length;
+    let jsDone = progression["js"];
+    let jsPercentage = jsTotal ? Math.floor(jsDone*100/jsTotal) : 0;
+    jsBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${jsPercentage}%, rgb(153, 153, 153) ${1 - jsPercentage}%)`;
+    jsPerc.textContent = jsPercentage+"%";
+
+    //c
+    let cBar = document.querySelector("#cLine");
+    let cPerc = document.querySelector("#cPerc");
+    let cTotal = dataSet["en"]["categories"]["c"].length;
+    let cDone = progression["c"];
+    let cPercentage = cTotal ? Math.floor(cDone*100/cTotal) : 0;
+    cBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cPercentage}%, rgb(153, 153, 153) ${1 - cPercentage}%)`;
+    cPerc.textContent = cPercentage+"%";
+
+    //cpp
+    let cppBar = document.querySelector("#cppLine");
+    let cppPerc = document.querySelector("#cppPerc");
+    let cppTotal = dataSet["en"]["categories"]["c++"].length;
+    let cppDone = progression["c++"];
+    let cppPercentage = cppTotal ? Math.floor(cppDone*100/cppTotal) : 0;
+    cppBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cppPercentage}%, rgb(153, 153, 153) ${1 - cppPercentage}%)`;
+    cppPerc.textContent = cppPercentage+"%";
+
+    //python
+    let pythonBar = document.querySelector("#pythonLine");
+    let pythonPerc = document.querySelector("#pythonPerc");
+    let pythonTotal = dataSet["en"]["categories"]["python"].length;
+    let pythonDone = progression["python"];
+    let pythonPercentage = pythonTotal ? Math.floor(pythonDone*100/pythonTotal) : 0;
+    pythonBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${pythonPercentage}%, rgb(153, 153, 153) ${1 - pythonPercentage}%)`;
+    pythonPerc.textContent = pythonPercentage+"%";
+
+
 
     openTab("profile", 'r');
 }
