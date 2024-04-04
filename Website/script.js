@@ -483,6 +483,9 @@ function openProfile() {
     let htmlPercentage = htmlTotal ? Math.floor(htmlDone*100/htmlTotal) : 0;
     htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${htmlPercentage}%, rgb(153, 153, 153) ${1 - htmlPercentage}%)`;
     htmlPerc.textContent = htmlPercentage+"%";
+    if(htmlPercentage === 100) {
+        
+    }
 
     //css
     let cssBar = document.querySelector("#cssLine");
