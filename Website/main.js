@@ -9,9 +9,10 @@ let tabs = document.getElementById("tabs").children;
 Array.from(tabs).forEach(ele => {
     ele.style.display = "none";
 });
+
 let buttons = [
     {id: "settingsIcon", tab: "home"}, 
-    {id: "profileIcon", tab: "home"}, 
+    {id: "profileIcon", tab: "home"},
     {id: "categoriesReturn", tab: "categories"}, 
     {id: "lessonsReturn", tab: "lessons"},
     {id: "createBtn", tab: "home"},

@@ -264,6 +264,10 @@ function createLesson() {
         saveData(dataSet);
         moveToLesson(cat, dataSet);
     })
+
+    let allQuestions = Array.from(document.getElementById("allQuestions").children);
+    allQuestions.forEach
+    console.log(allQuestions)
 }
 
 function lessonsReturnHandler() {
@@ -376,6 +380,7 @@ function addQuestion() {
     let questionText = document.createElement("h3");
     let answersContainer = document.createElement("ul")
     let correctAnswerText = document.createElement("h3");
+    let removeButton = document.createElement("button");
 
     questionText.textContent = "Question: " + question.value;
     answers.forEach(answer => {
@@ -384,16 +389,16 @@ function addQuestion() {
         answersContainer.append(li);
     })
     correctAnswerText.textContent = "Answer: " + correctAnswer;
-
-    questionContainer.append(questionText, answersContainer, correctAnswerText);
+    removeButton.textContent = "Remove";
+    questionContainer.append(questionText, answersContainer, correctAnswerText, removeButton);
     questionContainer.classList.add("qContainer");
-    question.value = ""
+    question.value = "";
     answersElements.replaceChildren();
     document.getElementById("selectCorrectAnswer").replaceChildren();
-
     document.getElementById("allQuestions").append(questionContainer);
-
-
+    removeButton.addEventListener("click", e => {
+        questionContainer.remove();
+    })
 }
 
 window.openTab = openTab;
