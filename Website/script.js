@@ -470,9 +470,12 @@ function resultsHome() {
 function openProfile() {
     openTab("profile", 'r');
     let htmlBar = document.querySelector(".lineHTML");
+    let htmlPerc = document.querySelector("#htmlPerc");
     console.log(progression["html"]);
-    let htmlPercentage = (progression["html"]/dataSet["en"]["categories"]["html"].length)*100;
-    htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) 60%, rgb(153, 153, 153) ${htmlPercentage}%)`;
+    let htmlPercentage = Math.floor((progression["html"]/dataSet["en"]["categories"]["html"].length)*100);
+    htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${htmlPercentage}%, rgb(153, 153, 153) ${1 - htmlPercentage}%)`;
+    htmlPerc.textContent = htmlPercentage+"%";
+    console.log(htmlPercentage)
 }
 
 window.openTab = openTab;
