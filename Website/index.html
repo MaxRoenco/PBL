@@ -54,7 +54,7 @@
             </div>
             <img src="./assets/images/codify.png" alt="" class="codify">
             <div class="buttonContainer">
-                <button class="button" id="buttonStart" onclick="openTab('categories', 'r')">Start</button>
+                <button class="button" id="buttonStart" onclick="goToCategories('r')">Start</button>
             </div>
         </div>
 
@@ -127,42 +127,42 @@
                                 <img src="./assets/images/html.png">
                                 <div class="text">HTML</div>
                             </div>
-                            <div class="statisticsLine" id="htmlLine"><span id="htmlPerc"></span><img src="./assets/images/treasure.png"></div>
+                            <div class="statisticsLine" id="htmlLine"><span id="htmlPerc"></span><img src="./assets/images/treasure.png" id="htmlImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/css.png">
                                 <div class="text">CSS</div>
                             </div>
-                            <div class="statisticsLine" id="cssLine"><span id="cssPerc"></span><img src="./assets/images/treasure.png"></div>
+                            <div class="statisticsLine" id="cssLine"><span id="cssPerc"></span><img src="./assets/images/treasure.png" id="cssImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/js.png" alt="">
                                 <div class="text">JavaScript</div>
                             </div>
-                            <div class="statisticsLine" id="jsLine"><span id="jsPerc"></span><img src="./assets/images/treasure.png"></div>
+                            <div class="statisticsLine" id="jsLine"><span id="jsPerc"></span><img src="./assets/images/treasure.png"  id="jsImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/python.png">
                                 <div class="text">Python</div>
                             </div>
-                            <div class="statisticsLine" id="pythonLine"><span id="pythonPerc"></span><img src="./assets/images/treasure.png"></div>
+                            <div class="statisticsLine" id="pythonLine"><span id="pythonPerc"></span><img src="./assets/images/treasure.png" id="pythonImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/c.png">
                                 <div class="text">C</div>
                             </div>
-                            <div class="statisticsLine" id="cLine"><span id="cPerc"></span><img src="./assets/images/treasure.png"></div>
+                            <div class="statisticsLine" id="cLine"><span id="cPerc"></span><img src="./assets/images/treasure.png"  id="cImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/c++.png">
                                 <div class="text">C++</div>
                             </div>
-                            <div class="statisticsLine" id="cppLine"><span id="cppPerc"></span><img src="./assets/images/treasure.png"></div>
+                            <div class="statisticsLine" id="cppLine"><span id="cppPerc"></span><img src="./assets/images/treasure.png"  id="cppImg"></div>
                         </div>
                     </div>
                 </div>
@@ -331,6 +331,7 @@
             <h1 style="font-size: 2rem; text-align: center;">Results:</h1>
             <h1 id="resultsElement" style="font-size: 2rem; text-align: center;"></h1>
             <div class="button" onclick="resultsHome()" id="resultsHomeBtn">Home</div>
+            <div class="button" onclick="nextLesson()" id="resultsNextBtn">Next Level</div>
         </div>
 
 
@@ -354,6 +355,9 @@
                 <div class="button" onclick="copyJson()">
                     <p class="text">Copy JSON object into clipboard</p>
                 </div>
+                <div class="button" onclick="toggleWifiMode(oldTab)">
+                    <p class="text" id="wifiModeBtn">Offline mode</p>
+                </div>
                 <div class="button" onclick="cancelAdding()">
                     <p class="text">Home</p>
                 </div>
@@ -365,7 +369,7 @@
                 <option value="html">HTML</option>
                 <option value="css">CSS</option>
                 <option value="js">JS</option>
-                <option value="pythong">Python</option>
+                <option value="python">Python</option>
                 <option value="c">C</option>
                 <option value="c++">C++</option>
             </select>
@@ -479,10 +483,7 @@
                 <div class="wifi-circle fourth">
                 </div>
             </div>
-            <div class="text">Check connection and Your MOM xD ...</div>
-            <div class="button" onclick="openTab('home')">
-                <div class="text">Try Again</div>
-            </div>
+            <div class="text">Check your internet connection...</div>
         </div>
 
     </div>

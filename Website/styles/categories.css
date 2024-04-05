@@ -111,3 +111,17 @@
         max-height: 120px;
     }
 }
+
+.categoryLocked {
+    background-color: rgba(128, 128, 128, 0.6);
+    opacity: 0.6;
+    position: relative;
+    pointer-events: none;
+}
+
+.catLockImg {
+    width: 100px !important;
+    position: absolute;
+    top: 20%;
+    transform: rotateZ(45deg) translateX(10px);
+}

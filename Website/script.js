@@ -16,6 +16,8 @@ let progression = {
 
 let currCategory = "";
 let currLevel = 0;
+let offlineMode = false;
+let isLastLesson = false;
 
 function loadProgression() {
     let loadedProgress = localStorage.getItem("progress");
@@ -46,16 +48,17 @@ function resetProgression() {
 }
 
 function openTab(tabName, dir) {
+    playSound("./assets/sounds/tap.mp3");
     let buttons = [
-        {id: "settingsIcon", tab: "home"}, 
-        {id: "profileIcon", tab: "home"}, 
-        {id: "categoriesReturn", tab: "categories"}, 
-        {id: "lessonsReturn", tab: "lessons"},
-        {id: "createBtn", tab: "home"},
+        {id: "settingsIcon", tab: ["home"]}, 
+        {id: "profileIcon", tab: ["home"]}, 
+        {id: "categoriesReturn", tab: ["categories"]}, 
+        {id: "lessonsReturn", tab: ["lessons"]},
+        {id: "createBtn", tab: ["home", "wifi"]},
     ]
 
     buttons.forEach(ele => {
-        if(tabName === ele.tab) {
+        if(ele.tab.includes(tabName)) {
             document.getElementById(ele.id).classList.remove("hidden");
         } else {
             document.getElementById(ele.id).classList.add("hidden");
@@ -132,6 +135,7 @@ function moveToLesson(lessonName, data) {
         lessonElement.addEventListener("click", _ => {
             currCategory = lessonName;
             currLevel = i;
+            isLastLesson = i+1 === data["en"]["categories"][lessonName].length;
             openContent(ele);
         })
     })
@@ -194,6 +198,7 @@ function nextQuestion(questions) {
 }
 
 function setActiveLanguage(lang) {
+    playSound("./assets/sounds/tap.mp3");
     language = lang;
     let langs = ['en', 'ru', 'ro'];
     langs.forEach( ele => {
@@ -203,16 +208,27 @@ function setActiveLanguage(lang) {
             document.getElementById(ele).classList.remove("active");
         }
     })
+    playSound(`./assets/sounds/${lang}.mp3`);
 }
 
 function showResults(total) {
-    document.getElementById("resultsElement").textContent = "You got " + correct + '/' + total + " correct";
+    playSound("./assets/sounds/levelup.mp3")
+    isLastLesson = currLevel+1 === dataSet["en"]["categories"][currCategory].length;
+    let res = document.getElementById("resultsElement");
+    let btn = document.getElementById("resultsNextBtn");
+    res.textContent = "You got " + correct + '/' + total + " correct";
     document.getElementById("resultsHomeBtn").textContent = previewMode ? "End Preview" : "Home";
     openTab("results", 'r');
+    if(!previewMode && !isLastLesson) {
+        btn.style.display = '';
+    } else {
+        btn.style.display = 'none';
+    }
 }
 
 function toggleSoundEffects() {
     soundOn = !soundOn;
+    playSound("./assets/sounds/tap.mp3");
     if(soundOn) {
         document.getElementById("soundOff").style.display = 'none';
         document.getElementById("soundOn").style.display = 'inherit';
@@ -311,6 +327,7 @@ function createLesson() {
         previewMode = true;
     })
     addBtn.addEventListener("click", _ => {
+        console.log(cat);
         dataSet["en"]["categories"][cat].push(obj);
         saveData(dataSet);
         moveToLesson(cat, dataSet);
@@ -336,7 +353,7 @@ function lessonsReturnHandler() {
         openTab("finalCreator", 'l');
         previewMode = false;
     } else {
-        openTab("categories", 'l');
+        goToCategories('l');
     }
 }
 
@@ -351,7 +368,9 @@ function cancelAdding() {
 function catDeleteChangehandler() {
     let cat = document.getElementById("chooseCategoryDelete").value;
     let lessons = dataSet["en"]["categories"][cat].map(ele => ele.title);
-    lessons.forEach((ele, i) => {
+    let lessonDrop = document.getElementById("chooseLessonDelete");
+    lessonDrop.replaceChildren();
+    lessons.forEach(ele => {
         let opt = document.createElement("option");
         opt.textContent = ele;
         opt.value = ele;
@@ -484,7 +503,9 @@ function openProfile() {
     htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${htmlPercentage}%, rgb(153, 153, 153) ${1 - htmlPercentage}%)`;
     htmlPerc.textContent = htmlPercentage+"%";
     if(htmlPercentage === 100) {
-        
+        document.getElementById("htmlImg").src = "./assets/images/treasureOpen.png"
+    } else {
+        document.getElementById("htmlImg").src = "./assets/images/treasure.png"
     }
 
     //css
@@ -495,6 +516,11 @@ function openProfile() {
     let cssPercentage = cssTotal ? Math.floor(cssDone*100/cssTotal) : 0;
     cssBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cssPercentage}%, rgb(153, 153, 153) ${1 - cssPercentage}%)`;
     cssPerc.textContent = cssPercentage+"%";
+    if(cssPercentage === 100) {
+        document.getElementById("cssImg").src = "./assets/images/treasureOpen.png"
+    } else {
+        document.getElementById("cssImg").src = "./assets/images/treasure.png"
+    }
 
     //js
     let jsBar = document.querySelector("#jsLine");
@@ -504,6 +530,11 @@ function openProfile() {
     let jsPercentage = jsTotal ? Math.floor(jsDone*100/jsTotal) : 0;
     jsBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${jsPercentage}%, rgb(153, 153, 153) ${1 - jsPercentage}%)`;
     jsPerc.textContent = jsPercentage+"%";
+    if(jsPercentage === 100) {
+        document.getElementById("jsImg").src = "./assets/images/treasureOpen.png"
+    } else {
+        document.getElementById("jsImg").src = "./assets/images/treasure.png"
+    }
 
     //c
     let cBar = document.querySelector("#cLine");
@@ -513,6 +544,11 @@ function openProfile() {
     let cPercentage = cTotal ? Math.floor(cDone*100/cTotal) : 0;
     cBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cPercentage}%, rgb(153, 153, 153) ${1 - cPercentage}%)`;
     cPerc.textContent = cPercentage+"%";
+    if(cPercentage === 100) {
+        document.getElementById("cImg").src = "./assets/images/treasureOpen.png"
+    } else {
+        document.getElementById("cImg").src = "./assets/images/treasure.png"
+    }
 
     //cpp
     let cppBar = document.querySelector("#cppLine");
@@ -522,6 +558,11 @@ function openProfile() {
     let cppPercentage = cppTotal ? Math.floor(cppDone*100/cppTotal) : 0;
     cppBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cppPercentage}%, rgb(153, 153, 153) ${1 - cppPercentage}%)`;
     cppPerc.textContent = cppPercentage+"%";
+    if(cppPercentage === 100) {
+        document.getElementById("cppImg").src = "./assets/images/treasureOpen.png"
+    } else {
+        document.getElementById("cppImg").src = "./assets/images/treasure.png"
+    }
 
     //python
     let pythonBar = document.querySelector("#pythonLine");
@@ -531,10 +572,64 @@ function openProfile() {
     let pythonPercentage = pythonTotal ? Math.floor(pythonDone*100/pythonTotal) : 0;
     pythonBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${pythonPercentage}%, rgb(153, 153, 153) ${1 - pythonPercentage}%)`;
     pythonPerc.textContent = pythonPercentage+"%";
-
-
-
+    if(pythonPercentage === 100) {
+        document.getElementById("pythonImg").src = "./assets/images/treasureOpen.png"
+    } else {
+        document.getElementById("pythonImg").src = "./assets/images/treasure.png"
+    }
     openTab("profile", 'r');
+}
+
+function toggleWifiMode(oldTab) {
+    let btn = document.getElementById("wifiModeBtn");
+    if(offlineMode) {
+        btn.textContent = "Offline mode";
+    } else {
+        btn.textContent = "Online mode";
+    }
+    console.log(offlineMode);
+    offlineMode = !offlineMode;
+    openTab(oldTab, 'l');
+}
+
+function nextLesson() {
+    openContent(dataSet["en"]["categories"][currCategory][currLevel+1], 'r');
+    currLevel++;
+}
+
+function playSound(soundPath) {
+    if(!soundOn) return;
+    var audio = new Audio(soundPath);
+    audio.play();
+}
+
+function mute() {
+    soundOn = false;
+}
+
+function unMute() {
+    soundOn = true;
+}
+
+function goToCategories(dir) {
+    let cats = ['html', 'css', 'js', 'python', 'c', 'c++'];
+    cats.forEach(e => {
+        let len = dataSet["en"]["categories"][e].length;
+        let ele = document.getElementById(e);
+        if(len < 1) {
+            ele.classList.add("categoryLocked");
+            let img = document.createElement("img");
+            img.src = "./assets/images/lock.png";
+            img.classList.add("catLockImg");
+            img.id = e + 'l';
+            ele.append(img);
+        } else {
+            ele.classList.remove("categoryLocked");
+            let lock = document.getElementById(e+'l');
+            if(lock) lock.remove();
+        }
+    })
+    openTab("categories", dir);
 }
 
 window.openTab = openTab;
@@ -555,6 +650,9 @@ window.addQuestion = addQuestion;
 window.resultsHome = resultsHome;
 window.resetProgression = resetProgression;
 window.openProfile = openProfile;
+window.toggleWifiMode = toggleWifiMode;
+window.nextLesson = nextLesson;
+window.goToCategories = goToCategories;
 window.dataSet = dataSet;
 
-export { openTab, fetchData, getData, loadProgression };
+export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute };
