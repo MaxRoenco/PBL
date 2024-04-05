@@ -329,7 +329,7 @@
                 <div class="option" onclick="openTab('question2')">AMAZING</div>
             </div>
         </div>
-        <div class="container" data-tab="question1">
+        <div class="container questionContainer" data-tab="question1">
             <div class="questionTitleBlock">
                 <h1 id="questionNum1" class="questionNum">Question 2</h1>
             </div>
@@ -344,11 +344,17 @@
         </div>
 
         <!-- RESULTS TAB -->
-        <div class="container" data-tab="results">
-            <h1 style="font-size: 2rem; text-align: center;">Results:</h1>
-            <h1 id="resultsElement" style="font-size: 2rem; text-align: center;"></h1>
-            <div class="button" onclick="resultsHome()" id="resultsHomeBtn">Home</div>
-            <div class="button" onclick="nextLesson()" id="resultsNextBtn">Next Level</div>
+        <div class="container resultContainer" data-tab="results">
+            <h1 class="title">Results:</h1>
+            <div class="circuitDiagram">
+                <p class="text2">25%</p>
+            </div>
+            <h1 id="resultsElement" class="text2">You got 0/5</h1>
+            <div class="buttons">
+                <div class="button results" onclick="resultsHome()" id="resultsHomeBtn">Home</div>
+                <div class="button results" onclick="nextLesson()" id="resultsNextBtn">Next Level</div>
+
+            </div>
         </div>
 
 

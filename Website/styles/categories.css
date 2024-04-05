@@ -118,6 +118,7 @@
     position: relative;
     pointer-events: none;
 }
+
 .catLockImg {
     display: none;
 }
@@ -127,7 +128,7 @@
     width: 100px !important;
     position: absolute;
     top: 20%;
-    transform: rotateZ(45deg) translateX(10px);
+    transform: rotateZ(45deg) translateX(10px) translateY(-0px);
 }
 
 .categoryLocked.active .catLockImg {
