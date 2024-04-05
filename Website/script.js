@@ -12,12 +12,15 @@ let progression = {
     "python": 0,
     "c":0,
     "c++": 0,
+    "diamonds": 0,
+    "hearts": 0
 }
 
 let currCategory = "";
 let currLevel = 0;
 let offlineMode = false;
 let isLastLesson = false;
+let numberOfQuestions = 0;
 
 function loadProgression() {
     let loadedProgress = localStorage.getItem("progress");
@@ -41,6 +44,8 @@ function resetProgression() {
         "python": 0,
         "c":0,
         "c++": 0,
+        "diamonds": 0,
+        "hearts": 0
     }
     progression = newProgression;
     localStorage.setItem("progress", JSON.stringify(newProgression));
@@ -88,6 +93,21 @@ function openTab(tabName, dir) {
         }, 15)
     }, 250)
     currentTab = tabName;
+
+    if(tabName === 'categories') {
+        let cats = ['html', 'css', 'js', 'python', 'c', 'c++'];
+        cats.forEach(e => {
+            let len = dataSet["en"]["categories"][e].length;
+            let ele = document.getElementById(e);
+            if(len < 1) {
+                ele.classList.add("categoryLocked");
+            } else {
+                ele.classList.remove("categoryLocked");
+            }
+        })
+    } else if(tabName === 'removeLesson') {
+        catDeleteChangehandler();
+    }
 }
 
 async function fetchData() {
@@ -97,9 +117,7 @@ async function fetchData() {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        dataSet = data;
-        window.dataSet = dataSet;
-        saveData(dataSet);
+        saveData(data);
         catDeleteChangehandler();
     } catch (error) {
         console.error('Error fetching JSON:', error);
@@ -135,6 +153,7 @@ function moveToLesson(lessonName, data) {
         lessonElement.addEventListener("click", _ => {
             currCategory = lessonName;
             currLevel = i;
+            numberOfQuestions = data["en"]["categories"][lessonName][i]["quiz"].length;
             isLastLesson = i+1 === data["en"]["categories"][lessonName].length;
             openContent(ele);
         })
@@ -149,6 +168,12 @@ function openContent(obj) {
     let button = document.querySelector('#openLesson');
     button = removeAllEventListeners(button);
     button.addEventListener("click", _ => {
+        let btn = document.getElementById("toQuizBtn");
+        if(numberOfQuestions) {
+            btn.textContent = 'Quiz';
+        } else {
+            btn.textContent = 'Finish lesson';
+        }
         openLesson(obj);
     })
 }
@@ -216,7 +241,11 @@ function showResults(total) {
     isLastLesson = currLevel+1 === dataSet["en"]["categories"][currCategory].length;
     let res = document.getElementById("resultsElement");
     let btn = document.getElementById("resultsNextBtn");
-    res.textContent = "You got " + correct + '/' + total + " correct";
+    if(total) {
+        res.textContent = "You got " + correct + '/' + total + " correct";
+    } else {
+        res.textContent = "Lesson complete.";
+    }
     document.getElementById("resultsHomeBtn").textContent = previewMode ? "End Preview" : "Home";
     openTab("results", 'r');
     if(!previewMode && !isLastLesson) {
@@ -309,10 +338,13 @@ function removeAllEventListeners(element) {
 function createLesson() {
     openTab("finalCreator", "r");
     let cat = document.getElementById("chooseCategory").value;
+    let title = document.getElementById("chooseTitle").value;
+    let content = document.getElementById("contentArea").value;
+    let lesson = document.getElementById("lessonArea").value;
     let obj = {
-        "title" : document.getElementById("chooseTitle").value,
-        "content" : document.getElementById("contentArea").value,
-        "lesson" : document.getElementById("lessonArea").value,
+        "title" : title.trim() === '' ? "Untitled" : title.trim(),
+        "content" : content.trim() === '' ? "# Empty introduction" : content,
+        "lesson" : lesson.trim() === '' ? "# Empty lesson" : lesson,
         "quiz" : []
     }
     let addBtn = document.getElementById("addBtn");
@@ -327,7 +359,6 @@ function createLesson() {
         previewMode = true;
     })
     addBtn.addEventListener("click", _ => {
-        console.log(cat);
         dataSet["en"]["categories"][cat].push(obj);
         saveData(dataSet);
         moveToLesson(cat, dataSet);
@@ -353,7 +384,7 @@ function lessonsReturnHandler() {
         openTab("finalCreator", 'l');
         previewMode = false;
     } else {
-        goToCategories('l');
+        openTab("categories", 'l');
     }
 }
 
@@ -386,12 +417,6 @@ function removeLessonHandler() {
     saveData(dataSet);
     openTab("home", 'l');
 }
-
-function openRemoveTab() {
-    catDeleteChangehandler();
-    openTab("removeLesson", 'r');
-}
-
 
 function saveData(obj) {
   localStorage.setItem("dataSet", JSON.stringify(obj));
@@ -587,7 +612,6 @@ function toggleWifiMode(oldTab) {
     } else {
         btn.textContent = "Online mode";
     }
-    console.log(offlineMode);
     offlineMode = !offlineMode;
     openTab(oldTab, 'l');
 }
@@ -611,26 +635,25 @@ function unMute() {
     soundOn = true;
 }
 
-function goToCategories(dir) {
-    let cats = ['html', 'css', 'js', 'python', 'c', 'c++'];
-    cats.forEach(e => {
-        let len = dataSet["en"]["categories"][e].length;
-        let ele = document.getElementById(e);
-        if(len < 1) {
-            ele.classList.add("categoryLocked");
-            let img = document.createElement("img");
-            img.src = "./assets/images/lock.png";
-            img.classList.add("catLockImg");
-            img.id = e + 'l';
-            ele.append(img);
-        } else {
-            ele.classList.remove("categoryLocked");
-            let lock = document.getElementById(e+'l');
-            if(lock) lock.remove();
-        }
-    })
-    openTab("categories", dir);
+function goToStartQuiz(dir) {
+    if(numberOfQuestions) {
+        openTab("quiz", dir);
+    } else {
+        showResults();
+    }
 }
+
+// function updateDiamonds(count) {
+//     updateProgression("diamonds", count);
+//     let profileDiamonds = document.getElementById("diamondsCount")
+//     profileDiamonds.textContent = count;
+// }
+
+// function updateHearts(count) {
+//     updateProgression("hearts", count);
+//     let profileHearts = document.getElementById("heartsCount")
+//     profileHearts.textContent = count;
+// }
 
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
@@ -641,7 +664,6 @@ window.cancelAdding = cancelAdding;
 window.createLesson = createLesson;
 window.catDeleteChangehandler = catDeleteChangehandler;
 window.removeLessonHandler = removeLessonHandler;
-window.openRemoveTab = openRemoveTab;
 window.fetchData = fetchData;
 window.resetDataSet = resetDataSet;
 window.copyJson = copyJson;
@@ -652,7 +674,9 @@ window.resetProgression = resetProgression;
 window.openProfile = openProfile;
 window.toggleWifiMode = toggleWifiMode;
 window.nextLesson = nextLesson;
-window.goToCategories = goToCategories;
+window.goToStartQuiz = goToStartQuiz;
 window.dataSet = dataSet;
+// window.updateDiamonds = updateDiamonds;
+// window.updateHearts = updateHearts;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute };

@@ -118,10 +118,18 @@
     position: relative;
     pointer-events: none;
 }
-
 .catLockImg {
+    display: none;
+}
+
+.categoryLocked .catLockImg {
+    display: block;
     width: 100px !important;
     position: absolute;
     top: 20%;
     transform: rotateZ(45deg) translateX(10px);
+}
+
+.categoryLocked.active .catLockImg {
+    display: none;
 }

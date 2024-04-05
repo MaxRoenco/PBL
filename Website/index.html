@@ -54,7 +54,7 @@
             </div>
             <img src="./assets/images/codify.png" alt="" class="codify">
             <div class="buttonContainer">
-                <button class="button" id="buttonStart" onclick="goToCategories('r')">Start</button>
+                <button class="button" id="buttonStart" onclick="openTab('categories', 'r')">Start</button>
             </div>
         </div>
 
@@ -101,13 +101,13 @@
                             <div class="heart">
                                 <img src="./assets/images/heart.png">
                             </div>
-                            <span class="heartText">5</span>
+                            <span class="heartText" id="heartsCount">5</span>
                         </div>
                         <div class="diamandContainer">
                             <div class="diamand">
                                 <img src="./assets/images/diamands.png">
                             </div>
-                            <span class="diamandText">500</span>
+                            <span class="diamandText" id="diamondsCount">500</span>
                         </div>
                     </div>
                     <div class="avatarContainer">
@@ -219,36 +219,42 @@
         <!-- CATEGORIES TAB -->
         <div class="container" id="categories-container" data-tab="categories">
             <div class="category" onclick="moveToLesson('html', dataSet)" id="html">
+                <img src="./assets/images/lock.png" class="catLockImg">
                 <img src="./assets/images/html.png">
                 <div class="text textCategories">
                     <div class="textC">HTML</div>
                 </div>
             </div>
             <div class="category" onclick="moveToLesson('css', dataSet)" id="css">
+                <img src="./assets/images/lock.png" class="catLockImg">
                 <img src="./assets/images/css.png">
                 <div class="text textCategories">
                     <div class="textC">CSS</div>
                 </div>
             </div>
             <div class="category" onclick="moveToLesson('js', dataSet)" id="js">
+                <img src="./assets/images/lock.png" class="catLockImg">
                 <img src="./assets/images/js.png">
                 <div class="text textCategories">
                     <div class="textC">JavaScript</div>
                 </div>
             </div>
             <div class="category" onclick="moveToLesson('python', dataSet)" id="python">
+                <img src="./assets/images/lock.png" class="catLockImg">
                 <img src="./assets/images/python.png">
                 <div class="text textCategories">
                     <div class="textC">Python</div>
                 </div>
             </div>
             <div class="category" onclick="moveToLesson('c', dataSet)" id="c">
+                <img src="./assets/images/lock.png" class="catLockImg">
                 <img src="./assets/images/c.png">
                 <div class="text textCategories">
                     <div class="textC">C</div>
                 </div>
             </div>
             <div class="category" onclick="moveToLesson('c++', dataSet)" id="c++">
+                <img src="./assets/images/lock.png" class="catLockImg">
                 <img src="./assets/images/c++.png">
                 <div class="text textCategories">
                     <div class="textC">C++</div>
@@ -283,7 +289,7 @@
                 <div class="button contentBTN" onclick="openTab('content', 'l')">
                     <p class="text">&lt; Introduction</p>
                 </div>
-                <div class="button contentBTN" onclick="openTab('quiz', 'r')">
+                <div class="button contentBTN" id="toQuizBtn" onclick="goToStartQuiz('r')">
                     <p class="text">Quiz &gt;</p>
                 </div>
             </div>
@@ -343,7 +349,7 @@
                 <div class="button" onclick="openTab('titleCreator', 'r')">
                     <p class="text">Add a lesson</p>
                 </div>
-                <div class="button" onclick="openRemoveTab()">
+                <div class="button" onclick="openTab('removeLesson', 'r')">
                     <p class="text">Remove a lesson</p>
                 </div>
                 <div class="button" onclick="resetDataSet()">
@@ -485,6 +491,8 @@
             </div>
             <div class="text">Check your internet connection...</div>
         </div>
+
+
 
     </div>
 </body>
