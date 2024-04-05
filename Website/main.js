@@ -1,4 +1,4 @@
-import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute } from './script.js';
+import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts } from './script.js';
 
 let oldTab = currentTab;
 window.oldTab = oldTab;
@@ -53,4 +53,7 @@ window.addEventListener('online', (e) => {
         openTab(oldTab, 'l');
     }
 });
+
+updateDiamonds();
+updateHearts();
   

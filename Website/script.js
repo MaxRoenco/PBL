@@ -32,7 +32,6 @@ function loadProgression() {
 }
 
 function updateProgression(cat, val) {
-    console.log(cat, val);
     progression[cat] = val;
     localStorage.setItem("progress", JSON.stringify(progression));
 }
@@ -649,17 +648,27 @@ function backToLessons() {
     moveToLesson(currCategory, dataSet);
 }
 
-// function updateDiamonds(count) {
-//     updateProgression("diamonds", count);
-//     let profileDiamonds = document.getElementById("diamondsCount")
-//     profileDiamonds.textContent = count;
-// }
+function updateDiamonds(count) {
+    if(count === undefined) {
+        updateDiamonds(progression["diamonds"]);
+        return;
+    }
+    let diff = count - progression["diamonds"];
+    updateProgression("diamonds", count);
+    let profileDiamonds = document.getElementById("diamondsCount")
+    profileDiamonds.textContent = count;
+}
 
-// function updateHearts(count) {
-//     updateProgression("hearts", count);
-//     let profileHearts = document.getElementById("heartsCount")
-//     profileHearts.textContent = count;
-// }
+function updateHearts(count) {
+    if(count === undefined) {
+        updateHearts(progression["hearts"]);
+        return;
+    }
+    let diff = count - progression["hearts"];
+    updateProgression("hearts", count);
+    let profileHearts = document.getElementById("heartsCount")
+    profileHearts.textContent = count;
+}
 
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
@@ -683,7 +692,7 @@ window.nextLesson = nextLesson;
 window.goToStartQuiz = goToStartQuiz;
 window.backToLessons = backToLessons;
 window.dataSet = dataSet;
-// window.updateDiamonds = updateDiamonds;
-// window.updateHearts = updateHearts;
+window.updateDiamonds = updateDiamonds;
+window.updateHearts = updateHearts;
 
-export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute };
+export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts};
