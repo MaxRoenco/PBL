@@ -32,6 +32,7 @@ function loadProgression() {
 }
 
 function updateProgression(cat, val) {
+    console.log(cat, val);
     progression[cat] = val;
     localStorage.setItem("progress", JSON.stringify(progression));
 }
@@ -252,6 +253,9 @@ function showResults(total) {
         btn.style.display = '';
     } else {
         btn.style.display = 'none';
+    }
+    if(currLevel >= progression[currCategory] && !previewMode) {
+        updateProgression(currCategory, currLevel+1);
     }
 }
 
@@ -510,9 +514,6 @@ function resultsHome() {
         openTab('finalCreator', 'l');
     } else {
         openTab('home', 'l');
-        if(currLevel >= +progression[currCategory]) {
-            updateProgression(currCategory, currLevel+1);
-        }
     }
     previewMode = false;
 }
@@ -617,8 +618,9 @@ function toggleWifiMode(oldTab) {
 }
 
 function nextLesson() {
-    openContent(dataSet["en"]["categories"][currCategory][currLevel+1], 'r');
     currLevel++;
+    openContent(dataSet["en"]["categories"][currCategory][currLevel], 'r');
+    numberOfQuestions = dataSet["en"]["categories"][currCategory][currLevel]["quiz"].length;
 }
 
 function playSound(soundPath) {
@@ -641,6 +643,10 @@ function goToStartQuiz(dir) {
     } else {
         showResults();
     }
+}
+
+function backToLessons() {
+    moveToLesson(currCategory, dataSet);
 }
 
 // function updateDiamonds(count) {
@@ -675,6 +681,7 @@ window.openProfile = openProfile;
 window.toggleWifiMode = toggleWifiMode;
 window.nextLesson = nextLesson;
 window.goToStartQuiz = goToStartQuiz;
+window.backToLessons = backToLessons;
 window.dataSet = dataSet;
 // window.updateDiamonds = updateDiamonds;
 // window.updateHearts = updateHearts;
