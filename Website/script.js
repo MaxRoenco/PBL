@@ -754,7 +754,9 @@ function showAnswers() {
         let answerDiv = document.createElement("div");
         answerDiv.classList.add("answersAnswer");
         let question = document.createElement("h2");
+        question.classList.add("answersQuestion");
         let answer = document.createElement("h2");
+        question.classList.add("answersCorrect");
         question.textContent = ele["question"];
         answer.textContent = "Answer: " + ele["options"][+ele["correctAnswer"]];
         answerDiv.append(question, answer);
