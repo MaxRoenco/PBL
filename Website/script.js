@@ -21,6 +21,7 @@ let currLevel = 0;
 let offlineMode = false;
 let isLastLesson = false;
 let numberOfQuestions = 0;
+let swipeOn = true;
 
 function loadProgression() {
     let loadedProgress = localStorage.getItem("progress");
@@ -702,7 +703,21 @@ function showAnswers() {
     });
 }
 
+function toggleSwipe() {
+    swipeOn = !swipeOn;
+    let on = document.getElementById("swipeOn");
+    let off = document.getElementById("swipeOff");
+    if(swipeOn) {
+        on.style.display = 'inherit';
+        off.style.display = 'none';
+    } else {
+        off.style.display = 'inherit';
+        on.style.display = 'none';
+    }
+}
+
 function goLeft() {
+    if(!swipeOn) return;
     if(currentTab === 'home') {
         openTab('settings', 'l');
     } else if(currentTab === 'categories') {
@@ -738,6 +753,7 @@ function goLeft() {
 }
 
 function goRight() {
+    if(!swipeOn) return;
     if(currentTab === 'home') {
         openProfile();
     } else if(currentTab === 'settings') {
@@ -786,5 +802,6 @@ window.dataSet = dataSet;
 window.updateDiamonds = updateDiamonds;
 window.updateHearts = updateHearts;
 window.showAnswers = showAnswers;
+window.toggleSwipe = toggleSwipe;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners};

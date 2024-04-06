@@ -1,6 +1,6 @@
 .containerSettings {
     width: 60%;
-    height: 70%;
+    height: 90%;
     background-color: #2D3250;
     border-radius: 40px;
     border: solid rgb(255, 255, 255) 4px;
@@ -105,11 +105,11 @@
 
 .soundEffectsOnImageContainer,
 .soundEffectsOffImageContainer {
-    width: 50%;
+    width: 35%;
     min-width: 100px;
     max-width: 200px;
     transition: filter 0.5s ease;
-    margin-left: -70px;
+    /* margin-left: -50px; */
 }
 
 .soundEffectsOffImageContainer {
@@ -143,14 +143,14 @@
 @media (max-width: 1100px) {
     .containerSettings {
         width: 70%;
-        height: 70%;
+        /* height: 70%; */
     }
 }
 
 @media (max-width: 600px) {
     .containerSettings {
         width: 80%;
-        height: 60%;
+        /* height: 60%; */
     }
 
     .titleSettings {
