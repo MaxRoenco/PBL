@@ -370,36 +370,36 @@
         </div>
 
         <!-- CREATOR TAB -->
-        <div class="container" data-tab="actions">
+        <div class="container creatorTab" data-tab="actions">
             <h1 id="title" style="font-size: 2.5rem;">Choose an action</h1>
 
             <div class="contentButtons verticalButtons">
-                <div class="button" onclick="openTab('titleCreator', 'r')">
+                <div class="creatorButton" onclick="openTab('titleCreator', 'r')">
                     <p class="text">Add a lesson</p>
                 </div>
-                <div class="button" onclick="openTab('removeLesson', 'r')">
+                <div class="creatorButton" onclick="openTab('removeLesson', 'r')">
                     <p class="text">Remove a lesson</p>
                 </div>
-                <div class="button" onclick="resetDataSet()">
+                <div class="creatorButton" onclick="resetDataSet()">
                     <p class="text">Reset data set</p>
                 </div>
-                <div class="button" onclick="resetProgression()">
+                <div class="creatorButton" onclick="resetProgression()">
                     <p class="text">Reset progression</p>
                 </div>
-                <div class="button" onclick="copyJson()">
+                <div class="creatorButton" onclick="copyJson()">
                     <p class="text">Copy JSON object into clipboard</p>
                 </div>
-                <div class="button" onclick="toggleWifiMode(oldTab)">
+                <div class="creatorButton" onclick="toggleWifiMode(oldTab)">
                     <p class="text" id="wifiModeBtn">Offline mode</p>
                 </div>
-                <div class="button" onclick="cancelAdding()">
+                <div class="creatorButton" onclick="cancelAdding()">
                     <p class="text">Home</p>
                 </div>
             </div>
         </div>
-        <div class="container" data-tab="titleCreator">
+        <div class="container creatorTab" data-tab="titleCreator">
             <h1 id="title" style="font-size: 2.5rem;">Choose the category of the lesson</h1>
-            <select id="chooseCategory">
+            <select id="chooseCategory" class="chooseCategory">
                 <option value="html">HTML</option>
                 <option value="css">CSS</option>
                 <option value="js">JS</option>
@@ -408,41 +408,41 @@
                 <option value="c++">C++</option>
             </select>
             <h1 id="title" style="font-size: 2.5rem;">Enter the title of the lesson</h1>
-            <input type="text" id="chooseTitle">
+            <input type="text" id="chooseTitle" class="chooseTitle text2">
             <div class="contentButtons">
-                <div class="button" onclick="openTab('actions', 'l')">
+                <div class="creatorButton" onclick="openTab('actions', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" onclick="openTab('contentCreator', 'r')">
+                <div class="creatorButton" onclick="openTab('contentCreator', 'r')">
                     <p class="text">Next &gt;</p>
                 </div>
             </div>
         </div>
-        <div class="container" data-tab="contentCreator">
+        <div class="container creatorTab" data-tab="contentCreator">
             <h1 id="title" style="font-size: 2.5rem;">Enter the content of the introduction:</h1>
-            <textarea name="" id="contentArea" cols="80" rows="20"></textarea>
+            <textarea name="" id="contentArea" cols="60" rows="20"></textarea>
             <div class="contentButtons">
-                <div class="button" onclick="openTab('titleCreator', 'l')">
+                <div class="creatorButton" onclick="openTab('titleCreator', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" onclick="openTab('lessonCreator', 'r')">
+                <div class="creatorButton" onclick="openTab('lessonCreator', 'r')">
                     <p class="text">Next &gt;</p>
                 </div>
             </div>
         </div>
-        <div class="container" data-tab="lessonCreator">
+        <div class="container creatorTab" data-tab="lessonCreator">
             <h1 id="title" style="font-size: 2.5rem;">Enter the content of the lesson:</h1>
             <textarea name="" id="lessonArea" cols="80" rows="20"></textarea>
             <div class="contentButtons">
-                <div class="button" onclick="openTab('contentCreator', 'l')">
+                <div class="creatorButton" onclick="openTab('contentCreator', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" onclick="openTab('quizCreator', 'r')">
+                <div class="creatorButton" onclick="openTab('quizCreator', 'r')">
                     <p class="text">Next</p>
                 </div>
             </div>
         </div>
-        <div class="container" data-tab="quizCreator">
+        <div class="container creatorTab" data-tab="quizCreator">
             <div class="questionThing">
                 <h1>Add a question</h2>
                     <h3>The question: <input type="text" id="addQuestionInput"></h3>
@@ -461,10 +461,10 @@
             </div>
             <div id="allQuestions"></div>
             <div class="contentButtons">
-                <div class="button" onclick="openTab('lessonCreator', 'l')">
+                <div class="creatorButton" onclick="openTab('lessonCreator', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" onclick="createLesson()">
+                <div class="creatorButton" onclick="createLesson()">
                     <p class="text">Next</p>
                 </div>
             </div>
@@ -486,9 +486,9 @@
                 </div>
             </div>
         </div>
-        <div class="container" data-tab="removeLesson">
+        <div class="container creatorTab" data-tab="removeLesson">
             <h1 style="font-size: 2.5rem;">Remove from what category?</h1>
-            <select id="chooseCategoryDelete" onchange="catDeleteChangehandler()">
+            <select id="chooseCategoryDelete" class="chooseCategory" onchange="catDeleteChangehandler()">
                 <option value="html">HTML</option>
                 <option value="css">CSS</option>
                 <option value="js">JS</option>
@@ -497,12 +497,12 @@
                 <option value="c++">C++</option>
             </select>
             <h1 style="font-size: 2.5rem;">What lesson to remove?</h1>
-            <select id="chooseLessonDelete"></select>
+            <select id="chooseLessonDelete" class="chooseCategory"></select>
             <div class="contentButtons">
-                <div class="button" onclick="openTab('actions', 'l')">
+                <div class="creatorButton" onclick="openTab('actions', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
-                <div class="button" onclick="removeLessonHandler()">
+                <div class="creatorButton" onclick="removeLessonHandler()">
                     <p class="text">Remove</p>
                 </div>
             </div>
