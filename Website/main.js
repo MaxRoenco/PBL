@@ -2,11 +2,11 @@ import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMut
 mute()
 let oldTab = currentTab;
 window.oldTab = oldTab;
+let isRegistered = localStorage.getItem("registered") || false;
 
 setTimeout(() => {
     document.body.style.opacity = "1";
 }, 500);
-
 
 let tabs = document.getElementById("tabs").children;
 Array.from(tabs).forEach(ele => {
@@ -25,7 +25,12 @@ buttons.forEach(ele => {
     document.getElementById(ele.id).classList.add("hidden");
 })
 
-openTab("register");
+if(isRegistered) {
+    openTab("home");
+} else {
+    openTab("register")
+}
+
 getData();
 loadProgression();
 loadSettings();
@@ -88,6 +93,14 @@ function trackDragDirection() {
         hasDirectionBeenTriggered = false;
     });
 }
+
+function register() {
+    isRegistered = true;
+    localStorage.setItem("registered", true);
+    openTab("home");
+}
+
+window.register = register;
 trackDragDirection();
 unMute()
 
