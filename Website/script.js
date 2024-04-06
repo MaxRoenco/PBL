@@ -103,7 +103,14 @@ function openTab(tabName, dir) {
         })
     } else if(tabName === 'removeLesson') {
         catDeleteChangehandler();
+    } else if(tabName === 'profile') {
+        setTimeout(_=> {
+            document.querySelector(".sidesProfile").scrollTo(0,0);
+        }, 500)
     }
+    setTimeout(_=> {
+        next.scrollTo(0,0);
+    }, 500)
 }
 
 async function fetchData() {
