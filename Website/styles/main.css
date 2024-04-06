@@ -66,6 +66,14 @@ body {
     font-size: 28px;
 }
 
+.text2 {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 28px;
+    z-index: 1;
+}
+
 .textLittle {
     font-family: "Cormorant Garamond", serif;
     font-weight: 700;

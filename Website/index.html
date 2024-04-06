@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codify</title>
+    <title>Document</title>
+    <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/categories.css">
     <link rel="stylesheet" href="./styles/home.css">
@@ -127,42 +129,48 @@
                                 <img src="./assets/images/html.png">
                                 <div class="text">HTML</div>
                             </div>
-                            <div class="statisticsLine" id="htmlLine"><span id="htmlPerc"></span><img src="./assets/images/treasure.png" id="htmlImg"></div>
+                            <div class="statisticsLine" id="htmlLine"><span id="htmlPerc"></span><img
+                                    src="./assets/images/treasure.png" id="htmlImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/css.png">
                                 <div class="text">CSS</div>
                             </div>
-                            <div class="statisticsLine" id="cssLine"><span id="cssPerc"></span><img src="./assets/images/treasure.png" id="cssImg"></div>
+                            <div class="statisticsLine" id="cssLine"><span id="cssPerc"></span><img
+                                    src="./assets/images/treasure.png" id="cssImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/js.png" alt="">
                                 <div class="text">JavaScript</div>
                             </div>
-                            <div class="statisticsLine" id="jsLine"><span id="jsPerc"></span><img src="./assets/images/treasure.png"  id="jsImg"></div>
+                            <div class="statisticsLine" id="jsLine"><span id="jsPerc"></span><img
+                                    src="./assets/images/treasure.png" id="jsImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/python.png">
                                 <div class="text">Python</div>
                             </div>
-                            <div class="statisticsLine" id="pythonLine"><span id="pythonPerc"></span><img src="./assets/images/treasure.png" id="pythonImg"></div>
+                            <div class="statisticsLine" id="pythonLine"><span id="pythonPerc"></span><img
+                                    src="./assets/images/treasure.png" id="pythonImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/c.png">
                                 <div class="text">C</div>
                             </div>
-                            <div class="statisticsLine" id="cLine"><span id="cPerc"></span><img src="./assets/images/treasure.png"  id="cImg"></div>
+                            <div class="statisticsLine" id="cLine"><span id="cPerc"></span><img
+                                    src="./assets/images/treasure.png" id="cImg"></div>
                         </div>
                         <div class="statsBlock">
                             <div class="leftStat">
                                 <img src="./assets/images/c++.png">
                                 <div class="text">C++</div>
                             </div>
-                            <div class="statisticsLine" id="cppLine"><span id="cppPerc"></span><img src="./assets/images/treasure.png"  id="cppImg"></div>
+                            <div class="statisticsLine" id="cppLine"><span id="cppPerc"></span><img
+                                    src="./assets/images/treasure.png" id="cppImg"></div>
                         </div>
                     </div>
                 </div>
@@ -309,37 +317,45 @@
         </div>
 
         <!-- QUESTION TAB -->
-        <div class="container" data-tab="question0">
-            <h1 id="questionNum0" style="font-size: 2rem;">Question 1</h1>
-            <h1 id="questionText0" style="font-size: 2.5rem;">How are you today?</h1>
-            <div id="options0" style="display: flex; justify-content: space-evenly; width: 100%;">
-                <div class="button option" onclick="openTab('question2')">VERY BAD</div>
-                <div class="button option" onclick="openTab('question2')">Bad</div>
-                <div class="button option" onclick="openTab('question2')">Meh</div>
-                <div class="button option" onclick="openTab('question2')">good</div>
-                <div class="button option" onclick="openTab('question2')">AMAZING</div>
+        <div class="container questionContainer" data-tab="question0">
+            <div class="questionTitleBlock">
+                <h1 id="questionNum0" class="questionNum text">Question 1</h1>
+            </div>
+            <h1 id="questionText0" class="questionText text">How are you today?</h1>
+            <div id="options0" class="optionsBlock">
+                <div class="option" onclick="openTab('question2')">VERY BAD</div>
+                <div class="option" onclick="openTab('question2')">Bad</div>
+                <div class="option" onclick="openTab('question2')">Meh</div>
+                <div class="option" onclick="openTab('question2')">good</div>
+                <div class="option" onclick="openTab('question2')">AMAZING</div>
             </div>
         </div>
-        <div class="container" data-tab="question1">
-            <h1 id="questionNum1" style="font-size: 2rem; text-align: center;">Question 2</h1>
-            <h1 id="questionText1" style="font-size: 2.5rem; text-align: center;">How is your mom?</h1>
-            <div id="options1" style="display: flex; justify-content: space-evenly; width: 100%;">
-                <div class="button option" onclick="openTab('question1')">VERY FAT</div>
-                <div class="button option" onclick="openTab('question1')">Fat</div>
-                <div class="button option" onclick="openTab('question1')">Fatty</div>
-                <div class="button option" onclick="openTab('question1')">Too fat</div>
-                <div class="button option" onclick="openTab('question1')">Extra fat</div>
+        <div class="container questionContainer" data-tab="question1">
+            <div class="questionTitleBlock">
+                <h1 id="questionNum1" class="questionNum">Question 2</h1>
+            </div>
+            <h1 id="questionText1" class="questionText text">How is your mom?</h1>
+            <div id="options1" class="optionsBlock">
+                <div class="option" onclick="openTab('question1')">VERY FAT</div>
+                <div class="option" onclick="openTab('question1')">Fat</div>
+                <div class="option" onclick="openTab('question1')">Fatty</div>
+                <div class="option" onclick="openTab('question1')">Too fat</div>
+                <div class="option" onclick="openTab('question1')">Extra fat</div>
             </div>
         </div>
 
         <!-- RESULTS TAB -->
-        <div class="container" data-tab="results">
-            <h1 style="font-size: 2rem; text-align: center;">Results:</h1>
-            <h1 id="resultsElement" style="font-size: 2rem; text-align: center;"></h1>
-            <div id="buttonContainer">
-                <div class="button" onclick="resultsHome()" id="resultsHomeBtn">Home</div>
+
+        <div class="container resultContainer" data-tab="results">
+            <h1 class="title">Results:</h1>
+            <div class="circuitDiagram">
+                <p class="text2">25%</p>
+            </div>
+            <h1 id="resultsElement" class="text2">You got 0/5</h1>
+            <div class="buttons">
+                <div class="button results" onclick="resultsHome()" id="resultsHomeBtn">Home</div>
                 <div class="button" onclick="showAnswers()">Show answers</div>
-                <div class="button" onclick="nextLesson()" id="resultsNextBtn">Next Level</div>
+                <div class="button results" onclick="nextLesson()" id="resultsNextBtn">Next Level</div>
             </div>
         </div>
 
