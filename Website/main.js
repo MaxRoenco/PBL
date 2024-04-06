@@ -93,14 +93,6 @@ function trackDragDirection() {
         hasDirectionBeenTriggered = false;
     });
 }
-
-function register() {
-    isRegistered = true;
-    localStorage.setItem("registered", true);
-    openTab("home");
-}
-
-window.register = register;
 trackDragDirection();
 unMute()
 

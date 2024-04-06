@@ -16,6 +16,7 @@ let defaultProgression = {
     "language": 'en',
     "soundOn": true,
     "swipeOn": true,
+    "username": '',
 }
 let progression = JSON.parse(JSON.stringify(defaultProgression));
 let currCategory = "";
@@ -841,6 +842,18 @@ function goRight() {
     }
 }
 
+function register() {
+    let username = document.getElementById("usernameInput").value;
+    if(username.trim() === "") {
+        notify("Please enter a username");
+        return;
+    };
+    updateProgression("username", username);
+    document.getElementById("profileUsername").textContent = username;
+    localStorage.setItem("registered", true);
+    openTab("home");
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
@@ -868,5 +881,6 @@ window.updateHearts = updateHearts;
 window.showAnswers = showAnswers;
 window.toggleSwipe = toggleSwipe;
 window.updateProgression = updateProgression;
+window.register = register;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
