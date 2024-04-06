@@ -308,7 +308,7 @@ function compileLesson(string, parent) {
             }
         } else if(string[i] === '$') {
             element = document.createElement("div");
-            img = document.createElement("img");
+            let img = document.createElement("img");
             let s = ""
             i++;
             while(string[i] !== '\n' && i < string.length) {
