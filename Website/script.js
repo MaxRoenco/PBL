@@ -246,12 +246,13 @@ function showResults(total) {
     let cir = document.querySelector(".circuitDiagram");
     let per = document.getElementById("resultsPercent");
     let showBtn = document.getElementById("resultsShowBtn");
+    let completedQuiz = correct/total > 0.5 || !total;
     if(total) {
         res.textContent = "You got " + correct + '/' + total + " correct";
         cir.style.background = `conic-gradient(white ${Math.floor(correct*360/total)}deg, rgb(255, 255, 255, 0.1) 0deg)`;
         per.textContent = `${Math.floor(correct*100/total)}%`
         cir.style.display = '';
-        if(currLevel === progression[currCategory] && !previewMode) {
+        if(currLevel === progression[currCategory] && !previewMode && completedQuiz) {
             updateDiamonds(progression["diamonds"]+100);
         }
     } else {
@@ -260,12 +261,12 @@ function showResults(total) {
     }
     document.getElementById("resultsHomeBtn").textContent = previewMode ? "End Preview" : "Home";
     openTab("results", 'r');
-    if(!previewMode && !isLastLesson) {
+    if(!previewMode && !isLastLesson && completedQuiz) {
         btn.style.display = '';
     } else {
-        btn.style.display = 'none';     
+        btn.style.display = 'none';
     }
-    if(currLevel >= progression[currCategory] && !previewMode) {
+    if(currLevel >= progression[currCategory] && !previewMode && completedQuiz) {
         updateProgression(currCategory, currLevel+1);
     }
     if(dataSet["en"]["categories"][currCategory][currLevel]["quiz"].length) {
