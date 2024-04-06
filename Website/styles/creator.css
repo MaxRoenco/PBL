@@ -49,6 +49,7 @@
     width: 80%;
     border: white 3px solid;
     padding: 30px;
+    margin-top: 10px;
 }
 
 .creatorAddAnswer {
@@ -150,16 +151,50 @@
     margin: 20px 0px 20px 0px;
 }
 
-.addedQuestion {}
+.addedQuestion {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+}
 
-.addedAnswer {}
+.addedAnswer {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+}
 
-.addedCorrect {}
+.addedCorrect {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+}
 
-.addedUl {}
+.addedUl {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin-left: 30px;
+}
 
-.addedBtn {}
+.addedBtn {
+    outline: none;
+    padding: 5px 20px;
+    border: 3px solid white;
+    background: transparent;
+    color: white;
+    margin: 10px 0px 10px 0px;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+}
 
+
+.addedBtn:hover,
 .creatorQuizButton:hover,
 .removeAnswerBtn:hover {
     cursor: pointer;
