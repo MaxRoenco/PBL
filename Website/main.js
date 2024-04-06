@@ -76,6 +76,7 @@ function trackDragDirection() {
     let isDragging = false;
     let hasDirectionBeenTriggered = false;
     let startX = null;
+    let sensitivity = 200;
 
     document.addEventListener("mousedown", function(event) {
         isDragging = true;
@@ -89,10 +90,10 @@ function trackDragDirection() {
         const currentX = event.pageX;
         const deltaX = currentX - startX;
 
-        if (deltaX > 0) {
+        if (deltaX > sensitivity) {
             goLeft()
             hasDirectionBeenTriggered = true;
-        } else if (deltaX < 0) {
+        } else if (deltaX < -sensitivity) {
             goRight()
             hasDirectionBeenTriggered = true;
         }
@@ -105,4 +106,5 @@ function trackDragDirection() {
     });
 }
 trackDragDirection();
+
 
