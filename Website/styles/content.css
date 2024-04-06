@@ -3,7 +3,8 @@
     font-family: sans-serif;
     width: 90%;
     height: 90%;
-    max-width: 800px;
+    max-width: 1200px;
+    overflow-y: scroll;
 }
 
 .contentContainer>.button {
@@ -18,8 +19,12 @@
 }
 
 #textContent {
-    padding: 30px;
-    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 20px;
+    font-size: 14px;
 }
 
 #textContent>img {
@@ -31,8 +36,35 @@
     overflow-y: scroll;
 }
 
-#textLesson>img {
-    width: 400px;
+#textContent>h1 {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+}
+
+#textContent>h2 {
+    font-family: "Trebuchet MS", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 26px;
+}
+
+#textContent>img {
+    width: 300px;
+    border: 3px solid;
+    border-radius: 20px;
+    box-shadow: 2px 3px 4px 1px black;
+}
+
+#textContent>code {
+    width: 100%;
+    background: black;
+    padding: 15px;
+    border: 3px solid white;
+    border-radius: 5px;
+    box-shadow: 2px 4px 10px black;
+    font-size: 18px;
 }
 
 .contentButtons {

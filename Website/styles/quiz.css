@@ -37,6 +37,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(45deg, transparent, #5e6aac, transparent);
     font-size: 20px;
     border: 3px solid white;
     margin-bottom: 20px;
@@ -111,15 +112,16 @@
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 28px !important;
-    color: #2D3250;
+    font-size: 24px;
+    color: #a5abd1;
 }
 
 .answersCorrect {
     font-family: "Cormorant Garamond", serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 6px;
+    font-size: 20px;
+    color: #000000;
 }
 
 @media (max-width: 500px) {
