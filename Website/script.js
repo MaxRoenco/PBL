@@ -1,5 +1,4 @@
 let dataSet = {};
-let language = 'en';
 let soundOn = true;
 let currentTab = "home";
 let questionIndex = 0;
@@ -13,7 +12,7 @@ let defaultProgression = {
     "c":0,
     "c++": 0,
     "diamonds": 0,
-    "hearts": 0
+    "hearts": 0,
 }
 let progression = JSON.parse(JSON.stringify(defaultProgression));
 let currCategory = "";
@@ -23,6 +22,33 @@ let isLastLesson = false;
 let numberOfQuestions = 0;
 let swipeOn = true;
 let previewQuestions = [];
+let settings = {
+    "language": 'en',
+    "soundOn": true,
+    "swipeOn": true,
+}
+
+function loadSettings() {
+    let loadedSettings = localStorage.getItem("settings");
+    if(!loadedSettings) {
+        localStorage.setItem("settings", JSON.stringify(settings));
+    } else {
+        settings = JSON.parse(loadedSettings);
+    }
+    setActiveLanguage(settings["language"]);
+    console.log(soundOn, settings[soundOn]);
+    if(soundOn !== settings["soundOn"]) {
+        toggleSoundEffects();
+    }
+    if(swipeOn !== settings["swipeOn"]) {
+        toggleSwipe();
+    }
+}
+
+function updateSettings(setting, val) {
+    settings[setting] = val;
+    localStorage.setItem("settings", JSON.stringify(settings));
+}
 
 function loadProgression() {
     let loadedProgress = localStorage.getItem("progress");
@@ -216,7 +242,7 @@ function nextQuestion(questions) {
 
 function setActiveLanguage(lang) {
     playSound("./assets/sounds/tap.mp3");
-    language = lang;
+    updateSettings("language", lang);
     let langs = ['en', 'ru', 'ro'];
     langs.forEach( ele => {
         if(lang == ele) {
@@ -268,6 +294,7 @@ function showResults(total) {
 
 function toggleSoundEffects() {
     soundOn = !soundOn;
+    updateSettings("soundOn", soundOn);
     playSound("./assets/sounds/tap.mp3");
     if(soundOn) {
         document.getElementById("soundOff").style.display = 'none';
@@ -725,7 +752,7 @@ function showAnswers() {
     }
     questions.forEach(ele => {
         let answerDiv = document.createElement("div");
-        answerDiv.setAttribute("style", "border: white solid 3px; padding: 10px;");
+        answerDiv.classList.add("answersAnswer");
         let question = document.createElement("h2");
         let answer = document.createElement("h2");
         question.textContent = ele["question"];
@@ -737,6 +764,7 @@ function showAnswers() {
 
 function toggleSwipe() {
     swipeOn = !swipeOn;
+    updateSettings("swipeOn", swipeOn);
     let on = document.getElementById("swipeOn");
     let off = document.getElementById("swipeOff");
     if(swipeOn) {
@@ -836,4 +864,4 @@ window.updateHearts = updateHearts;
 window.showAnswers = showAnswers;
 window.toggleSwipe = toggleSwipe;
 
-export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners};
+export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
