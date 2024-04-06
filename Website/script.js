@@ -5,7 +5,7 @@ let currentTab = "home";
 let questionIndex = 0;
 let correct = 0;
 let previewMode = false;
-let progression = {
+let defaultProgression = {
     "html": 0,
     "css": 0,
     "js": 0,
@@ -15,7 +15,7 @@ let progression = {
     "diamonds": 0,
     "hearts": 0
 }
-
+let progression = JSON.parse(JSON.stringify(defaultProgression));
 let currCategory = "";
 let currLevel = 0;
 let offlineMode = false;
@@ -39,18 +39,8 @@ function updateProgression(cat, val) {
 }
 
 function resetProgression() {
-    let newProgression = {
-        "html": 0,
-        "css": 0,
-        "js": 0,
-        "python": 0,
-        "c":0,
-        "c++": 0,
-        "diamonds": 0,
-        "hearts": 0
-    }
-    progression = newProgression;
-    localStorage.setItem("progress", JSON.stringify(newProgression));
+    progression = JSON.parse(JSON.stringify(defaultProgression));
+    localStorage.setItem("progress", JSON.stringify(progression));
     openTab("home", 'l')
 }
 
