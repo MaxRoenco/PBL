@@ -846,6 +846,7 @@ function goRight() {
 
 function register() {
     let username = document.getElementById("usernameInput").value;
+    let password = document.getElementById("passwordInput").value;
     if(username.trim() === "") {
         notify("Please enter a username");
         return;
