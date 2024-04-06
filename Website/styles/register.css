@@ -14,4 +14,17 @@
 .registerForm>input {
     margin: 20px 0px;
     padding: 10px;
+    border: 3px solid #7b81aa;
+    border-radius: 10px;
+}
+
+.buttonRegister {
+    margin-top: 0px;
+    font-size: 22px;
+}
+
+@media (max-width:500px) {
+    .title {
+        font-size: 28px;
+    }
 }

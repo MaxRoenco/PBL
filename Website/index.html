@@ -56,15 +56,22 @@
         <div class="container registerContainer" data-tab="register">
             <p class="title">Register Form</p>
             <div class="registerForm">
-                <p class="text2">Username</p>
-                <input type="text" placeholder="Your Username">
-                <p class="text2">Password</p>
-                <input type="text" placeholder="Your password">
+                <div style="display: flex; flex-direction: row;">
+                    <p class="text2">Username</p>
+                    <p class="textLittle" style="margin-left: 10px;">(mandatory)</p>
+                </div>
+                <input type="text" placeholder="Your Username" class="textLittle">
+                <div style="display: flex; flex-direction: row;">
+                    <p class="text2">Password</p>
+                    <p class="textLittle" style="margin-left: 10px;">(mandatory)</p>
+                </div>
+                <input type="password" placeholder="Your password" class="textLittle">
             </div>
+            <button class="button buttonRegister text2">Register</button>
         </div>
 
         <!-- HOME TAB -->
-        <div class="container" data-tab="home">
+        <div class="container homeContainer" data-tab="home">
             <div class="titleContainer">
                 <p class="title" id="titleMain"></p>
             </div>
@@ -454,7 +461,7 @@
         </div>
         <div class="container creatorTab" data-tab="contentCreator">
             <h1 id="title" style="font-size: 2.5rem;">Enter the content of the introduction:</h1>
-            <textarea name="" id="contentArea" cols="80" rows="20"></textarea>
+            <textarea name="" id="contentArea" cols="70" rows="20"></textarea>
             <div class="contentButtons">
                 <div class="creatorButton" onclick="openTab('titleCreator', 'l')">
                     <p class="text">&lt; Back</p>
