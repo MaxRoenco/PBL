@@ -13,8 +13,12 @@ let defaultProgression = {
     "c++": 0,
     "diamonds": 0,
     "hearts": 0,
+    "language": 'en',
+    "soundOn": true,
+    "swipeOn": true,
 }
 let progression = JSON.parse(JSON.stringify(defaultProgression));
+console.log("first");
 let currCategory = "";
 let currLevel = 0;
 let offlineMode = false;
@@ -23,41 +27,6 @@ let numberOfQuestions = 0;
 let swipeOn = true;
 let previewQuestions = [];
 
-let defaultSettings = {
-    "language": 'en',
-    "soundOn": true,
-    "swipeOn": true,
-}
-
-let settings = JSON.parse(JSON.stringify(defaultSettings));
-
-function resetSettings() {
-    localStorage.setItem("settings", JSON.stringify(defaultSettings));
-}
-
-function loadSettings() {
-    let loadedSettings = localStorage.getItem("settings");
-    if(!loadedSettings) {
-        localStorage.setItem("settings", JSON.stringify(defaultSettings));
-        settings = defaultSettings;
-    } else {
-        settings = JSON.parse(loadedSettings);
-    }
-    console.log(settings)
-    setActiveLanguage(settings["language"]);
-    console.log(soundOn, settings["soundOn"]);
-    if(soundOn !== settings["soundOn"]) {
-        toggleSoundEffects();
-    }
-    if(swipeOn !== settings["swipeOn"]) {
-        toggleSwipe();
-    }
-}
-
-function updateSettings(setting, val) {
-    settings[setting] = val;
-    localStorage.setItem("settings", JSON.stringify(settings));
-}
 
 function loadProgression() {
     let loadedProgress = localStorage.getItem("progress");
@@ -66,6 +35,7 @@ function loadProgression() {
     } else {
         progression = JSON.parse(loadedProgress);
     }
+    console.log("loaded: ", progression)
 }
 
 function updateProgression(cat, val) {
@@ -77,6 +47,7 @@ function resetProgression() {
     progression = JSON.parse(JSON.stringify(defaultProgression));
     localStorage.setItem("progress", JSON.stringify(progression));
     openTab("home", 'l')
+    console.log("rested: ", progression)
 }
 
 function openTab(tabName, dir) {
@@ -251,7 +222,7 @@ function nextQuestion(questions) {
 
 function setActiveLanguage(lang) {
     playSound("./assets/sounds/tap.mp3");
-    updateSettings("language", lang);
+    // updateProgression("language", lang);
     let langs = ['en', 'ru', 'ro'];
     langs.forEach( ele => {
         if(lang == ele) {
@@ -303,8 +274,8 @@ function showResults(total) {
 
 function toggleSoundEffects() {
     soundOn = !soundOn;
-    updateSettings("soundOn", soundOn);
-    console.log(settings);
+    updateProgression("soundOn", soundOn);
+    console.log(progression)
     playSound("./assets/sounds/tap.mp3");
     if(soundOn) {
         document.getElementById("soundOff").style.display = 'none';
@@ -336,14 +307,16 @@ function compileLesson(string, parent) {
                 i++;
             }
         } else if(string[i] === '$') {
-            element = document.createElement("img");
+            element = document.createElement("div");
+            img = document.createElement("img");
             let s = ""
             i++;
             while(string[i] !== '\n' && i < string.length) {
                 s += string[i];
                 i++;
             }
-            element.src = s;
+            img.src = s;
+            element.append(img);
         } else if(string[i] === '>' || string[i] === '\r' || string[i] === '\n') {
             element = document.createElement("br");
             i++;
@@ -776,7 +749,7 @@ function showAnswers() {
 
 function toggleSwipe() {
     swipeOn = !swipeOn;
-    updateSettings("swipeOn", swipeOn);
+    updateProgression("swipeOn", swipeOn);
     let on = document.getElementById("swipeOn");
     let off = document.getElementById("swipeOff");
     if(swipeOn) {
@@ -788,10 +761,22 @@ function toggleSwipe() {
     }
 }
 
+function loadSettings() {
+    mute();
+    if(progression["soundOn"] !== soundOn) {
+        toggleSoundEffects();
+    }
+    if(progression["swipeOn"] !== swipeOn) {
+        toggleSwipe();
+    }
+    setActiveLanguage(progression["language"]);
+    unMute();
+}
+
 function goLeft() {
     if(!swipeOn) return;
     if(currentTab === 'home') {
-        openTab('settings', 'l');
+        openTab("settings", 'l');
     } else if(currentTab === 'categories') {
         openTab('home', 'l');
     } else if(currentTab === 'profile') {
@@ -875,6 +860,6 @@ window.updateDiamonds = updateDiamonds;
 window.updateHearts = updateHearts;
 window.showAnswers = showAnswers;
 window.toggleSwipe = toggleSwipe;
-window.resetSettings = resetSettings;
+window.updateProgression = updateProgression;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};

@@ -29,8 +29,13 @@ mute();
 setActiveLanguage("en");
 openTab("home");
 getData();
+console.log("second")
 loadProgression();
-loadSettings();
+// loadSettings();
+
+setTimeout(() => {
+    loadSettings();
+}, 1000);
 unMute();
 
 window.addEventListener('load', () => {
