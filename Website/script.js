@@ -324,6 +324,7 @@ function compileLesson(string, parent) {
                 }
                 i++;
             }
+            i++;
         } else {
             element = document.createElement("p");
             while(string[i] !== '\n' && i < string.length) {
