@@ -124,8 +124,8 @@ async function fetchData() {
     }
 }
 
-function moveToLesson(lessonName, data) {
-    openTab("lessons", 'r');
+function moveToLesson(lessonName, data, dir) {
+    openTab("lessons", dir);
     let container = document.getElementById("lessons");
     container.replaceChildren();
     data["en"]["categories"][lessonName].forEach((ele, i) => {
@@ -370,13 +370,13 @@ function createLesson() {
     previewBtn.addEventListener("click", _ => {
         let previewObj = {"en": {"categories": {}}}
         previewObj["en"]["categories"][cat] = [obj];
-        moveToLesson(cat, previewObj);
+        moveToLesson(cat, previewObj, 'r');
         previewMode = true;
     })
     addBtn.addEventListener("click", _ => {
         dataSet["en"]["categories"][cat].push(obj);
         saveData(dataSet);
-        moveToLesson(cat, dataSet);
+        moveToLesson(cat, dataSet, 'r');
     })
 
     let allQuestions = Array.from(document.getElementById("allQuestions").children);
@@ -660,7 +660,7 @@ function goToStartQuiz(dir) {
 }
 
 function backToLessons() {
-    moveToLesson(currCategory, dataSet);
+    moveToLesson(currCategory, dataSet, 'l');
 }
 
 function updateDiamonds(count) {
@@ -701,6 +701,65 @@ function showAnswers() {
     });
 }
 
+function goLeft() {
+    if(currentTab === 'home') {
+        openTab('settings', 'l');
+    } else if(currentTab === 'categories') {
+        openTab('home', 'l');
+    } else if(currentTab === 'profile') {
+        openTab('home', 'l');
+    } else if(currentTab === 'lessons') {
+        lessonsReturnHandler();
+    } else if(currentTab === 'content') {
+        backToLessons();
+    } else if(currentTab === 'lesson') {
+        openTab('content', 'l')
+    } else if(currentTab === 'quiz') {
+        openTab('lesson', 'l')
+    } else if(currentTab === 'results') {
+        resultsHome();
+    } else if(currentTab === 'actions') {
+        cancelAdding()
+    } else if(currentTab === 'removeLesson') {
+        openTab('actions', 'l');
+    } else if(currentTab === 'titleCreator') {
+        openTab('actions', 'l')
+    } else if(currentTab === 'contentCreator') {
+        openTab('titleCreator', 'l')
+    } else if(currentTab === 'lessonCreator') {
+        openTab('contentCreator', 'l')
+    } else if(currentTab === 'quizCreator') {
+        openTab('lessonCreator', 'l')
+    } else if(currentTab === 'finalCreator') {
+        openTab('quizCreator', 'l')
+    }
+
+}
+
+function goRight() {
+    if(currentTab === 'home') {
+        openTab('categories', 'r');
+    } else if(currentTab === 'settings') {
+        openTab('home', 'r');
+    } else if(currentTab === 'content') {
+        document.getElementById("openLesson").click();
+    } else if(currentTab === 'lesson') {
+        goToStartQuiz('r')
+    } else if(currentTab === 'quiz') {
+        document.getElementById("quizStart").click();
+    } else if(currentTab === 'results') {
+        nextLesson();
+    } else if(currentTab === 'titleCreator') {
+        openTab('contentCreator', 'r')
+    } else if(currentTab === 'contentCreator') {
+        openTab('lessonCreator', 'r')
+    } else if(currentTab === 'lessonCreator') {
+        openTab('quizCreator', 'r')
+    } else if(currentTab === 'quizCreator') {
+        createLesson()
+    }
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
@@ -727,4 +786,4 @@ window.updateDiamonds = updateDiamonds;
 window.updateHearts = updateHearts;
 window.showAnswers = showAnswers;
 
-export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts};
+export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners};

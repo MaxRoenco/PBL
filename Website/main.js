@@ -1,4 +1,4 @@
-import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts } from './script.js';
+import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft } from './script.js';
 
 let oldTab = currentTab;
 window.oldTab = oldTab;
@@ -56,4 +56,53 @@ window.addEventListener('online', (e) => {
 
 updateDiamonds();
 updateHearts();
-  
+
+// let canScroll = true;
+// window.addEventListener("wheel", function(event) {
+//     if(!canScroll) return;
+//     if (event.deltaX > 0) {
+//         console.log("right")
+//         goRight();
+//     } else if (event.deltaX < 0) {
+//         console.log("left")
+//         goLeft();
+//     }
+//     canScroll = false;
+//     setTimeout(_ => {
+//         canScroll = true;
+//     }, 2000);
+// });
+function trackDragDirection() {
+    let isDragging = false;
+    let hasDirectionBeenTriggered = false;
+    let startX = null;
+
+    document.addEventListener("mousedown", function(event) {
+        isDragging = true;
+        startX = event.pageX;
+        hasDirectionBeenTriggered = false;
+    });
+
+    document.addEventListener("mousemove", function(event) {
+        if (!isDragging || hasDirectionBeenTriggered) return;
+
+        const currentX = event.pageX;
+        const deltaX = currentX - startX;
+
+        if (deltaX > 0) {
+            goLeft()
+            hasDirectionBeenTriggered = true;
+        } else if (deltaX < 0) {
+            goRight()
+            hasDirectionBeenTriggered = true;
+        }
+    });
+
+    document.addEventListener("mouseup", function(event) {
+        isDragging = false;
+        startX = null;
+        hasDirectionBeenTriggered = false;
+    });
+}
+trackDragDirection();
+
