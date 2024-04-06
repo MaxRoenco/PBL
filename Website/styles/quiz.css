@@ -102,6 +102,14 @@
     background: linear-gradient(45deg, transparent, #5e6aac, transparent);
 }
 
+.addButtonAnswers {
+    margin-bottom: 10px;
+}
+
+.answersQuestion {}
+
+.answersCorrect {}
+
 @media (max-width: 500px) {
     .questionNum {
         font-size: 18px;
