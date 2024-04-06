@@ -251,6 +251,9 @@ function showResults(total) {
         cir.style.background = `conic-gradient(white ${Math.floor(correct*360/total)}deg, rgb(255, 255, 255, 0.1) 0deg)`;
         per.textContent = `${Math.floor(correct*100/total)}%`
         cir.style.display = '';
+        if(currLevel === progression[currCategory] && !previewMode) {
+            updateDiamonds(progression["diamonds"]+100);
+        }
     } else {
         res.textContent = "Lesson complete.";
         cir.style.display = 'none';
@@ -501,17 +504,22 @@ function addQuestion() {
     let questionContainer = document.createElement("div");
     let questionText = document.createElement("h3");
     let answersContainer = document.createElement("ul")
+    answersContainer.classList.add("addedUl");
     let correctAnswerText = document.createElement("h3");
     let removeButton = document.createElement("button");
+    removeButton.classList.add("addedBtn");
     document.getElementById("addAnswerInput").value = "";
 
     questionText.textContent = "Question: " + question.value;
+    questionText.classList.add("addedQuestion");
     answers.forEach(answer => {
         let li = document.createElement("li");
         li.textContent = answer;
+        li.classList.add("addedAnswer");
         answersContainer.append(li);
     })
     correctAnswerText.textContent = "Answer: " + correctAnswer;
+    correctAnswerText.classList.add("addedCorrect");
     removeButton.textContent = "Remove";
     questionContainer.append(questionText, answersContainer, correctAnswerText, removeButton);
     questionContainer.classList.add("qContainer");
@@ -674,14 +682,8 @@ function updateDiamonds(count, silent) {
         return;
     }
     if(!silent) {
-        let not = document.getElementById("notificationAdd");
-        not.replaceChildren();
         let diff = count - progression["diamonds"];
-        not.textContent = (diff > 0 ? "+"+diff : diff) + " diamonds";
-        not.style.transform = "translateY(0)";
-        setTimeout(_ => {
-            not.style.transform = "translateY(-300%)";
-        }, 3500)
+        notify((diff > 0 ? "+"+diff : diff) + " diamonds", "./assets/images/diamands.png");
     }
     updateProgression("diamonds", count);
     let profileDiamonds = document.getElementById("diamondsCount")
@@ -694,24 +696,29 @@ function updateHearts(count, silent) {
         return;
     }
     if(!silent) {
-        let not = document.getElementById("notificationAdd");
-        not.replaceChildren();
         let diff = count - progression["hearts"];
-        not.textContent = (diff > 0 ? "+"+diff : diff) + " hearts";
-        let img = document.createElement("img");
-        img.src = "./assets/images/heart.png";
-        img.style.width = "30px";
-        not.appendChild(img);
-        console.log(img)
-        not.style.transform = "translateY(0)";
-        setTimeout(_ => {
-            not.style.transform = "translateY(-300%)";
-        }, 10500)
+        notify((diff > 0 ? "+"+diff : diff) + " hearts", "./assets/images/heart.png");
     }
     
     updateProgression("hearts", count);
     let profileHearts = document.getElementById("heartsCount")
     profileHearts.textContent = count;
+}
+
+function notify(text, imgPath, duration = 3500) {
+    let not = document.getElementById("notificationAdd");
+    not.replaceChildren();
+    not.textContent = text;
+    if(imgPath) {
+        let img = document.createElement("img");
+        img.src = "./assets/images/heart.png";
+        img.setAttribute("style", "width:50px;padding-left:20px;");
+        not.appendChild(img);
+    }
+    not.style.transform = "translateY(0)";
+    setTimeout(_ => {
+        not.style.transform = "translateY(-300%)";
+    }, duration)
 }
 
 function showAnswers() {
