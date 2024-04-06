@@ -103,7 +103,14 @@ function openTab(tabName, dir) {
         })
     } else if(tabName === 'removeLesson') {
         catDeleteChangehandler();
+    } else if(tabName === 'profile') {
+        setTimeout(_=> {
+            document.querySelector(".sidesProfile").scrollTo(0,0);
+        }, 500)
     }
+    setTimeout(_=> {
+        next.scrollTo(0,0);
+    }, 500)
 }
 
 async function fetchData() {
@@ -660,7 +667,11 @@ function goToStartQuiz(dir) {
 }
 
 function backToLessons() {
-    moveToLesson(currCategory, dataSet, 'l');
+    if(previewMode) {
+        openTab("lessons", 'l');
+    } else {
+        moveToLesson(currCategory, dataSet, 'l');
+    }
 }
 
 function updateDiamonds(count, silent) {
