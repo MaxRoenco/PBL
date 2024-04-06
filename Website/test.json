@@ -109,7 +109,14 @@
                 }
             ],
             "css": [],
-            "js": [],
+            "js": [
+                {
+                    "title": "DEMO LESSON",
+                    "content": "# Did you know frogs can jump?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## frogs are very good animals because they:\n- Can jump high.\n- Can jump not high.\n- Can make quack sound.\n\n## how frogs' brains work:\nFrogs are very smart big brain animals, that can do many things, here is how their brain works:\n`while(!hungry && !sleepy) {\n  if(energy > 0) {\n    jump();\n    quack();\n  } else {\n    sleep();\n  }\n}`",
+                    "lesson": "# Did you know frogs can jump?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## frogs are very good animals because they:\n- Can jump high.\n- Can jump not high.\n- Can make quack sound.\n\n## how frogs' brains work:\nFrogs are very smart big brain animals, that can do many things, here is how their brain works:\n`while(!hungry && !sleepy) {\n  if(energy > 0) {\n    jump();\n    quack();\n  } else {\n    sleep();\n  }\n}`",
+                    "quiz": []
+                  }
+            ],
             "python": [],
             "c": [],
             "c++": []

@@ -460,6 +460,7 @@ function resetDataSet() {
 }
 
 function copyJson() {
+    console.log(dataSet)
     navigator.clipboard.writeText(JSON.stringify(dataSet))
     .then(() => {
         alert("Json object was copied! paste it in this site to make it pretty!");
@@ -711,7 +712,7 @@ function notify(text, imgPath, duration = 3500) {
     not.textContent = text;
     if(imgPath) {
         let img = document.createElement("img");
-        img.src = "./assets/images/heart.png";
+        img.src = imgPath;
         img.setAttribute("style", "width:50px;padding-left:20px;");
         not.appendChild(img);
     }
