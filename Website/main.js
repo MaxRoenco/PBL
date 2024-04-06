@@ -1,4 +1,4 @@
-import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft } from './script.js';
+import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, loadSettings } from './script.js';
 
 let oldTab = currentTab;
 window.oldTab = oldTab;
@@ -30,6 +30,7 @@ setActiveLanguage("en");
 openTab("home");
 getData();
 loadProgression();
+loadSettings();
 unMute();
 
 window.addEventListener('load', () => {
@@ -106,5 +107,6 @@ function trackDragDirection() {
     });
 }
 trackDragDirection();
+
 
 
