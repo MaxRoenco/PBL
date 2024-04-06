@@ -22,11 +22,13 @@ let isLastLesson = false;
 let numberOfQuestions = 0;
 let swipeOn = true;
 let previewQuestions = [];
+
 let defaultSettings = {
     "language": 'en',
     "soundOn": true,
     "swipeOn": true,
 }
+
 let settings = JSON.parse(JSON.stringify(defaultSettings));
 
 function resetSettings() {
@@ -269,7 +271,7 @@ function showResults(total) {
     let cir = document.querySelector(".circuitDiagram");
     let per = document.getElementById("resultsPercent");
     let showBtn = document.getElementById("resultsShowBtn");
-    let completedQuiz = correct/total > 0.5 || !total;
+    let completedQuiz = correct/total >= 0.5 || !total;
     if(total) {
         res.textContent = "You got " + correct + '/' + total + " correct";
         cir.style.background = `conic-gradient(white ${Math.floor(correct*360/total)}deg, rgb(255, 255, 255, 0.1) 0deg)`;
