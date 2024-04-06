@@ -472,13 +472,16 @@
                         <button id="addAnwerBtn" class="creatorQuizButton textLittle" onclick="addAnswer()">Add answer
                         </button>
                     </div>
-                    <h3 class="textLittle">The correct answer:</h3>
-                    <select id="selectCorrectAnswer"></select>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <h3 class="text2">The correct answer:</h3>
+                        <select id="selectCorrectAnswer" class="textLittle chooseCategoryAnswer"></select>
+                    </div>
                     <br>
                     <br>
-                    <button id="addQuestionBtn" onclick="addQuestion()">Add question</button>
+                    <button id="addQuestionBtn" class="creatorQuizButton textLittle" onclick="addQuestion()">Add
+                        question</button>
             </div>
-            <div id="allQuestions"></div>
+            <div id="allQuestions" class="allQuestionsContainer"></div>
             <div class="contentButtons">
                 <div class="creatorButton" onclick="openTab('lessonCreator', 'l')">
                     <p class="text">&lt; Back</p>
