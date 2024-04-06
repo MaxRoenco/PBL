@@ -241,8 +241,12 @@ function showResults(total) {
     isLastLesson = currLevel+1 === dataSet["en"]["categories"][currCategory].length;
     let res = document.getElementById("resultsElement");
     let btn = document.getElementById("resultsNextBtn");
+    let cir = document.querySelector(".circuitDiagram");
+    let per = document.getElementById("resultsPercent");
     if(total) {
         res.textContent = "You got " + correct + '/' + total + " correct";
+        cir.style.background = `conic-gradient(white ${Math.floor(correct*360/total)}deg, rgb(255, 255, 255, 0.1) 0deg)`;
+        per.textContent = `${Math.floor(correct*100/total)}%`
     } else {
         res.textContent = "Lesson complete.";
     }
@@ -250,8 +254,10 @@ function showResults(total) {
     openTab("results", 'r');
     if(!previewMode && !isLastLesson) {
         btn.style.display = '';
+        cir.style.display = 'none';
     } else {
         btn.style.display = 'none';
+        cir.style.display = '';
     }
     if(currLevel >= progression[currCategory] && !previewMode) {
         updateProgression(currCategory, currLevel+1);
