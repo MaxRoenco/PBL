@@ -18,7 +18,6 @@ let defaultProgression = {
     "swipeOn": true,
 }
 let progression = JSON.parse(JSON.stringify(defaultProgression));
-console.log("first");
 let currCategory = "";
 let currLevel = 0;
 let offlineMode = false;
@@ -26,6 +25,7 @@ let isLastLesson = false;
 let numberOfQuestions = 0;
 let swipeOn = true;
 let previewQuestions = [];
+let muted = false;
 
 
 function loadProgression() {
@@ -35,7 +35,6 @@ function loadProgression() {
     } else {
         progression = JSON.parse(loadedProgress);
     }
-    console.log("loaded: ", progression)
 }
 
 function updateProgression(cat, val) {
@@ -46,8 +45,7 @@ function updateProgression(cat, val) {
 function resetProgression() {
     progression = JSON.parse(JSON.stringify(defaultProgression));
     localStorage.setItem("progress", JSON.stringify(progression));
-    openTab("home", 'l')
-    console.log("rested: ", progression)
+    openTab("home", 'l');
 }
 
 function openTab(tabName, dir) {
@@ -222,7 +220,7 @@ function nextQuestion(questions) {
 
 function setActiveLanguage(lang) {
     playSound("./assets/sounds/tap.mp3");
-    // updateProgression("language", lang);
+    updateProgression("language", lang);
     let langs = ['en', 'ru', 'ro'];
     langs.forEach( ele => {
         if(lang == ele) {
@@ -272,19 +270,6 @@ function showResults(total) {
     }
 }
 
-function toggleSoundEffects() {
-    soundOn = !soundOn;
-    updateProgression("soundOn", soundOn);
-    console.log(progression)
-    playSound("./assets/sounds/tap.mp3");
-    if(soundOn) {
-        document.getElementById("soundOff").style.display = 'none';
-        document.getElementById("soundOn").style.display = 'inherit';
-    } else {
-        document.getElementById("soundOn").style.display = 'none';
-        document.getElementById("soundOff").style.display = 'inherit';
-    }
-}
 
 function compileLesson(string, parent) {
     string += '\n';
@@ -461,7 +446,6 @@ function resetDataSet() {
 }
 
 function copyJson() {
-    console.log(dataSet)
     navigator.clipboard.writeText(JSON.stringify(dataSet))
     .then(() => {
         alert("Json object was copied! paste it in this site to make it pretty!");
@@ -653,17 +637,17 @@ numberOfQuestions = dataSet["en"]["categories"][currCategory][currLevel]["quiz"]
 }
 
 function playSound(soundPath) {
-    if(!soundOn) return;
+    if(!soundOn || muted) return;
     var audio = new Audio(soundPath);
     audio.play();
 }
 
 function mute() {
-    soundOn = false;
+    muted = true;
 }
 
 function unMute() {
-    soundOn = true;
+    muted = false;
 }
 
 function goToStartQuiz(dir) {
@@ -747,6 +731,19 @@ function showAnswers() {
     });
 }
 
+function toggleSoundEffects() {
+    soundOn = !soundOn;
+    updateProgression("soundOn", soundOn);
+    // playSound("./assets/sounds/tap.mp3");
+    if(soundOn) {
+        document.getElementById("soundOff").style.display = 'none';
+        document.getElementById("soundOn").style.display = 'inherit';
+    } else {
+        document.getElementById("soundOn").style.display = 'none';
+        document.getElementById("soundOff").style.display = 'inherit';
+    }
+}
+
 function toggleSwipe() {
     swipeOn = !swipeOn;
     updateProgression("swipeOn", swipeOn);
@@ -762,7 +759,6 @@ function toggleSwipe() {
 }
 
 function loadSettings() {
-    mute();
     if(progression["soundOn"] !== soundOn) {
         toggleSoundEffects();
     }
@@ -770,7 +766,6 @@ function loadSettings() {
         toggleSwipe();
     }
     setActiveLanguage(progression["language"]);
-    unMute();
 }
 
 function goLeft() {

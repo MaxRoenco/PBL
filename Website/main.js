@@ -1,5 +1,5 @@
 import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, loadSettings } from './script.js';
-
+mute()
 let oldTab = currentTab;
 window.oldTab = oldTab;
 
@@ -25,18 +25,10 @@ buttons.forEach(ele => {
         document.getElementById(ele.id).classList.add("hidden");
 })
 
-mute();
-setActiveLanguage("en");
 openTab("home");
 getData();
-console.log("second")
 loadProgression();
-// loadSettings();
-
-setTimeout(() => {
-    loadSettings();
-}, 1000);
-unMute();
+loadSettings();
 
 window.addEventListener('load', () => {
     const status = navigator.onLine;
@@ -63,21 +55,6 @@ window.addEventListener('online', (e) => {
 updateDiamonds();
 updateHearts();
 
-// let canScroll = true;
-// window.addEventListener("wheel", function(event) {
-//     if(!canScroll) return;
-//     if (event.deltaX > 0) {
-//         console.log("right")
-//         goRight();
-//     } else if (event.deltaX < 0) {
-//         console.log("left")
-//         goLeft();
-//     }
-//     canScroll = false;
-//     setTimeout(_ => {
-//         canScroll = true;
-//     }, 2000);
-// });
 function trackDragDirection() {
     let isDragging = false;
     let hasDirectionBeenTriggered = false;
@@ -112,6 +89,6 @@ function trackDragDirection() {
     });
 }
 trackDragDirection();
-
+unMute()
 
 
