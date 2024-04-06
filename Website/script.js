@@ -537,6 +537,8 @@ function resultsHome() {
 }
 
 function openProfile() {
+    //username
+    document.getElementById("profileUsername").textContent = progression["username"];
 
     //html
     let htmlBar = document.querySelector("#htmlLine");
@@ -847,7 +849,10 @@ function register() {
     if(username.trim() === "") {
         notify("Please enter a username");
         return;
-    };
+    } else if(password.trim() === "") {
+        notify("Please enter a password");
+        return;
+    }
     updateProgression("username", username);
     document.getElementById("profileUsername").textContent = username;
     localStorage.setItem("registered", true);
