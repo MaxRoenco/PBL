@@ -22,6 +22,7 @@ let offlineMode = false;
 let isLastLesson = false;
 let numberOfQuestions = 0;
 let swipeOn = true;
+let previewQuestions = [];
 
 function loadProgression() {
     let loadedProgress = localStorage.getItem("progress");
@@ -209,7 +210,7 @@ function nextQuestion(questions) {
     optionsEle.replaceChildren();
     questions[questionIndex]['options'].forEach((ele, i) => {
         let opt = document.createElement("div");
-        opt.classList.add("button", "option");
+        opt.classList.add("option");
         opt.addEventListener("click", e => {
             if(questions[questionIndex-1]["correctAnswer"] === i) {
                 correct++;
@@ -352,7 +353,6 @@ function removeAllEventListeners(element) {
 }
 
 function createLesson() {
-    openTab("finalCreator", "r");
     let cat = document.getElementById("chooseCategory").value;
     let title = document.getElementById("chooseTitle").value;
     let content = document.getElementById("contentArea").value;
@@ -393,6 +393,8 @@ function createLesson() {
         }
         obj.quiz.push(quiz);
     })
+    previewQuestions = obj["quiz"];
+    openTab("finalCreator", "r");
 }
 
 function lessonsReturnHandler() {
@@ -473,6 +475,7 @@ function addAnswer() {
     if(input.value.trim() === "") return;
     element.textContent = input.value;
     removeBtn.textContent = "Remove";
+    removeBtn.classList.add("removeAnswerBtn");
     element.append(removeBtn);
     answersContainer.append(element);
     
@@ -665,23 +668,47 @@ function backToLessons() {
     moveToLesson(currCategory, dataSet, 'l');
 }
 
-function updateDiamonds(count) {
+function updateDiamonds(count, silent) {
     if(count === undefined) {
-        updateDiamonds(progression["diamonds"]);
+        updateDiamonds(progression["diamonds"], true);
         return;
     }
-    let diff = count - progression["diamonds"];
+    if(!silent) {
+        let not = document.getElementById("notificationAdd");
+        not.replaceChildren();
+        let diff = count - progression["diamonds"];
+        not.textContent = (diff > 0 ? "+"+diff : diff) + " diamonds";
+        not.style.transform = "translateY(0)";
+        setTimeout(_ => {
+            not.style.transform = "translateY(-300%)";
+        }, 3500)
+    }
     updateProgression("diamonds", count);
     let profileDiamonds = document.getElementById("diamondsCount")
     profileDiamonds.textContent = count;
 }
 
-function updateHearts(count) {
+function updateHearts(count, silent) {
     if(count === undefined) {
-        updateHearts(progression["hearts"]);
+        updateHearts(progression["hearts"], true);
         return;
     }
-    let diff = count - progression["hearts"];
+    if(!silent) {
+        let not = document.getElementById("notificationAdd");
+        not.replaceChildren();
+        let diff = count - progression["hearts"];
+        not.textContent = (diff > 0 ? "+"+diff : diff) + " hearts";
+        let img = document.createElement("img");
+        img.src = "./assets/images/heart.png";
+        img.style.width = "30px";
+        not.appendChild(img);
+        console.log(img)
+        not.style.transform = "translateY(0)";
+        setTimeout(_ => {
+            not.style.transform = "translateY(-300%)";
+        }, 10500)
+    }
+    
     updateProgression("hearts", count);
     let profileHearts = document.getElementById("heartsCount")
     profileHearts.textContent = count;
@@ -691,7 +718,13 @@ function showAnswers() {
     openTab("answers", 'r');
     let answersContainer = document.getElementById("allAnswers");
     answersContainer.replaceChildren();
-    dataSet["en"]["categories"][currCategory][currLevel]["quiz"].forEach(ele => {
+    let questions;
+    if(previewMode) {
+        questions = previewQuestions;
+    } else {
+        questions = dataSet["en"]["categories"][currCategory][currLevel]["quiz"];
+    }
+    questions.forEach(ele => {
         let answerDiv = document.createElement("div");
         answerDiv.setAttribute("style", "border: white solid 3px; padding: 10px;");
         let question = document.createElement("h2");

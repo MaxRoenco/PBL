@@ -1,0 +1,17 @@
+#notificationAdd {
+    width: 200px;
+    height: 100px;
+    background-color: #2D3250;
+    position: absolute;
+    top: 20px;
+    left: calc(50% - 100px);
+    border: white 3px solid;
+    border-radius: 20px;
+    transition: transform 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    transform: translateY(-300%);
+}
