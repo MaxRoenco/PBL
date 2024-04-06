@@ -22,21 +22,28 @@ let isLastLesson = false;
 let numberOfQuestions = 0;
 let swipeOn = true;
 let previewQuestions = [];
-let settings = {
+let defaultSettings = {
     "language": 'en',
     "soundOn": true,
     "swipeOn": true,
+}
+let settings = JSON.parse(JSON.stringify(defaultSettings));
+
+function resetSettings() {
+    localStorage.setItem("settings", JSON.stringify(defaultSettings));
 }
 
 function loadSettings() {
     let loadedSettings = localStorage.getItem("settings");
     if(!loadedSettings) {
-        localStorage.setItem("settings", JSON.stringify(settings));
+        localStorage.setItem("settings", JSON.stringify(defaultSettings));
+        settings = defaultSettings;
     } else {
         settings = JSON.parse(loadedSettings);
     }
+    console.log(settings)
     setActiveLanguage(settings["language"]);
-    console.log(soundOn, settings[soundOn]);
+    console.log(soundOn, settings["soundOn"]);
     if(soundOn !== settings["soundOn"]) {
         toggleSoundEffects();
     }
@@ -295,6 +302,7 @@ function showResults(total) {
 function toggleSoundEffects() {
     soundOn = !soundOn;
     updateSettings("soundOn", soundOn);
+    console.log(settings);
     playSound("./assets/sounds/tap.mp3");
     if(soundOn) {
         document.getElementById("soundOff").style.display = 'none';
@@ -756,7 +764,7 @@ function showAnswers() {
         let question = document.createElement("h2");
         question.classList.add("answersQuestion");
         let answer = document.createElement("h2");
-        question.classList.add("answersCorrect");
+        answer.classList.add("answersCorrect");
         question.textContent = ele["question"];
         answer.textContent = "Answer: " + ele["options"][+ele["correctAnswer"]];
         answerDiv.append(question, answer);
@@ -865,5 +873,6 @@ window.updateDiamonds = updateDiamonds;
 window.updateHearts = updateHearts;
 window.showAnswers = showAnswers;
 window.toggleSwipe = toggleSwipe;
+window.resetSettings = resetSettings;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
