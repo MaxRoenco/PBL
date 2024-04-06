@@ -632,9 +632,10 @@ function toggleWifiMode(oldTab) {
 }
 
 function nextLesson() {
+    if(currLevel+1 >= dataSet["en"]["categories"][currCategory].length) return;
     currLevel++;
-    openContent(dataSet["en"]["categories"][currCategory][currLevel], 'r');
-    numberOfQuestions = dataSet["en"]["categories"][currCategory][currLevel]["quiz"].length;
+openContent(dataSet["en"]["categories"][currCategory][currLevel], 'r');
+numberOfQuestions = dataSet["en"]["categories"][currCategory][currLevel]["quiz"].length;
 }
 
 function playSound(soundPath) {
@@ -738,7 +739,7 @@ function goLeft() {
 
 function goRight() {
     if(currentTab === 'home') {
-        openTab('categories', 'r');
+        openProfile();
     } else if(currentTab === 'settings') {
         openTab('home', 'r');
     } else if(currentTab === 'content') {
