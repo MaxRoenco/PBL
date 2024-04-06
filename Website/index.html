@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Codify</title>
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/categories.css">
     <link rel="stylesheet" href="./styles/home.css">
@@ -336,10 +336,24 @@
         <div class="container" data-tab="results">
             <h1 style="font-size: 2rem; text-align: center;">Results:</h1>
             <h1 id="resultsElement" style="font-size: 2rem; text-align: center;"></h1>
-            <div class="button" onclick="resultsHome()" id="resultsHomeBtn">Home</div>
-            <div class="button" onclick="nextLesson()" id="resultsNextBtn">Next Level</div>
+            <div id="buttonContainer">
+                <div class="button" onclick="resultsHome()" id="resultsHomeBtn">Home</div>
+                <div class="button" onclick="showAnswers()">Show answers</div>
+                <div class="button" onclick="nextLesson()" id="resultsNextBtn">Next Level</div>
+            </div>
         </div>
 
+        <!-- ANSWERS TAB -->
+        <div class="container" data-tab="answers">
+            <h1 style="font-size: 2rem; text-align: center;">Answers:</h1>
+            <div id="allAnswers">
+                <div style="border: white solid 3px; padding: 10px;">
+                    <h2>What did you eat?</h2>
+                    <h2>Answer: Cake</h2>
+                </div>
+            </div>
+            <div class="button" onclick="openTab('results', 'l')">Back</div>
+        </div>
 
         <!-- CREATOR TAB -->
         <div class="container" data-tab="actions">

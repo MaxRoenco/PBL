@@ -602,6 +602,9 @@ function openProfile() {
     } else {
         document.getElementById("pythonImg").src = "./assets/images/treasure.png"
     }
+
+    updateDiamonds();
+    updateHearts();
     openTab("profile", 'r');
 }
 
@@ -670,6 +673,22 @@ function updateHearts(count) {
     profileHearts.textContent = count;
 }
 
+function showAnswers() {
+    openTab("answers", 'r');
+    let answersContainer = document.getElementById("allAnswers");
+    answersContainer.replaceChildren();
+    dataSet["en"]["categories"][currCategory][currLevel]["quiz"].forEach(ele => {
+        let answerDiv = document.createElement("div");
+        answerDiv.setAttribute("style", "border: white solid 3px; padding: 10px;");
+        let question = document.createElement("h2");
+        let answer = document.createElement("h2");
+        question.textContent = ele["question"];
+        answer.textContent = "Answer: " + ele["options"][+ele["correctAnswer"]];
+        answerDiv.append(question, answer);
+        answersContainer.append(answerDiv);
+    });
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
@@ -694,5 +713,6 @@ window.backToLessons = backToLessons;
 window.dataSet = dataSet;
 window.updateDiamonds = updateDiamonds;
 window.updateHearts = updateHearts;
+window.showAnswers = showAnswers;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts};
