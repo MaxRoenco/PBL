@@ -14,40 +14,40 @@ Array.from(tabs).forEach(ele => {
 });
 
 let buttons = [
-    {id: "settingsIcon", tab: "home"}, 
-    {id: "profileIcon", tab: "home"},
-    {id: "categoriesReturn", tab: "categories"}, 
-    {id: "lessonsReturn", tab: "lessons"},
-    {id: "createBtn", tab: "home"},
+    { id: "settingsIcon", tab: "home" },
+    { id: "profileIcon", tab: "home" },
+    { id: "categoriesReturn", tab: "categories" },
+    { id: "lessonsReturn", tab: "lessons" },
+    { id: "createBtn", tab: "home" },
 ]
 
 buttons.forEach(ele => {
-        document.getElementById(ele.id).classList.add("hidden");
+    document.getElementById(ele.id).classList.add("hidden");
 })
 
-openTab("home");
+openTab("register");
 getData();
 loadProgression();
 loadSettings();
 
 window.addEventListener('load', () => {
     const status = navigator.onLine;
-    if(!status && !offlineMode) {
+    if (!status && !offlineMode) {
         oldTab = currentTab;
         openTab("wifi", 'r');
     }
 });
 
 window.addEventListener('offline', (e) => {
-    if(!offlineMode) {
+    if (!offlineMode) {
         oldTab = currentTab;
         window.oldTab = oldTab;
         openTab("wifi", 'r');
     }
 });
-  
+
 window.addEventListener('online', (e) => {
-    if(!offlineMode) {
+    if (!offlineMode) {
         openTab(oldTab, 'l');
     }
 });
@@ -61,13 +61,13 @@ function trackDragDirection() {
     let startX = null;
     let sensitivity = 200;
 
-    document.addEventListener("mousedown", function(event) {
+    document.addEventListener("mousedown", function (event) {
         isDragging = true;
         startX = event.pageX;
         hasDirectionBeenTriggered = false;
     });
 
-    document.addEventListener("mousemove", function(event) {
+    document.addEventListener("mousemove", function (event) {
         if (!isDragging || hasDirectionBeenTriggered) return;
 
         const currentX = event.pageX;
@@ -82,7 +82,7 @@ function trackDragDirection() {
         }
     });
 
-    document.addEventListener("mouseup", function(event) {
+    document.addEventListener("mouseup", function (event) {
         isDragging = false;
         startX = null;
         hasDirectionBeenTriggered = false;
