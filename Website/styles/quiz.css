@@ -98,17 +98,29 @@
     padding: 10px;
     margin: 10px 0px;
     border: 3px solid white;
-    border-radius: 15px;
+    border-radius: 10px;
     background: linear-gradient(45deg, transparent, #5e6aac, transparent);
+    box-shadow: 1px 2px 8px black;
 }
 
 .addButtonAnswers {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.answersQuestion {}
+.answersQuestion {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 28px !important;
+    color: #2D3250;
+}
 
-.answersCorrect {}
+.answersCorrect {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 6px;
+}
 
 @media (max-width: 500px) {
     .questionNum {
