@@ -667,7 +667,11 @@ function goToStartQuiz(dir) {
 }
 
 function backToLessons() {
-    moveToLesson(currCategory, dataSet, 'l');
+    if(previewMode) {
+        openTab("lessons", 'l');
+    } else {
+        moveToLesson(currCategory, dataSet, 'l');
+    }
 }
 
 function updateDiamonds(count, silent) {
