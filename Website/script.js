@@ -859,6 +859,11 @@ function register() {
     openTab("home");
 }
 
+function logOut() {
+    openTab("register", 'l');
+    localStorage.removeItem("registered");
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
@@ -887,5 +892,6 @@ window.showAnswers = showAnswers;
 window.toggleSwipe = toggleSwipe;
 window.updateProgression = updateProgression;
 window.register = register;
+window.logOut = logOut;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
