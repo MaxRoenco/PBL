@@ -1,0 +1,17 @@
+.registerContainer {
+    width: 80%;
+    height: 80%;
+    max-width: 1000px;
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.registerForm>input {
+    margin: 20px 0px;
+    padding: 10px;
+}

@@ -1,9 +1,9 @@
 .contentContainer {
     text-align: left;
     font-family: sans-serif;
-    width: 90%;
-    height: 90%;
-    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
     overflow-y: scroll;
 }
 
@@ -27,36 +27,53 @@
     font-size: 14px;
 }
 
-#textContent>img {
-    width: 400px;
-}
-
 #textLesson {
-    padding: 30px;
-    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 20px;
+    font-size: 14px;
 }
 
+#textLesson>h1,
 #textContent>h1 {
+    width: 100%;
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 20px;
+    text-align: center;
 }
 
+#textLesson>h2,
 #textContent>h2 {
+    width: 100%;
     font-family: "Trebuchet MS", serif;
     font-weight: 700;
     font-style: normal;
     font-size: 26px;
+    text-align: center;
+
 }
 
-#textContent>img {
-    width: 300px;
+#textLesson>div,
+#textContent>div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#textLesson>div>img,
+#textContent>div>img {
+    width: 350px;
     border: 3px solid;
     border-radius: 20px;
     box-shadow: 2px 3px 4px 1px black;
 }
 
+#textLesson>code,
 #textContent>code {
     width: 100%;
     background: black;
@@ -89,6 +106,55 @@
 
     .contentBTN>p {
         font-size: 25px;
+    }
+
+    #textLesson>div>img,
+    #textContent>div>img {
+        width: 250px;
+        border: 3px solid;
+        border-radius: 20px;
+        box-shadow: 2px 3px 4px 1px black;
+    }
+
+    #textLesson>code,
+    #textContent>code {
+        width: 100%;
+        background: black;
+        padding: 15px;
+        border: 3px solid white;
+        border-radius: 5px;
+        box-shadow: 2px 4px 10px black;
+        font-size: 12px;
+    }
+
+    #textLesson>h1,
+    #textContent>h1 {
+        width: 100%;
+        font-family: 'Trebuchet MS', sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    #textLesson>h2,
+    #textContent>h2 {
+        width: 100%;
+        font-family: "Trebuchet MS", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    #textLesson,
+    #textContent {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding: 20px;
+        font-size: 10px;
     }
 }
 
