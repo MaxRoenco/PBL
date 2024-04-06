@@ -48,6 +48,7 @@
     <div id="createBtn" onclick="openTab('actions')">+</div>
 
     <div id="tabs">
+
         <!-- HOME TAB -->
         <div class="container" data-tab="home">
             <div class="titleContainer">
@@ -455,16 +456,21 @@
         </div>
         <div class="container creatorTab" data-tab="quizCreator">
             <div class="questionThing">
-                <h1>Add a question</h2>
-                    <h3>The question: <input type="text" id="addQuestionInput"></h3>
-                    <h3>The answers: </h3>
-                    <ul id="answersList">
-                    </ul>
-                    <div>
-                        <input type="text" id="addAnswerInput">
-                        <button id="addAnwerBtn" onclick="addAnswer()">Add answer </button>
+                <h1 class="text2">Add a question</h2>
+                    <div class="creatorAddAnswerContainer">
+                        <h3 class="textLittle">The question: <input type="text" id="addQuestionInput"
+                                class="creatorAddQuestion">
+                        </h3>
                     </div>
-                    <h3>The correct answer:</h3>
+                    <h3 class="textLittle">The answers: </h3>
+                    <ul id="answersList" class="textLittle">
+                    </ul>
+                    <div class="creatorAddAnswerContainer">
+                        <input type="text" id="addAnswerInput" class="creatorAddAnswer">
+                        <button id="addAnwerBtn" class="creatorQuizButton textLittle" onclick="addAnswer()">Add answer
+                        </button>
+                    </div>
+                    <h3 class="textLittle">The correct answer:</h3>
                     <select id="selectCorrectAnswer"></select>
                     <br>
                     <br>
