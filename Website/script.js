@@ -247,17 +247,17 @@ function showResults(total) {
         res.textContent = "You got " + correct + '/' + total + " correct";
         cir.style.background = `conic-gradient(white ${Math.floor(correct*360/total)}deg, rgb(255, 255, 255, 0.1) 0deg)`;
         per.textContent = `${Math.floor(correct*100/total)}%`
+        cir.style.display = '';
     } else {
         res.textContent = "Lesson complete.";
+        cir.style.display = 'none';
     }
     document.getElementById("resultsHomeBtn").textContent = previewMode ? "End Preview" : "Home";
     openTab("results", 'r');
     if(!previewMode && !isLastLesson) {
         btn.style.display = '';
-        cir.style.display = 'none';
     } else {
-        btn.style.display = 'none';
-        cir.style.display = '';
+        btn.style.display = 'none';     
     }
     if(currLevel >= progression[currCategory] && !previewMode) {
         updateProgression(currCategory, currLevel+1);
