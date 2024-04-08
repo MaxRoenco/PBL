@@ -100,7 +100,7 @@ function openTab(tabName, dir) {
     if(tabName === 'categories') {
         let cats = ['html', 'css', 'js', 'python', 'c', 'cpp'];
         cats.forEach(e => {
-            let len = dataSet["en"]["categories"][e].length;
+            let len = dataSet[progression["language"]]["categories"][e].length;
             let ele = document.getElementById(e);
             if(len < 1) {
                 ele.classList.add("categoryLocked");
@@ -138,7 +138,7 @@ function moveToLesson(lessonName, data, dir) {
     openTab("lessons", dir);
     let container = document.getElementById("lessons");
     container.replaceChildren();
-    data["en"]["categories"][lessonName].forEach((ele, i) => {
+    data[progression["language"]]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
         
@@ -163,8 +163,8 @@ function moveToLesson(lessonName, data, dir) {
         lessonElement.addEventListener("click", _ => {
             currCategory = lessonName;
             currLevel = i;
-            numberOfQuestions = data["en"]["categories"][lessonName][i]["quiz"].length;
-            isLastLesson = i+1 === data["en"]["categories"][lessonName].length;
+            numberOfQuestions = data[progression["language"]]["categories"][lessonName][i]["quiz"].length;
+            isLastLesson = i+1 === data[progression["language"]]["categories"][lessonName].length;
             openContent(ele);
         })
     })
@@ -178,7 +178,7 @@ function openContent(obj) {
     let button = document.querySelector('#openLesson');
     button = removeAllEventListeners(button);
     button.addEventListener("click", _ => {
-        let btn = document.getElementById("toQuizBtn");
+        let btn = document.getElementById("langQuizBtn");
         if(numberOfQuestions) {
             btn.textContent = 'Quiz';
         } else {
@@ -243,20 +243,31 @@ function setActiveLanguage(lang) {
             document.getElementById(ele).classList.remove("active");
         }
     })
-    playSound(`./assets/sounds/${lang}.mp3`);
+    let elements = dataSet[lang]["elements"];
+    for (const [key, value] of Object.entries(elements)) {
+        document.getElementById(key).textContent = value;
+    }
+
 }
 
 function showResults(total) {
     playSound("./assets/sounds/levelup.mp3")
-    isLastLesson = currLevel+1 === dataSet["en"]["categories"][currCategory].length;
+    isLastLesson = currLevel+1 === dataSet[progression["language"]]["categories"][currCategory].length;
     let res = document.getElementById("resultsElement");
     let btn = document.getElementById("resultsNextBtn");
     let cir = document.querySelector(".circuitDiagram");
     let per = document.getElementById("resultsPercent");
     let showBtn = document.getElementById("resultsShowBtn");
     let completedQuiz = correct/total >= 0.5 || !total;
+    let lang = progression["language"];
     if(total) {
-        res.textContent = "You got " + correct + '/' + total + " correct";
+        if(lang === 'ru') {
+            res.textContent = "Вы правильно набрали " + correct + '/' + total;
+        } else if(lang === 'ro') {
+            res.textContent = "Ai corect " + correct + '/' + total;
+        } else {
+            res.textContent = "You got " + correct + '/' + total + " correct";
+        }
         cir.style.background = `conic-gradient(white ${Math.floor(correct*360/total)}deg, rgb(255, 255, 255, 0.1) 0deg)`;
         per.textContent = `${Math.floor(correct*100/total)}%`
         cir.style.display = '';
@@ -264,10 +275,22 @@ function showResults(total) {
             updateDiamonds(progression["diamonds"]+100);
         }
     } else {
-        res.textContent = "Lesson complete.";
+        if(lang === 'ru') {
+            res.textContent = "Урок завершен.";
+        } else if(lang === 'ro') {
+            res.textContent = "Lecția completă.";
+        } else {
+            res.textContent = "Lesson complete.";
+        }
         cir.style.display = 'none';
     }
-    document.getElementById("resultsHomeBtn").textContent = previewMode ? "End Preview" : "Home";
+    if(lang === 'ru') {
+        document.getElementById("resultsHomeBtn").textContent = previewMode ? "Завершить просмотр" : "домашняя страница";
+    } else if(lang === 'ro') {
+        document.getElementById("resultsHomeBtn").textContent = previewMode ? "Încheiați previzualizarea" : "Acasă";
+    } else {
+        document.getElementById("resultsHomeBtn").textContent = previewMode ? "End Preview" : "Home";
+    }
     openTab("results", 'r');
     if(!previewMode && !isLastLesson && completedQuiz) {
         btn.style.display = '';
@@ -277,7 +300,7 @@ function showResults(total) {
     if(currLevel >= progression[currCategory] && !previewMode && completedQuiz) {
         updateProgression(currCategory, currLevel+1);
     }
-    if(dataSet["en"]["categories"][currCategory][currLevel]["quiz"].length) {
+    if(dataSet[progression["language"]]["categories"][currCategory][currLevel]["quiz"].length) {
         showBtn.style.display = '';
     } else {
         showBtn.style.display = 'none';
@@ -363,8 +386,8 @@ function createLesson() {
     let lesson = document.getElementById("lessonArea").value;
     let obj = {
         "title" : title.trim() === '' ? "Untitled" : title.trim(),
-        "content" : content.trim() === '' ? "# Empty introduction" : content,
-        "lesson" : lesson.trim() === '' ? "# Empty lesson" : lesson,
+        "content" : content.trim() === '' ? "# Blank introduction" : content,
+        "lesson" : lesson.trim() === '' ? "# Blank lesson" : lesson,
         "quiz" : []
     }
     let addBtn = document.getElementById("addBtn");
@@ -380,6 +403,8 @@ function createLesson() {
     })
     addBtn.addEventListener("click", _ => {
         dataSet["en"]["categories"][cat].push(obj);
+        dataSet["ru"]["categories"][cat].push(obj);
+        dataSet["ro"]["categories"][cat].push(obj);
         saveData(dataSet);
         moveToLesson(cat, dataSet, 'r');
     })
@@ -420,7 +445,7 @@ function cancelAdding() {
 
 function catDeleteChangehandler() {
     let cat = document.getElementById("chooseCategoryDelete").value;
-    let lessons = dataSet["en"]["categories"][cat].map(ele => ele.title);
+    let lessons = dataSet[progression["language"]]["categories"][cat].map(ele => ele.title);
     let lessonDrop = document.getElementById("chooseLessonDelete");
     lessonDrop.replaceChildren();
     lessons.forEach(ele => {
@@ -435,7 +460,7 @@ function catDeleteChangehandler() {
 function removeLessonHandler() {
     let cat = document.getElementById("chooseCategoryDelete").value;
     let lesson = document.getElementById("chooseLessonDelete").value;
-    dataSet["en"]["categories"][cat] = dataSet["en"]["categories"][cat].filter(ele => ele.title !== lesson);
+    dataSet[progression["language"]]["categories"][cat] = dataSet[progression["language"]]["categories"][cat].filter(ele => ele.title !== lesson);
     saveData(dataSet);
     openTab("home", 'l');
 }
@@ -552,7 +577,7 @@ function openProfile() {
     categs.forEach(cat => {
         let bar = document.querySelector(`#${cat}Line`);
         let perc = document.querySelector(`#${cat}Perc`);
-        let total = dataSet["en"]["categories"][cat].length;
+        let total = dataSet[progression["language"]]["categories"][cat].length;
         let done = progression[cat];
         let percentage = total ? Math.floor(done*100/total) : 0;
         bar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${percentage}%, rgb(153, 153, 153) ${1 - percentage}%)`;
@@ -573,7 +598,9 @@ function openProfile() {
 }
 
 function claim(s) {
-    if(progression[s+"Done"]) return;
+    let total = dataSet[progression["language"]]["categories"][s].length;
+    let done = progression[s];
+    if(progression[s+"Done"] || done < total || total === 0) return;
     document.getElementById(s+"Stat").classList.remove("canClaim");
     document.getElementById(s+"Img").classList.remove("shake");
     document.getElementById(s+"Img").src = "./assets/images/treasureOpen.png";
@@ -593,10 +620,10 @@ function toggleWifiMode(oldTab) {
 }
 
 function nextLesson() {
-    if(currLevel+1 >= dataSet["en"]["categories"][currCategory].length) return;
+    if(currLevel+1 >= dataSet[progression["language"]]["categories"][currCategory].length) return;
     currLevel++;
-openContent(dataSet["en"]["categories"][currCategory][currLevel], 'r');
-numberOfQuestions = dataSet["en"]["categories"][currCategory][currLevel]["quiz"].length;
+openContent(dataSet[progression["language"]]["categories"][currCategory][currLevel], 'r');
+numberOfQuestions = dataSet[progression["language"]]["categories"][currCategory][currLevel]["quiz"].length;
 }
 
 function playSound(soundPath) {
@@ -636,7 +663,16 @@ function updateDiamonds(count, silent) {
     }
     if(!silent) {
         let diff = count - progression["diamonds"];
-        notify((diff > 0 ? "+"+diff : diff) + " diamonds", "./assets/images/diamands.png");
+        let lang = progression["language"];
+        let thingo = '';
+        if(lang === 'ru') {
+            thingo = 'бриллианты';
+        } else if(lang === 'ro') {
+            thingo = 'diamante';
+        } else {
+            thingo = 'diamonds';
+        }
+        notify((diff > 0 ? "+"+diff : diff) + " " + thingo, "./assets/images/diamands.png");
     }
     updateProgression("diamonds", count);
     let profileDiamonds = document.getElementById("diamondsCount")
@@ -650,7 +686,16 @@ function updateHearts(count, silent) {
     }
     if(!silent) {
         let diff = count - progression["hearts"];
-        notify((diff > 0 ? "+"+diff : diff) + " hearts", "./assets/images/heart.png");
+        let lang = progression["language"];
+        let thingo = '';
+        if(lang === 'ru') {
+            thingo = 'сердца';
+        } else if(lang === 'ro') {
+            thingo = 'inimile';
+        } else {
+            thingo = 'hearts';
+        }
+        notify((diff > 0 ? "+"+diff : diff) + " " + thingo, "./assets/images/heart.png");
     }
     
     updateProgression("hearts", count);
@@ -682,7 +727,7 @@ function showAnswers() {
     if(previewMode) {
         questions = previewQuestions;
     } else {
-        questions = dataSet["en"]["categories"][currCategory][currLevel]["quiz"];
+        questions = dataSet[progression["language"]]["categories"][currCategory][currLevel]["quiz"];
     }
     questions.forEach(ele => {
         let answerDiv = document.createElement("div");
@@ -701,7 +746,6 @@ function showAnswers() {
 function toggleSoundEffects() {
     soundOn = !soundOn;
     updateProgression("soundOn", soundOn);
-    // playSound("./assets/sounds/tap.mp3");
     if(soundOn) {
         document.getElementById("soundOff").style.display = 'none';
         document.getElementById("soundOn").style.display = 'inherit';
@@ -800,10 +844,28 @@ function register() {
     let username = document.getElementById("usernameInput").value;
     let password = document.getElementById("passwordInput").value;
     if(username.trim() === "") {
-        notify("Please enter a username");
+        let lang = progression["language"];
+        let thingo = '';
+        if(lang === 'ru') {
+            thingo = 'Пожалуйста введите имя пользователя';
+        } else if(lang === 'ro') {
+            thingo = 'Va rugam sa introduceti un nume de utilizator';
+        } else {
+            thingo = 'Please enter a username';
+        }
+        notify(thingo);
         return;
     } else if(password.trim() === "") {
-        notify("Please enter a password");
+        let lang = progression["language"];
+        let thingo = '';
+        if(lang === 'ru') {
+            thingo = 'Пожалуйста, введите пароль';
+        } else if(lang === 'ro') {
+            thingo = 'Vă rugăm să introduceți o parolă';
+        } else {
+            thingo = 'Please enter a password';
+        }
+        notify(thingo);
         return;
     }
     updateProgression("username", username);

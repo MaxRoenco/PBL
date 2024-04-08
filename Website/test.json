@@ -7,7 +7,7 @@
             "langPassword":"Password",
             "langMandatory2":"(mandatory)",
             "langRegister":"Register",
-            "langStart":"start",
+            "buttonStart":"start",
             "langSFX":"Sound Effects",
             "titleSettings":"Languages",
             "langLogOut":"Logout",
@@ -153,5 +153,315 @@
             "c": [],
             "cpp": []
         }        
+    },
+    "ru": {
+        "elements": {
+            "langRegisterForm": "Форма регистрации",
+            "langUsername": "Имя пользователя",
+            "langMandatory": "(обязательное)",
+            "langPassword": "Пароль",
+            "langMandatory2": "(обязательное)",
+            "langRegister": "Зарегистрироваться",
+            "buttonStart": "Старт",
+            "langSFX": "Звуковые эффекты",
+            "titleSettings": "Языки",
+            "langLogOut": "Выйти",
+            "langHome": "Главная",
+            "swipe": "Провести",
+            "langStats": "Статистика",
+            "langAchievements": "Достижения",
+            "langGiga": "Гига Чад",
+            "langTask1": "Вам нужно получить 100 опыта",
+            "langCrazy": "Ты сумасшедший",
+            "langTask2": "Вам нужно потратить 100 бриллиантов",
+            "langDesigner": "Г-н/Г-жа дизайнер",
+            "langTask3": "Вам нужно закончить 5 уроков CSS",
+            "langDoom": "Рок...",
+            "langTaxt4": "Вам нужно закончить все курсы",
+            "langHomeProfile": "Главная",
+            "title": "Что вы обнаружите",
+            "langLessons": "Уроки",
+            "langStartLesson": "Начать урок >",
+            "langIntro": "< Введение",
+            "langQuizBtn": "Викторина >",
+            "title2": "Хотите начать викторину?",
+            "langBackBtn2": "< Назад",
+            "langStartIdk": "Начать >",
+            "langAnswers": "Ответы:",
+            "langConnection": "Проверьте ваше интернет-соединение..."
+        },
+        "categories": {
+            "html": [
+              {
+                "title": "Основы HTML",
+                "content": "# Введение\nHTML, основа веб-разработки, является языком разметки, используемым для структурирования и представления контента в Интернете. Он использует теги, заключенные в угловые скобки, для определения элементов в документе.\n\n## Понимание тегов и элементов\nТеги являются строительными блоками HTML, представляя элементы, такие как заголовки, абзацы, изображения и ссылки. Каждый тег служит определенной цели в форматировании и организации контента.\n\n## Структура базового HTML-документа\nТипичный HTML-документ начинается с объявления типа документа (`<!DOCTYPE html>`), за которым следует элемент HTML (`<html>`), который содержит структуру документа внутри секций `<head>` и `<body>`.",
+                "lesson": "# ваш урок будет здесь",
+                "quiz": [
+                  {
+                    "question": "Как вы сегодня?",
+                    "options": ["ОЧЕНЬ ПЛОХО", "плохо", "так себе", "хорошо", "УДИВИТЕЛЬНО"],
+                    "correctAnswer": 4
+                  },
+                  {
+                    "question": "Как ваша мама?",
+                    "options": ["ОЧЕНЬ ТОЛСТАЯ", "Толстая", "Толстуха", "Слишком толстая", "ЧРЕЗВЫЧАЙНО ТОЛСТАЯ"],
+                    "correctAnswer": 4
+                  },
+                  {
+                    "question": "ЛООООЛ, ТЫ ЛИШЬ ЧТО СКАЗАЛ, ЧТО ТВОЯ МАМА ТОЛСТАЯ??",
+                    "options": ["...", "ДА ЛОЛ", "Она толстая", "Нет, ты толстый", "Я люблю толстых"],
+                    "correctAnswer": 1
+                  },
+                  {
+                    "question": "Брат.. вообще, сколько тебе лет?",
+                    "options": ["10 лет", "3.14 года", "Я только что родился", "Моя мама толстая", "Да"],
+                    "correctAnswer": 3
+                  }
+                ]
+              },
+              {
+                "title": "Структура документа",
+                "content": "# Анатомия HTML-документа\nHTML-документ состоит из различных элементов, включая заголовки, абзацы, списки и блоки, которые структурированы для передачи информации логическим и иерархическим образом.\n\n## Заголовки и абзацы\nЗаголовки, обозначенные тегами `<h1>` до `<h6>`, обеспечивают иерархическую структуру содержимого, где `<h1>` является наиболее важным. Абзацы, определенные тегом `<p>`, разделяют текст на отдельные блоки.\n\n## Блоки и инлайны\nБлоки (`<div>`) - это контейнерные элементы, используемые для группировки и стилизации содержимого, в то время как инлайны (`<span>`) - это элементы в строке, используемые для применения стилей к конкретным частям текста.",
+                "lesson": "# это заголовок\n## это подзаголовок\nэто какой-то случайный абзац привет там ого лол лол мао хд это супер круто ахаха лол мао.\n# еще один заголовок\nЯ хочу съесть этот торт ого\n`\nconsole.log(\"я не знаю\");\nfor(int i = 0; i < 3; i++) {\n  console.log(i);\n}\n\n`",
+                "quiz": [
+                  {
+                    "question": "Как вы сегодня?",
+                    "options": ["ОЧЕНЬ ПЛОХО", "плохо", "так себе", "хорошо", "УДИВИТЕЛЬНО"],
+                    "correctAnswer": 4
+                  },
+                  {
+                    "question": "Как ваша мама?",
+                    "options": ["ОЧЕНЬ ТОЛСТАЯ", "Толстая", "Толстуха", "Слишком толстая", "ЧРЕЗВЫЧАЙНО ТОЛСТАЯ"],
+                    "correctAnswer": 4
+                  },
+                  {
+                    "question": "ЛООООЛ, ТЫ ЛИШЬ ЧТО СКАЗАЛ, ЧТО ТВОЯ МАМА ТОЛСТАЯ??",
+                    "options": ["...", "ДА ЛОЛ", "Она толстая", "Нет, ты толстый", "Я люблю толстых"],
+                    "correctAnswer": 1
+                  },
+                  {
+                    "question": "Брат.. вообще, сколько тебе лет?",
+                    "options": ["10 лет", "3.14 года", "Я только что родился", "Моя мама толстая", "Да"],
+                    "correctAnswer": 3
+                  }
+                ]
+              },
+              {
+                "title": "Форматирование текста",
+                "content": "# Жирный и курсивный текст\nТекст может быть выделен жирным (`<strong>`) или курсивом (`<em>`) для обозначения важности или акцента, соответственно.\n\n## Переносы строк и горизонтальные линии\nПереносы строк (`<br>`) используются для создания переносов строк внутри абзацев, в то время как горизонтальные линии (`<hr>`) создают визуальные разделители между разделами контента.\n\n## Предварительно отформатированный текст\nТег `<pre>` сохраняет форматирование текста, включая переносы строк и пробелы, что делает его подходящим для отображения фрагментов кода или стихов.",
+                "lesson": "# ваш урок будет здесь",
+                "quiz": []
+              },
+              {
+                "title": "Ссылки и якоря",
+                "content": "# Создание гиперссылок\nГиперссылки необходимы для соединения веб-страниц. Они создаются с использованием тега `<a>` (якоря), а атрибут `href` указывает URL связанной страницы.\n\n## Ссылки на внешние веб-сайты\nДля создания ссылок на внешние веб-сайты атрибут `href` содержит полный URL страницы назначения. Пользователи могут нажимать на эти ссылки для перехода на указанный веб-сайт.\n\n## Теги якорей и внутренние ссылки\nТеги якорей также могут использоваться для создания внутренних ссылок внутри одной и той же веб-страницы. Это достигается путем установки атрибута `href` на ID другого элемента на странице, позволяя пользователям переходить к конкретному разделу.",
+                "lesson": "# ваш урок будет здесь",
+                "quiz": []
+              },
+              {
+                "title": "Изображения и мультимедиа",
+                "content": "# Встраивание изображений\nИзображения могут быть встроены в веб-страницы с использованием тега `<img>`. Атрибут `src` указывает путь к файлу изображения, а атрибут `alt` предоставляет альтернативный текст для целей доступности.\n\n## Добавление аудио и видео\nАудио- и видео-контент может улучшить взаимодействие пользователя. Они добавляются на веб-страницы с помощью тегов `<audio>` и `<video>` соответственно. Эти теги включают атрибуты, такие как `src` для указания медиа-файла и controls для управления воспроизведением.\n\n## Альтернативный текст и доступность\nПредоставление альтернативного текста для изображений с помощью атрибута `alt` гарантирует, что пользователи с нарушениями зрения могут понять содержание. Это также улучшает оптимизацию поисковых систем, предоставляя контекст для изображения.",
+                "lesson": "# ваш урок будет здесь",
+                "quiz": []
+              },
+              {
+                "title": "Списки в HTML",
+                "content": "# Нумерованные списки\nНумерованные списки (`<ol>`) используются для элементов с определенной последовательностью или порядком. Каждый элемент списка (`<li>`) автоматически нумеруется браузером.\n\n## Ненумерованные списки\nНенумерованные списки (`<ul>`) используются для элементов без определенного порядка. Для обозначения каждого элемента списка (`<li>`) используются маркеры или другие метки.\n\n## Списки определений\nСписки определений (`<dl>`) состоят из терминов (`<dt>`) и их определений (`<dd>`). Они часто используются для глоссариев или словарей.",
+                "lesson": "# ваш урок будет здесь",
+                "quiz": []
+              },
+              {
+                "title": "Таблицы в HTML",
+                "content": "# Создание таблиц\nТаблицы структурируются с использованием тега `<table>`, строки определяются тегами `<tr>`, а ячейки в каждой строке определяются тегами `<td>`.\n\n## Строки и столбцы таблицы\nСтроки (`<tr>`) и столбцы (`<td>`) формируют основную структуру таблицы. Дополнительные теги, такие как `<th>`, используются для заголовков таблицы для указания заголовков столбцов.\n\n## Заголовки и подвалы таблицы\nЗаголовки таблицы (`<th>`) могут использоваться для определения заголовков строк или столбцов, а тег `<tfoot>` указывает подвал для таблицы.",
+                "lesson": "# ваш урок будет здесь",
+                "quiz": []
+              },
+              {
+                "title": "Формы и поля ввода",
+                "content": "# Создание HTML-форм\nФормы создаются с использованием тега `<form>`, который содержит различные элементы ввода, такие как текстовые поля, флажки, переключатели и раскрывающиеся меню.\n\n## Элементы ввода формы\nЭлементы ввода собирают данные пользователя. Среди них текстовые поля (`<input type=\"text\">`), флажки (`<input type=\"checkbox\">`), переключатели (`<input type=\"radio\">`) и раскрывающиеся меню (`<select>`).\n\n## Отправка данных формы\nДанные формы отправляются на сервер для обработки с использованием атрибута `action` тега `<form>`, который указывает URL, куда должны быть отправлены данные формы.",
+                "lesson": "# ваш урок будет здесь",
+                "quiz": []
+              },
+              {
+                "title": "Семантический HTML",
+                "content": "# Введение в семантические элементы\nСемантические элементы HTML придают значение контенту не только представлением. Они включают элементы, такие как `<header>`, `<footer>`, `<nav>`, `<article>`, `<section>` и `<aside>`.\n\n## Элементы заголовка и подвала\n`<header>` и `<footer>` определяют верхнюю и нижнюю части веб-страницы соответственно. Они обычно содержат ссылки навигации, информацию о копирайте и другие метаданные.\n\n## Элементы разделения\nЭлементы разделения, такие как `<section>`, `<article>`, `<nav>` и `<aside>`, используются для разделения содержимого веб-страницы на значимые разделы, улучшая доступность и SEO.",
+                "lesson": "# ваш урок будет здесь",
+                "quiz": []
+              },
+              {
+                "title": "Возможности HTML5",
+                "content": "# Введение в HTML5\nHTML5 вводит новые функции и элементы для современной веб-разработки, включая поддержку мультимедиа, семантические элементы и улучшенные формы и API.\n\n## Графика Canvas и SVG\nЭлемент `<canvas>` позволяет динамическое отображение графики с использованием JavaScript, а SVG (масштабируемая векторная графика) обеспечивает изображения и анимации с разрешением, независимым от разрешения экрана.\n\n## Воспроизведение аудио и видео\nHTML5 вводит нативную поддержку воспроизведения аудио и видео с использованием элементов `<audio>` и `<video>`. Это устраняет необходимость в сторонних плагинах, таких как Flash.",
+                "lesson": "# ваш урок будет здесь",
+                "quiz": []
+              }
+            ],
+            "css": [],
+            "js": [
+              {
+                "title": "ДЕМО УРОК",
+                "content": "# Знали ли вы, что лягушки могут прыгать?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## лягушки - очень хорошие животные, потому что они:\n- Могут прыгать высоко.\n- Могут не очень высоко прыгать.\n- Могут издавать кряк-кряк.\n\n## как работает мозг лягушки:\nЛягушки - очень умные большие мозги, которые могут делать многое, вот как работает их мозг:\n`while(!голоден && !сонлив) {\n  if(энергия > 0) {\n    прыгать();\n    крякать();\n  } else {\n    спать();\n  }\n}`",
+                "lesson": "# Знали ли вы, что лягушки могут прыгать?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## лягушки - очень хорошие животные, потому что они:\n- Могут прыгать высоко.\n- Могут не очень высоко прыгать.\n- Могут издавать кряк-кряк.\n\n## как работает мозг лягушки:\nЛягушки - очень умные большие мозги, которые могут делать многое, вот как работает их мозг:\n`while(!голоден && !сонлив) {\n  if(энергия > 0) {\n    прыгать();\n    крякать();\n  } else {\n    спать();\n  }\n}`",
+                "quiz": []
+              }
+            ],
+            "python": [],
+            "c": [],
+            "cpp": []
+        }        
+    },
+    "ro": {
+        "elements": {
+            "langRegisterForm": "Formular de Înregistrare",
+            "langUsername": "Nume de Utilizator",
+            "langMandatory": "(obligatoriu)",
+            "langPassword": "Parolă",
+            "langMandatory2": "(obligatoriu)",
+            "langRegister": "Înregistrare",
+            "buttonStart": "start",
+            "langSFX": "Efecte Sonore",
+            "titleSettings": "Limbi",
+            "langLogOut": "Deconectare",
+            "langHome": "Acasă",
+            "swipe": "Glisează",
+            "langStats": "Statistici",
+            "langAchievements": "Realizări",
+            "langGiga": "GigaChad",
+            "langTask1": "Trebuie să obții 100 de puncte de experiență",
+            "langCrazy": "Ești nebun",
+            "langTask2": "Trebuie să cheltuiești 100 de diamante",
+            "langDesigner": "Dl./Dna. Designer",
+            "langTask3": "Trebuie să termini 5 lecții de CSS",
+            "langDoom": "Doom...",
+            "langTaxt4": "Trebuie să termini toate cursurile",
+            "langHomeProfile": "Acasă",
+            "title": "Ce vei descoperi",
+            "langLessons": "Lecții",
+            "langStartLesson": "Începe lecția >",
+            "langIntro": "< Introducere",
+            "langQuizBtn": "Quiz >",
+            "title2": "Vrei să începi quiz-ul?",
+            "langBackBtn2": "< Înapoi",
+            "langStartIdk": "Start >",
+            "langAnswers": "Răspunsuri:",
+            "langConnection": "Verificați conexiunea dvs. la internet..."
+            },
+            "categories": {
+                "html": [
+                  {
+                    "title": "Bazele HTML",
+                    "content": "# Introducere\nHTML, coloana vertebrala a dezvoltarii web, este un limbaj de marcaj folosit pentru a structura si prezenta continutul pe internet. Foloseste taguri inchise in paranteze unghiulare pentru a defini elementele dintr-un document.\n\n## Intelegerea Tagurilor si Elementelor\nTagurile sunt blocurile de constructie ale HTML-ului, reprezentand elemente precum antete, paragrafe, imagini si linkuri. Fiecare tag serveste un scop specific in formatarea si organizarea continutului.\n\n## Structura de Baza a Documentului HTML\nUn document HTML tipic incepe cu o declaratie de tip de document (`<!DOCTYPE html>`), urmata de un element HTML (`<html>`), care contine structura documentului in sectiunile `<head>` si `<body>`.",
+                    "lesson": "# lectia ta va fi aici",
+                    "quiz": [
+                      {
+                        "question": "Cum iti merge astazi?",
+                        "options": ["FOARTE RAU", "rau", "asa si asa", "bine", "UIMITOR"],
+                        "correctAnswer": 4
+                      },
+                      {
+                        "question": "Cum este mama ta?",
+                        "options": ["FOARTE GREA", "Grea", "Grasa", "Prea grasa", "EXTREM DE GRASA"],
+                        "correctAnswer": 4
+                      },
+                      {
+                        "question": "LOOOOL AI SPUS CHIAR CA MAMA TA E GRASA??",
+                        "options": ["...", "DA LOL", "Ea grasa", "Nu, tu gras", "Imi plac grasele"],
+                        "correctAnswer": 1
+                      },
+                      {
+                        "question": "Bruh.. oricum, cati ani ai?",
+                        "options": ["10 ani", "3.14 ani", "Abia m-am nascut", "Mama mea grasa", "Da"],
+                        "correctAnswer": 3
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Structura Documentului",
+                    "content": "# Anatomia unui Document HTML\nUn document HTML este alcatuit din diverse elemente, inclusiv antete, paragrafe, liste si div-uri, care sunt structurate pentru a transmite informatii intr-un mod logic si ierarhic.\n\n## Antete si Paragrafe\nAntetele, indicate de tagurile `<h1>` pana la `<h6>`, ofera structura ierarhica a continutului, `<h1>` fiind cel mai important. Paragrafele, definite de tagul `<p>`, separa textul in blocuri distincte.\n\n## Divizii si Spatii\nDiviziile (`<div>`) sunt elemente de container folosite pentru a grupa si stiliza continutul, in timp ce spatii (`<span>`) sunt elemente inline folosite pentru a aplica stiluri la portiuni specifice de text.",
+                    "lesson": "# acesta este titlul\n## acesta este subtitlul\nacesta este un paragraf aleatoriu salut acolo omg lol lmao xd asta e super tare ahahha lmao.\n# un alt titlu\nVreau sa mananc acest tort omg\n`\nconsole.log(\"nu stiu\");\nfor(int i = 0; i < 3; i++) {\n  console.log(i);\n}\n\n`",
+                    "quiz": [
+                      {
+                        "question": "Cum iti merge astazi?",
+                        "options": ["FOARTE RAU", "rau", "asa si asa", "bine", "UIMITOR"],
+                        "correctAnswer": 4
+                      },
+                      {
+                        "question": "Cum este mama ta?",
+                        "options": ["FOARTE GREA", "Grea", "Grasa", "Prea grasa", "EXTREM DE GRASA"],
+                        "correctAnswer": 4
+                      },
+                      {
+                        "question": "LOOOOL AI SPUS CHIAR CA MAMA TA E GRASA??",
+                        "options": ["...", "DA LOL", "Ea grasa", "Nu, tu gras", "Imi plac grasele"],
+                        "correctAnswer": 1
+                      },
+                      {
+                        "question": "Bruh.. oricum, cati ani ai?",
+                        "options": ["10 ani", "3.14 ani", "Abia m-am nascut", "Mama mea grasa", "Da"],
+                        "correctAnswer": 3
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Formatarea Textului",
+                    "content": "# Text Gras si Italic\nTextul poate fi accentuat folosind tagurile bold (`<strong>`) sau italic (`<em>`) pentru a indica importanta sau accentul, respectiv.\n\n## Rupturi de Linie si Linii Orizontale\nRupturile de linie (`<br>`) sunt folosite pentru a crea rupturi de linie in paragrafe, in timp ce liniile orizontale (`<hr>`) creeaza separatii vizuale intre sectiunile de continut.\n\n## Text Preformatat\nTagul `<pre>` pastreaza formatarea textului, inclusiv rupturile de linie si spatiile albe, facandu-l potrivit pentru afisarea fragmentelor de cod sau a poeziilor.",
+                    "lesson": "# lectia ta va fi aici",
+                    "quiz": []
+                  },
+                  {
+                    "title": "Linkuri si Ancore",
+                    "content": "# Crearea Hiperlinkurilor\nHiperlinkurile sunt esentiale pentru conectarea paginilor web. Ele sunt create folosind tagul `<a>` (ancora), iar atributul `href` specifica URL-ul paginii legate.\n\n## Linkuri catre Site-uri Externe\nPentru a face legatura catre site-uri externe, atributul `href` contine URL-ul complet al paginii de destinatie. Utilizatorii pot da clic pe aceste linkuri pentru a naviga la site-ul specificat.\n\n## Tagurile Ancorelor si Linkuri Interne\nTagurile ancorelor pot fi, de asemenea, utilizate pentru a crea linkuri interne in aceeasi pagina web. Acest lucru se realizeaza setand atributul `href` la ID-ul altui element de pe pagina, permitand utilizatorilor sa sara la o sectiune specifica.",
+                    "lesson": "# lectia ta va fi aici",
+                    "quiz": []
+                  },
+                  {
+                    "title": "Imagini si Media",
+                    "content": "# Incorporarea Imaginilor\nImaginile pot fi incorporate in paginile web folosind tagul `<img>`. Atributul `src` specifica calea catre fisierul de imagine, in timp ce atributul `alt` furnizeaza text alternativ in scopuri de accesibilitate.\n\n## Adaugarea Audio si Video\nContinutul audio si video poate imbunatati implicarea utilizatorului. Acestea sunt adaugate paginilor web folosind tagurile `<audio>` si `<video>`, respectiv. Aceste taguri includ atribute precum `src` pentru specificarea fisierului media si controls pentru redarea.\n\n## Text Alternativ si Accesibilitate\nFurnizarea de text alternativ pentru imagini folosind atributul `alt` asigura ca utilizatorii cu deficiente de vedere pot intelege continutul. De asemenea, imbunatateste optimizarea pentru motoarele de cautare prin furnizarea de context pentru imagine.",
+                    "lesson": "# lectia ta va fi aici",
+                    "quiz": []
+                  },
+                  {
+                    "title": "Liste in HTML",
+                    "content": "# Liste Ordonate\nListele ordonate (`<ol>`) sunt folosite pentru elemente cu o secventa sau ordine specifica. Fiecare element al listei (`<li>`) este numerotat automat de catre browser.\n\n## Liste Neordonate\nListele neordonate (`<ul>`) sunt folosite pentru elemente fara o ordine particulara. Bule sau alte marcaje sunt folosite pentru a indica fiecare element al listei (`<li>`).\n\n## Liste de Definitii\nListele de definitii (`<dl>`) constau din termeni (`<dt>`) si definitiile lor (`<dd>`). Ele sunt folosite in mod obisnuit pentru glosare sau dictionare.",
+                    "lesson": "# lectia ta va fi aici",
+                    "quiz": []
+                  },
+                  {
+                    "title": "Tabele in HTML",
+                    "content": "# Crearea Tabelului\nTabelele sunt structurate folosind tagul `<table>`, cu randuri definite de tagurile `<tr>` si celule in fiecare rand definite de tagurile `<td>`.\n\n## Randuri si Coloane ale Tabelului\nRandurile (`<tr>`) si coloanele (`<td>`) formeaza structura de baza a unui tabel. Taguri suplimentare precum `<th>` sunt folosite pentru antetele tabelului pentru a specifica titlurile de coloane.\n\n## Antete si Subsoluri ale Tabelului\nAntetele tabelului (`<th>`) pot fi folosite pentru a defini antetele pentru randuri sau coloane, in timp ce tagul `<tfoot>` specifica un subsol pentru un tabel.",
+                    "lesson": "# lectia ta va fi aici",
+                    "quiz": []
+                  },
+                  {
+                    "title": "Formulare si Intrari",
+                    "content": "# Crearea Formularilor HTML\nFormularele sunt create folosind tagul `<form>`, care contine diverse elemente de intrare cum ar fi campuri de text, casute de bifat, butoane radio si meniuri derulante.\n\n## Elemente de Intrare ale Formularului\nElementele de intrare colecteaza date de la utilizator. Acestea includ campuri de text (`<input type=\"text\">`), casete de bifat (`<input type=\"checkbox\">`), butoane radio (`<input type=\"radio\">`) si meniuri derulante (`<select>`).\n\n## Trimiterea Datelor Formularului\nDatele formularului sunt trimise unui server pentru procesare folosind atributul `action` al tagului `<form>`, care specifica URL-ul unde datele formularului ar trebui trimise.",
+                    "lesson": "# lectia ta va fi aici",
+                    "quiz": []
+                  },
+                  {
+                    "title": "HTML Semantic",
+                    "content": "# Introducere in Elementele Semantice HTML\nElementele HTML semantice ofera semnificatie continutului in afara doar de prezentare. Ele includ elemente precum `<header>`, `<footer>`, `<nav>`, `<article>`, `<section>` si `<aside>`.\n\n## Elemente de Antet si Subsol\n`<header>` si `<footer>` definesc sectiunile superioare si inferioare ale unei pagini web, respectiv. Ele contin in mod obisnuit linkuri de navigare, informatii despre drepturile de autor si alte metadate.\n\n## Elemente de Sectiune\nElementele de sectiune precum `<section>`, `<article>`, `<nav>` si `<aside>` sunt folosite pentru a impartasi continutul unei pagini web in sectiuni semnificative, imbunatatind accesibilitatea si SEO.",
+                    "lesson": "# lectia ta va fi aici",
+                    "quiz": []
+                  },
+                  {
+                    "title": "Caracteristici HTML5",
+                    "content": "# Introducere in HTML5\nHTML5 introduce noi caracteristici si elemente pentru dezvoltarea web moderna, inclusiv suport pentru multimedia, elemente semantice si forme si API-uri imbunatatite.\n\n## Grafica Canvas si SVG\nElementul `<canvas>` permite redarea dinamica a graficii folosind JavaScript, in timp ce SVG (Scalable Vector Graphics) ofera imagini si animatii independente de rezolutie.\n\n## Redare Audio si Video\nHTML5 introduce suport nativ pentru redarea audio si video folosind elementele `<audio>` si `<video>`. Acest lucru elimina necesitatea de pluginuri terte precum Flash.",
+                    "lesson": "# lectia ta va fi aici",
+                    "quiz": []
+                  }
+                ],
+                "css": [],
+                "js": [
+                  {
+                    "title": "LECTIE DEMO",
+                    "content": "# Stiati ca broastele pot sari?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## broastele sunt animale foarte bune pentru ca ele:\n- Pot sari inalt.\n- Pot sari nu foarte inalt.\n- Pot face sunetul quack.\n\n## cum functioneaza creierul broastei:\nBroastele sunt animale cu creier mare foarte inteligente, care pot face multe, iata cum functioneaza creierul lor:\n`while(!flamanzi && !somnoros) {\n  if(energie > 0) {\n    sare();\n    quack();\n  } else {\n    doarme();\n  }\n}`",
+                    "lesson": "# Stiati ca broastele pot sari?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## broastele sunt animale foarte bune pentru ca ele:\n- Pot sari inalt.\n- Pot sari nu foarte inalt.\n- Pot face sunetul quack.\n\n## cum functioneaza creierul broastei:\nBroastele sunt animale cu creier mare foarte inteligente, care pot face multe, iata cum functioneaza creierul lor:\n`while(!flamanzi && !somnoros) {\n  if(energie > 0) {\n    sare();\n    quack();\n  } else {\n    doarme();\n  }\n}`",
+                    "quiz": []
+                  }
+                ],
+                "python": [],
+                "c": [],
+                "cpp": []
+              }
     }
 }
