@@ -19,12 +19,14 @@
 }
 
 #textContent {
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     padding: 20px;
     font-size: 18px;
+    max-width: 800px;
 }
 
 #textLesson {
