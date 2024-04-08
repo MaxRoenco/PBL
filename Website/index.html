@@ -54,20 +54,20 @@
 
         <!-- REGISTER TAB -->
         <div class="container registerContainer" data-tab="register">
-            <p class="title">Register Form</p>
+            <p class="title" id="langRegisterForm">Register Form</p>
             <div class="registerForm">
                 <div style="display: flex; flex-direction: row;">
-                    <p class="text2">Username</p>
-                    <p class="textLittle" style="margin-left: 10px;">(mandatory)</p>
+                    <p class="text2" id="langUsername">Username</p>
+                    <p class="textLittle" style="margin-left: 10px;" id="langMandatory">(mandatory)</p>
                 </div>
                 <input type="text" placeholder="Your Username" class="textLittle" id="usernameInput">
                 <div style="display: flex; flex-direction: row;">
-                    <p class="text2">Password</p>
-                    <p class="textLittle" style="margin-left: 10px;">(mandatory)</p>
+                    <p class="text2" id="langPassword">Password</p>
+                    <p class="textLittle" style="margin-left: 10px;" id="langMandatory2">(mandatory)</p>
                 </div>
                 <input type="password" placeholder="Your password" class="textLittle" id="passwordInput">
             </div>
-            <button class="button buttonRegister text2" onclick="register()">Register</button>
+            <button class="button buttonRegister text2" onclick="register()" id="langRegister">Register</button>
         </div>
 
         <!-- HOME TAB -->
@@ -77,7 +77,7 @@
             </div>
             <img src="./assets/images/codify.png" alt="" class="codify">
             <div class="buttonContainer">
-                <button class="button" id="buttonStart" onclick="openTab('categories', 'r')">Start</button>
+                <button class="button" id="buttonStart" onclick="openTab('categories', 'r')" id="langStart">Start</button>
             </div>
         </div>
 
@@ -99,7 +99,7 @@
             </div>
             <div class="soundEffectsContainer">
                 <div class="soundEffectsTextContainer">
-                    <p class="titleSettings">Sound Effects</p>
+                    <p class="titleSettings" id="langSFX">Sound Effects</p>
                 </div>
                 <div class="soundEffectsImageContainer">
                     <img src="./assets/images/settingsSoundsOn.png" class="soundEffectsOnImageContainer" id="soundOn"
@@ -110,7 +110,7 @@
             </div>
             <div class="soundEffectsContainer">
                 <div class="soundEffectsTextContainer">
-                    <p class="titleSettings">Swipe</p>
+                    <p class="titleSettings" id="swipe">Swipe</p>
                 </div>
                 <div class="soundEffectsImageContainer">
                     <img src="./assets/images/correct_ans.png" class="soundEffectsOnImageContainer" id="swipeOn"
@@ -120,9 +120,8 @@
                 </div>
             </div>
             <div class="buttonContainerSettings">
-                <div class="button" onclick="openTab('home', 'r')">
-                    <p class="text">Home</p>
-                </div>
+                <div class="button" onclick="logOut()"><p class="text" id="langLogOut">Logout</p></div>
+                <div class="button" onclick="openTab('home', 'r')"><p class="text" id="langHome">Home</p></div>
             </div>
         </div>
 
@@ -155,8 +154,8 @@
                         </div>
                     </div>
                     <div class="statisticsProfile">
-                        <span class="titleStat">Statistics</span>
-                        <div class="statsBlock">
+                        <span class="titleStat" id="langStats">Statistics</span>
+                        <div class="statsBlock" id="htmlStat" onclick="claim('html')">
                             <div class="leftStat">
                                 <img src="./assets/images/html.png">
                                 <div class="text">HTML</div>
@@ -164,7 +163,7 @@
                             <div class="statisticsLine" id="htmlLine"><span id="htmlPerc"></span><img
                                     src="./assets/images/treasure.png" id="htmlImg"></div>
                         </div>
-                        <div class="statsBlock">
+                        <div class="statsBlock" id="cssStat" onclick="claim('css')">
                             <div class="leftStat">
                                 <img src="./assets/images/css.png">
                                 <div class="text">CSS</div>
@@ -172,7 +171,7 @@
                             <div class="statisticsLine" id="cssLine"><span id="cssPerc"></span><img
                                     src="./assets/images/treasure.png" id="cssImg"></div>
                         </div>
-                        <div class="statsBlock">
+                        <div class="statsBlock" id="jsStat" onclick="claim('js')">
                             <div class="leftStat">
                                 <img src="./assets/images/js.png" alt="">
                                 <div class="text">JavaScript</div>
@@ -180,7 +179,7 @@
                             <div class="statisticsLine" id="jsLine"><span id="jsPerc"></span><img
                                     src="./assets/images/treasure.png" id="jsImg"></div>
                         </div>
-                        <div class="statsBlock">
+                        <div class="statsBlock" id="pythonStat" onclick="claim('python')">
                             <div class="leftStat">
                                 <img src="./assets/images/python.png">
                                 <div class="text">Python</div>
@@ -188,7 +187,7 @@
                             <div class="statisticsLine" id="pythonLine"><span id="pythonPerc"></span><img
                                     src="./assets/images/treasure.png" id="pythonImg"></div>
                         </div>
-                        <div class="statsBlock">
+                        <div class="statsBlock" id="cStat" onclick="claim('c')">
                             <div class="leftStat">
                                 <img src="./assets/images/c.png">
                                 <div class="text">C</div>
@@ -196,9 +195,9 @@
                             <div class="statisticsLine" id="cLine"><span id="cPerc"></span><img
                                     src="./assets/images/treasure.png" id="cImg"></div>
                         </div>
-                        <div class="statsBlock">
+                        <div class="statsBlock" id="cppStat" onclick="claim('cpp')">
                             <div class="leftStat">
-                                <img src="./assets/images/c++.png">
+                                <img src="./assets/images/cpp.png">
                                 <div class="text">C++</div>
                             </div>
                             <div class="statisticsLine" id="cppLine"><span id="cppPerc"></span><img
@@ -208,40 +207,40 @@
                 </div>
                 <div class="rightProfile">
                     <div class="achievements">
-                        <div class="titleAchiv">Achievements</div>
+                        <div class="titleAchiv" id="langAchievements">Achievements</div>
                         <div class="blocks">
                             <img src="./assets/images/gigaChad.png">
                             <div class="achieveContainer">
-                                <div class="text">GigaChad</div>
+                                <div class="text" id="langGiga">GigaChad</div>
                                 <div class="bar"></div>
-                                <div class="textLittle">You need to get 100 exp</div>
+                                <div class="textLittle" id="langTask1">You need to get 100 exp</div>
                                 <div class="textGray">0/100</div>
                             </div>
                         </div>
                         <div class="blocks">
                             <img src="./assets/images/crazy.png">
                             <div class="achieveContainer">
-                                <div class="text">You are crazy</div>
+                                <div class="text" id="langCrazy">You are crazy</div>
                                 <div class="bar"></div>
-                                <div class="textLittle">You need to spend 100 diamands</div>
+                                <div class="textLittle" id="langTask2">You need to spend 100 diamands</div>
                                 <div class="textGray">0/100</div>
                             </div>
                         </div>
                         <div class="blocks">
                             <img src="./assets/images/model.png">
                             <div class="achieveContainer">
-                                <div class="text">Mr/Mrs designer</div>
+                                <div class="text" id="langDesigner">Mr/Mrs designer</div>
                                 <div class="bar"></div>
-                                <div class="textLittle">You need to finish 5 CSS lessons</div>
+                                <div class="textLittle" id="langTask3">You need to finish 5 CSS lessons</div>
                                 <div class="textGray">0/5</div>
                             </div>
                         </div>
                         <div class="blocks">
                             <img src="./assets/images/demon.png">
                             <div class="achieveContainer">
-                                <div class="text">Doom...</div>
+                                <div class="text" id="langDoom">Doom...</div>
                                 <div class="bar"></div>
-                                <div class="textLittle">You need to finish all courses</div>
+                                <div class="textLittle" id="langTaxt4">You need to finish all courses</div>
                                 <div class="textGray">0/6</div>
                             </div>
                         </div>
@@ -250,7 +249,7 @@
             </div>
             <div class="buttonContainerProfile">
                 <div class="button" onclick="openTab('home', 'l')">
-                    <p class="text">Home</p>
+                    <p class="text" id="langHomeProfile">Home</p>
                 </div>
             </div>
         </div>
@@ -293,9 +292,9 @@
                     <div class="textC">C</div>
                 </div>
             </div>
-            <div class="category" onclick="moveToLesson('c++', dataSet)" id="c++">
+            <div class="category" onclick="moveToLesson('cpp', dataSet)" id="cpp">
                 <img src="./assets/images/lock.png" class="catLockImg">
-                <img src="./assets/images/c++.png">
+                <img src="./assets/images/cpp.png">
                 <div class="text textCategories">
                     <div class="textC">C++</div>
                 </div>
@@ -314,10 +313,10 @@
             <div id="textContent"></div>
             <div class="contentButtons">
                 <div class="button contentBTN" onclick="backToLessons()">
-                    <p class="text">&lt; Lessons</p>
+                    <p class="text" id="langLessons">&lt; Lessons</p>
                 </div>
                 <div class="button contentBTN" id="openLesson">
-                    <p class="text">Start lesson &gt;</p>
+                    <p class="text" id="langStartLesson">Start lesson &gt;</p>
                 </div>
             </div>
         </div>
@@ -327,23 +326,23 @@
             <div id="textLesson"></div>
             <div class="contentButtons">
                 <div class="button contentBTN" onclick="openTab('content', 'l')">
-                    <p class="text">&lt; Introduction</p>
+                    <p class="text" id="langIntro">&lt; Introduction</p>
                 </div>
                 <div class="button contentBTN" id="toQuizBtn" onclick="goToStartQuiz('r')">
-                    <p class="text">Quiz &gt;</p>
+                    <p class="text" id="langQuizBtn">Quiz &gt;</p>
                 </div>
             </div>
         </div>
 
         <!-- QUIZ TAB -->
         <div class="container contentContainer" data-tab="quiz">
-            <h1 id="title" style="font-size: 2.5rem;">Do you want to start the quiz?</h1>
+            <h1 id="title2" style="font-size: 2.5rem;">Do you want to start the quiz?</h1>
             <div class="contentButtons">
                 <div class="button contentBTN" onclick="openTab('lesson', 'l')">
-                    <p class="text">&lt; Back</p>
+                    <p class="text" id="langBackBtn2">&lt; Back</p>
                 </div>
                 <div class="button contentBTN" id="quizStart">
-                    <p class="text">Start &gt;</p>
+                    <p class="text" id="langStartIdk">Start &gt;</p>
                 </div>
             </div>
         </div>
@@ -392,7 +391,7 @@
 
         <!-- ANSWERS TAB -->
         <div class="container answersTab" data-tab="answers">
-            <h1 class="text2">Answers:</h1>
+            <h1 class="text2" id="langAnswers">Answers:</h1>
             <div id="allAnswers" class="allAnswersContainer">
                 <div class="answersAnswer">
                     <h2>What did you eat?</h2>
@@ -433,9 +432,6 @@
                 <div class="creatorButton" onclick="toggleWifiMode(oldTab)">
                     <p class="text" id="wifiModeBtn">Offline mode</p>
                 </div>
-                <div class="creatorButton" onclick="logOut()">
-                    <p class="text" id="wifiModeBtn">logout</p>
-                </div>
                 <div class="creatorButton" onclick="cancelAdding()">
                     <p class="text">Home</p>
                 </div>
@@ -449,7 +445,7 @@
                 <option value="js">JS</option>
                 <option value="python">Python</option>
                 <option value="c">C</option>
-                <option value="c++">C++</option>
+                <option value="cpp">C++</option>
             </select>
             <h1 id="title" style="font-size: 2.5rem;">Enter the title of the lesson</h1>
             <input type="text" id="chooseTitle" class="chooseTitle text2">
@@ -546,7 +542,7 @@
                 <option value="js">JS</option>
                 <option value="pythong">Python</option>
                 <option value="c">C</option>
-                <option value="c++">C++</option>
+                <option value="cpp">C++</option>
             </select>
             <h1 style="font-size: 2.5rem;">What lesson to remove?</h1>
             <select id="chooseLessonDelete" class="chooseCategory"></select>
@@ -569,7 +565,7 @@
                 <div class="wifi-circle fourth">
                 </div>
             </div>
-            <div class="text">Check your internet connection...</div>
+            <div class="text" id="langConnection">Check your internet connection...</div>
         </div>
 
 

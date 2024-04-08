@@ -1,7 +1,39 @@
 {
     "en": {
         "elements": {
-            "id": "en-text"
+            "langRegisterForm": "Register Form",
+            "langUsername":"Username",
+            "langMandatory":"(mandatory)",
+            "langPassword":"Password",
+            "langMandatory2":"(mandatory)",
+            "langRegister":"Register",
+            "langStart":"start",
+            "langSFX":"Sound Effects",
+            "titleSettings":"Languages",
+            "langLogOut":"Logout",
+            "langHome":"Home",
+            "swipe":"Swipe",
+            "langStats":"Statistics",
+            "langAchievements":"Achievements",
+            "langGiga":"GigaChad",
+            "langTask1":"You need to get 100 exp",
+            "langCrazy":"You are crazy",
+            "langTask2":"You need to spend 100 diamands",
+            "langDesigner":"Mr/Mrs designer",
+            "langTask3":"You need to finish 5 CSS lessons",
+            "langDoom":"Doom...",
+            "langTaxt4":"You need to finish all courses",
+            "langHomeProfile":"Home",
+            "title":"What you'll discover",
+            "langLessons":"Lessons",
+            "langStartLesson":"Start lesson >",
+            "langIntro":"<  Introduction",
+            "langQuizBtn":"Quiz >",
+            "title2":"Do you want to start the quiz?",
+            "langBackBtn2":"< Back",
+            "langStartIdk":"Start >",
+            "langAnswers":"Answers:",
+            "langConnection":"Check your internet connection..."
         },
         "categories": {
             "html": [
@@ -119,7 +151,7 @@
             ],
             "python": [],
             "c": [],
-            "c++": []
+            "cpp": []
         }        
     }
 }

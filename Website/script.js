@@ -10,13 +10,19 @@ let defaultProgression = {
     "js": 0,
     "python": 0,
     "c":0,
-    "c++": 0,
+    "cpp": 0,
     "diamonds": 0,
     "hearts": 0,
     "language": 'en',
     "soundOn": true,
     "swipeOn": true,
     "username": '',
+    "htmlDone": false,
+    "cssDone": false,
+    "jsDone": false,
+    "pythonDone": false,
+    "cDone": false,
+    "cppDone": false,
 }
 let progression = JSON.parse(JSON.stringify(defaultProgression));
 let currCategory = "";
@@ -92,7 +98,7 @@ function openTab(tabName, dir) {
     currentTab = tabName;
 
     if(tabName === 'categories') {
-        let cats = ['html', 'css', 'js', 'python', 'c', 'c++'];
+        let cats = ['html', 'css', 'js', 'python', 'c', 'cpp'];
         cats.forEach(e => {
             let len = dataSet["en"]["categories"][e].length;
             let ele = document.getElementById(e);
@@ -537,96 +543,42 @@ function resultsHome() {
 }
 
 function openProfile() {
+
     //username
     document.getElementById("profileUsername").textContent = progression["username"];
 
-    //html
-    let htmlBar = document.querySelector("#htmlLine");
-    let htmlPerc = document.querySelector("#htmlPerc");
-    let htmlTotal = dataSet["en"]["categories"]["html"].length;
-    let htmlDone = progression["html"];
-    let htmlPercentage = htmlTotal ? Math.floor(htmlDone*100/htmlTotal) : 0;
-    htmlBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${htmlPercentage}%, rgb(153, 153, 153) ${1 - htmlPercentage}%)`;
-    htmlPerc.textContent = htmlPercentage+"%";
-    if(htmlPercentage === 100) {
-        document.getElementById("htmlImg").src = "./assets/images/treasureOpen.png"
-    } else {
-        document.getElementById("htmlImg").src = "./assets/images/treasure.png"
-    }
+    let categs = ["html", "css", "js", "python", "c", "cpp"];
 
-    //css
-    let cssBar = document.querySelector("#cssLine");
-    let cssPerc = document.querySelector("#cssPerc");
-    let cssTotal = dataSet["en"]["categories"]["css"].length;
-    let cssDone = progression["css"];
-    let cssPercentage = cssTotal ? Math.floor(cssDone*100/cssTotal) : 0;
-    cssBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cssPercentage}%, rgb(153, 153, 153) ${1 - cssPercentage}%)`;
-    cssPerc.textContent = cssPercentage+"%";
-    if(cssPercentage === 100) {
-        document.getElementById("cssImg").src = "./assets/images/treasureOpen.png"
-    } else {
-        document.getElementById("cssImg").src = "./assets/images/treasure.png"
-    }
-
-    //js
-    let jsBar = document.querySelector("#jsLine");
-    let jsPerc = document.querySelector("#jsPerc");
-    let jsTotal = dataSet["en"]["categories"]["js"].length;
-    let jsDone = progression["js"];
-    let jsPercentage = jsTotal ? Math.floor(jsDone*100/jsTotal) : 0;
-    jsBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${jsPercentage}%, rgb(153, 153, 153) ${1 - jsPercentage}%)`;
-    jsPerc.textContent = jsPercentage+"%";
-    if(jsPercentage === 100) {
-        document.getElementById("jsImg").src = "./assets/images/treasureOpen.png"
-    } else {
-        document.getElementById("jsImg").src = "./assets/images/treasure.png"
-    }
-
-    //c
-    let cBar = document.querySelector("#cLine");
-    let cPerc = document.querySelector("#cPerc");
-    let cTotal = dataSet["en"]["categories"]["c"].length;
-    let cDone = progression["c"];
-    let cPercentage = cTotal ? Math.floor(cDone*100/cTotal) : 0;
-    cBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cPercentage}%, rgb(153, 153, 153) ${1 - cPercentage}%)`;
-    cPerc.textContent = cPercentage+"%";
-    if(cPercentage === 100) {
-        document.getElementById("cImg").src = "./assets/images/treasureOpen.png"
-    } else {
-        document.getElementById("cImg").src = "./assets/images/treasure.png"
-    }
-
-    //cpp
-    let cppBar = document.querySelector("#cppLine");
-    let cppPerc = document.querySelector("#cppPerc");
-    let cppTotal = dataSet["en"]["categories"]["c++"].length;
-    let cppDone = progression["c++"];
-    let cppPercentage = cppTotal ? Math.floor(cppDone*100/cppTotal) : 0;
-    cppBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${cppPercentage}%, rgb(153, 153, 153) ${1 - cppPercentage}%)`;
-    cppPerc.textContent = cppPercentage+"%";
-    if(cppPercentage === 100) {
-        document.getElementById("cppImg").src = "./assets/images/treasureOpen.png"
-    } else {
-        document.getElementById("cppImg").src = "./assets/images/treasure.png"
-    }
-
-    //python
-    let pythonBar = document.querySelector("#pythonLine");
-    let pythonPerc = document.querySelector("#pythonPerc");
-    let pythonTotal = dataSet["en"]["categories"]["python"].length;
-    let pythonDone = progression["python"];
-    let pythonPercentage = pythonTotal ? Math.floor(pythonDone*100/pythonTotal) : 0;
-    pythonBar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${pythonPercentage}%, rgb(153, 153, 153) ${1 - pythonPercentage}%)`;
-    pythonPerc.textContent = pythonPercentage+"%";
-    if(pythonPercentage === 100) {
-        document.getElementById("pythonImg").src = "./assets/images/treasureOpen.png"
-    } else {
-        document.getElementById("pythonImg").src = "./assets/images/treasure.png"
-    }
-
+    categs.forEach(cat => {
+        let bar = document.querySelector(`#${cat}Line`);
+        let perc = document.querySelector(`#${cat}Perc`);
+        let total = dataSet["en"]["categories"][cat].length;
+        let done = progression[cat];
+        let percentage = total ? Math.floor(done*100/total) : 0;
+        bar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${percentage}%, rgb(153, 153, 153) ${1 - percentage}%)`;
+        perc.textContent = percentage+"%";
+        if(progression[`${cat}Done`]) {
+            document.getElementById(`${cat}Img`).src = "./assets/images/treasureOpen.png"
+        } else {
+            document.getElementById(`${cat}Img`).src = "./assets/images/treasure.png"
+            if(percentage === 100) {
+                document.getElementById(`${cat}Stat`).classList.add("canClaim");
+                document.getElementById(`${cat}Img`).classList.add("shake");
+            }
+        }
+    })
     updateDiamonds();
     updateHearts();
     openTab("profile", 'r');
+}
+
+function claim(s) {
+    if(progression[s+"Done"]) return;
+    document.getElementById(s+"Stat").classList.remove("canClaim");
+    document.getElementById(s+"Img").classList.remove("shake");
+    document.getElementById(s+"Img").src = "./assets/images/treasureOpen.png";
+    progression[s+"Done"] = true;
+    updateDiamonds(progression["diamonds"]+300);
 }
 
 function toggleWifiMode(oldTab) {
@@ -894,5 +846,6 @@ window.toggleSwipe = toggleSwipe;
 window.updateProgression = updateProgression;
 window.register = register;
 window.logOut = logOut;
+window.claim = claim;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
