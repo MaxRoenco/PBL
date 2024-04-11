@@ -1,4 +1,6 @@
 .wifiWindow {
+    width: 80%;
+    height: 90%;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -10,6 +12,7 @@
     width: 150px;
     height: 150px;
     transform: rotateZ(-45deg);
+    display: none;
 }
 
 .wifi-circle {
@@ -49,6 +52,16 @@
     opacity: 1;
     background-color: #FFFFCC;
     animation: none;
+}
+
+.gameContainer {
+    width: 480px;
+    height: 320px;
+    background-color: #424769;
+    border: 3px solid white;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 1px 0px 7px white;
 }
 
 @keyframes wifianimation {
