@@ -849,7 +849,7 @@ function register() {
         if(lang === 'ru') {
             thingo = 'Пожалуйста введите имя пользователя';
         } else if(lang === 'ro') {
-            thingo = 'Va rugam sa introduceti un nume de utilizator';
+            thingo = 'Va rugam sa introduceti un username';
         } else {
             thingo = 'Please enter a username';
         }
