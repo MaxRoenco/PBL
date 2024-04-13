@@ -120,8 +120,12 @@
                 </div>
             </div>
             <div class="buttonContainerSettings">
-                <div class="button" onclick="logOut()"><p class="text" id="langLogOut">Logout</p></div>
-                <div class="button" onclick="openTab('home', 'r')"><p class="text" id="langHome">Home</p></div>
+                <div class="button" onclick="logOut()">
+                    <p class="text" id="langLogOut">Logout</p>
+                </div>
+                <div class="button" onclick="openTab('home', 'r')">
+                    <p class="text" id="langHome">Home</p>
+                </div>
             </div>
         </div>
 
@@ -565,6 +569,9 @@
                 <div class="wifi-circle fourth">
                 </div>
             </div>
+            <canvas class="gameContainer" id="arkanoid">
+
+            </canvas>
             <div class="text" id="langConnection">Check your internet connection...</div>
         </div>
 
@@ -575,5 +582,6 @@
 
 <script type="module" src="./script.js"></script>
 <script type="module" src="./main.js"></script>
+<script type="module" src="./JavaScript/arkanoid.js"></script>
 
 </html>
