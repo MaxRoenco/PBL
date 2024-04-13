@@ -12,7 +12,6 @@
     width: 150px;
     height: 150px;
     transform: rotateZ(-45deg);
-    display: none;
 }
 
 .wifi-circle {
@@ -62,6 +61,7 @@
     border-radius: 10px;
     display: block;
     box-shadow: 1px 0px 7px white;
+    display: none;
 }
 
 @keyframes wifianimation {
