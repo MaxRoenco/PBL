@@ -421,7 +421,7 @@
                 <div class="creatorButton" onclick="openTab('titleCreator', 'r')">
                     <p class="text">Add a lesson</p>
                 </div>
-                <div class="creatorButton" onclick="openTab('removeLesson', 'r')">
+                <div class="creatorButton" onclick="removeLesson()">
                     <p class="text">Remove a lesson</p>
                 </div>
                 <div class="creatorButton" onclick="editLesson()">
@@ -542,7 +542,7 @@
             </div>
         </div>
         <div class="container creatorTab" data-tab="removeLesson">
-            <h1 style="font-size: 2.5rem;">Remove from what category?</h1>
+            <h1 style="font-size: 2.5rem;" id="removeCategoryTxt">Remove from what category?</h1>
             <select id="chooseCategoryDelete" class="chooseCategory" onchange="catDeleteChangehandler()">
                 <option value="html">HTML</option>
                 <option value="css">CSS</option>
@@ -551,14 +551,14 @@
                 <option value="c">C</option>
                 <option value="cpp">C++</option>
             </select>
-            <h1 style="font-size: 2.5rem;">What lesson to remove?</h1>
+            <h1 style="font-size: 2.5rem;" id="removeLessonTxt">What lesson to remove?</h1>
             <select id="chooseLessonDelete" class="chooseCategory"></select>
             <div class="contentButtons">
                 <div class="creatorButton" onclick="openTab('actions', 'l')">
                     <p class="text">&lt; Back</p>
                 </div>
                 <div class="creatorButton" onclick="removeLessonHandler()">
-                    <p class="text">Remove</p>
+                    <p class="text" id="rmvBtn">Remove</p>
                 </div>
             </div>
         </div>

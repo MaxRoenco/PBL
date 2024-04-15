@@ -34,6 +34,8 @@ let swipeOn = true;
 let previewQuestions = [];
 let muted = false;
 let editMode = false;
+let editTitle = "";
+let editCategory = "";
 
 
 function loadProgression() {
@@ -410,7 +412,15 @@ function createLesson() {
     })
     addBtn.addEventListener("click", _ => {
         if(editMode) {
-            
+            console.log(editCategory);
+            dataSet["en"]["categories"][editCategory].forEach((ele, i) => {
+                if(ele.title === editTitle) {
+                    dataSet["en"]["categories"][editCategory][i] = obj;
+                    saveData(dataSet);
+                    editMode = false;
+                    moveToLesson(editCategory, dataSet, 'r');
+                }
+            })
         } else {
             dataSet["en"]["categories"][cat].push(obj);
             dataSet["ru"]["categories"][cat].push(obj);
@@ -489,14 +499,27 @@ function removeLessonHandler() {
         document.getElementById("contentArea").value = less["content"];
         document.getElementById("lessonArea").value = less["lesson"];
         clearQuestions();
+        document.getElementById("allQuestions").replaceChildren();
         less["quiz"].forEach(ele => {
             addQuestionElement(ele["question"], ele["correctAnswer"], ele["options"]);
         })
         openTab('titleCreator', 'r');
+        editCategory = cat;
+        editTitle = lesson;
     }
 }
 
+function removeLesson() {
+    document.getElementById("removeLessonTxt").textContent = "What lesson to remove?";
+    document.getElementById("removeCategoryTxt").textContent = "Remove lesson from what category?";
+    document.getElementById("rmvBtn").textContent = "Remove";
+    openTab('removeLesson', 'r');
+}
+
 function editLesson() {
+    document.getElementById("removeLessonTxt").textContent = "What lesson to edit?";
+    document.getElementById("removeCategoryTxt").textContent = "Edit lesson from what category?";
+    document.getElementById("rmvBtn").textContent = "Edit";
     openTab('removeLesson', 'r');
     editMode = true;
 }
@@ -561,8 +584,8 @@ function addQuestion() {
     let answersElements = document.getElementById("answersList");
     let correctAnswer = document.getElementById("selectCorrectAnswer").value;
     let answers = Array.from(answersElements.children).map(e => e.textContent.replace("Remove", ""));
-    addQuestionElement(question, correctAnswer, answers);
     clearQuestions();
+    addQuestionElement(question, correctAnswer, answers);
 }
 
 function clearQuestions() {
@@ -953,5 +976,6 @@ window.register = register;
 window.logOut = logOut;
 window.claim = claim;
 window.editLesson = editLesson;
+window.removeLesson = removeLesson;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
