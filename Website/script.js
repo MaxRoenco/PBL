@@ -33,6 +33,7 @@ let numberOfQuestions = 0;
 let swipeOn = true;
 let previewQuestions = [];
 let muted = false;
+let editMode = false;
 
 
 function loadProgression() {
@@ -141,8 +142,14 @@ function moveToLesson(lessonName, data, dir) {
     data[progression["language"]]["categories"][lessonName].forEach((ele, i) => {
         let lessonElement = document.createElement("div");
         let lessonNumSpan = document.createElement("span");
-        
-        lessonNumSpan.textContent = `Lesson ${i+1}:`;
+        let l = progression["language"];
+        let lessonWord = 'Lesson'
+        if(l === 'ro') {
+            lessonWord = 'Lectia';
+        } else if(l === 'ru') {
+            lessonWord = 'Урок';
+        }
+        lessonNumSpan.textContent = `${lessonWord} ${i+1}:`;
         lessonNumSpan.classList.add("lesson-span");
         lessonElement.classList.add("lesson");
         let newLine = document.createElement("br");
@@ -402,11 +409,16 @@ function createLesson() {
         previewMode = true;
     })
     addBtn.addEventListener("click", _ => {
-        dataSet["en"]["categories"][cat].push(obj);
-        dataSet["ru"]["categories"][cat].push(obj);
-        dataSet["ro"]["categories"][cat].push(obj);
-        saveData(dataSet);
-        moveToLesson(cat, dataSet, 'r');
+        if(editMode) {
+            
+        } else {
+            dataSet["en"]["categories"][cat].push(obj);
+            dataSet["ru"]["categories"][cat].push(obj);
+            dataSet["ro"]["categories"][cat].push(obj);
+            saveData(dataSet);
+            moveToLesson(cat, dataSet, 'r');
+            resetAreas();
+        }
     })
 
     let allQuestions = Array.from(document.getElementById("allQuestions").children);
@@ -426,6 +438,13 @@ function createLesson() {
     openTab("finalCreator", "r");
 }
 
+function resetAreas() {
+    document.getElementById("chooseCategory").value = "html";
+    document.getElementById("chooseTitle").value = "";
+    document.getElementById("contentArea").value = "";
+    document.getElementById("lessonArea").value = "";
+}
+
 function lessonsReturnHandler() {
     if(previewMode) {
         openTab("finalCreator", 'l');
@@ -437,14 +456,13 @@ function lessonsReturnHandler() {
 
 function cancelAdding() {
     openTab("home", 'l');
-    document.getElementById("chooseCategory").value = "html";
-    document.getElementById("chooseTitle").value = "";
-    document.getElementById("contentArea").value = "";
-    document.getElementById("lessonArea").value = "";
+    resetAreas();
 }
 
 function catDeleteChangehandler() {
     let cat = document.getElementById("chooseCategoryDelete").value;
+    console.log(cat);
+    console.log(dataSet);
     let lessons = dataSet[progression["language"]]["categories"][cat].map(ele => ele.title);
     let lessonDrop = document.getElementById("chooseLessonDelete");
     lessonDrop.replaceChildren();
@@ -454,15 +472,33 @@ function catDeleteChangehandler() {
         opt.value = ele;
         document.getElementById("chooseLessonDelete").append(opt);
     })
-
 }
 
 function removeLessonHandler() {
     let cat = document.getElementById("chooseCategoryDelete").value;
     let lesson = document.getElementById("chooseLessonDelete").value;
-    dataSet[progression["language"]]["categories"][cat] = dataSet[progression["language"]]["categories"][cat].filter(ele => ele.title !== lesson);
-    saveData(dataSet);
-    openTab("home", 'l');
+    if(!editMode) {
+        dataSet[progression["language"]]["categories"][cat] = dataSet[progression["language"]]["categories"][cat].filter(ele => ele.title !== lesson);
+        saveData(dataSet);
+        openTab("home", 'l');
+    } else {
+        resetAreas();
+        let less = dataSet[progression["language"]]["categories"][cat].filter(ele => ele.title === lesson)[0];
+        document.getElementById("chooseCategory").value = cat;
+        document.getElementById("chooseTitle").value = less["title"];
+        document.getElementById("contentArea").value = less["content"];
+        document.getElementById("lessonArea").value = less["lesson"];
+        clearQuestions();
+        less["quiz"].forEach(ele => {
+            addQuestionElement(ele["question"], ele["correctAnswer"], ele["options"]);
+        })
+        openTab('titleCreator', 'r');
+    }
+}
+
+function editLesson() {
+    openTab('removeLesson', 'r');
+    editMode = true;
 }
 
 function saveData(obj) {
@@ -521,12 +557,22 @@ function addAnswer() {
 }
 
 function addQuestion() {
-    let question = document.getElementById("addQuestionInput");
+    let question = document.getElementById("addQuestionInput").value;
     let answersElements = document.getElementById("answersList");
     let correctAnswer = document.getElementById("selectCorrectAnswer").value;
     let answers = Array.from(answersElements.children).map(e => e.textContent.replace("Remove", ""));
+    addQuestionElement(question, correctAnswer, answers);
+    clearQuestions();
+}
 
+function clearQuestions() {
+    document.getElementById("addAnswerInput").value = "";
+    document.getElementById("addQuestionInput").value = "";
+    document.getElementById("answersList").replaceChildren();
+    document.getElementById("selectCorrectAnswer").replaceChildren();
+}
 
+function addQuestionElement(question, correct, answers) {
     let questionContainer = document.createElement("div");
     let questionText = document.createElement("h3");
     let answersContainer = document.createElement("ul")
@@ -534,9 +580,8 @@ function addQuestion() {
     let correctAnswerText = document.createElement("h3");
     let removeButton = document.createElement("button");
     removeButton.classList.add("addedBtn");
-    document.getElementById("addAnswerInput").value = "";
 
-    questionText.textContent = "Question: " + question.value;
+    questionText.textContent = "Question: " + question;
     questionText.classList.add("addedQuestion");
     answers.forEach(answer => {
         let li = document.createElement("li");
@@ -544,14 +589,12 @@ function addQuestion() {
         li.classList.add("addedAnswer");
         answersContainer.append(li);
     })
-    correctAnswerText.textContent = "Answer: " + correctAnswer;
+
+    correctAnswerText.textContent = "Answer: " + correct;
     correctAnswerText.classList.add("addedCorrect");
     removeButton.textContent = "Remove";
     questionContainer.append(questionText, answersContainer, correctAnswerText, removeButton);
     questionContainer.classList.add("qContainer");
-    question.value = "";
-    answersElements.replaceChildren();
-    document.getElementById("selectCorrectAnswer").replaceChildren();
     document.getElementById("allQuestions").append(questionContainer);
     removeButton.addEventListener("click", e => {
         questionContainer.remove();
@@ -909,5 +952,6 @@ window.updateProgression = updateProgression;
 window.register = register;
 window.logOut = logOut;
 window.claim = claim;
+window.editLesson = editLesson;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
