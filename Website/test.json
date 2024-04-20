@@ -441,7 +441,306 @@
           ]
         }
       ],
-      "css": [],
+      "css": [
+        {
+          "title": "What is CSS?",
+          "content": "Here you'll learn what CSS stands for.",
+          "lesson": "-> CSS stands for Cascading Style Sheets.\n\n-> CSS describes how HTML elements are to be described on screen, paper, or in other media.\n\n-> CSS saves a lot of work. It can control the layout of multiple web pages all at once.\n",
+          "quiz": []
+        },
+        {
+          "title": "CSS Selectors",
+          "content": "In this lesson you will learn about selectors and how to operate with them.",
+          "lesson": "CSS selectors are used to \"find\" (or select) the HTML elements you want to style.\n\nWe can divide CSS selectors into five categories:\n1. Simple selectors (select elements based on name, id, class)\n2. Combinator selectors (select elements based on a specific relationship between them)\n3. Pseudo-class selectors (select elements based on a certain state)\n4. Pseudo-elements selectors (select and style a part of an element)\n5. Attribute selectors (select elements based on an attribute or attribute value)\n\n#The CSS id Selector\nTo select an element with a specific id, write a hash (#) character, followed by the id of the element.\n##Example:\n`#para1 {\n  text-align: center;\n  color: red;\n}`\n##Result:\n$ .\\assets\\images\\css1.png\n\n#The CSS class Selector\nTo select elements with a specific class, write a period (.) character, followed by the class name.\n##Example:\n`.center {\n  text-align: center;\n  color: red;\n}`\n\n#The CSS Universal Selector\nThe universal selector (*) selects all HTML elements on the page.\n##Example:\n`* {\n  text-align: center;\n  color: blue;\n}`\n\n##The CSS Grouping Selector\nThe grouping selector selects all the HTML elements with the same style definitions.\n##Example:\n`h1, h2, p {\n  text-align: center;\n  color: red;\n}`\n\n#Cheatsheet\n$ .\\assets\\images\\css2.png\n\n",
+          "quiz": [
+            {
+              "question": "How can you select an HTML element with a specific id in CSS?",
+              "options": [
+                "Using a period (.) followed by the id name",
+                "Using a hash (#) followed by the id name",
+                "Using an asterisk (*) followed by the id name",
+                "Using the id keyword followed by the id name"
+              ],
+              "correctAnswer": -1
+            },
+            {
+              "question": "Which selector selects all HTML elements on the page?",
+              "options": [
+                "The class selector",
+                "The id selector",
+                "The universal selector (*)",
+                "The grouping selector"
+              ],
+              "correctAnswer": -1
+            },
+            {
+              "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
+              "options": [
+                "Simple selectors",
+                "Combinator selectors",
+                "Pseudo-class selectors",
+                "Attribute selectors"
+              ],
+              "correctAnswer": -1
+            },
+            {
+              "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
+              "options": [
+                "Using a comma (,) followed by the elements' names",
+                "Using a period (.) followed by the elements' names",
+                " Using a colon (:) followed by the elements' names",
+                " Using a semicolon (;) followed by the elements' names"
+              ],
+              "correctAnswer": -1
+            }
+          ]
+        },
+        {
+          "title": "CSS Backgrounds",
+          "content": "In this lesson, you will learn about the following CSS background properties:\n-> background-color\n-> background-image\n",
+          "lesson": "#CSS background-color\n\nThe background-color property specifies the background color of an element.\n\n##Example:\n`h1 {\n  background-color: green;\n}\n\ndiv {\n  background-color: #ff0000;\n}\n\np {\n  background-color: rgb(255,0,0);\n}`\n\n\n#CSS background-image\n\nThe background-image property specifies an image to use as the background of an element.\n\n##Example:\n`body {\n  background-image: url(\"paper.gif\");\n}`\n",
+          "quiz": [
+            {
+              "question": "How does the CSS background-color property work?",
+              "options": [
+                "It specifies the text color of an element",
+                "It specifies the border color of an element",
+                "It specifies the background color of an element",
+                "It specifies the font color of an element"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does the CSS background-image property do?",
+              "options": [
+                "It specifies an image to use as the border of an element",
+                "It specifies an image to use as the text color of an element",
+                "It specifies an image to use as the background of an element",
+                "It specifies an image to use as the font of an element"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which CSS property is used to set the background color of <h1> elements to green?",
+              "options": [
+                "color: green;",
+                "background-color: green;",
+                "border-color: green;",
+                "text-color: green;"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How is the background color of <div> elements specified in hexadecimal format?",
+              "options": [
+                "background-color: green;",
+                "background-color: #ff0000;",
+                "background-color: rgb(255,0,0);",
+                "background-color: red;"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "CSS Borders",
+          "content": "In this lesson, you'll learn about the CSS border properties, which allow you to specify the style, width, and color of an element's border.",
+          "lesson": "The CSS border properties allow you to specify the style, width, and color of an element's border.\n\nThe border-style property specifies what kind of border to display.\n\nThe following values are allowed:\n-> dotted - Defines a dotted border\n-> dashed - Defines a dashed border\n-> solid - Defines a solid border\n-> double - Defines a double border\n-> groove - Defines a 3D grooved border. The effect depends on the border-color value\n-> ridge - Defines a 3D ridged border. The effect depends on the border-color value\n-> inset - Defines a 3D inset border. The effect depends on the border-color value\n-> outset - Defines a 3D outset border. The effect depends on the border-color value\n-> none - Defines no border\n-> hidden - Defines a hidden border\n\nThe border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).\n\n##Example:\n`p.dotted {border-style: dotted;}\np.dashed {border-style: dashed;}\np.solid {border-style: solid;}\np.double {border-style: double;}\np.groove {border-style: groove;}\np.ridge {border-style: ridge;}\np.inset {border-style: inset;}\np.outset {border-style: outset;}\np.none {border-style: none;}\np.hidden {border-style: hidden;}\np.mix {border-style: dotted dashed solid double;}`\n\n##Result:\n$.\\assets\\images\\css3.png\n\n\n#CSS Border Width\n\nThe border-width property specifies the width of the four borders.\nThe width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick:\n\n##Example:\n`p.one {\n  border-style: solid;\n  border-width: 5px;\n}\n\np.two {\n  border-style: solid;\n  border-width: medium;\n}`\n\n##Result:\n$.\\assets\\images\\css4.png\n\n\n##CSS Border Color\n\nThe border-color property is used to set the color of the four borders.\nThe color can be set by:\n1. name - specify a color name, like \"red\"\n2. HEX - specify a HEX value, like \"#ff0000\"\n3. RGB - specify a RGB value, like \"rgb(255,0,0)\"\n4. HSL - specify a HSL value, like \"hsl(0, 100%, 50%)\"\n5. transparent\n\n##Example:\n`p.one {\n  border-style: solid;\n  border-color: red;\n}\n\np.two {\n  border-style: solid;\n  border-color: green;\n}\n\np.three {\n  border-style: dotted;\n  border-color: blue;\n}`\n\n##Result:\n$.\\assets\\images\\css5.png\n\n\n",
+          "quiz": [
+            {
+              "question": "What does the CSS border-style property specify?",
+              "options": [
+                "The width of an element's border",
+                "The color of an element's border",
+                "The kind of border to display",
+                "The position of an element's border"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How many values can the border-style property have?",
+              "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "How can you specify the width of a border using CSS?",
+              "options": [
+                "Using the border-color property",
+                "Using the border-image property",
+                "Using the border-width property",
+                "Using the border-style property"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which value is used to specify a border color using a color name in CSS?",
+              "options": [
+                "HEX",
+                "RGB",
+                "Name",
+                "HSL"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Margins",
+          "content": "In this lesson, you'll learn how to use CSS margin properties to create space around elements. ",
+          "lesson": "Margins are used to create space around elements, outside of any defined borders.\n\nCSS has properties for specifying the margin for each side of an element:\n1. margin-top\n2. margin-right\n3. margin-bottom\n5. margin-left\nAll the margin properties can have the following values:\n1. auto - the browser calculates the margin\n2. length - specifies a margin in px, pt, cm, etc.\n3. % - specifies a margin in % of the width of the containing element\n4. inherit - specifies that the margin should be inherited from the parent element\n##Example:\n`p {\n  margin-top: 100px;\n  margin-bottom: 100px;\n  margin-right: 150px;\n  margin-left: 80px;\n}`\n\nIf the margin property has four values:\n##Example:\n`margin: 25px 50px 75px 100px;`\n    ->top margin is 25px\n    ->right margin is 50px\n    ->bottom margin is 75px\n    ->left margin is 100px\n\n##Result:\n$.\\assets\\images\\css6.png",
+          "quiz": [
+            {
+              "question": "What are margins used for in CSS?",
+              "options": [
+                "To change the color of elements",
+                "To create space around elements",
+                "To set the font size of elements",
+                "To apply animations to elements"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which CSS properties are used to specify margins for each side of an element individually?",
+              "options": [
+                "padding",
+                "spacing",
+                "margin-top, margin-right, margin-bottom, margin-left",
+                "margin-all"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "If the margin property has four values like \"margin: 25px 50px 75px 100px;\" which side does the second value (50px) represent?",
+              "options": [
+                "Top margin",
+                "Bottom margin",
+                "Left margin",
+                "Right margin"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What does the inherit value for margin properties do?",
+              "options": [
+                "It calculates the margin automatically",
+                "It sets the margin to a fixed length",
+                "It specifies that the margin should be inherited from the parent element",
+                "It sets the margin to a percentage value"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Padding",
+          "content": "In this lesson, you'll learn about CSS padding, which is used to create space around an element's content, inside of any defined borders.",
+          "lesson": "Padding is used to create space around an element's content, inside of any defined borders.\nTo shorten the code, it is possible to specify all the padding properties in one property.\nThe padding property is a shorthand property for the following individual padding properties:\n1. padding-top\n2. padding-right\n3. padding-bottom\n4. padding-left\n\nSo, here is how it works:\nIf the padding property has four values,\npadding: 25px 50px 75px 100px;\n      -> top padding is 25px\n      -> right padding is 50px\n      -> bottom padding is 75px\n      -> left padding is 100px\n##Example:\n`div {\n  padding: 25px 50px 75px 100px;\n}`\n##Result:\n$.\\assets\\images\\css7.png",
+          "quiz": [
+            {
+              "question": "What is padding used for in CSS?",
+              "options": [
+                "To change the color of elements",
+                "To create space around an element's content, inside of any defined borders",
+                "To specify the font size of elements",
+                "To apply animations to elements"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What does the padding shorthand property allow you to do?",
+              "options": [
+                "It sets the padding to a fixed length",
+                "It calculates the padding automatically",
+                "It specifies all padding properties in one line",
+                "It sets the padding to a percentage value"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you specify padding for all sides of an element using the padding shorthand property?",
+              "options": [
+                "By providing one value for all sides",
+                "By providing two values for top and bottom, and two values for left and right",
+                "By using the auto keyword",
+                "By providing four values for top, right, bottom, and left"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What does it mean if you specify only one value for the padding property?",
+              "options": [
+                "It applies the same padding to all sides",
+                "It sets the padding to a fixed length",
+                "It sets the padding to a percentage value",
+                "It calculates the padding automatically"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "CSS Height/Width",
+          "content": "By the end of this lesson, you will understand how to use CSS properties to control the dimensions of HTML elements.",
+          "lesson": " #CSS Height and Width:\nThe height and width properties in CSS are used to set the height and width of an element.\nThese properties determine the size of the content area inside the padding, border, and margin of an element.\nThey can be set using different units like pixels (px), percentages (%), or other length units (e.g., cm).\n##Example:\n`div {\n  height: 200px;\n  width: 50%;\n}`\nIn this example, a <div> element is styled with a height of 200 pixels and a width of 50% of its containing block.\n\n#CSS Max-Width:\nThe max-width property is used to set the maximum width that an element can have.\nIt prevents an element from exceeding a certain width, even if the content inside it requires more space.\nMax-width can be specified in length units (like pixels) or as a percentage of its containing block.\n##Example:\n`div {\n  max-width: 500px;\n  height: 100px;\n}`\nHere, a <div> element is styled with a maximum width of 500 pixels and a height of 100 pixels.\n\n#Differences Between Width and Max-Width:\nIf both width and max-width are applied to the same element and the width value exceeds the max-width value, the max-width property will be used, and the width property will be ignored.\nMax-width is particularly useful for ensuring that elements don't overflow their containers, especially on smaller screens or when the content dynamically changes size.\n\n#Summary:\n-> CSS offers properties like height, width, and max-width to control the dimensions of HTML elements.\n-> Height and width determine the size of the content area inside an element.\n-> Max-width sets the maximum width an element can have, preventing it from exceeding a certain size.\n",
+          "quiz": [
+            {
+              "question": "What do the height and width properties in CSS determine?",
+              "options": [
+                "The size of the padding, border, and margin of an element",
+                "The size of the content area inside the padding, border, and margin of an element",
+                "The size of the entire element, including padding, border, and margin",
+                "The size of the element's container"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How can you specify the height and width of an element in CSS?",
+              "options": [
+                "Only in pixels (px)",
+                "Only in percentages (%)",
+                "In pixels, percentages, or other length units (e.g., cm)",
+                "Only in centimeters"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does the max-width property in CSS do?",
+              "options": [
+                "Sets the maximum width that an element can have",
+                "Sets the minimum width that an element can have",
+                "Sets the maximum height that an element can have",
+                "Sets the width of an element to a fixed value"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "If both width and max-width are applied to the same element and the width value exceeds the max-width value, which property takes precedence?",
+              "options": [
+                "Width",
+                "Both properties are ignored",
+                "Max-width",
+                "It depends on the browser"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "When is the max-width property particularly useful?",
+              "options": [
+                "For setting a fixed width for an element",
+                "For increasing the width of an element dynamically",
+                "For setting the width of an element to a percentage value",
+                "For ensuring that elements don't overflow their containers"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        }
+      ],
       "js": [
         {
           "title": "DEMO LESSON",
@@ -451,38 +750,6 @@
         }
       ],
       "python": [
-        {
-          "title": "Gay",
-          "content": "#Gay\n##MiniGay\n",
-          "lesson": "# Blank lesson",
-          "quiz": [
-            {
-              "question": "GAy",
-              "options": [
-                "Me",
-                "You"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "title": "Python Syntax",
-          "content": "##Python Syntax\n#Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n'if 5 > 2:\n    print(\"5 is greater than 2\")'\n",
-          "lesson": "Application: Pay attention to indentation when writing Python code. Proper indentation is crucial for readability and ensures that your code functions as intended.",
-          "quiz": [
-            {
-              "question": "How do we denote a multi-line block of code in Python?",
-              "options": [
-                " Using square brackets []",
-                " Using parentheses ()",
-                "Using curly braces {}",
-                " Using indentation"
-              ],
-              "correctAnswer": 3
-            }
-          ]
-        },
         {
           "title": "Python Syntax",
           "content": "#Python Syntax\n##Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n",
@@ -1307,7 +1574,453 @@
           ]
         }
       ],
-      "css": [],
+      "css": [
+        {
+          "title": "What is CSS?",
+          "content": "Here you'll learn what CSS stands for.",
+          "lesson": "-> CSS stands for Cascading Style Sheets.\n\n-> CSS describes how HTML elements are to be described on screen, paper, or in other media.\n\n-> CSS saves a lot of work. It can control the layout of multiple web pages all at once.\n",
+          "quiz": []
+        },
+        {
+          "title": "CSS Selectors",
+          "content": "In this lesson you will learn about selectors and how to operate with them.",
+          "lesson": "CSS selectors are used to \"find\" (or select) the HTML elements you want to style.\n\nWe can divide CSS selectors into five categories:\n1) Simple selectors (select elements based on name, id, class)\n2) Combinator selectors (select elements based on a specific relationship between them)\n3) Pseudo-class selectors (select elements based on a certain state)\n4) Pseudo-elements selectors (select and style a part of an element)\n5) Attribute selectors (select elements based on an attribute or attribute value)\n\n#The CSS id Selector\nTo select an element with a specific id, write a hash (#) character, followed by the id of the element.\n\n##Example:\n`#para1 {\n  text-align: center;\n  color: red;\n}`\n\n##Result:\n$ Website\\assets\\images\\css1.png\n",
+          "quiz": [
+            {
+              "question": "How can you select an HTML element with a specific id in CSS?",
+              "options": [
+                "Using a period (.) followed by the id name",
+                "Using a hash (#) followed by the id name",
+                " Using an asterisk (*) followed by the id name",
+                "Using the id keyword followed by the id name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which selector selects all HTML elements on the page?",
+              "options": [
+                "The class selector",
+                "The id selector",
+                "The universal selector (*)",
+                "The grouping selector"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
+              "options": [
+                "Using a comma (,) followed by the elements' names",
+                "Using a period (.) followed by the elements' names",
+                "Using a colon (:) followed by the elements' names",
+                "Using a semicolon (;) followed by the elements' names"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
+              "options": [
+                "Simple selectors",
+                "Combinator selectors",
+                "Pseudo-class selectors",
+                "Attribute selectors"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Selectors",
+          "content": "In this lesson you will learn about selectors and how to operate with them.",
+          "lesson": "CSS selectors are used to \"find\" (or select) the HTML elements you want to style.\n\nWe can divide CSS selectors into five categories:\n1) Simple selectors (select elements based on name, id, class)\n2) Combinator selectors (select elements based on a specific relationship between them)\n3) Pseudo-class selectors (select elements based on a certain state)\n4) Pseudo-elements selectors (select and style a part of an element)\n5) Attribute selectors (select elements based on an attribute or attribute value)\n\n#The CSS id Selector\nTo select an element with a specific id, write a hash (#) character, followed by the id of the element.\n\n##Example:\n`#para1 {\n  text-align: center;\n  color: red;\n}`\n\n##Result:\n$ .\\assets\\images\\css1.png\n",
+          "quiz": [
+            {
+              "question": "How can you select an HTML element with a specific id in CSS?",
+              "options": [
+                "Using a period (.) followed by the id name",
+                "Using a hash (#) followed by the id name",
+                " Using an asterisk (*) followed by the id name",
+                "Using the id keyword followed by the id name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which selector selects all HTML elements on the page?",
+              "options": [
+                "The class selector",
+                "The id selector",
+                "The universal selector (*)",
+                "The grouping selector"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
+              "options": [
+                "Using a comma (,) followed by the elements' names",
+                "Using a period (.) followed by the elements' names",
+                "Using a colon (:) followed by the elements' names",
+                "Using a semicolon (;) followed by the elements' names"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
+              "options": [
+                "Simple selectors",
+                "Combinator selectors",
+                "Pseudo-class selectors",
+                "Attribute selectors"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Selectors",
+          "content": "In this lesson you will learn about selectors and how to operate with them.",
+          "lesson": "CSS selectors are used to \"find\" (or select) the HTML elements you want to style.\n\nWe can divide CSS selectors into five categories:\n1) Simple selectors (select elements based on name, id, class)\n2) Combinator selectors (select elements based on a specific relationship between them)\n3) Pseudo-class selectors (select elements based on a certain state)\n4) Pseudo-elements selectors (select and style a part of an element)\n5) Attribute selectors (select elements based on an attribute or attribute value)\n\n#The CSS id Selector\nTo select an element with a specific id, write a hash (#) character, followed by the id of the element.\n\n##Example:\n`#para1 {\n  text-align: center;\n  color: red;\n}`\n\n##Result:\n$ .\\assets\\images\\css1.png\n",
+          "quiz": [
+            {
+              "question": "How can you select an HTML element with a specific id in CSS?",
+              "options": [
+                "Using a period (.) followed by the id name",
+                "Using a hash (#) followed by the id name",
+                " Using an asterisk (*) followed by the id name",
+                "Using the id keyword followed by the id name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which selector selects all HTML elements on the page?",
+              "options": [
+                "The class selector",
+                "The id selector",
+                "The universal selector (*)",
+                "The grouping selector"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
+              "options": [
+                "Using a comma (,) followed by the elements' names",
+                "Using a period (.) followed by the elements' names",
+                "Using a colon (:) followed by the elements' names",
+                "Using a semicolon (;) followed by the elements' names"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
+              "options": [
+                "Simple selectors",
+                "Combinator selectors",
+                "Pseudo-class selectors",
+                "Attribute selectors"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Selectors",
+          "content": "In this lesson you will learn about selectors and how to operate with them.",
+          "lesson": "CSS selectors are used to \"find\" (or select) the HTML elements you want to style.\n\nWe can divide CSS selectors into five categories:\n1. Simple selectors (select elements based on name, id, class)\n2. Combinator selectors (select elements based on a specific relationship between them)\n3. Pseudo-class selectors (select elements based on a certain state)\n4. Pseudo-elements selectors (select and style a part of an element)\n5. Attribute selectors (select elements based on an attribute or attribute value)\n\n\n#The CSS id Selector\n\nTo select an element with a specific id, write a hash (#) character, followed by the id of the element.\n\n##Example:\n`#para1 {\n  text-align: center;\n  color: red;\n}`\n\n##Result:\n$ .\\assets\\images\\css1.png\n\n\n#The CSS class Selector\n\nTo select elements with a specific class, write a period (.) character, followed by the class name.\n\n##Example:\n`.center {\n  text-align: center;\n  color: red;\n}`\n\n\n#The CSS Universal Selector\n\nThe universal selector (*) selects all HTML elements on the page.\n\n##Example:\n`* {\n  text-align: center;\n  color: blue;\n}`\n\n\n##The CSS Grouping Selector\n\nThe grouping selector selects all the HTML elements with the same style definitions.\n\n##Example:\n`h1, h2, p {\n  text-align: center;\n  color: red;\n}`\n\n#Cheatsheet\n$ .\\assets\\images\\css2.png\n\n",
+          "quiz": [
+            {
+              "question": "How can you select an HTML element with a specific id in CSS?",
+              "options": [
+                "Using a period (.) followed by the id name",
+                "Using a hash (#) followed by the id name",
+                "Using an asterisk (*) followed by the id name",
+                "Using the id keyword followed by the id name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which selector selects all HTML elements on the page?",
+              "options": [
+                "The class selector",
+                "The id selector",
+                "The universal selector (*)",
+                "The grouping selector"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
+              "options": [
+                "Simple selectors",
+                "Combinator selectors",
+                "Pseudo-class selectors",
+                "Attribute selectors"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
+              "options": [
+                "Using a comma (,) followed by the elements' names",
+                "Using a period (.) followed by the elements' names",
+                " Using a colon (:) followed by the elements' names",
+                " Using a semicolon (;) followed by the elements' names"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "CSS Backgrounds",
+          "content": "In this lesson, you will learn about the following CSS background properties:\n-> background-color\n-> background-image\n",
+          "lesson": "#CSS background-color\n\nThe background-color property specifies the background color of an element.\n\n##Example:\n`h1 {\n  background-color: green;\n}\n\ndiv {\n  background-color: #ff0000;\n}\n\np {\n  background-color: rgb(255,0,0);\n}`\n\n\n#CSS background-image\n\nThe background-image property specifies an image to use as the background of an element.\n\n##Example:\n`body {\n  background-image: url(\"paper.gif\");\n}`\n",
+          "quiz": [
+            {
+              "question": "How does the CSS background-color property work?",
+              "options": [
+                "It specifies the text color of an element",
+                "It specifies the border color of an element",
+                "It specifies the background color of an element",
+                "It specifies the font color of an element"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does the CSS background-image property do?",
+              "options": [
+                "It specifies an image to use as the border of an element",
+                "It specifies an image to use as the text color of an element",
+                "It specifies an image to use as the background of an element",
+                "It specifies an image to use as the font of an element"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which CSS property is used to set the background color of <h1> elements to green?",
+              "options": [
+                "color: green;",
+                "background-color: green;",
+                "border-color: green;",
+                "text-color: green;"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How is the background color of <div> elements specified in hexadecimal format?",
+              "options": [
+                "background-color: green;",
+                "background-color: #ff0000;",
+                "background-color: rgb(255,0,0);",
+                "background-color: red;"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Introduction",
+          "content": "In this lesson, you will learn the meaning of CSS and its purpose.",
+          "lesson": "CSS stands for Cascading Style Sheets.\nCSS describes how HTML elements are to be displayed on screen, paper, or in other media.\nCSS saves a lot of work. It can control the layout of multiple web pages all at once.\n",
+          "quiz": []
+        },
+        {
+          "title": "CSS Borders",
+          "content": "In this lesson, you'll learn about the CSS border properties, which allow you to specify the style, width, and color of an element's border.",
+          "lesson": "The CSS border properties allow you to specify the style, width, and color of an element's border.\n\nThe border-style property specifies what kind of border to display.\n\nThe following values are allowed:\n-> dotted - Defines a dotted border\n-> dashed - Defines a dashed border\n-> solid - Defines a solid border\n-> double - Defines a double border\n-> groove - Defines a 3D grooved border. The effect depends on the border-color value\n-> ridge - Defines a 3D ridged border. The effect depends on the border-color value\n-> inset - Defines a 3D inset border. The effect depends on the border-color value\n-> outset - Defines a 3D outset border. The effect depends on the border-color value\n-> none - Defines no border\n-> hidden - Defines a hidden border\n\nThe border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).\n\n##Example:\n`p.dotted {border-style: dotted;}\np.dashed {border-style: dashed;}\np.solid {border-style: solid;}\np.double {border-style: double;}\np.groove {border-style: groove;}\np.ridge {border-style: ridge;}\np.inset {border-style: inset;}\np.outset {border-style: outset;}\np.none {border-style: none;}\np.hidden {border-style: hidden;}\np.mix {border-style: dotted dashed solid double;}`\n\n##Result:\n$.\\assets\\images\\css3.png\n\n\n#CSS Border Width\n\nThe border-width property specifies the width of the four borders.\nThe width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick:\n\n##Example:\n`p.one {\n  border-style: solid;\n  border-width: 5px;\n}\n\np.two {\n  border-style: solid;\n  border-width: medium;\n}`\n\n##Result:\n$.\\assets\\images\\css4.png\n\n\n##CSS Border Color\n\nThe border-color property is used to set the color of the four borders.\nThe color can be set by:\n1. name - specify a color name, like \"red\"\n2. HEX - specify a HEX value, like \"#ff0000\"\n3. RGB - specify a RGB value, like \"rgb(255,0,0)\"\n4. HSL - specify a HSL value, like \"hsl(0, 100%, 50%)\"\n5. transparent\n\n##Example:\n`p.one {\n  border-style: solid;\n  border-color: red;\n}\n\np.two {\n  border-style: solid;\n  border-color: green;\n}\n\np.three {\n  border-style: dotted;\n  border-color: blue;\n}`\n\n##Result:\n$.\\assets\\images\\css5.png\n\n\n",
+          "quiz": [
+            {
+              "question": "What does the CSS border-style property specify?",
+              "options": [
+                "The width of an element's border",
+                "The color of an element's border",
+                "The kind of border to display",
+                "The position of an element's border"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How many values can the border-style property have?",
+              "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "How can you specify the width of a border using CSS?",
+              "options": [
+                "Using the border-color property",
+                "Using the border-image property",
+                "Using the border-width property",
+                "Using the border-style property"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which value is used to specify a border color using a color name in CSS?",
+              "options": [
+                "HEX",
+                "RGB",
+                "Name",
+                "HSL"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Margins",
+          "content": "In this lesson, you'll learn how to use CSS margin properties to create space around elements. ",
+          "lesson": "Margins are used to create space around elements, outside of any defined borders.\n\nCSS has properties for specifying the margin for each side of an element:\n1. margin-top\n2. margin-right\n3. margin-bottom\n5. margin-left\nAll the margin properties can have the following values:\n1. auto - the browser calculates the margin\n2. length - specifies a margin in px, pt, cm, etc.\n3. % - specifies a margin in % of the width of the containing element\n4. inherit - specifies that the margin should be inherited from the parent element\n##Example:\n`p {\n  margin-top: 100px;\n  margin-bottom: 100px;\n  margin-right: 150px;\n  margin-left: 80px;\n}`\n\nIf the margin property has four values:\n##Example:\n`margin: 25px 50px 75px 100px;`\n    ->top margin is 25px\n    ->right margin is 50px\n    ->bottom margin is 75px\n    ->left margin is 100px\n\n##Result:\n$.\\assets\\images\\css6.png",
+          "quiz": [
+            {
+              "question": "What are margins used for in CSS?",
+              "options": [
+                "To change the color of elements",
+                "To create space around elements",
+                "To set the font size of elements",
+                "To apply animations to elements"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which CSS properties are used to specify margins for each side of an element individually?",
+              "options": [
+                "padding",
+                "spacing",
+                "margin-top, margin-right, margin-bottom, margin-left",
+                "margin-all"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "If the margin property has four values like \"margin: 25px 50px 75px 100px;\" which side does the second value (50px) represent?",
+              "options": [
+                "Top margin",
+                "Bottom margin",
+                "Left margin",
+                "Right margin"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What does the inherit value for margin properties do?",
+              "options": [
+                "It calculates the margin automatically",
+                "It sets the margin to a fixed length",
+                "It specifies that the margin should be inherited from the parent element",
+                "It sets the margin to a percentage value"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Padding",
+          "content": "In this lesson, you'll learn about CSS padding, which is used to create space around an element's content, inside of any defined borders.",
+          "lesson": "Padding is used to create space around an element's content, inside of any defined borders.\nTo shorten the code, it is possible to specify all the padding properties in one property.\nThe padding property is a shorthand property for the following individual padding properties:\n1. padding-top\n2. padding-right\n3. padding-bottom\n4. padding-left\n\nSo, here is how it works:\nIf the padding property has four values,\npadding: 25px 50px 75px 100px;\n      -> top padding is 25px\n      -> right padding is 50px\n      -> bottom padding is 75px\n      -> left padding is 100px\n##Example:\n`div {\n  padding: 25px 50px 75px 100px;\n}`\n##Result:\n$.\\assets\\images\\css7.png",
+          "quiz": [
+            {
+              "question": "What is padding used for in CSS?",
+              "options": [
+                "To change the color of elements",
+                "To create space around an element's content, inside of any defined borders",
+                "To specify the font size of elements",
+                "To apply animations to elements"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What does the padding shorthand property allow you to do?",
+              "options": [
+                "It sets the padding to a fixed length",
+                "It calculates the padding automatically",
+                "It specifies all padding properties in one line",
+                "It sets the padding to a percentage value"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you specify padding for all sides of an element using the padding shorthand property?",
+              "options": [
+                "By providing one value for all sides",
+                "By providing two values for top and bottom, and two values for left and right",
+                "By using the auto keyword",
+                "By providing four values for top, right, bottom, and left"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What does it mean if you specify only one value for the padding property?",
+              "options": [
+                "It applies the same padding to all sides",
+                "It sets the padding to a fixed length",
+                "It sets the padding to a percentage value",
+                "It calculates the padding automatically"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "CSS Height/Width",
+          "content": "By the end of this lesson, you will understand how to use CSS properties to control the dimensions of HTML elements.",
+          "lesson": " #CSS Height and Width:\nThe height and width properties in CSS are used to set the height and width of an element.\nThese properties determine the size of the content area inside the padding, border, and margin of an element.\nThey can be set using different units like pixels (px), percentages (%), or other length units (e.g., cm).\n##Example:\n`div {\n  height: 200px;\n  width: 50%;\n}`\nIn this example, a <div> element is styled with a height of 200 pixels and a width of 50% of its containing block.\n\n#CSS Max-Width:\nThe max-width property is used to set the maximum width that an element can have.\nIt prevents an element from exceeding a certain width, even if the content inside it requires more space.\nMax-width can be specified in length units (like pixels) or as a percentage of its containing block.\n##Example:\n`div {\n  max-width: 500px;\n  height: 100px;\n}`\nHere, a <div> element is styled with a maximum width of 500 pixels and a height of 100 pixels.\n\n#Differences Between Width and Max-Width:\nIf both width and max-width are applied to the same element and the width value exceeds the max-width value, the max-width property will be used, and the width property will be ignored.\nMax-width is particularly useful for ensuring that elements don't overflow their containers, especially on smaller screens or when the content dynamically changes size.\n\n#Summary:\n-> CSS offers properties like height, width, and max-width to control the dimensions of HTML elements.\n-> Height and width determine the size of the content area inside an element.\n-> Max-width sets the maximum width an element can have, preventing it from exceeding a certain size.\n",
+          "quiz": [
+            {
+              "question": "What do the height and width properties in CSS determine?",
+              "options": [
+                "The size of the padding, border, and margin of an element",
+                "The size of the content area inside the padding, border, and margin of an element",
+                "The size of the entire element, including padding, border, and margin",
+                "The size of the element's container"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How can you specify the height and width of an element in CSS?",
+              "options": [
+                "Only in pixels (px)",
+                "Only in percentages (%)",
+                "In pixels, percentages, or other length units (e.g., cm)",
+                "Only in centimeters"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does the max-width property in CSS do?",
+              "options": [
+                "Sets the maximum width that an element can have",
+                "Sets the minimum width that an element can have",
+                "Sets the maximum height that an element can have",
+                "Sets the width of an element to a fixed value"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "If both width and max-width are applied to the same element and the width value exceeds the max-width value, which property takes precedence?",
+              "options": [
+                "Width",
+                "Both properties are ignored",
+                "Max-width",
+                "It depends on the browser"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "When is the max-width property particularly useful?",
+              "options": [
+                "For setting a fixed width for an element",
+                "For increasing the width of an element dynamically",
+                "For setting the width of an element to a percentage value",
+                "For ensuring that elements don't overflow their containers"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        }
+      ],
       "js": [
         {
           "title": "ДЕМО УРОК",
@@ -2173,7 +2886,453 @@
           ]
         }
       ],
-      "css": [],
+      "css": [
+        {
+          "title": "What is CSS?",
+          "content": "Here you'll learn what CSS stands for.",
+          "lesson": "-> CSS stands for Cascading Style Sheets.\n\n-> CSS describes how HTML elements are to be described on screen, paper, or in other media.\n\n-> CSS saves a lot of work. It can control the layout of multiple web pages all at once.\n",
+          "quiz": []
+        },
+        {
+          "title": "CSS Selectors",
+          "content": "In this lesson you will learn about selectors and how to operate with them.",
+          "lesson": "CSS selectors are used to \"find\" (or select) the HTML elements you want to style.\n\nWe can divide CSS selectors into five categories:\n1) Simple selectors (select elements based on name, id, class)\n2) Combinator selectors (select elements based on a specific relationship between them)\n3) Pseudo-class selectors (select elements based on a certain state)\n4) Pseudo-elements selectors (select and style a part of an element)\n5) Attribute selectors (select elements based on an attribute or attribute value)\n\n#The CSS id Selector\nTo select an element with a specific id, write a hash (#) character, followed by the id of the element.\n\n##Example:\n`#para1 {\n  text-align: center;\n  color: red;\n}`\n\n##Result:\n$ Website\\assets\\images\\css1.png\n",
+          "quiz": [
+            {
+              "question": "How can you select an HTML element with a specific id in CSS?",
+              "options": [
+                "Using a period (.) followed by the id name",
+                "Using a hash (#) followed by the id name",
+                " Using an asterisk (*) followed by the id name",
+                "Using the id keyword followed by the id name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which selector selects all HTML elements on the page?",
+              "options": [
+                "The class selector",
+                "The id selector",
+                "The universal selector (*)",
+                "The grouping selector"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
+              "options": [
+                "Using a comma (,) followed by the elements' names",
+                "Using a period (.) followed by the elements' names",
+                "Using a colon (:) followed by the elements' names",
+                "Using a semicolon (;) followed by the elements' names"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
+              "options": [
+                "Simple selectors",
+                "Combinator selectors",
+                "Pseudo-class selectors",
+                "Attribute selectors"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Selectors",
+          "content": "In this lesson you will learn about selectors and how to operate with them.",
+          "lesson": "CSS selectors are used to \"find\" (or select) the HTML elements you want to style.\n\nWe can divide CSS selectors into five categories:\n1) Simple selectors (select elements based on name, id, class)\n2) Combinator selectors (select elements based on a specific relationship between them)\n3) Pseudo-class selectors (select elements based on a certain state)\n4) Pseudo-elements selectors (select and style a part of an element)\n5) Attribute selectors (select elements based on an attribute or attribute value)\n\n#The CSS id Selector\nTo select an element with a specific id, write a hash (#) character, followed by the id of the element.\n\n##Example:\n`#para1 {\n  text-align: center;\n  color: red;\n}`\n\n##Result:\n$ .\\assets\\images\\css1.png\n",
+          "quiz": [
+            {
+              "question": "How can you select an HTML element with a specific id in CSS?",
+              "options": [
+                "Using a period (.) followed by the id name",
+                "Using a hash (#) followed by the id name",
+                " Using an asterisk (*) followed by the id name",
+                "Using the id keyword followed by the id name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which selector selects all HTML elements on the page?",
+              "options": [
+                "The class selector",
+                "The id selector",
+                "The universal selector (*)",
+                "The grouping selector"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
+              "options": [
+                "Using a comma (,) followed by the elements' names",
+                "Using a period (.) followed by the elements' names",
+                "Using a colon (:) followed by the elements' names",
+                "Using a semicolon (;) followed by the elements' names"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
+              "options": [
+                "Simple selectors",
+                "Combinator selectors",
+                "Pseudo-class selectors",
+                "Attribute selectors"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Selectors",
+          "content": "In this lesson you will learn about selectors and how to operate with them.",
+          "lesson": "CSS selectors are used to \"find\" (or select) the HTML elements you want to style.\n\nWe can divide CSS selectors into five categories:\n1) Simple selectors (select elements based on name, id, class)\n2) Combinator selectors (select elements based on a specific relationship between them)\n3) Pseudo-class selectors (select elements based on a certain state)\n4) Pseudo-elements selectors (select and style a part of an element)\n5) Attribute selectors (select elements based on an attribute or attribute value)\n\n#The CSS id Selector\nTo select an element with a specific id, write a hash (#) character, followed by the id of the element.\n\n##Example:\n`#para1 {\n  text-align: center;\n  color: red;\n}`\n\n##Result:\n$ .\\assets\\images\\css1.png\n",
+          "quiz": [
+            {
+              "question": "How can you select an HTML element with a specific id in CSS?",
+              "options": [
+                "Using a period (.) followed by the id name",
+                "Using a hash (#) followed by the id name",
+                " Using an asterisk (*) followed by the id name",
+                "Using the id keyword followed by the id name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which selector selects all HTML elements on the page?",
+              "options": [
+                "The class selector",
+                "The id selector",
+                "The universal selector (*)",
+                "The grouping selector"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
+              "options": [
+                "Using a comma (,) followed by the elements' names",
+                "Using a period (.) followed by the elements' names",
+                "Using a colon (:) followed by the elements' names",
+                "Using a semicolon (;) followed by the elements' names"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
+              "options": [
+                "Simple selectors",
+                "Combinator selectors",
+                "Pseudo-class selectors",
+                "Attribute selectors"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Selectors",
+          "content": "In this lesson you will learn about selectors and how to operate with them.",
+          "lesson": "CSS selectors are used to \"find\" (or select) the HTML elements you want to style.\n\nWe can divide CSS selectors into five categories:\n1. Simple selectors (select elements based on name, id, class)\n2. Combinator selectors (select elements based on a specific relationship between them)\n3. Pseudo-class selectors (select elements based on a certain state)\n4. Pseudo-elements selectors (select and style a part of an element)\n5. Attribute selectors (select elements based on an attribute or attribute value)\n\n\n#The CSS id Selector\n\nTo select an element with a specific id, write a hash (#) character, followed by the id of the element.\n\n##Example:\n`#para1 {\n  text-align: center;\n  color: red;\n}`\n\n##Result:\n$ .\\assets\\images\\css1.png\n\n\n#The CSS class Selector\n\nTo select elements with a specific class, write a period (.) character, followed by the class name.\n\n##Example:\n`.center {\n  text-align: center;\n  color: red;\n}`\n\n\n#The CSS Universal Selector\n\nThe universal selector (*) selects all HTML elements on the page.\n\n##Example:\n`* {\n  text-align: center;\n  color: blue;\n}`\n\n\n##The CSS Grouping Selector\n\nThe grouping selector selects all the HTML elements with the same style definitions.\n\n##Example:\n`h1, h2, p {\n  text-align: center;\n  color: red;\n}`\n\n#Cheatsheet\n$ .\\assets\\images\\css2.png\n\n",
+          "quiz": [
+            {
+              "question": "How can you select an HTML element with a specific id in CSS?",
+              "options": [
+                "Using a period (.) followed by the id name",
+                "Using a hash (#) followed by the id name",
+                "Using an asterisk (*) followed by the id name",
+                "Using the id keyword followed by the id name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which selector selects all HTML elements on the page?",
+              "options": [
+                "The class selector",
+                "The id selector",
+                "The universal selector (*)",
+                "The grouping selector"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
+              "options": [
+                "Simple selectors",
+                "Combinator selectors",
+                "Pseudo-class selectors",
+                "Attribute selectors"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
+              "options": [
+                "Using a comma (,) followed by the elements' names",
+                "Using a period (.) followed by the elements' names",
+                " Using a colon (:) followed by the elements' names",
+                " Using a semicolon (;) followed by the elements' names"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "CSS Backgrounds",
+          "content": "In this lesson, you will learn about the following CSS background properties:\n-> background-color\n-> background-image\n",
+          "lesson": "#CSS background-color\n\nThe background-color property specifies the background color of an element.\n\n##Example:\n`h1 {\n  background-color: green;\n}\n\ndiv {\n  background-color: #ff0000;\n}\n\np {\n  background-color: rgb(255,0,0);\n}`\n\n\n#CSS background-image\n\nThe background-image property specifies an image to use as the background of an element.\n\n##Example:\n`body {\n  background-image: url(\"paper.gif\");\n}`\n",
+          "quiz": [
+            {
+              "question": "How does the CSS background-color property work?",
+              "options": [
+                "It specifies the text color of an element",
+                "It specifies the border color of an element",
+                "It specifies the background color of an element",
+                "It specifies the font color of an element"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does the CSS background-image property do?",
+              "options": [
+                "It specifies an image to use as the border of an element",
+                "It specifies an image to use as the text color of an element",
+                "It specifies an image to use as the background of an element",
+                "It specifies an image to use as the font of an element"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which CSS property is used to set the background color of <h1> elements to green?",
+              "options": [
+                "color: green;",
+                "background-color: green;",
+                "border-color: green;",
+                "text-color: green;"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How is the background color of <div> elements specified in hexadecimal format?",
+              "options": [
+                "background-color: green;",
+                "background-color: #ff0000;",
+                "background-color: rgb(255,0,0);",
+                "background-color: red;"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Introduction",
+          "content": "In this lesson, you will learn the meaning of CSS and its purpose.",
+          "lesson": "CSS stands for Cascading Style Sheets.\nCSS describes how HTML elements are to be displayed on screen, paper, or in other media.\nCSS saves a lot of work. It can control the layout of multiple web pages all at once.\n",
+          "quiz": []
+        },
+        {
+          "title": "CSS Borders",
+          "content": "In this lesson, you'll learn about the CSS border properties, which allow you to specify the style, width, and color of an element's border.",
+          "lesson": "The CSS border properties allow you to specify the style, width, and color of an element's border.\n\nThe border-style property specifies what kind of border to display.\n\nThe following values are allowed:\n-> dotted - Defines a dotted border\n-> dashed - Defines a dashed border\n-> solid - Defines a solid border\n-> double - Defines a double border\n-> groove - Defines a 3D grooved border. The effect depends on the border-color value\n-> ridge - Defines a 3D ridged border. The effect depends on the border-color value\n-> inset - Defines a 3D inset border. The effect depends on the border-color value\n-> outset - Defines a 3D outset border. The effect depends on the border-color value\n-> none - Defines no border\n-> hidden - Defines a hidden border\n\nThe border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).\n\n##Example:\n`p.dotted {border-style: dotted;}\np.dashed {border-style: dashed;}\np.solid {border-style: solid;}\np.double {border-style: double;}\np.groove {border-style: groove;}\np.ridge {border-style: ridge;}\np.inset {border-style: inset;}\np.outset {border-style: outset;}\np.none {border-style: none;}\np.hidden {border-style: hidden;}\np.mix {border-style: dotted dashed solid double;}`\n\n##Result:\n$.\\assets\\images\\css3.png\n\n\n#CSS Border Width\n\nThe border-width property specifies the width of the four borders.\nThe width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick:\n\n##Example:\n`p.one {\n  border-style: solid;\n  border-width: 5px;\n}\n\np.two {\n  border-style: solid;\n  border-width: medium;\n}`\n\n##Result:\n$.\\assets\\images\\css4.png\n\n\n##CSS Border Color\n\nThe border-color property is used to set the color of the four borders.\nThe color can be set by:\n1. name - specify a color name, like \"red\"\n2. HEX - specify a HEX value, like \"#ff0000\"\n3. RGB - specify a RGB value, like \"rgb(255,0,0)\"\n4. HSL - specify a HSL value, like \"hsl(0, 100%, 50%)\"\n5. transparent\n\n##Example:\n`p.one {\n  border-style: solid;\n  border-color: red;\n}\n\np.two {\n  border-style: solid;\n  border-color: green;\n}\n\np.three {\n  border-style: dotted;\n  border-color: blue;\n}`\n\n##Result:\n$.\\assets\\images\\css5.png\n\n\n",
+          "quiz": [
+            {
+              "question": "What does the CSS border-style property specify?",
+              "options": [
+                "The width of an element's border",
+                "The color of an element's border",
+                "The kind of border to display",
+                "The position of an element's border"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How many values can the border-style property have?",
+              "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "How can you specify the width of a border using CSS?",
+              "options": [
+                "Using the border-color property",
+                "Using the border-image property",
+                "Using the border-width property",
+                "Using the border-style property"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which value is used to specify a border color using a color name in CSS?",
+              "options": [
+                "HEX",
+                "RGB",
+                "Name",
+                "HSL"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Margins",
+          "content": "In this lesson, you'll learn how to use CSS margin properties to create space around elements. ",
+          "lesson": "Margins are used to create space around elements, outside of any defined borders.\n\nCSS has properties for specifying the margin for each side of an element:\n1. margin-top\n2. margin-right\n3. margin-bottom\n5. margin-left\nAll the margin properties can have the following values:\n1. auto - the browser calculates the margin\n2. length - specifies a margin in px, pt, cm, etc.\n3. % - specifies a margin in % of the width of the containing element\n4. inherit - specifies that the margin should be inherited from the parent element\n##Example:\n`p {\n  margin-top: 100px;\n  margin-bottom: 100px;\n  margin-right: 150px;\n  margin-left: 80px;\n}`\n\nIf the margin property has four values:\n##Example:\n`margin: 25px 50px 75px 100px;`\n    ->top margin is 25px\n    ->right margin is 50px\n    ->bottom margin is 75px\n    ->left margin is 100px\n\n##Result:\n$.\\assets\\images\\css6.png",
+          "quiz": [
+            {
+              "question": "What are margins used for in CSS?",
+              "options": [
+                "To change the color of elements",
+                "To create space around elements",
+                "To set the font size of elements",
+                "To apply animations to elements"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which CSS properties are used to specify margins for each side of an element individually?",
+              "options": [
+                "padding",
+                "spacing",
+                "margin-top, margin-right, margin-bottom, margin-left",
+                "margin-all"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "If the margin property has four values like \"margin: 25px 50px 75px 100px;\" which side does the second value (50px) represent?",
+              "options": [
+                "Top margin",
+                "Bottom margin",
+                "Left margin",
+                "Right margin"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What does the inherit value for margin properties do?",
+              "options": [
+                "It calculates the margin automatically",
+                "It sets the margin to a fixed length",
+                "It specifies that the margin should be inherited from the parent element",
+                "It sets the margin to a percentage value"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Padding",
+          "content": "In this lesson, you'll learn about CSS padding, which is used to create space around an element's content, inside of any defined borders.",
+          "lesson": "Padding is used to create space around an element's content, inside of any defined borders.\nTo shorten the code, it is possible to specify all the padding properties in one property.\nThe padding property is a shorthand property for the following individual padding properties:\n1. padding-top\n2. padding-right\n3. padding-bottom\n4. padding-left\n\nSo, here is how it works:\nIf the padding property has four values,\npadding: 25px 50px 75px 100px;\n      -> top padding is 25px\n      -> right padding is 50px\n      -> bottom padding is 75px\n      -> left padding is 100px\n##Example:\n`div {\n  padding: 25px 50px 75px 100px;\n}`\n##Result:\n$.\\assets\\images\\css7.png",
+          "quiz": [
+            {
+              "question": "What is padding used for in CSS?",
+              "options": [
+                "To change the color of elements",
+                "To create space around an element's content, inside of any defined borders",
+                "To specify the font size of elements",
+                "To apply animations to elements"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What does the padding shorthand property allow you to do?",
+              "options": [
+                "It sets the padding to a fixed length",
+                "It calculates the padding automatically",
+                "It specifies all padding properties in one line",
+                "It sets the padding to a percentage value"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you specify padding for all sides of an element using the padding shorthand property?",
+              "options": [
+                "By providing one value for all sides",
+                "By providing two values for top and bottom, and two values for left and right",
+                "By using the auto keyword",
+                "By providing four values for top, right, bottom, and left"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What does it mean if you specify only one value for the padding property?",
+              "options": [
+                "It applies the same padding to all sides",
+                "It sets the padding to a fixed length",
+                "It sets the padding to a percentage value",
+                "It calculates the padding automatically"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "CSS Height/Width",
+          "content": "By the end of this lesson, you will understand how to use CSS properties to control the dimensions of HTML elements.",
+          "lesson": " #CSS Height and Width:\nThe height and width properties in CSS are used to set the height and width of an element.\nThese properties determine the size of the content area inside the padding, border, and margin of an element.\nThey can be set using different units like pixels (px), percentages (%), or other length units (e.g., cm).\n##Example:\n`div {\n  height: 200px;\n  width: 50%;\n}`\nIn this example, a <div> element is styled with a height of 200 pixels and a width of 50% of its containing block.\n\n#CSS Max-Width:\nThe max-width property is used to set the maximum width that an element can have.\nIt prevents an element from exceeding a certain width, even if the content inside it requires more space.\nMax-width can be specified in length units (like pixels) or as a percentage of its containing block.\n##Example:\n`div {\n  max-width: 500px;\n  height: 100px;\n}`\nHere, a <div> element is styled with a maximum width of 500 pixels and a height of 100 pixels.\n\n#Differences Between Width and Max-Width:\nIf both width and max-width are applied to the same element and the width value exceeds the max-width value, the max-width property will be used, and the width property will be ignored.\nMax-width is particularly useful for ensuring that elements don't overflow their containers, especially on smaller screens or when the content dynamically changes size.\n\n#Summary:\n-> CSS offers properties like height, width, and max-width to control the dimensions of HTML elements.\n-> Height and width determine the size of the content area inside an element.\n-> Max-width sets the maximum width an element can have, preventing it from exceeding a certain size.\n",
+          "quiz": [
+            {
+              "question": "What do the height and width properties in CSS determine?",
+              "options": [
+                "The size of the padding, border, and margin of an element",
+                "The size of the content area inside the padding, border, and margin of an element",
+                "The size of the entire element, including padding, border, and margin",
+                "The size of the element's container"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How can you specify the height and width of an element in CSS?",
+              "options": [
+                "Only in pixels (px)",
+                "Only in percentages (%)",
+                "In pixels, percentages, or other length units (e.g., cm)",
+                "Only in centimeters"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does the max-width property in CSS do?",
+              "options": [
+                "Sets the maximum width that an element can have",
+                "Sets the minimum width that an element can have",
+                "Sets the maximum height that an element can have",
+                "Sets the width of an element to a fixed value"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "If both width and max-width are applied to the same element and the width value exceeds the max-width value, which property takes precedence?",
+              "options": [
+                "Width",
+                "Both properties are ignored",
+                "Max-width",
+                "It depends on the browser"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "When is the max-width property particularly useful?",
+              "options": [
+                "For setting a fixed width for an element",
+                "For increasing the width of an element dynamically",
+                "For setting the width of an element to a percentage value",
+                "For ensuring that elements don't overflow their containers"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        }
+      ],
       "js": [
         {
           "title": "LECTIE DEMO",
