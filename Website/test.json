@@ -282,7 +282,7 @@
         {
           "title": "HTML Lists",
           "content": "##1. Different types of lists (unordered, ordered, other)\n##2. How to declare and organize every list",
-          "lesson": "##Unordered lists\nAn unordered list starts with the <ul> tag. Each list item starts with the <li> tag.\nThe list items will be marked with bullets by default.\nExample:\n`<ul>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ul> `\nResults\n$\n##Choosing an unordered list item marker\nThe CSS list-style-type property is used to define the style of the list item marker. It can have one of the following values:\n1. disc – Sets the list item marker to a bullet (default) \n2. circle – Sets the list item marker to a circle\n3. square – Sets the list item marker to a square\n4. none – The list items will not be marked\n\n`<ul style=\"list-style-type:square;\">\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ul>`\n\nResults:\n$\n\n##Ordered lists\nAn ordered list starts with the <ol> tag. Each list item starts with the <li> tag.\nThe list items will be marked with numbers by default.\n\n\n`<ol>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ol>`\n\n\nResults:\n$\n\n##Choosing an ordered list item marker (the type attribute)\nThe type attribute of the <ol> tag, defines the type of the list item marker:\n1. type=\"1\" – The list items will be numbered with numbers (default)\n2. type=\"A\" – The list items will be numbered with uppercase letters\n3. type=\"a\" – The list items will be numbered with lowercase letters\n4. type=\"I\" – The list items will be numbered with uppercase roman numbers\n5. type=\"i\" – The list items will be numbered with lowercase roman numbers\n\n`<ol type=\"a\">\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ol>`\n\nResults:\n$\n\n##Description lists\nA description list is a list of terms, with a description of each term.\nThe <dl> tag defines the description list, the <dt> tag defines the term (name), and the <dd> tag describes each term:\n\n\n`<dl>\n  <dt>Coffee</dt>\n  <dd>- black hot drink</dd>\n  <dt>Milk</dt>\n  <dd>- white cold drink</dd>\n</dl>`\n\n\nResults:\n$\n\n\n\n\n\n",
+          "lesson": "##Unordered lists\nAn unordered list starts with the <ul> tag. Each list item starts with the <li> tag.\nThe list items will be marked with bullets by default.\nExample:\n`<ul>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ul> `\nResults\n$.\\assets\\images\\listsphoto1.jpg\n##Choosing an unordered list item marker\nThe CSS list-style-type property is used to define the style of the list item marker. It can have one of the following values:\n1. disc – Sets the list item marker to a bullet (default) \n2. circle – Sets the list item marker to a circle\n3. square – Sets the list item marker to a square\n4. none – The list items will not be marked\n\n`<ul style=\"list-style-type:square;\">\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ul>`\n\nResults:\n$.\\assets\\images\\listsphoto2.png\n\n\n##Ordered lists\nAn ordered list starts with the <ol> tag. Each list item starts with the <li> tag.\nThe list items will be marked with numbers by default.\n\n\n`<ol>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ol>`\n\n\nResults:\n$.\\assets\\images\\listsphoto3.png\n\n##Choosing an ordered list item marker (the type attribute)\nThe type attribute of the <ol> tag, defines the type of the list item marker:\n1. type=\"1\" – The list items will be numbered with numbers (default)\n2. type=\"A\" – The list items will be numbered with uppercase letters\n3. type=\"a\" – The list items will be numbered with lowercase letters\n4. type=\"I\" – The list items will be numbered with uppercase roman numbers\n5. type=\"i\" – The list items will be numbered with lowercase roman numbers\n\n`<ol type=\"a\">\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ol>`\n\nResults:\n$.\\assets\\images\\listsphoto4.png\n\n##Description lists\nA description list is a list of terms, with a description of each term.\nThe <dl> tag defines the description list, the <dt> tag defines the term (name), and the <dd> tag describes each term:\n\n\n`<dl>\n  <dt>Coffee</dt>\n  <dd>- black hot drink</dd>\n  <dt>Milk</dt>\n  <dd>- white cold drink</dd>\n</dl>`\n\n\nResults:\n$.\\assets\\images\\listsphoto5.png\n\n\n\n\n\n\n",
           "quiz": [
             {
               "question": "Which HTML tag is used to define an unordered list?",
@@ -292,7 +292,7 @@
                 "C) <dl>",
                 "D) <li>"
               ],
-              "correctAnswer": 1
+              "correctAnswer": -1
             },
             {
               "question": "What is the default marker for list items in an unordered list?",
@@ -302,7 +302,7 @@
                 "C) Bullets",
                 "D) Lowercase letters"
               ],
-              "correctAnswer": 2
+              "correctAnswer": -1
             },
             {
               "question": "Which CSS property is used to define the style of the list item marker in an unordered list?",
@@ -312,7 +312,7 @@
                 "C) list-style-type",
                 "D) marker-style"
               ],
-              "correctAnswer": 2
+              "correctAnswer": -1
             },
             {
               "question": "How would you declare an unordered list with circle markers?",
@@ -322,7 +322,7 @@
                 "C) <ul style=\"list-style-type:circle;\">",
                 "D) <ul style=\"list-style-type:none;\">"
               ],
-              "correctAnswer": 2
+              "correctAnswer": -1
             }
           ]
         },
@@ -737,6 +737,196 @@
                 "For ensuring that elements don't overflow their containers"
               ],
               "correctAnswer": 3
+            }
+          ]
+        },
+        {
+          "title": "CSS Position",
+          "content": "# You will understand how to use the CSS position property to control the positioning of HTML elements on a webpage.\n",
+          "lesson": "The position property specifies the type of positioning method used for an element.\nThere are five different position values: static, relative, fixed, absolute, and sticky.\n\n##1. Static Positioning\nStatic positioned elements are not affected by the top, bottom, left, and right properties.\nThey are positioned according to the normal flow of the page.\n\nExample:\n`div.static {\n  position: static;\n  border: 3px solid #73AD21;\n}`\n\n##2.Relative Positioning\nElements with position: relative; are positioned relative to their normal position.\nAdjusting the top, bottom, left, and right properties of a relatively-positioned element moves it away from its normal position.\n\nExample:\n`div.relative {\n  position: relative;\n  left: 30px;\n  border: 3px solid #73AD21;\n}`\n\n##3.Fixed Positioning:\nElements with position: fixed; are positioned relative to the viewport.\nThey remain in the same place even when the page is scrolled.\nUseful for creating elements like fixed headers or footers.\n\nExample:\n`div.fixed {\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  width: 300px;\n  border: 3px solid #73AD21;\n}`\n\n##4.Absolute Positioning:\nElements with position: absolute; are positioned relative to the nearest positioned ancestor.\nAbsolute positioned elements are removed from the normal flow and can overlap other elements.\n\nExample:\n`div.relative {\n  position: relative;\n  width: 400px;\n  height: 200px;\n  border: 3px solid #73AD21;\n}\ndiv.absolute {\n  position: absolute;\n  top: 80px;\n  right: 0;\n  width: 200px;\n  height: 100px;\n  border: 3px solid #73AD21;\n}`\n\n$./assets/images/css8.png",
+          "quiz": [
+            {
+              "question": "What does the CSS position property specify?",
+              "options": [
+                "Element's color",
+                "Element's positioning method",
+                "Element's font size",
+                "Element's visibility"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following is a valid value for the CSS position property?",
+              "options": [
+                "Inline",
+                "Center",
+                "Relative",
+                "Bold"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How are static positioned elements affected by top, bottom, left, and right properties?",
+              "options": [
+                "They are not affected",
+                " They move based on these properties",
+                " They become invisible",
+                "They change color"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which positioning method is used for elements that should remain in the same place even when the page is scrolled?",
+              "options": [
+                "Absolute",
+                "Fixed",
+                "Relative"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "In absolute positioning, elements are positioned relative to:",
+              "options": [
+                "The viewport",
+                "Their parent element",
+                "The nearest positioned ancestor",
+                "The document body"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Z-index",
+          "content": "#You will understand how to use the CSS z-index property to control the stacking order of elements on a webpage.\n",
+          "lesson": "The z-index property specifies the stack order of an element, determining which element should be placed in front of or behind others.\nAn element with a higher z-index value will be placed in front of elements with lower z-index values.\n\n##1.Positive and Negative Stack Order\nPositive values bring elements forward, while negative values push elements backward.\n\nExample:\n`img {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  z-index: -1;\n}`\n\n$./assets/images/css8.png\n\n##Note:\nZ-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky) and flex items.\n",
+          "quiz": [
+            {
+              "question": "What does the CSS z-index property control?",
+              "options": [
+                "Element's color",
+                "Element's font size",
+                "Element's stacking order",
+                " Element's visibility"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does a higher z-index value indicate for an element?",
+              "options": [
+                " It should be pushed backward",
+                "It should be placed behind other elements",
+                "It should be brought forward",
+                " It should be hidden"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which types of elements does the z-index property work on?",
+              "options": [
+                " All HTML elements",
+                "Only text elements",
+                " Positioned elements and flex items",
+                "Inline elements"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does a negative z-index value do to an element?",
+              "options": [
+                "Brings it forward",
+                "Pushes it backward",
+                " Makes it invisible",
+                " Increases its size"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "In the example provided, what positioning method is used for the element with z-index: -1?",
+              "options": [
+                "Relative",
+                "Fixed",
+                "Absolute",
+                "Sticky"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Align",
+          "content": "# You will understand how to use CSS properties to horizontally and vertically align elements on a webpage.\n",
+          "lesson": "##1.Horizontal Alignment\nTo horizontally center a block element (e.g., <div>), use margin: auto;.\nSet the width of the element to prevent it from stretching out to the edges of its container.\nNote: Center aligning has no effect if the width property is not set (or set to 100%).\n\n`.center {\n  margin: auto;\n  width: 50%;\n  border: 3px solid green;\n  padding: 10px;\n}`\n\n$./assets/images/css10.png\n\nTo center text inside an element, use text-align: center;.\n`.center {\n  text-align: center;\n  border: 3px solid green;\n}`\n\n$./assets/images/css11.png\n\nTo center an image, set left and right margins to auto and make it a block element.\n`img {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40%;\n}`\n\n$./assets/images/css12.png\n\n##Vertical Alignment:\nCentering Elements Vertically:\nUsing Padding:\nAdd top and bottom padding to center vertically.\n`.center {\n  padding: 70px 0;\n  border: 3px solid green;\n}`\n\n$./assets/images/css13.png\n\nUsing Line-Height:\nSet line-height equal to the height of the element.\n`.center {\n  line-height: 200px;\n  height: 200px;\n  border: 3px solid green;\n  text-align: center;\n}`\n- For multiple lines of text, use `display: inline-block;` and `vertical-align: middle;`.\n`.center p {\n  line-height: 1.5;\n  display: inline-block;\n  vertical-align: middle;\n}`\n\n$./assets/images/css14.png",
+          "quiz": [
+            {
+              "question": "How can you horizontally center a block element like <div>?",
+              "options": [
+                "Use margin-left: auto;",
+                "Use text-align: center;",
+                "Use margin: auto; and set a width",
+                "Use padding: auto;"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What effect does setting text-align: center; have?",
+              "options": [
+                "Centers the element horizontally",
+                " Centers the text vertically",
+                " Centers the element vertically",
+                "Centers the text horizontally"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "How can you center an image horizontally?",
+              "options": [
+                "Use margin: auto;",
+                "Use text-align: center;",
+                " Set left and right margins to auto and display: block;",
+                "Set line-height equal to the height of the image"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which property can you use to center an element vertically by adding padding?",
+              "options": [
+                "Margin",
+                "Padding",
+                "Line-height",
+                "Vertical-align"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "For multiple lines of text, what combination of CSS properties can you use to vertically center the text?",
+              "options": [
+                "Padding and line-height",
+                "Display: inline-block; and vertical-align: middle;",
+                "Text-align: center; and line-height",
+                "Margin: auto; and width"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What property can you use to vertically center an element by setting its line-height equal to its height?",
+              "options": [
+                "Margin",
+                "Padding",
+                "Line-height",
+                "Vertical-align"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you center multiple lines of text vertically within a container?",
+              "options": [
+                "Use margin: auto; and set a height",
+                " Use text-align: center; and line-height",
+                "Use display: inline-block; and vertical-align: middle;",
+                " Use padding: auto; and line-height"
+              ],
+              "correctAnswer": 2
             }
           ]
         }
@@ -2017,6 +2207,196 @@
                 "For ensuring that elements don't overflow their containers"
               ],
               "correctAnswer": 3
+            }
+          ]
+        },
+        {
+          "title": "CSS Position",
+          "content": "# You will understand how to use the CSS position property to control the positioning of HTML elements on a webpage.\n",
+          "lesson": "The position property specifies the type of positioning method used for an element.\nThere are five different position values: static, relative, fixed, absolute, and sticky.\n\n##1. Static Positioning\nStatic positioned elements are not affected by the top, bottom, left, and right properties.\nThey are positioned according to the normal flow of the page.\n\nExample:\n`div.static {\n  position: static;\n  border: 3px solid #73AD21;\n}`\n\n##2.Relative Positioning\nElements with position: relative; are positioned relative to their normal position.\nAdjusting the top, bottom, left, and right properties of a relatively-positioned element moves it away from its normal position.\n\nExample:\n`div.relative {\n  position: relative;\n  left: 30px;\n  border: 3px solid #73AD21;\n}`\n\n##3.Fixed Positioning:\nElements with position: fixed; are positioned relative to the viewport.\nThey remain in the same place even when the page is scrolled.\nUseful for creating elements like fixed headers or footers.\n\nExample:\n`div.fixed {\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  width: 300px;\n  border: 3px solid #73AD21;\n}`\n\n##4.Absolute Positioning:\nElements with position: absolute; are positioned relative to the nearest positioned ancestor.\nAbsolute positioned elements are removed from the normal flow and can overlap other elements.\n\nExample:\n`div.relative {\n  position: relative;\n  width: 400px;\n  height: 200px;\n  border: 3px solid #73AD21;\n}\ndiv.absolute {\n  position: absolute;\n  top: 80px;\n  right: 0;\n  width: 200px;\n  height: 100px;\n  border: 3px solid #73AD21;\n}`\n\n$./assets/images/css8.png",
+          "quiz": [
+            {
+              "question": "What does the CSS position property specify?",
+              "options": [
+                "Element's color",
+                "Element's positioning method",
+                "Element's font size",
+                "Element's visibility"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following is a valid value for the CSS position property?",
+              "options": [
+                "Inline",
+                "Center",
+                "Relative",
+                "Bold"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How are static positioned elements affected by top, bottom, left, and right properties?",
+              "options": [
+                "They are not affected",
+                " They move based on these properties",
+                " They become invisible",
+                "They change color"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which positioning method is used for elements that should remain in the same place even when the page is scrolled?",
+              "options": [
+                "Absolute",
+                "Fixed",
+                "Relative"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "In absolute positioning, elements are positioned relative to:",
+              "options": [
+                "The viewport",
+                "Their parent element",
+                "The nearest positioned ancestor",
+                "The document body"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Z-index",
+          "content": "#You will understand how to use the CSS z-index property to control the stacking order of elements on a webpage.\n",
+          "lesson": "The z-index property specifies the stack order of an element, determining which element should be placed in front of or behind others.\nAn element with a higher z-index value will be placed in front of elements with lower z-index values.\n\n##1.Positive and Negative Stack Order\nPositive values bring elements forward, while negative values push elements backward.\n\nExample:\n`img {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  z-index: -1;\n}`\n\n$./assets/images/css8.png\n\n##Note:\nZ-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky) and flex items.\n",
+          "quiz": [
+            {
+              "question": "What does the CSS z-index property control?",
+              "options": [
+                "Element's color",
+                "Element's font size",
+                "Element's stacking order",
+                " Element's visibility"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does a higher z-index value indicate for an element?",
+              "options": [
+                " It should be pushed backward",
+                "It should be placed behind other elements",
+                "It should be brought forward",
+                " It should be hidden"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which types of elements does the z-index property work on?",
+              "options": [
+                " All HTML elements",
+                "Only text elements",
+                " Positioned elements and flex items",
+                "Inline elements"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does a negative z-index value do to an element?",
+              "options": [
+                "Brings it forward",
+                "Pushes it backward",
+                " Makes it invisible",
+                " Increases its size"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "In the example provided, what positioning method is used for the element with z-index: -1?",
+              "options": [
+                "Relative",
+                "Fixed",
+                "Absolute",
+                "Sticky"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Align",
+          "content": "# You will understand how to use CSS properties to horizontally and vertically align elements on a webpage.\n",
+          "lesson": "##1.Horizontal Alignment\nTo horizontally center a block element (e.g., <div>), use margin: auto;.\nSet the width of the element to prevent it from stretching out to the edges of its container.\nNote: Center aligning has no effect if the width property is not set (or set to 100%).\n\n`.center {\n  margin: auto;\n  width: 50%;\n  border: 3px solid green;\n  padding: 10px;\n}`\n\n$./assets/images/css10.png\n\nTo center text inside an element, use text-align: center;.\n`.center {\n  text-align: center;\n  border: 3px solid green;\n}`\n\n$./assets/images/css11.png\n\nTo center an image, set left and right margins to auto and make it a block element.\n`img {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40%;\n}`\n\n$./assets/images/css12.png\n\n##Vertical Alignment:\nCentering Elements Vertically:\nUsing Padding:\nAdd top and bottom padding to center vertically.\n`.center {\n  padding: 70px 0;\n  border: 3px solid green;\n}`\n\n$./assets/images/css13.png\n\nUsing Line-Height:\nSet line-height equal to the height of the element.\n`.center {\n  line-height: 200px;\n  height: 200px;\n  border: 3px solid green;\n  text-align: center;\n}`\n- For multiple lines of text, use `display: inline-block;` and `vertical-align: middle;`.\n`.center p {\n  line-height: 1.5;\n  display: inline-block;\n  vertical-align: middle;\n}`\n\n$./assets/images/css14.png",
+          "quiz": [
+            {
+              "question": "How can you horizontally center a block element like <div>?",
+              "options": [
+                "Use margin-left: auto;",
+                "Use text-align: center;",
+                "Use margin: auto; and set a width",
+                "Use padding: auto;"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What effect does setting text-align: center; have?",
+              "options": [
+                "Centers the element horizontally",
+                " Centers the text vertically",
+                " Centers the element vertically",
+                "Centers the text horizontally"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "How can you center an image horizontally?",
+              "options": [
+                "Use margin: auto;",
+                "Use text-align: center;",
+                " Set left and right margins to auto and display: block;",
+                "Set line-height equal to the height of the image"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which property can you use to center an element vertically by adding padding?",
+              "options": [
+                "Margin",
+                "Padding",
+                "Line-height",
+                "Vertical-align"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "For multiple lines of text, what combination of CSS properties can you use to vertically center the text?",
+              "options": [
+                "Padding and line-height",
+                "Display: inline-block; and vertical-align: middle;",
+                "Text-align: center; and line-height",
+                "Margin: auto; and width"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What property can you use to vertically center an element by setting its line-height equal to its height?",
+              "options": [
+                "Margin",
+                "Padding",
+                "Line-height",
+                "Vertical-align"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you center multiple lines of text vertically within a container?",
+              "options": [
+                "Use margin: auto; and set a height",
+                " Use text-align: center; and line-height",
+                "Use display: inline-block; and vertical-align: middle;",
+                " Use padding: auto; and line-height"
+              ],
+              "correctAnswer": 2
             }
           ]
         }
@@ -3329,6 +3709,196 @@
                 "For ensuring that elements don't overflow their containers"
               ],
               "correctAnswer": 3
+            }
+          ]
+        },
+        {
+          "title": "CSS Position",
+          "content": "# You will understand how to use the CSS position property to control the positioning of HTML elements on a webpage.\n",
+          "lesson": "The position property specifies the type of positioning method used for an element.\nThere are five different position values: static, relative, fixed, absolute, and sticky.\n\n##1. Static Positioning\nStatic positioned elements are not affected by the top, bottom, left, and right properties.\nThey are positioned according to the normal flow of the page.\n\nExample:\n`div.static {\n  position: static;\n  border: 3px solid #73AD21;\n}`\n\n##2.Relative Positioning\nElements with position: relative; are positioned relative to their normal position.\nAdjusting the top, bottom, left, and right properties of a relatively-positioned element moves it away from its normal position.\n\nExample:\n`div.relative {\n  position: relative;\n  left: 30px;\n  border: 3px solid #73AD21;\n}`\n\n##3.Fixed Positioning:\nElements with position: fixed; are positioned relative to the viewport.\nThey remain in the same place even when the page is scrolled.\nUseful for creating elements like fixed headers or footers.\n\nExample:\n`div.fixed {\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  width: 300px;\n  border: 3px solid #73AD21;\n}`\n\n##4.Absolute Positioning:\nElements with position: absolute; are positioned relative to the nearest positioned ancestor.\nAbsolute positioned elements are removed from the normal flow and can overlap other elements.\n\nExample:\n`div.relative {\n  position: relative;\n  width: 400px;\n  height: 200px;\n  border: 3px solid #73AD21;\n}\ndiv.absolute {\n  position: absolute;\n  top: 80px;\n  right: 0;\n  width: 200px;\n  height: 100px;\n  border: 3px solid #73AD21;\n}`\n\n$./assets/images/css8.png",
+          "quiz": [
+            {
+              "question": "What does the CSS position property specify?",
+              "options": [
+                "Element's color",
+                "Element's positioning method",
+                "Element's font size",
+                "Element's visibility"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following is a valid value for the CSS position property?",
+              "options": [
+                "Inline",
+                "Center",
+                "Relative",
+                "Bold"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How are static positioned elements affected by top, bottom, left, and right properties?",
+              "options": [
+                "They are not affected",
+                " They move based on these properties",
+                " They become invisible",
+                "They change color"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which positioning method is used for elements that should remain in the same place even when the page is scrolled?",
+              "options": [
+                "Absolute",
+                "Fixed",
+                "Relative"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "In absolute positioning, elements are positioned relative to:",
+              "options": [
+                "The viewport",
+                "Their parent element",
+                "The nearest positioned ancestor",
+                "The document body"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Z-index",
+          "content": "#You will understand how to use the CSS z-index property to control the stacking order of elements on a webpage.\n",
+          "lesson": "The z-index property specifies the stack order of an element, determining which element should be placed in front of or behind others.\nAn element with a higher z-index value will be placed in front of elements with lower z-index values.\n\n##1.Positive and Negative Stack Order\nPositive values bring elements forward, while negative values push elements backward.\n\nExample:\n`img {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  z-index: -1;\n}`\n\n$./assets/images/css8.png\n\n##Note:\nZ-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky) and flex items.\n",
+          "quiz": [
+            {
+              "question": "What does the CSS z-index property control?",
+              "options": [
+                "Element's color",
+                "Element's font size",
+                "Element's stacking order",
+                " Element's visibility"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does a higher z-index value indicate for an element?",
+              "options": [
+                " It should be pushed backward",
+                "It should be placed behind other elements",
+                "It should be brought forward",
+                " It should be hidden"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which types of elements does the z-index property work on?",
+              "options": [
+                " All HTML elements",
+                "Only text elements",
+                " Positioned elements and flex items",
+                "Inline elements"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What does a negative z-index value do to an element?",
+              "options": [
+                "Brings it forward",
+                "Pushes it backward",
+                " Makes it invisible",
+                " Increases its size"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "In the example provided, what positioning method is used for the element with z-index: -1?",
+              "options": [
+                "Relative",
+                "Fixed",
+                "Absolute",
+                "Sticky"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "CSS Align",
+          "content": "# You will understand how to use CSS properties to horizontally and vertically align elements on a webpage.\n",
+          "lesson": "##1.Horizontal Alignment\nTo horizontally center a block element (e.g., <div>), use margin: auto;.\nSet the width of the element to prevent it from stretching out to the edges of its container.\nNote: Center aligning has no effect if the width property is not set (or set to 100%).\n\n`.center {\n  margin: auto;\n  width: 50%;\n  border: 3px solid green;\n  padding: 10px;\n}`\n\n$./assets/images/css10.png\n\nTo center text inside an element, use text-align: center;.\n`.center {\n  text-align: center;\n  border: 3px solid green;\n}`\n\n$./assets/images/css11.png\n\nTo center an image, set left and right margins to auto and make it a block element.\n`img {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40%;\n}`\n\n$./assets/images/css12.png\n\n##Vertical Alignment:\nCentering Elements Vertically:\nUsing Padding:\nAdd top and bottom padding to center vertically.\n`.center {\n  padding: 70px 0;\n  border: 3px solid green;\n}`\n\n$./assets/images/css13.png\n\nUsing Line-Height:\nSet line-height equal to the height of the element.\n`.center {\n  line-height: 200px;\n  height: 200px;\n  border: 3px solid green;\n  text-align: center;\n}`\n- For multiple lines of text, use `display: inline-block;` and `vertical-align: middle;`.\n`.center p {\n  line-height: 1.5;\n  display: inline-block;\n  vertical-align: middle;\n}`\n\n$./assets/images/css14.png",
+          "quiz": [
+            {
+              "question": "How can you horizontally center a block element like <div>?",
+              "options": [
+                "Use margin-left: auto;",
+                "Use text-align: center;",
+                "Use margin: auto; and set a width",
+                "Use padding: auto;"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What effect does setting text-align: center; have?",
+              "options": [
+                "Centers the element horizontally",
+                " Centers the text vertically",
+                " Centers the element vertically",
+                "Centers the text horizontally"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "How can you center an image horizontally?",
+              "options": [
+                "Use margin: auto;",
+                "Use text-align: center;",
+                " Set left and right margins to auto and display: block;",
+                "Set line-height equal to the height of the image"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which property can you use to center an element vertically by adding padding?",
+              "options": [
+                "Margin",
+                "Padding",
+                "Line-height",
+                "Vertical-align"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "For multiple lines of text, what combination of CSS properties can you use to vertically center the text?",
+              "options": [
+                "Padding and line-height",
+                "Display: inline-block; and vertical-align: middle;",
+                "Text-align: center; and line-height",
+                "Margin: auto; and width"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What property can you use to vertically center an element by setting its line-height equal to its height?",
+              "options": [
+                "Margin",
+                "Padding",
+                "Line-height",
+                "Vertical-align"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How can you center multiple lines of text vertically within a container?",
+              "options": [
+                "Use margin: auto; and set a height",
+                " Use text-align: center; and line-height",
+                "Use display: inline-block; and vertical-align: middle;",
+                " Use padding: auto; and line-height"
+              ],
+              "correctAnswer": 2
             }
           ]
         }
