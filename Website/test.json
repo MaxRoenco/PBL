@@ -282,7 +282,7 @@
         {
           "title": "HTML Lists",
           "content": "##1. Different types of lists (unordered, ordered, other)\n##2. How to declare and organize every list",
-          "lesson": "##Unordered lists\nAn unordered list starts with the <ul> tag. Each list item starts with the <li> tag.\nThe list items will be marked with bullets by default.\nExample:\n`<ul>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ul> `\nResults\n$.\\assets\\images\\listsphoto1.jpg\n##Choosing an unordered list item marker\nThe CSS list-style-type property is used to define the style of the list item marker. It can have one of the following values:\n1. disc – Sets the list item marker to a bullet (default) \n2. circle – Sets the list item marker to a circle\n3. square – Sets the list item marker to a square\n4. none – The list items will not be marked\n\n`<ul style=\"list-style-type:square;\">\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ul>`\n\nResults:\n$.\\assets\\images\\listsphoto2.png\n\n\n##Ordered lists\nAn ordered list starts with the <ol> tag. Each list item starts with the <li> tag.\nThe list items will be marked with numbers by default.\n\n\n`<ol>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ol>`\n\n\nResults:\n$.\\assets\\images\\listsphoto3.png\n\n##Choosing an ordered list item marker (the type attribute)\nThe type attribute of the <ol> tag, defines the type of the list item marker:\n1. type=\"1\" – The list items will be numbered with numbers (default)\n2. type=\"A\" – The list items will be numbered with uppercase letters\n3. type=\"a\" – The list items will be numbered with lowercase letters\n4. type=\"I\" – The list items will be numbered with uppercase roman numbers\n5. type=\"i\" – The list items will be numbered with lowercase roman numbers\n\n`<ol type=\"a\">\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ol>`\n\nResults:\n$.\\assets\\images\\listsphoto4.png\n\n##Description lists\nA description list is a list of terms, with a description of each term.\nThe <dl> tag defines the description list, the <dt> tag defines the term (name), and the <dd> tag describes each term:\n\n\n`<dl>\n  <dt>Coffee</dt>\n  <dd>- black hot drink</dd>\n  <dt>Milk</dt>\n  <dd>- white cold drink</dd>\n</dl>`\n\n\nResults:\n$.\\assets\\images\\listsphoto5.png\n\n\n\n\n\n\n",
+          "lesson": "##Unordered lists\nAn unordered list starts with the <ul> tag. Each list item starts with the <li> tag.\nThe list items will be marked with bullets by default.\nExample:\n`<ul>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ul> `\nResults\n$\n##Choosing an unordered list item marker\nThe CSS list-style-type property is used to define the style of the list item marker. It can have one of the following values:\n1. disc – Sets the list item marker to a bullet (default) \n2. circle – Sets the list item marker to a circle\n3. square – Sets the list item marker to a square\n4. none – The list items will not be marked\n\n`<ul style=\"list-style-type:square;\">\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ul>`\n\nResults:\n$\n\n##Ordered lists\nAn ordered list starts with the <ol> tag. Each list item starts with the <li> tag.\nThe list items will be marked with numbers by default.\n\n\n`<ol>\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ol>`\n\n\nResults:\n$\n\n##Choosing an ordered list item marker (the type attribute)\nThe type attribute of the <ol> tag, defines the type of the list item marker:\n1. type=\"1\" – The list items will be numbered with numbers (default)\n2. type=\"A\" – The list items will be numbered with uppercase letters\n3. type=\"a\" – The list items will be numbered with lowercase letters\n4. type=\"I\" – The list items will be numbered with uppercase roman numbers\n5. type=\"i\" – The list items will be numbered with lowercase roman numbers\n\n`<ol type=\"a\">\n  <li>Coffee</li>\n  <li>Tea</li>\n  <li>Milk</li>\n</ol>`\n\nResults:\n$\n\n##Description lists\nA description list is a list of terms, with a description of each term.\nThe <dl> tag defines the description list, the <dt> tag defines the term (name), and the <dd> tag describes each term:\n\n\n`<dl>\n  <dt>Coffee</dt>\n  <dd>- black hot drink</dd>\n  <dt>Milk</dt>\n  <dd>- white cold drink</dd>\n</dl>`\n\n\nResults:\n$\n\n\n\n\n\n",
           "quiz": [
             {
               "question": "Which HTML tag is used to define an unordered list?",
@@ -292,7 +292,7 @@
                 "C) <dl>",
                 "D) <li>"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 1
             },
             {
               "question": "What is the default marker for list items in an unordered list?",
@@ -302,7 +302,7 @@
                 "C) Bullets",
                 "D) Lowercase letters"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 2
             },
             {
               "question": "Which CSS property is used to define the style of the list item marker in an unordered list?",
@@ -312,7 +312,7 @@
                 "C) list-style-type",
                 "D) marker-style"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 2
             },
             {
               "question": "How would you declare an unordered list with circle markers?",
@@ -322,7 +322,7 @@
                 "C) <ul style=\"list-style-type:circle;\">",
                 "D) <ul style=\"list-style-type:none;\">"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 2
             }
           ]
         },
