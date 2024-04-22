@@ -461,7 +461,7 @@
                 "Using an asterisk (*) followed by the id name",
                 "Using the id keyword followed by the id name"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 1
             },
             {
               "question": "Which selector selects all HTML elements on the page?",
@@ -471,7 +471,7 @@
                 "The universal selector (*)",
                 "The grouping selector"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 2
             },
             {
               "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
@@ -481,7 +481,7 @@
                 "Pseudo-class selectors",
                 "Attribute selectors"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 2
             },
             {
               "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
@@ -491,7 +491,7 @@
                 " Using a colon (:) followed by the elements' names",
                 " Using a semicolon (;) followed by the elements' names"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 0
             }
           ]
         },
