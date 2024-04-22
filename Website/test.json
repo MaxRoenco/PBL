@@ -941,6 +941,38 @@
       ],
       "python": [
         {
+          "title": "Gay",
+          "content": "#Gay\n##MiniGay\n",
+          "lesson": "# Blank lesson",
+          "quiz": [
+            {
+              "question": "GAy",
+              "options": [
+                "Me",
+                "You"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Python Syntax",
+          "content": "##Python Syntax\n#Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n'if 5 > 2:\n    print(\"5 is greater than 2\")'\n",
+          "lesson": "Application: Pay attention to indentation when writing Python code. Proper indentation is crucial for readability and ensures that your code functions as intended.",
+          "quiz": [
+            {
+              "question": "How do we denote a multi-line block of code in Python?",
+              "options": [
+                " Using square brackets []",
+                " Using parentheses ()",
+                "Using curly braces {}",
+                " Using indentation"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        },
+        {
           "title": "Python Syntax",
           "content": "#Python Syntax\n##Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n",
           "lesson": "##Python Indentation\nIndentation refers to the spaces at the beginning of a code line.\n\nWhere in other programming languages the indentation in code is for readability only, the indentation in Python is very important.\n\nPython uses indentation to indicate a block of code.\nThe number of spaces is up to you as a programmer, the most common use is four, but it has to be at least one.\nYou have to use the same number of spaces in the same block of code, otherwise Python will give you an error\n##Comments\nPython has commenting capability for the purpose of in-code documentation.\n`if 5 > 2:\n print(\"Five is greater than two!\") \nif 5 > 2:\n        print(\"Five is greater than two!\")`\n\nComments start with a #, and Python will render the rest of the line as a comment:\n`#This is a comment.\nprint(\"Hello, World!\")`\n#Python Variables\nIn Python, variables are created when you assign a value to it:\n`x = 5\ny = \"Hello, World!\"`\n#Python has no command for declaring a variable.\n#You will learn more about variables in the Python Variables chapter.",
@@ -1073,60 +1105,6 @@
                 " It returns False"
               ],
               "correctAnswer": 2
-            }
-          ]
-        },
-        {
-          "title": "Python If…Else",
-          "content": "#Python If…Else\n## If...else statements are used to make decisions in Python based on certain conditions. They allow your program to execute different code blocks depending on whether a condition is true or false.\n##Use if...else statements to control the flow of your program and perform different actions based on specific conditions. They are essential for implementing logic and making your programs more dynamic.\n",
-          "lesson": "#Python Conditions and If statements\nPython supports the usual logical conditions from mathematics:\nEquals: a == b\nNot Equals: a != b\nLess than: a < b\nLess than or equal to: a <= b\nGreater than: a > b\nGreater than or equal to: a >= b\n`Example:\nx = 5\nif x > 3:\n    print(\"x is greater than 3\")\nelse:\n    print(\"x is less than or equal to 3\")`\n#Indentation\nPython relies on indentation (whitespace at the beginning of a line) to define scope in the code. Other programming languages often use curly-brackets for this purpose.\n\n##Elif\nThe elif keyword is Python's way of saying \"if the previous conditions were not true, then try this condition\".\n`a = 33\nb = 33\nif b > a:\n  print(\"b is greater than a\")\nelif a == b:\n  print(\"a and b are equal\")`\n\n##Else\nThe else keyword catches anything which isn't caught by the preceding conditions.\n`a = 200\nb = 33\nif b > a:\n  print(\"b is greater than a\")\nelif a == b:\n  print(\"a and b are equal\")\nelse:\n  print(\"a is greater than b\")`\n\nIn this example a is greater than b, so the first condition is not true, also the elif condition is not true, so we go to the else condition and print to screen that \"a is greater than b\".\n\nYou can also have an else without the elif:\n\n`a = 200\nb = 33\nif b > a:\n  print(\"b is greater than a\")\nelse:\n  print(\"b is not greater than a\")`\n\n\n##Short Hand If\nIf you have only one statement to execute, you can put it on the same line as the if statement.\n`if a > b: print(\"a is greater than b\")`\n\n##And\nThe and keyword is a logical operator, and is used to combine conditional statements:\n`a = 200\nb = 33\nc = 500\nif a > b and c > a:\n  print(\"Both conditions are True\")`\n##Or\nThe or keyword is a logical operator, and is used to combine conditional statements:\n`a = 200\nb = 33\nc = 500\nif a > b or a > c:\n  print(\"At least one of the conditions is True\")`\n\n##Not\nThe not keyword is a logical operator, and is used to reverse the result of the conditional statement:\n`a = 33\nb = 200\nif not a > b:\n  print(\"a is NOT greater than b\")`\n\n#Nested If\nYou can have if statements inside if statements, this is called nested if statements.\n`x = 41\n\nif x > 10:\n  print(\"Above ten,\")\n  if x > 20:\n    print(\"and also above 20!\")\n  else:\n    print(\"but not above 20.\")`\n",
-          "quiz": [
-            {
-              "question": "What keyword is used to start an if statement in Python?",
-              "options": [
-                "then",
-                "elif",
-                " else",
-                "if"
-              ],
-              "correctAnswer": 3
-            },
-            {
-              "question": "What happens if no conditions in an if...elif...else statement are True?",
-              "options": [
-                "The program crashes",
-                "The else block is executed",
-                "The program exits",
-                "None of the above"
-              ],
-              "correctAnswer": 1
-            }
-          ]
-        },
-        {
-          "title": "Python While Loops",
-          "content": "#Python While Loops\n## While loops are used to execute a block of code repeatedly as long as a specified condition is true. They continue iterating until the condition becomes false.\n##Use while loops when you need to repeatedly execute a block of code until a certain condition is met. Be cautious to avoid infinite loops by ensuring that the condition eventually becomes false.",
-          "lesson": "`Example:\ni = 0\nwhile i < 5:\n    print(i)\n    i += 1`\n\n##Python Loops\nPython has two primitive loop commands:\n\nwhile loops\nfor loops\n\n##The break Statement\nWith the break statement we can stop the loop even if the while condition is true:\n`i = 1\nwhile i < 6:\n  print(i)\n  if i == 3:\n    break\n  i += 1`\n\n##The continue Statement\n`i = 0\nwhile i < 6:\n  i += 1\n  if i == 3:\n    continue\n  print(i)`\n\n\n##The else Statement\nWith the else statement we can run a block of code once when the condition no longer is true:\n`i = 1\nwhile i < 6:\n  print(i)\n  i += 1\nelse:\n  print(\"i is no longer less than 6\")`\n\n",
-          "quiz": [
-            {
-              "question": "What keyword is used to start a while loop in Python?",
-              "options": [
-                "for",
-                "while",
-                "loop",
-                "until"
-              ],
-              "correctAnswer": 1
-            },
-            {
-              "question": "How do you exit a while loop prematurely?",
-              "options": [
-                " Using the break keyword",
-                "Using the continue keyword",
-                "Using the return keyword",
-                "None of the above"
-              ],
-              "correctAnswer": 0
             }
           ]
         }
