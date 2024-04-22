@@ -461,7 +461,7 @@
                 "Using an asterisk (*) followed by the id name",
                 "Using the id keyword followed by the id name"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 1
             },
             {
               "question": "Which selector selects all HTML elements on the page?",
@@ -471,7 +471,7 @@
                 "The universal selector (*)",
                 "The grouping selector"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 2
             },
             {
               "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
@@ -481,7 +481,7 @@
                 "Pseudo-class selectors",
                 "Attribute selectors"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 2
             },
             {
               "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
@@ -491,7 +491,7 @@
                 " Using a colon (:) followed by the elements' names",
                 " Using a semicolon (;) followed by the elements' names"
               ],
-              "correctAnswer": -1
+              "correctAnswer": 0
             }
           ]
         },
@@ -940,6 +940,38 @@
         }
       ],
       "python": [
+        {
+          "title": "Gay",
+          "content": "#Gay\n##MiniGay\n",
+          "lesson": "# Blank lesson",
+          "quiz": [
+            {
+              "question": "GAy",
+              "options": [
+                "Me",
+                "You"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Python Syntax",
+          "content": "##Python Syntax\n#Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n'if 5 > 2:\n    print(\"5 is greater than 2\")'\n",
+          "lesson": "Application: Pay attention to indentation when writing Python code. Proper indentation is crucial for readability and ensures that your code functions as intended.",
+          "quiz": [
+            {
+              "question": "How do we denote a multi-line block of code in Python?",
+              "options": [
+                " Using square brackets []",
+                " Using parentheses ()",
+                "Using curly braces {}",
+                " Using indentation"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        },
         {
           "title": "Python Syntax",
           "content": "#Python Syntax\n##Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n",

@@ -3,6 +3,7 @@
     font-family: sans-serif;
     width: 100%;
     height: 90%;
+    padding: 20px 15%;
     max-width: 1300px;
     overflow-y: scroll;
 }
@@ -19,24 +20,22 @@
 }
 
 #textContent {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    padding: 20px;
     font-size: 18px;
     max-width: 800px;
 }
 
 #textLesson {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    padding: 20px;
     font-size: 18px;
-    width: 100%;
 }
 
 #textLesson>h1,

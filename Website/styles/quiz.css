@@ -124,6 +124,10 @@
     color: #000000;
 }
 
+.qq1 {
+    padding: 20px;
+}
+
 @media (max-width: 500px) {
     .questionNum {
         font-size: 18px;
