@@ -12,7 +12,7 @@ let defaultProgression = {
     "c":0,
     "cpp": 0,
     "diamonds": 0,
-    "hearts": 10,
+    "hearts": 100,
     "language": 'en',
     "soundOn": true,
     "swipeOn": true,
