@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./styles/creator.css">
     <link rel="stylesheet" href="./styles/notification.css">
     <link rel="stylesheet" href="./styles/register.css">
+    <link rel="stylesheet" href="./styles/store.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap" rel="stylesheet">
@@ -129,6 +130,35 @@
             </div>
         </div>
 
+        <!-- STORE TAB -->
+
+        <div class="containerStore container" data-tab="store">
+            <div class="storeItem">
+                <img src="" alt="">
+                <p>Get 1 heart</p>
+            </div>
+            <div class="storeItem">
+                <img src="" alt="">
+                <p>Get 5 heart</p>
+            </div>
+            <div class="storeItem">
+                <img src="" alt="">
+                <p>Get 10 heart</p>
+            </div>
+            <div class="storeItem">
+                <img src="" alt="">
+                <p>Get Boost on 1 hour</p>
+            </div>
+            <div class="storeItem">
+                <img src="" alt="">
+                <p>Get Boost on 2 hours</p>
+            </div>
+            <div class="storeItem">
+                <img src="" alt="">
+                <p>Get Boost on 3 hours</p>
+            </div>
+        </div>
+
         <!-- PROFILE TAB -->
         <div class="containerProfile" data-tab="profile">
             <div class="sidesProfile">
@@ -142,6 +172,14 @@
                         </div>
                         <div class="diamandContainer">
                             <div class="diamand">
+                                <div id="tooltip-content">
+                                    <img src="./assets/images/store.png" class="storeIcon" alt="Cool store"
+                                        onclick="openTab('store')">
+                                    <div class="span">
+                                        Go to store boi4ik and buy some cool items.
+                                        Girls will be yours😎
+                                    </div>
+                                </div>
                                 <img src="./assets/images/diamands.png">
                                 <span class="diamandText" id="diamondsCount">500</span>
                             </div>

@@ -84,6 +84,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     border: 3px solid gray;
     border-radius: 30px;
     padding: 0px 10px;
@@ -113,6 +114,66 @@
 .diamand>img,
 .heart>img {
     width: 50px;
+}
+
+
+#tooltip-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    background: #424769;
+    color: #fff;
+    white-space: nowrap;
+    padding: 20px 25px;
+    border-radius: 7px;
+    visibility: hidden;
+    opacity: 0;
+    text-wrap: wrap;
+    transition: opacity 0.5s ease;
+    display: flex;
+    width: 400px;
+    flex-direction: row;
+    font-size: 14px;
+    margin: -15px 0;
+    border: 2px solid #383e62;
+}
+
+.span {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#tooltip-content::before {
+    content: "";
+    position: absolute;
+    left: 40%;
+    bottom: 105%;
+    transform: translateY(50%) rotate(180deg);
+    border: rgba(0, 0, 0, 0) 25px solid;
+    border-top-color: #424769;
+
+}
+
+.diamand:hover #tooltip-content {
+    top: 150%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.storeIcon {
+    max-width: 100px;
+    aspect-ratio: 1/1;
+    filter: grayscale(0.6);
+    cursor: pointer;
+    transition: filter 300ms ease-in;
+}
+
+.storeIcon:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
 }
 
 .avatarProfile {
@@ -486,11 +547,31 @@
 }
 
 @keyframes jump-shaking {
-    0% { transform: translateX(0) }
-    25% { transform: translateY(-9px) }
-    35% { transform: translateY(-9px) rotate(17deg) }
-    55% { transform: translateY(-9px) rotate(-17deg) }
-    65% { transform: translateY(-9px) rotate(17deg) }
-    75% { transform: translateY(-9px) rotate(-17deg) }
-    100% { transform: translateY(0) rotate(0) }
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateY(-9px)
+    }
+
+    35% {
+        transform: translateY(-9px) rotate(17deg)
+    }
+
+    55% {
+        transform: translateY(-9px) rotate(-17deg)
+    }
+
+    65% {
+        transform: translateY(-9px) rotate(17deg)
+    }
+
+    75% {
+        transform: translateY(-9px) rotate(-17deg)
+    }
+
+    100% {
+        transform: translateY(0) rotate(0)
+    }
 }

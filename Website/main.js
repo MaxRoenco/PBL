@@ -25,8 +25,8 @@ buttons.forEach(ele => {
     document.getElementById(ele.id).classList.add("hidden");
 })
 
-if(isRegistered) {
-    openTab("home");
+if (isRegistered) {
+    openTab("store");
 } else {
     openTab("register")
 }
