@@ -1458,7 +1458,550 @@
           ]
         }
       ],
-      "c": [],
+      "c": [
+        {
+          "title": "Getting started with C",
+          "content": "#What is C?\nC is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in 1972.\n\nIt is a very popular language, despite being old. The main reason for its popularity is because it is a fundamental language in the field of computer science.\n\nC is strongly associated with UNIX, as it was developed to write the UNIX operating system.",
+          "lesson": "#Getting Started with C in Visual Studio Code: Detailed Steps\n\n##Step 1: Install Visual Studio Code\nFirst, you need to download and install Visual Studio Code. Head over to the Visual Studio Code download page. There, you'll find options to download the installer for your operating system, whether it's Windows, macOS, or Linux. Select the appropriate installer and download it. Once the download is complete, run the installer and follow the on-screen instructions to install VS Code on your computer.\n\n##Step 2: Install the C Compiler\nNext, you'll need a C compiler to compile your C programs. We'll use GCC (GNU Compiler Collection) for this purpose. To get GCC, we'll install MinGW-w64. Go to the MinGW-w64 download page and download the installer (mingw-w64-install.exe). Run the installer and follow these steps during the installation process:\n\n-> Select the architecture as x86_64.\n-> Set the threads to win32.\n-> Choose the latest version of the compiler.\n-> Complete the installation following the on-screen instructions.\n\nAfter installing MinGW, you need to add it to your system's PATH environment variable so that you can use the GCC compiler from the command line. Open the Start Menu and search for \"Environment Variables\". Click on \"Edit the system environment variables\", which opens the System Properties window. In this window, click on \"Environment Variables\". In the Environment Variables window, under \"System variables\", find the Path variable and click on \"Edit\". Add a new entry for the path to the MinGW bin directory, typically something like \"C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin.\" Once you've added the path, click \"OK\" to close all the windows.\n\n##Step 3: Install C/C++ Extension for VS Code\nNow that VS Code and the GCC compiler are set up, you need to install the C/C++ extension in VS Code to help with code editing and debugging. Open VS Code and click on the Extensions view icon on the Sidebar, or press Ctrl+Shift+X to open the Extensions view. In the search bar, type \"C/C++\" and look for the extension provided by Microsoft. Click the \"Install\" button to add this extension to your VS Code setup.\n\n##Step 4: Create and Run Your First C Program\nTo create your first C program, start by opening a new file in VS Code. Go to File > New File or press Ctrl+N. Save this new file with a .c extension, such as myfirstprogram.c, by going to File > Save As.\n\nWith your new file open, type the following C code into it:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello, World!\");\n  return 0;\n}`\nThis is a simple C program that prints \"Hello, World!\" to the console.\n\nBefore you can compile and run this program, you need to set up the build task in VS Code. Go to Terminal > Configure Default Build Task and select C/C++: gcc build active file. VS Code will create a tasks.json file in a .vscode directory with the necessary configurations.\n\nTo compile the program, open the terminal in VS Code by going to Terminal > New Terminal or pressing Ctrl+` . In the terminal, type the following command and press Enter:\n\n`gcc -o myfirstprogram myfirstprogram.c`\nThis command tells GCC to compile myfirstprogram.c and output an executable named myfirstprogram.\n\nOnce the compilation is complete, run the program by typing the following command in the terminal and pressing Enter:\n\n`./myfirstprogram`\nYou should see the output \"Hello, World!\" printed in the terminal, indicating that your program ran successfully.",
+          "quiz": [
+            {
+              "question": "What is the purpose of adding MinGW to the system's PATH environment variable?",
+              "options": [
+                "To enable the system to find and execute the GCC compiler from the command line.",
+                "To enhance the graphical user interface of Visual Studio Code.",
+                "To install additional programming languages in VS Code.",
+                "To enable auto-completion for C code in VS Code."
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which command is used to compile a C program using GCC in the terminal?",
+              "options": [
+                "gcc compile myfirstprogram.c",
+                "gcc myfirstprogram",
+                "gcc -o myfirstprogram myfirstprogram.c",
+                "gcc run myfirstprogram.c"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "After writing the \"Hello, World!\" program in VS Code, what are the correct steps to compile and run it?",
+              "options": [
+                "Open terminal, type gcc -o myfirstprogram myfirstprogram.c, then type ./myfirstprogram",
+                "Click Run > Start Debugging, then type ./myfirstprogram",
+                "Save the file, click Build > Build and Run",
+                "Open terminal, type gcc build myfirstprogram.c, then type run myfirstprogram"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "C Syntax",
+          "content": "In this lesson, you will learn the basic structure and syntax of a C program. By the end of this lesson, you will be able to understand and write simple C programs that include functions, statements, and proper use of header files.",
+          "lesson": "#Understanding a Simple C Program\nLet's break down a simple C program step by step:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  return 0;\n}`\n-> Line 1: #include <stdio.h>\nThis line includes the Standard Input Output library. It allows us to use functions like printf() to print text to the screen. Think of this as a tool that provides extra capabilities to your program.\n-> Line 2: A blank line.\nIn C, blank lines and white spaces are ignored by the compiler but are used by programmers to make the code more readable.\n-> Line 3: int main() {\nThis line starts the main function. Every C program must have a main() function. The code inside the curly brackets {} will be executed when the program runs.\n-> Line 4: printf(\"Hello World!\");\nThis is a statement that prints \"Hello World!\" to the screen. Note the use of ; at the end of the statement. Every statement in C ends with a semicolon.\n-> Line 5: return 0;\nThis statement ends the main() function and returns the value 0 to the operating system, indicating that the program finished successfully.\n-> Line 6: }\nThis closing curly bracket ends the main() function.\n\n#C Statements\nA computer program is a list of instructions to be executed by the computer. In C, these instructions are called statements. Each statement tells the compiler what to do.\n##Example:\n`printf(\"Hello World!\");`\nThis statement instructs the compiler to print the text \"Hello World!\" to the screen.\nIf you forget the semicolon at the end of a statement, the program will not run and an error will occur.\n##Example with Error:\n`printf(\"Hello World!\")\n// error: expected ';' before 'return'`\n\n#Multiple Statements\nMost C programs contain multiple statements. These statements are executed one by one, in the order they are written.\n##Example:\n`Copy code\nprintf(\"Hello World!\");\nprintf(\"Have a good day!\");\nreturn 0;`\nExplanation:\nThe first statement prints \"Hello World!\" to the screen.\nThe second statement prints \"Have a good day!\" to the screen.\nThe third statement ends the program successfully.\n\n#Cheat Sheet\n1) \\#include <stdio.h>: Includes the Standard Input Output library.\n2) int main(): Defines the main function.\n3) { }: Curly brackets enclose the body of a function.\n4) printf(): Function to print text to the screen.\n5) ;: Semicolon ends each statement.\n6) return 0;: Ends the main() function and returns 0 to indicate success.",
+          "quiz": [
+            {
+              "question": "What does #include <stdio.h> do in a C program?",
+              "options": [
+                "It defines the main function.",
+                "It includes the Standard Input Output library.",
+                "It prints text to the screen."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following statements is correct to print \"Hello World!\"?",
+              "options": [
+                "printf(\"Hello World!\")",
+                "print(\"Hello World!\");",
+                "printf(\"Hello World!\");"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will happen if you forget the semicolon at the end of a statement?",
+              "options": [
+                "The program will run normally.",
+                "The program will print an error and not run.",
+                "The program will ignore the statement."
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Mastering Output in C",
+          "content": "In this lesson, you will learn how to use the \"printf()\" function to print text and values to the screen. You will understand how to format text using escape sequences and how to manage multiple lines of output. By the end of this lesson, you will be able to produce well-formatted output in your C programs.",
+          "lesson": "#Using \"printf()\" to Print Text\nTo output values or print text in C, you use the printf() function.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  return 0;\n}`\nIn this example, the printf() function prints \"Hello World!\" to the screen.\n\n#Importance of Double Quotes\nWhen working with text, it must be enclosed in double quotation marks \"\".\n##Example:\n`printf(\"This sentence will work!\");\nprintf(This sentence will produce an error.); // This will cause an error`\nForgetting the double quotes around text will cause a compilation error.\n\n#Multiple printf() Functions\nYou can use multiple printf() functions to print several pieces of text. Note that printf() does not automatically add a new line at the end of its output.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  printf(\"I am learning C.\");\n  printf(\"And it is awesome!\");\n  return 0;\n}`\nThe output will be: \n`Hello World!I am learning C.And it is awesome!`\n\n#Using New Lines with \"\\n\"\nTo insert a new line, use the \"\\n\" character, which is an escape sequence that moves the cursor to the beginning of the next line.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}`\nThe output will be:\n`Hello World!\nI am learning C.`\nYou can also include multiple lines within a single printf() function, though this can reduce readability.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\nI am learning C.\\nAnd it is awesome!\");\n  return 0;\n}`\nThe output will be:\n`Hello World!\nI am learning C.\nAnd it is awesome!`\n\n#Creating Blank Lines\nUsing two \\n characters in a row will create a blank line.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}`\nThe output will be:\n`Copy code\nHello World!\n\nI am learning C.`\n\n#Other Useful Escape Sequences\n$./assets/images/c1.png\n\n#Cheat Sheet\n1) printf(): Function to print text and values to the screen.\n2) Double Quotes: Text must be enclosed in double quotes \"\".\n3) \\n: Newline character, moves the cursor to the next line.\n4) Escape Sequences: Special characters used to format output (\\t, \\\\, \\\").\n\nNOTE: This lesson covers the basics of outputting text in C, ensuring you can display information and format it properly in your programs. Practice using \"printf()\" and escape sequences to become comfortable with producing output in C.",
+          "quiz": [
+            {
+              "question": "What will happen if you forget to put double quotes around text in printf()?",
+              "options": [
+                "The text will be printed as is.",
+                "An error will occur.",
+                "The text will be ignored."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you insert a new line in a C program?",
+              "options": [
+                "By using \\\\n",
+                " By using \\n",
+                "By using newLine()"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which escape sequence creates a horizontal tab?",
+              "options": [
+                "\\n",
+                "\\\\",
+                "\\t"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "Understanding Comments in C",
+          "content": "In this lesson, you will learn about comments in C and how to use them to make your code more readable and maintainable. You will understand the difference between single-line and multi-line comments and when to use each type. By the end of this lesson, you will be able to effectively comment your C programs.",
+          "lesson": "#Purpose of Comments\nComments in C are used to explain code and make it more readable. They can also be used to prevent code from being executed, which is helpful when testing different parts of your code. Comments are ignored by the compiler, meaning they do not affect the program's execution.\n\n#Single-line Comments\nSingle-line comments start with two forward slashes //. Any text following // until the end of the line is ignored by the compiler.\n##Example:\n`// This is a comment\nprintf(\"Hello World!\");`\n\nYou can also place a single-line comment at the end of a line of code.\n##Example:\n`printf(\"Hello World!\"); // This is a comment`\n\n#Multi-line Comments\nMulti-line comments start with /* and end with */. Any text between these markers is ignored by the compiler.\n##Example:\n`/* The code below will print the words Hello World!\nto the screen, and it is amazing */\nprintf(\"Hello World!\");`\n\n#Choosing Between Single and Multi-line Comments\nThe choice between single-line and multi-line comments depends on the length and complexity of the comment. Generally, // is used for short comments, while /* */ is used for longer comments or blocks of comments.\n\nIt's important to note that before the C99 standard (released in 1999), only multi-line comments were available in C.\n\n#Cheat Sheet\n1) Single-line comments: Start with //. Used for short comments.\n2) Multi-line comments: Start with /* and end with */. Used for longer comments or blocks of comments.\n3) Comments are ignored by the compiler and do not affect program execution.\n4) Use comments to explain your code and make it more readable.\n\nNOTE: This lesson covers the basics of using comments in C, ensuring you can add explanations and notes to your code effectively. Practice adding both single-line and multi-line comments to your programs to enhance readability and maintainability.",
+          "quiz": [
+            {
+              "question": "How do you start a single-line comment in C?",
+              "options": [
+                "/*",
+                "//",
+                "#"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you end a multi-line comment in C?",
+              "options": [
+                "*/",
+                "//",
+                "**"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Why are comments used in C?",
+              "options": [
+                "To change the program’s execution.",
+                "To explain code and make it more readable.",
+                "To compile the program faster."
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Introduction to C Variables",
+          "content": "In this lesson, you will learn about variables in C, how to declare and initialize them, and how to use them in your programs. You will also understand format specifiers and the rules for naming variables. By the end of this lesson, you will be able to effectively work with variables and print their values in C.",
+          "lesson": "#What Are Variables?\nVariables are containers for storing data values. In C, different types of variables are defined with different keywords:\n1) int for integers (whole numbers), such as 123 or -123\n2) float for floating point numbers, such as 19.99 or -19.99\n3) char for single characters, such as 'a' or 'B' (characters are surrounded by single quotes)\n\n#Declaring and Initializing Variables\nTo create a variable, specify the type and assign it a value:\n##Syntax:\n`type variableName = value;`\nHere, type is one of C's data types, variableName is the name of the variable, and the equal sign = assigns a value to the variable.\n##Example:\n`int myNum = 15;`\nYou can also declare a variable without assigning a value and assign it later:\n##Example:\n`// Declare a variable\nint myNum;\n\n// Assign a value to the variable\nmyNum = 15;`\n\n#Outputting Variables\nTo print values in C, you use the \"printf()\" function. Unlike some other programming languages, you need to use format specifiers to tell the compiler what type of data the variable is storing.\n#Example:\n`int myNum = 15;\nprintf(\"%d\", myNum);  // Outputs 15`\n\n#Format specifiers include:\n1) %d for integers\n2) %f for floating point numbers\n3) %c for characters\n##Example:\n`int myNum = 15;\nfloat myFloatNum = 5.99;\nchar myLetter = 'D';\n\nprintf(\"%d\\n\", myNum);\nprintf(\"%f\\n\", myFloatNum);\nprintf(\"%c\\n\", myLetter);`\n\nTo combine text and a variable, separate them with a comma inside printf():\n##Example:\n`int myNum = 15;\nprintf(\"My favorite number is: %d\", myNum);`\n\nYou can also print different types in a single printf() function:\n##Example:\n`int myNum = 15;\nchar myLetter = 'D';\nprintf(\"My number is %d and my letter is %c\", myNum, myLetter);`\n\n#Changing Variable Values\nYou can overwrite the value of an existing variable:\n##Example:\n`int myNum = 15;\nmyNum = 10;  // Now myNum is 10`\n\nYou can assign the value of one variable to another:\n##Example:\n`int myNum = 15;\nint myOtherNum = 23;\nmyNum = myOtherNum;  // myNum is now 23`\n\n#Adding Variables Together\nTo add the values of two variables:\n##Example:\n`int x = 5;\nint y = 6;\nint sum = x + y;\nprintf(\"%d\", sum);`\n\n#Declaring Multiple Variables\nTo declare multiple variables of the same type in a single line:\n##Example:\n`int x = 5, y = 6, z = 50;\nprintf(\"%d\", x + y + z);`\n\nYou can also assign the same value to multiple variables:\n##Example:\n`int x, y, z;\nx = y = z = 50;\nprintf(\"%d\", x + y + z);`\n\n#Naming Variables (Identifiers)\nVariable names in C must be unique and are called identifiers. Here are some general rules for naming variables:\n-> Names can contain letters, digits, and underscores.\n-> Names must begin with a letter or an underscore.\n-> Names are case-sensitive (myVar and myvar are different).\n-> Names cannot contain whitespaces or special characters like !, #, %, etc.\n-> Reserved words (such as int) cannot be used as names.\n##Example:\n`// Good variable name\nint minutesPerHour = 60;\n\n// OK, but not so clear\nint m = 60;`\n\n#Cheat Sheet\n1) int, float, char: Basic data types for variables.\n2) Variable Declaration: type variableName = value;\n3) Format Specifiers: %d for integers, %f for floats, %c for characters.\n4) Changing Values: Variables can be reassigned new values.\n5) Multiple Declarations: Multiple variables can be declared and initialized in a single line.\n6) Naming Rules: Follow the rules for valid and descriptive variable names.\n\nNOTE: This lesson provides a comprehensive introduction to variables in C, ensuring you can declare, initialize, and use variables effectively in your programs. Practice creating and manipulating variables to become proficient in C programming.",
+          "quiz": [
+            {
+              "question": "How do you declare an integer variable x and assign it the value 10?",
+              "options": [
+                "int x; x = 10;",
+                "int x = 10;",
+                "Both A and B"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What format specifier is used for a floating point number?",
+              "options": [
+                "%d",
+                "%f",
+                "%c"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following is a valid variable name?",
+              "options": [
+                "2ndVariable",
+                "variable_2",
+                "variable-2"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "C Data Types",
+          "content": "In this lesson, you'll dive into the fundamental data types in C, including integers, floating-point numbers, characters, and their usage. You'll also understand format specifiers, type conversion, and how to retrieve the memory size of variables. By the end, you'll be equipped to handle various data types effectively in your C programs.",
+          "lesson": "#Basic Data Types\nData types in C specify the size and type of information a variable can store. The most common ones are:\n1) int: Stores whole numbers without decimals.\n2) float: Stores fractional numbers with limited decimal precision.\n3) double: Stores fractional numbers with higher decimal precision.\n4) char: Stores a single character or ASCII values.\n\n#Format Specifiers\nTo print variables in C, you use format specifiers with the \"printf()\" function. Here are some common ones:\n1) %d or %i for integers\n2) %f for floats\n3) %lf for doubles\n4) %c for characters\n\n#Character Data Types\nThe char type stores a single character and is surrounded by single quotes. You can print characters using the %c specifier. ASCII values can also be used to represent characters.\n\n#Numeric Data Types\n1)int: Stores whole numbers.\n2) float: Stores floating-point numbers with limited precision.\n3) double: Stores floating-point numbers with higher precision.\n\n#Decimal Precision\nYou can control the decimal precision of floating-point numbers using format specifiers like %.2f to display two decimal places.\n\n#The sizeof Operator\nThe sizeof operator retrieves the memory size of a variable or data type in bytes.\n\n#Type Conversion\nImplicit Conversion: Automatically done by the compiler.\nExplicit Conversion: Manually performed by the programmer using type casting.\n\n#Cheat Sheet\n1) Basic Data Types: int, float, double, char.\n2) Format Specifiers: %d, %f, %lf, %c.\n3) Decimal Precision: Control the number of decimal places with format specifiers.\n4) sizeof Operator: Get the memory size of variables.\n5) Type Conversion: Implicit and explicit conversions for handling different data types.\n\nNOTE: With a solid understanding of C data types, you're now ready to handle various types of data and perform operations efficiently in your C programs. Practice using different data types and format specifiers to strengthen your skills.",
+          "quiz": [
+            {
+              "question": "What format specifier is used for integers in printf()?",
+              "options": [
+                "%i",
+                "%d",
+                "%f",
+                "A and B",
+                "B and C"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "Which data type stores a single character in C?",
+              "options": [
+                "int",
+                "float",
+                "char"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How do you control the decimal precision of a floating-point number to two decimal places?",
+              "options": [
+                "%.2f",
+                "%2f",
+                "%.f"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Understanding C Constants",
+          "content": "In this lesson, you'll grasp the concept of constants in C programming and understand how to use the \"const\" keyword to declare unchangeable variables. You'll learn the benefits of using constants, good practices for naming them, and how to avoid common pitfalls.",
+          "lesson": "#Constants in C\nConstants are variables whose values remain fixed throughout the execution of a program. They are declared using the const keyword, making them read-only and unchangeable.\n\n#Declaring Constants\nTo declare a constant in C, use the const keyword followed by the data type and the variable name, then assign it a value. Once declared, the value of a constant cannot be modified.\n##Example:\n`const int minutesPerHour = 60;\nconst float PI = 3.14;`\n\n##Notes on Constants\n-> Constant variables must be assigned a value during declaration. Attempting to assign a value later will result in an error.\n-> It's a good practice to declare constants with uppercase letters for better code readability.\n##Good Practice\nUsing constants helps improve code readability and maintainability, especially when dealing with values that are unlikely to change. By declaring constants, you make your code more self-explanatory and easier to understand for other programmers.\n##Example:\n`const int BIRTHYEAR = 1980;`\n\n#Cheat Sheet\n1) Constants: Variables whose values remain fixed.\n2) Declaration: Use the const keyword followed by the data type and variable name.\n3) Value Assignment: Constants must be assigned a value during declaration.\n4) Good Practice: Declare constants with uppercase letters for better readability.\n\nNOTE: Understanding how to use constants in C will enhance the clarity and maintainability of your code. Practice declaring and using constants in your programs to solidify your understanding.",
+          "quiz": [
+            {
+              "question": "What keyword is used to declare constants in C?",
+              "options": [
+                "var",
+                "let",
+                "const",
+                "final"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which of the following statements about constants is true?",
+              "options": [
+                "Constants can be modified after declaration.",
+                "Constants must be assigned a value during declaration.",
+                "Constants are declared using the \"volatile\" keyword.",
+                "Constants have dynamic values."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following is a valid way to declare a constant with the value 3.14159 in C?",
+              "options": [
+                "const PI = 3.14159;",
+                "const float PI = 3.14159;",
+                "constant PI = 3.14159;",
+                "constant float PI = 3.14159;"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "C Operators",
+          "content": "In this lesson, you'll dive into the world of operators in C programming. You'll understand the different types of operators, such as arithmetic, assignment, comparison, and logical operators, and learn how to use them effectively in your programs.",
+          "lesson": "#Operators in C\nOperators are symbols used to perform operations on variables and values. They are divided into various groups based on their functionality.\n\n#Arithmetic Operators\nArithmetic operators are used to perform mathematical operations such as addition, subtraction, multiplication, division, modulus, increment, and decrement.\n$./assets/images/c2.png\n\n#Assignment Operators\nAssignment operators are used to assign values to variables. They include the basic assignment operator (=) as well as compound assignment operators like +=, -=, *=, etc.\n$./assets/images/c3.png\n\n#Comparison Operators\nComparison operators are used to compare two values or variables. They return either true (1) or false (0) based on the comparison result.\n$./assets/images/c4.png\n\n#Logical Operators\nLogical operators are used to determine the logic between variables or values. They include logical AND (&&), logical OR (||), and logical NOT (!).\n$./assets/images/c5.png\n\n#Cheat Sheet\n1) Arithmetic Operators: Perform mathematical operations like addition, subtraction, multiplication, etc.\n2) Assignment Operators: Assign values to variables, including compound assignment operators.\n3) Comparison Operators: Compare two values or variables and return true or false.\n4) Logical Operators: Determine the logic between variables or values.\n\nNOTE: Understanding operators is crucial for performing various operations in C programming. Practice using different operators to enhance your programming skills.",
+          "quiz": [
+            {
+              "question": "Which operator is used to perform addition in C?",
+              "options": [
+                "*",
+                "/",
+                "+",
+                "-"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will the following expression return: 10 > 5?",
+              "options": [
+                "1",
+                "0",
+                "True",
+                "False"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which assignment operator is equivalent to x = x + 5?",
+              "options": [
+                "+=",
+                "=+",
+                "/=",
+                "-="
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Mastering C Booleans",
+          "content": "In this lesson, you'll delve into the world of booleans in C programming. You'll understand the bool data type, how to declare boolean variables, compare values using boolean expressions, and utilize boolean operators effectively.",
+          "lesson": "#Booleans in C\nBooleans are a fundamental data type in programming that represent values of true or false. In C, the bool data type is used for boolean variables.\n\n#Declaring Boolean Variables\nTo use boolean variables in C, you need to include the <stdbool.h> header file. Boolean variables are declared using the bool keyword and can have values of true or false.\n\n#Printing Boolean Values\nBoolean values are represented as integers: 1 for true and 0 for false. Use the %d format specifier to print boolean values.\n\n#Comparing Values with Booleans\nYou can compare values using boolean expressions and comparison operators such as greater than (>), equal to (==), etc. The result of a comparison is a boolean value: 1 for true and 0 for false.\n##Examples:\nComparing numeric values: \n`printf(\"%d\", 10 > 5); // Returns 1 (true)`\nComparing boolean variables: \n`bool isHamburgerTasty = true; \nprintf(\"%d\", isHamburgerTasty == true);`\n\n#Cheat Sheet\n1) Boolean Variables: Declared using the bool keyword, representing true or false values.\n2) Comparing Values: Use comparison operators to compare values and get boolean results.\n3) Printing Boolean Values: Represented as integers: 1 for true, 0 for false.\n\nNOTE: Understanding booleans and boolean expressions is essential for making decisions and controlling program flow in C programming. Practice using boolean variables and expressions to strengthen your understanding.",
+          "quiz": [
+            {
+              "question": "What header file should you include to use boolean variables in C?",
+              "options": [
+                "<stdio.h>",
+                "<stdbool.h>",
+                "<stdlib.h>",
+                "stdboolean.h>"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What will the following expression return: \"bool isTasty = true; printf(\"%d\", isTasty);\"?",
+              "options": [
+                "True",
+                "False",
+                "1",
+                "0"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How are boolean values represented in C?",
+              "options": [
+                " 'true' and 'false' strings",
+                "0 for true, 1 for false",
+                "1 for true, 0 for false",
+                "'yes' and 'no' strings"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "Flow Control in C Programming",
+          "content": "In this lesson, you'll dive into the various flow control constructs in C programming. You'll understand how to make decisions using conditional statements (if, if-else, if-else if) and switch statements. Additionally, you'll learn about executing code repeatedly using while and for loops, as well as controlling loop execution using the break and continue statements.",
+          "lesson": "#Conditional Statements\nConditional statements allow you to execute code based on certain conditions.\n\n##if Statement\nThe if statement evaluates a condition and executes a block of code if the condition is true.\n##Example\n`if (condition) {\n    // code to be executed if condition is true\n}`\nThis snippet checks the condition. If the condition evaluates to true, the code inside the curly braces is executed.\n\n##if-else Statement\nThe if-else statement executes one block of code if the condition is true, and another block if the condition is false.\n##Example\n`if (condition) {\n    // code to be executed if condition is true\n} else {\n    // code to be executed if condition is false\n}`\nIf the condition is true, the code inside the first block is executed. If the condition is false, the code inside the else block is executed.\n\n##if-else if Statement\nThe if-else if statement allows you to evaluate multiple conditions sequentially and execute different blocks of code accordingly.\n##Example\n`if (condition1) {\n    // code to be executed if condition1 is true\n} else if (condition2) {\n    // code to be executed if condition2 is true\n} else {\n    // code to be executed if all conditions are false\n}`\nThis snippet evaluates multiple conditions sequentially. If condition1 is true, the code inside the first block is executed. If condition1 is false and condition2 is true, the code inside the second block is executed. If all conditions are false, the code inside the else block is executed.\n\n\n#Switch Statement\nThe switch statement allows you to select one of many code blocks to be executed.\n##Example\n`switch (expression) {\n    case value1:\n        // code to be executed if expression equals value1\n        break;\n    case value2:\n        // code to be executed if expression equals value2\n        break;\n    default:\n        // code to be executed if expression doesn't match any case\n}`\nThe switch statement evaluates an expression and executes the code block associated with the matching case. If no case matches the expression, the code block inside the default case is executed.\n\n#Loops\nLoops allow you to execute a block of code repeatedly.\n\n##while Loop\nThe while loop repeatedly executes a block of code as long as the condition remains true. It is used when we do not know the number of times the block of code is needed to be repeated.\n##Example\n`while (condition) {\n    // code to be executed repeatedly while condition is true\n}`\n\n##for Loop\nThe for loop executes a block of code a specified number of times. It is used when we know the number of times the block of code is needed to be repeated.\n`for (initialization; condition; increment/decrement) {\n    // code to be executed repeatedly until condition becomes false\n}`\n\n\n#Loop Control Statements\nLoop control statements allow you to control the flow of execution within loops.\n\n##break Statement\nThe break statement terminates the loop prematurely and transfers control to the next statement after the loop.\n`for (int i = 0; i < 10; i++) {\n    if (condition) {\n        break;\n    }\n}`\n\n##continue Statement\nThe continue statement skips the remaining code inside the loop for the current iteration and proceeds to the next iteration.\n`for (int i = 0; i < 10; i++) {\n    if (condition) {\n        continue;\n    }\n    // code here will be skipped if condition is true\n}`\n\n\n#Cheatsheet\n1) Conditional Statements: if, if-else, if-else if\n2) Switch Statement: switch, case, default\n3) Loops: while, for\n4) Loop Control Statements: break, continue\n\nNOTE: Understanding control flow constructs is essential for writing efficient and structured code in C programming. Practice using conditional statements, loops, and loop control statements to master the concept.",
+          "quiz": [
+            {
+              "question": "Which statement allows you to select one of many code blocks to be executed?",
+              "options": [
+                "if",
+                "while",
+                "for",
+                "switch"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What is the purpose of the break statement in a loop?",
+              "options": [
+                "Skips the remaining code inside the loop for the current iteration",
+                "Terminates the loop prematurely",
+                "Executes the next iteration of the loop",
+                "None of the above"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How does the while loop differ from the for loop?",
+              "options": [
+                "while loop requires an initialization expression",
+                "for loop executes a block of code as long as a condition remains true",
+                "while loop iterates a specified number of times",
+                "for loop executes a block of code a specified number of times"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        },
+        {
+          "title": "Exploring Arrays in C Programming",
+          "content": "-> Understanding the concept of arrays in C programming.\n-> How to create, access, modify, and loop through one-dimensional (1D) arrays.\n-> Introduction to two-dimensional (2D) arrays and their manipulation.",
+          "lesson": "#Arrays in C Programming:\nArrays are used to store multiple values of the same data type in a single variable.\nThey provide a convenient way to manage collections of data without the need for separate variables.\nArrays can be one-dimensional or multi-dimensional.\n\n#Creating and Accessing Elements of 1D Arrays:\nTo create a 1D array, specify the data type and the array name followed by square brackets [].\n##Example\n`int myNumbers[] = {25, 50, 75, 100};`\nAccessing elements of an array is done using index notation, where the first element has index 0.\n##Example\n`printf(\"%d\", myNumbers[0]); // Outputs 25`\nChanging the value of an element is as simple as assigning a new value to the corresponding index.\n##Example\n`myNumbers[0] = 33;\nprintf(\"%d\", myNumbers[0]); // Now outputs 33 instead of 25`\n\n\n#Looping Through 1D Arrays:\nYou can use a for loop to iterate through the elements of a 1D array.\n##Example\n`int i;\nfor (i = 0; i < 4; i++) {\n  printf(\"%d\\n\", myNumbers[i]);\n}`\n\n\n#Understanding Array Size:\nThe sizeof operator returns the size of a type in bytes, not the number of elements in an array.\n##Example\n`int length = sizeof(myNumbers) / sizeof(myNumbers[0]);`\nThis method ensures accurate determination of array length irrespective of its size.\n\n\n#Introduction to 2D Arrays:\nTwo-dimensional arrays, also known as matrices, are used to represent tabular data with rows and columns.\n##Example\n`int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };`\nAccessing elements of a 2D array requires providing both row and column indices.\n##Example\n`printf(\"%d\", matrix[0][2]);  // Outputs 2`\n\n\n#Manipulating 2D Arrays:\nYou can change the value of an element in a 2D array by specifying the indices of the element.\n##Example\n`matrix[0][0] = 9;\nprintf(\"%d\", matrix[0][0]);  // Now outputs 9 instead of 1`\nLooping through a 2D array involves using nested loops, one for each dimension.\n##Example\n`int i, j;\nfor (i = 0; i < 2; i++) {\n  for (j = 0; j < 3; j++) {\n    printf(\"%d\\n\", matrix[i][j]);\n  }\n}`\n\n\n#Cheatsheet:\n1) Arrays store multiple values of the same data type.\n2) Use index notation to access and modify elements of arrays.\n3) Loop through arrays using for loops, adapting the loop condition to array size.\n4) Use sizeof operator to determine the size of an array and calculate its length.\n5) Two-dimensional arrays represent tabular data and require row and column indices for element access.",
+          "quiz": [
+            {
+              "question": "What is the first step in creating a one-dimensional array in C?",
+              "options": [
+                "Declare the array size",
+                "Specify the data type",
+                " Initialize the array elements",
+                "Define the array name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you access the element in the second row and third column of a 2D array named \"matrix\"?",
+              "options": [
+                "matrix[1][3]",
+                "matrix[2][2]",
+                "matrix[2][3]",
+                "matrix[1][2]"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "How do you determine the number of elements in a C array named \"myArray\"?",
+              "options": [
+                "sizeof(myArray);",
+                "sizeof(myArray) / sizeof(myArray[0]);",
+                "sizeof(myArray) * sizeof(myArray[0]);",
+                "sizeof(myArray[0]) / sizeof(myArray);"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Strings in C",
+          "content": "-> Understanding the concept of strings in C programming.\n-> How to create, access, modify, and loop through strings.\n-> Differences between different ways of creating strings in C.",
+          "lesson": "#Strings in C Programming:\nStrings are used for storing text/characters.\nIn C, strings are represented as arrays of characters.\nTo create a string, you must use the char type and create an array of characters.\n\n#Creating and Accessing Strings:\nStrings are created using character arrays initialized with double quotes.\n##Example\n`char greetings[] = \"Hello World!\";`\nAccessing individual characters of a string is done using index notation.\n##Example\n`printf(\"%c\", greetings[0]); // Outputs 'H'`\nModifying strings is similar to modifying arrays, where you assign a new value to a specific index.\n##Example\n`greetings[0] = 'J';\nprintf(\"%s\", greetings); // Outputs \"Jello World!\"`\n\n#Looping Through Strings:\nStrings can be looped through using a for loop.\n##Example\n`char carName[] = \"Volvo\";\nint i;\n\nfor (i = 0; i < 5; ++i) {\n  printf(\"%c\\n\", carName[i]);\n}`\nUsing the sizeof formula makes the loop more adaptable to changes in string length.\n##Example\n`char carName[] = \"Volvo\";\nint length = sizeof(carName) / sizeof(carName[0]);\nint i;\n\nfor (i = 0; i < length; ++i) {\n  printf(\"%c\\n\", carName[i]);\n}`\n\n#Creating Strings:\nStrings can also be created using a set of characters, but must be terminated with a null character '\\0'.\n##Example\n`char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\\0'};`\nThe null terminating character indicates the end of the string.\n\n\n#Differences:\nThere are two ways to create strings in C: using string literals or character arrays.\nString literals are easier to write and automatically include the null terminating character.\nCharacter arrays require manual inclusion of the null character.\n##Example\n`char message[] = \"Good to see you,\";\nchar fname[] = \"John\";\n\nprintf(\"%s %s!\", message, fname);`\n\n#Summary/Cheatsheet:\n1) Strings in C are represented as arrays of characters.\n2) Access and modify strings using index notation.\n3) Loop through strings using for loops, adapting the loop condition to string length.\n4) Strings can be created using string literals or character arrays, with or without explicit null termination.",
+          "quiz": [
+            {
+              "question": "Which format specifier is used to print a single character in C?",
+              "options": [
+                "%c",
+                "%s",
+                "%d",
+                "%f"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What character indicates the end of a string in C?",
+              "options": [
+                "\\n",
+                "\\t",
+                "\\0",
+                "\\end"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What is the main difference between creating strings using string literals and character arrays in C?",
+              "options": [
+                "String literals require manual inclusion of the null character.",
+                "Character arrays automatically include the null character.",
+                " String literals are easier to write and automatically include the null character.",
+                "Character arrays are immutable once initialized."
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "User Input",
+          "content": "-> How to get user input in C using scanf() and fgets() functions.\n-> Handling single and multiple inputs from the user.\n-> Differences between scanf() and fgets() for string input.",
+          "lesson": "#User Input in C:\nIn C programming, you can obtain user input using the scanf() function for formatted input and fgets() for reading a line of text.\n\n#Getting Single Input with scanf():\nTo get a single input from the user using scanf(), you specify the format specifier and use the reference operator (&) to store the value in a variable.\n##Example\n`int myNum;\nprintf(\"Type a number: \\n\");\nscanf(\"%d\", &myNum);\nprintf(\"Your number is: %d\", myNum);`\n\n#Getting Multiple Inputs with scanf():\nscanf() can also handle multiple inputs by specifying multiple format specifiers.\n##Example\n`int myNum;\nchar myChar;\nprintf(\"Type a number AND a character: \\n\");\nscanf(\"%d %c\", &myNum, &myChar);\nprintf(\"Your number is: %d\\n\", myNum);\nprintf(\"Your character is: %c\\n\", myChar);`\n\n#Taking String Input with scanf():\nFor string input using scanf(), specify the size of the string/array and don't use the reference operator (&).\n##Example\n`char firstName[30];\nprintf(\"Enter your first name: \\n\");\nscanf(\"%s\", firstName);\nprintf(\"Hello %s\", firstName);`\n\n#Using fgets() for String Input:\nfgets() is preferred for reading strings as it handles whitespace characters correctly and avoids buffer overflow.\n##Example\n`char fullName[30];\nprintf(\"Type your full name: \\n\");\nfgets(fullName, sizeof(fullName), stdin);\nprintf(\"Hello %s\", fullName);`\n\n#Cheat sheet:\n1) Use scanf() for formatted input, fgets() for reading strings.\n2) For scanf(), use the format specifier and reference operator (&) for single inputs.\n3) scanf() can handle multiple inputs by specifying multiple format specifiers.\n4) For string input with scanf(), specify the size of the string and don't use the reference operator.\n5) fgets() is preferred for reading strings as it handles whitespace characters and avoids buffer overflow.",
+          "quiz": [
+            {
+              "question": "Which function is preferred for reading a line of text in C?",
+              "options": [
+                "printf()",
+                "scanf()",
+                "gets()",
+                "fgets()"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "How do you get multiple inputs from the user using scanf()?",
+              "options": [
+                "Use multiple scanf() functions",
+                "Separate format specifiers with commas",
+                "Specify multiple format specifiers in a single scanf() call",
+                "Use scanf() with loops"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What is the advantage of using fgets() over scanf() for reading strings?",
+              "options": [
+                " scanf() is faster",
+                " fgets() handles whitespace characters correctly",
+                "scanf() can handle multiple inputs",
+                "fgets() requires fewer arguments"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Memory Addresses",
+          "content": "-> What a memory address is in C programming.\n-> How to access and print memory addresses using the reference operator (&).\n-> Why understanding memory addresses is useful in C programming.",
+          "lesson": "#Memory Address in C:\nWhen you create a variable in C, it gets stored somewhere in the computer's memory. Each variable has its own unique memory address, which is the location where its value is stored.\n\n#Accessing Memory Addresses:\nYou can access the memory address of a variable using the reference operator (&).\n##Example\n`int myAge = 43;\nprintf(\"Memory address of myAge: %p\", &myAge);`\nHere, &myAge represents the memory address of the variable myAge. Printing it using %p format specifier gives us the hexadecimal representation of the memory address.\n\n#Why Know Memory Addresses?\nUnderstanding memory addresses and pointers is crucial in C programming. Pointers allow us to directly manipulate the data stored in memory, which can lead to more efficient and optimized code.\n\nPointers are a fundamental concept in C and are used extensively for dynamic memory allocation, data structures, and low-level manipulation.\n\n#Cheat sheet:\n1) Memory address is the location in the computer's memory where a variable's value is stored.\n2) Access memory addresses using the reference operator (&).\n3) Pointers allow manipulation of data stored in memory and are essential in C programming.",
+          "quiz": [
+            {
+              "question": "How do you access the memory address of a variable in C?",
+              "options": [
+                "Using the dereference operator (*)",
+                "Using the reference operator (&)",
+                "Using the arrow operator (->)",
+                "Using the dot operator (.)"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What does the reference operator (&) return in C?",
+              "options": [
+                "Value of the variable",
+                "Size of the variable",
+                "Type of the variable",
+                "Address of the variable"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "Why is understanding memory addresses important in C programming?",
+              "options": [
+                "It allows for direct manipulation of data in memory",
+                " It makes code more readable",
+                "It increases the speed of program execution",
+                "It allows for automatic memory management"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Understanding Pointers in C Programming",
+          "content": "-> What pointers are and how to create them in C.\n-> How to access memory addresses and values using pointers.\n-> The importance of pointers in C programming and their practical applications.",
+          "lesson": "#Introduction to Pointers\nIn C programming, a pointer is a variable that stores the memory address of another variable as its value. This allows us to indirectly access and manipulate data stored in memory.\n\n#Creating Pointers\nTo create a pointer variable, use the * operator followed by the data type it points to.\n##Example\n`int myAge = 43;     // Declare an int variable\nint* ptr = &myAge;  // Declare a pointer variable pointing to myAge's address`\nHere, ptr is a pointer variable that stores the memory address of myAge. The & operator is used to get the memory address of myAge and assign it to ptr.\n\n#Dereferencing Pointers\nYou can access the value of the variable a pointer points to using the * operator.\n##Example\n`printf(\"%d\\n\", *ptr); // Outputs the value of myAge using the pointer`\nThe * operator in this context is called the dereference operator. It retrieves the value stored at the memory address pointed to by the pointer.\n\n#Purpose and Importance of Pointers\nPointers are essential in C programming as they enable efficient memory management and manipulation. They are widely used in data structures, dynamic memory allocation, and low-level system programming.\n\n##Notes on Pointers:\nPointers must be handled with care to avoid unintended memory access and corruption.\nThere are two common ways to declare pointer variables in C: int* ptr; and int *ptr;.\n\n\n#Cheat sheet:\n1) Pointers store memory addresses of other variables.\n2) Create pointers using the * operator followed by the data type.\n3) Dereference pointers using the * operator to access the value stored at the pointed memory address.\n4) Pointers are crucial for efficient memory management and data manipulation in C programming.",
+          "quiz": [
+            {
+              "question": "How do you declare a pointer variable in C?",
+              "options": [
+                "Using the & operator",
+                "Using the -> operator",
+                "Using the . operator",
+                "Using the * operator"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What does the * operator do when used with a pointer variable?",
+              "options": [
+                "Returns the memory address of the variable",
+                "Returns the value stored at the memory address pointed to by the pointer",
+                "Assigns a value to the pointer variable",
+                "Deletes the pointer variable"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Why are pointers important in C programming?",
+              "options": [
+                "They make code more readable",
+                "They improve program execution speed",
+                "They enable efficient memory management and manipulation",
+                "They allow for automatic memory allocation"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        }
+      ],
       "cpp": []
     }
   },
@@ -3256,7 +3799,550 @@
           ]
         }
       ],
-      "c": [],
+      "c": [
+        {
+          "title": "Getting started with C",
+          "content": "#What is C?\nC is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in 1972.\n\nIt is a very popular language, despite being old. The main reason for its popularity is because it is a fundamental language in the field of computer science.\n\nC is strongly associated with UNIX, as it was developed to write the UNIX operating system.",
+          "lesson": "#Getting Started with C in Visual Studio Code: Detailed Steps\n\n##Step 1: Install Visual Studio Code\nFirst, you need to download and install Visual Studio Code. Head over to the Visual Studio Code download page. There, you'll find options to download the installer for your operating system, whether it's Windows, macOS, or Linux. Select the appropriate installer and download it. Once the download is complete, run the installer and follow the on-screen instructions to install VS Code on your computer.\n\n##Step 2: Install the C Compiler\nNext, you'll need a C compiler to compile your C programs. We'll use GCC (GNU Compiler Collection) for this purpose. To get GCC, we'll install MinGW-w64. Go to the MinGW-w64 download page and download the installer (mingw-w64-install.exe). Run the installer and follow these steps during the installation process:\n\n-> Select the architecture as x86_64.\n-> Set the threads to win32.\n-> Choose the latest version of the compiler.\n-> Complete the installation following the on-screen instructions.\n\nAfter installing MinGW, you need to add it to your system's PATH environment variable so that you can use the GCC compiler from the command line. Open the Start Menu and search for \"Environment Variables\". Click on \"Edit the system environment variables\", which opens the System Properties window. In this window, click on \"Environment Variables\". In the Environment Variables window, under \"System variables\", find the Path variable and click on \"Edit\". Add a new entry for the path to the MinGW bin directory, typically something like \"C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin.\" Once you've added the path, click \"OK\" to close all the windows.\n\n##Step 3: Install C/C++ Extension for VS Code\nNow that VS Code and the GCC compiler are set up, you need to install the C/C++ extension in VS Code to help with code editing and debugging. Open VS Code and click on the Extensions view icon on the Sidebar, or press Ctrl+Shift+X to open the Extensions view. In the search bar, type \"C/C++\" and look for the extension provided by Microsoft. Click the \"Install\" button to add this extension to your VS Code setup.\n\n##Step 4: Create and Run Your First C Program\nTo create your first C program, start by opening a new file in VS Code. Go to File > New File or press Ctrl+N. Save this new file with a .c extension, such as myfirstprogram.c, by going to File > Save As.\n\nWith your new file open, type the following C code into it:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello, World!\");\n  return 0;\n}`\nThis is a simple C program that prints \"Hello, World!\" to the console.\n\nBefore you can compile and run this program, you need to set up the build task in VS Code. Go to Terminal > Configure Default Build Task and select C/C++: gcc build active file. VS Code will create a tasks.json file in a .vscode directory with the necessary configurations.\n\nTo compile the program, open the terminal in VS Code by going to Terminal > New Terminal or pressing Ctrl+` . In the terminal, type the following command and press Enter:\n\n`gcc -o myfirstprogram myfirstprogram.c`\nThis command tells GCC to compile myfirstprogram.c and output an executable named myfirstprogram.\n\nOnce the compilation is complete, run the program by typing the following command in the terminal and pressing Enter:\n\n`./myfirstprogram`\nYou should see the output \"Hello, World!\" printed in the terminal, indicating that your program ran successfully.",
+          "quiz": [
+            {
+              "question": "What is the purpose of adding MinGW to the system's PATH environment variable?",
+              "options": [
+                "To enable the system to find and execute the GCC compiler from the command line.",
+                "To enhance the graphical user interface of Visual Studio Code.",
+                "To install additional programming languages in VS Code.",
+                "To enable auto-completion for C code in VS Code."
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which command is used to compile a C program using GCC in the terminal?",
+              "options": [
+                "gcc compile myfirstprogram.c",
+                "gcc myfirstprogram",
+                "gcc -o myfirstprogram myfirstprogram.c",
+                "gcc run myfirstprogram.c"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "After writing the \"Hello, World!\" program in VS Code, what are the correct steps to compile and run it?",
+              "options": [
+                "Open terminal, type gcc -o myfirstprogram myfirstprogram.c, then type ./myfirstprogram",
+                "Click Run > Start Debugging, then type ./myfirstprogram",
+                "Save the file, click Build > Build and Run",
+                "Open terminal, type gcc build myfirstprogram.c, then type run myfirstprogram"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "C Syntax",
+          "content": "In this lesson, you will learn the basic structure and syntax of a C program. By the end of this lesson, you will be able to understand and write simple C programs that include functions, statements, and proper use of header files.",
+          "lesson": "#Understanding a Simple C Program\nLet's break down a simple C program step by step:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  return 0;\n}`\n-> Line 1: #include <stdio.h>\nThis line includes the Standard Input Output library. It allows us to use functions like printf() to print text to the screen. Think of this as a tool that provides extra capabilities to your program.\n-> Line 2: A blank line.\nIn C, blank lines and white spaces are ignored by the compiler but are used by programmers to make the code more readable.\n-> Line 3: int main() {\nThis line starts the main function. Every C program must have a main() function. The code inside the curly brackets {} will be executed when the program runs.\n-> Line 4: printf(\"Hello World!\");\nThis is a statement that prints \"Hello World!\" to the screen. Note the use of ; at the end of the statement. Every statement in C ends with a semicolon.\n-> Line 5: return 0;\nThis statement ends the main() function and returns the value 0 to the operating system, indicating that the program finished successfully.\n-> Line 6: }\nThis closing curly bracket ends the main() function.\n\n#C Statements\nA computer program is a list of instructions to be executed by the computer. In C, these instructions are called statements. Each statement tells the compiler what to do.\n##Example:\n`printf(\"Hello World!\");`\nThis statement instructs the compiler to print the text \"Hello World!\" to the screen.\nIf you forget the semicolon at the end of a statement, the program will not run and an error will occur.\n##Example with Error:\n`printf(\"Hello World!\")\n// error: expected ';' before 'return'`\n\n#Multiple Statements\nMost C programs contain multiple statements. These statements are executed one by one, in the order they are written.\n##Example:\n`Copy code\nprintf(\"Hello World!\");\nprintf(\"Have a good day!\");\nreturn 0;`\nExplanation:\nThe first statement prints \"Hello World!\" to the screen.\nThe second statement prints \"Have a good day!\" to the screen.\nThe third statement ends the program successfully.\n\n#Cheat Sheet\n1) \\#include <stdio.h>: Includes the Standard Input Output library.\n2) int main(): Defines the main function.\n3) { }: Curly brackets enclose the body of a function.\n4) printf(): Function to print text to the screen.\n5) ;: Semicolon ends each statement.\n6) return 0;: Ends the main() function and returns 0 to indicate success.",
+          "quiz": [
+            {
+              "question": "What does #include <stdio.h> do in a C program?",
+              "options": [
+                "It defines the main function.",
+                "It includes the Standard Input Output library.",
+                "It prints text to the screen."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following statements is correct to print \"Hello World!\"?",
+              "options": [
+                "printf(\"Hello World!\")",
+                "print(\"Hello World!\");",
+                "printf(\"Hello World!\");"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will happen if you forget the semicolon at the end of a statement?",
+              "options": [
+                "The program will run normally.",
+                "The program will print an error and not run.",
+                "The program will ignore the statement."
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Mastering Output in C",
+          "content": "In this lesson, you will learn how to use the \"printf()\" function to print text and values to the screen. You will understand how to format text using escape sequences and how to manage multiple lines of output. By the end of this lesson, you will be able to produce well-formatted output in your C programs.",
+          "lesson": "#Using \"printf()\" to Print Text\nTo output values or print text in C, you use the printf() function.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  return 0;\n}`\nIn this example, the printf() function prints \"Hello World!\" to the screen.\n\n#Importance of Double Quotes\nWhen working with text, it must be enclosed in double quotation marks \"\".\n##Example:\n`printf(\"This sentence will work!\");\nprintf(This sentence will produce an error.); // This will cause an error`\nForgetting the double quotes around text will cause a compilation error.\n\n#Multiple printf() Functions\nYou can use multiple printf() functions to print several pieces of text. Note that printf() does not automatically add a new line at the end of its output.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  printf(\"I am learning C.\");\n  printf(\"And it is awesome!\");\n  return 0;\n}`\nThe output will be: \n`Hello World!I am learning C.And it is awesome!`\n\n#Using New Lines with \"\\n\"\nTo insert a new line, use the \"\\n\" character, which is an escape sequence that moves the cursor to the beginning of the next line.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}`\nThe output will be:\n`Hello World!\nI am learning C.`\nYou can also include multiple lines within a single printf() function, though this can reduce readability.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\nI am learning C.\\nAnd it is awesome!\");\n  return 0;\n}`\nThe output will be:\n`Hello World!\nI am learning C.\nAnd it is awesome!`\n\n#Creating Blank Lines\nUsing two \\n characters in a row will create a blank line.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}`\nThe output will be:\n`Copy code\nHello World!\n\nI am learning C.`\n\n#Other Useful Escape Sequences\n$./assets/images/c1.png\n\n#Cheat Sheet\n1) printf(): Function to print text and values to the screen.\n2) Double Quotes: Text must be enclosed in double quotes \"\".\n3) \\n: Newline character, moves the cursor to the next line.\n4) Escape Sequences: Special characters used to format output (\\t, \\\\, \\\").\n\nNOTE: This lesson covers the basics of outputting text in C, ensuring you can display information and format it properly in your programs. Practice using \"printf()\" and escape sequences to become comfortable with producing output in C.",
+          "quiz": [
+            {
+              "question": "What will happen if you forget to put double quotes around text in printf()?",
+              "options": [
+                "The text will be printed as is.",
+                "An error will occur.",
+                "The text will be ignored."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you insert a new line in a C program?",
+              "options": [
+                "By using \\\\n",
+                " By using \\n",
+                "By using newLine()"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which escape sequence creates a horizontal tab?",
+              "options": [
+                "\\n",
+                "\\\\",
+                "\\t"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "Understanding Comments in C",
+          "content": "In this lesson, you will learn about comments in C and how to use them to make your code more readable and maintainable. You will understand the difference between single-line and multi-line comments and when to use each type. By the end of this lesson, you will be able to effectively comment your C programs.",
+          "lesson": "#Purpose of Comments\nComments in C are used to explain code and make it more readable. They can also be used to prevent code from being executed, which is helpful when testing different parts of your code. Comments are ignored by the compiler, meaning they do not affect the program's execution.\n\n#Single-line Comments\nSingle-line comments start with two forward slashes //. Any text following // until the end of the line is ignored by the compiler.\n##Example:\n`// This is a comment\nprintf(\"Hello World!\");`\n\nYou can also place a single-line comment at the end of a line of code.\n##Example:\n`printf(\"Hello World!\"); // This is a comment`\n\n#Multi-line Comments\nMulti-line comments start with /* and end with */. Any text between these markers is ignored by the compiler.\n##Example:\n`/* The code below will print the words Hello World!\nto the screen, and it is amazing */\nprintf(\"Hello World!\");`\n\n#Choosing Between Single and Multi-line Comments\nThe choice between single-line and multi-line comments depends on the length and complexity of the comment. Generally, // is used for short comments, while /* */ is used for longer comments or blocks of comments.\n\nIt's important to note that before the C99 standard (released in 1999), only multi-line comments were available in C.\n\n#Cheat Sheet\n1) Single-line comments: Start with //. Used for short comments.\n2) Multi-line comments: Start with /* and end with */. Used for longer comments or blocks of comments.\n3) Comments are ignored by the compiler and do not affect program execution.\n4) Use comments to explain your code and make it more readable.\n\nNOTE: This lesson covers the basics of using comments in C, ensuring you can add explanations and notes to your code effectively. Practice adding both single-line and multi-line comments to your programs to enhance readability and maintainability.",
+          "quiz": [
+            {
+              "question": "How do you start a single-line comment in C?",
+              "options": [
+                "/*",
+                "//",
+                "#"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you end a multi-line comment in C?",
+              "options": [
+                "*/",
+                "//",
+                "**"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Why are comments used in C?",
+              "options": [
+                "To change the program’s execution.",
+                "To explain code and make it more readable.",
+                "To compile the program faster."
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Introduction to C Variables",
+          "content": "In this lesson, you will learn about variables in C, how to declare and initialize them, and how to use them in your programs. You will also understand format specifiers and the rules for naming variables. By the end of this lesson, you will be able to effectively work with variables and print their values in C.",
+          "lesson": "#What Are Variables?\nVariables are containers for storing data values. In C, different types of variables are defined with different keywords:\n1) int for integers (whole numbers), such as 123 or -123\n2) float for floating point numbers, such as 19.99 or -19.99\n3) char for single characters, such as 'a' or 'B' (characters are surrounded by single quotes)\n\n#Declaring and Initializing Variables\nTo create a variable, specify the type and assign it a value:\n##Syntax:\n`type variableName = value;`\nHere, type is one of C's data types, variableName is the name of the variable, and the equal sign = assigns a value to the variable.\n##Example:\n`int myNum = 15;`\nYou can also declare a variable without assigning a value and assign it later:\n##Example:\n`// Declare a variable\nint myNum;\n\n// Assign a value to the variable\nmyNum = 15;`\n\n#Outputting Variables\nTo print values in C, you use the \"printf()\" function. Unlike some other programming languages, you need to use format specifiers to tell the compiler what type of data the variable is storing.\n#Example:\n`int myNum = 15;\nprintf(\"%d\", myNum);  // Outputs 15`\n\n#Format specifiers include:\n1) %d for integers\n2) %f for floating point numbers\n3) %c for characters\n##Example:\n`int myNum = 15;\nfloat myFloatNum = 5.99;\nchar myLetter = 'D';\n\nprintf(\"%d\\n\", myNum);\nprintf(\"%f\\n\", myFloatNum);\nprintf(\"%c\\n\", myLetter);`\n\nTo combine text and a variable, separate them with a comma inside printf():\n##Example:\n`int myNum = 15;\nprintf(\"My favorite number is: %d\", myNum);`\n\nYou can also print different types in a single printf() function:\n##Example:\n`int myNum = 15;\nchar myLetter = 'D';\nprintf(\"My number is %d and my letter is %c\", myNum, myLetter);`\n\n#Changing Variable Values\nYou can overwrite the value of an existing variable:\n##Example:\n`int myNum = 15;\nmyNum = 10;  // Now myNum is 10`\n\nYou can assign the value of one variable to another:\n##Example:\n`int myNum = 15;\nint myOtherNum = 23;\nmyNum = myOtherNum;  // myNum is now 23`\n\n#Adding Variables Together\nTo add the values of two variables:\n##Example:\n`int x = 5;\nint y = 6;\nint sum = x + y;\nprintf(\"%d\", sum);`\n\n#Declaring Multiple Variables\nTo declare multiple variables of the same type in a single line:\n##Example:\n`int x = 5, y = 6, z = 50;\nprintf(\"%d\", x + y + z);`\n\nYou can also assign the same value to multiple variables:\n##Example:\n`int x, y, z;\nx = y = z = 50;\nprintf(\"%d\", x + y + z);`\n\n#Naming Variables (Identifiers)\nVariable names in C must be unique and are called identifiers. Here are some general rules for naming variables:\n-> Names can contain letters, digits, and underscores.\n-> Names must begin with a letter or an underscore.\n-> Names are case-sensitive (myVar and myvar are different).\n-> Names cannot contain whitespaces or special characters like !, #, %, etc.\n-> Reserved words (such as int) cannot be used as names.\n##Example:\n`// Good variable name\nint minutesPerHour = 60;\n\n// OK, but not so clear\nint m = 60;`\n\n#Cheat Sheet\n1) int, float, char: Basic data types for variables.\n2) Variable Declaration: type variableName = value;\n3) Format Specifiers: %d for integers, %f for floats, %c for characters.\n4) Changing Values: Variables can be reassigned new values.\n5) Multiple Declarations: Multiple variables can be declared and initialized in a single line.\n6) Naming Rules: Follow the rules for valid and descriptive variable names.\n\nNOTE: This lesson provides a comprehensive introduction to variables in C, ensuring you can declare, initialize, and use variables effectively in your programs. Practice creating and manipulating variables to become proficient in C programming.",
+          "quiz": [
+            {
+              "question": "How do you declare an integer variable x and assign it the value 10?",
+              "options": [
+                "int x; x = 10;",
+                "int x = 10;",
+                "Both A and B"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What format specifier is used for a floating point number?",
+              "options": [
+                "%d",
+                "%f",
+                "%c"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following is a valid variable name?",
+              "options": [
+                "2ndVariable",
+                "variable_2",
+                "variable-2"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "C Data Types",
+          "content": "In this lesson, you'll dive into the fundamental data types in C, including integers, floating-point numbers, characters, and their usage. You'll also understand format specifiers, type conversion, and how to retrieve the memory size of variables. By the end, you'll be equipped to handle various data types effectively in your C programs.",
+          "lesson": "#Basic Data Types\nData types in C specify the size and type of information a variable can store. The most common ones are:\n1) int: Stores whole numbers without decimals.\n2) float: Stores fractional numbers with limited decimal precision.\n3) double: Stores fractional numbers with higher decimal precision.\n4) char: Stores a single character or ASCII values.\n\n#Format Specifiers\nTo print variables in C, you use format specifiers with the \"printf()\" function. Here are some common ones:\n1) %d or %i for integers\n2) %f for floats\n3) %lf for doubles\n4) %c for characters\n\n#Character Data Types\nThe char type stores a single character and is surrounded by single quotes. You can print characters using the %c specifier. ASCII values can also be used to represent characters.\n\n#Numeric Data Types\n1)int: Stores whole numbers.\n2) float: Stores floating-point numbers with limited precision.\n3) double: Stores floating-point numbers with higher precision.\n\n#Decimal Precision\nYou can control the decimal precision of floating-point numbers using format specifiers like %.2f to display two decimal places.\n\n#The sizeof Operator\nThe sizeof operator retrieves the memory size of a variable or data type in bytes.\n\n#Type Conversion\nImplicit Conversion: Automatically done by the compiler.\nExplicit Conversion: Manually performed by the programmer using type casting.\n\n#Cheat Sheet\n1) Basic Data Types: int, float, double, char.\n2) Format Specifiers: %d, %f, %lf, %c.\n3) Decimal Precision: Control the number of decimal places with format specifiers.\n4) sizeof Operator: Get the memory size of variables.\n5) Type Conversion: Implicit and explicit conversions for handling different data types.\n\nNOTE: With a solid understanding of C data types, you're now ready to handle various types of data and perform operations efficiently in your C programs. Practice using different data types and format specifiers to strengthen your skills.",
+          "quiz": [
+            {
+              "question": "What format specifier is used for integers in printf()?",
+              "options": [
+                "%i",
+                "%d",
+                "%f",
+                "A and B",
+                "B and C"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "Which data type stores a single character in C?",
+              "options": [
+                "int",
+                "float",
+                "char"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How do you control the decimal precision of a floating-point number to two decimal places?",
+              "options": [
+                "%.2f",
+                "%2f",
+                "%.f"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Understanding C Constants",
+          "content": "In this lesson, you'll grasp the concept of constants in C programming and understand how to use the \"const\" keyword to declare unchangeable variables. You'll learn the benefits of using constants, good practices for naming them, and how to avoid common pitfalls.",
+          "lesson": "#Constants in C\nConstants are variables whose values remain fixed throughout the execution of a program. They are declared using the const keyword, making them read-only and unchangeable.\n\n#Declaring Constants\nTo declare a constant in C, use the const keyword followed by the data type and the variable name, then assign it a value. Once declared, the value of a constant cannot be modified.\n##Example:\n`const int minutesPerHour = 60;\nconst float PI = 3.14;`\n\n##Notes on Constants\n-> Constant variables must be assigned a value during declaration. Attempting to assign a value later will result in an error.\n-> It's a good practice to declare constants with uppercase letters for better code readability.\n##Good Practice\nUsing constants helps improve code readability and maintainability, especially when dealing with values that are unlikely to change. By declaring constants, you make your code more self-explanatory and easier to understand for other programmers.\n##Example:\n`const int BIRTHYEAR = 1980;`\n\n#Cheat Sheet\n1) Constants: Variables whose values remain fixed.\n2) Declaration: Use the const keyword followed by the data type and variable name.\n3) Value Assignment: Constants must be assigned a value during declaration.\n4) Good Practice: Declare constants with uppercase letters for better readability.\n\nNOTE: Understanding how to use constants in C will enhance the clarity and maintainability of your code. Practice declaring and using constants in your programs to solidify your understanding.",
+          "quiz": [
+            {
+              "question": "What keyword is used to declare constants in C?",
+              "options": [
+                "var",
+                "let",
+                "const",
+                "final"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which of the following statements about constants is true?",
+              "options": [
+                "Constants can be modified after declaration.",
+                "Constants must be assigned a value during declaration.",
+                "Constants are declared using the \"volatile\" keyword.",
+                "Constants have dynamic values."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following is a valid way to declare a constant with the value 3.14159 in C?",
+              "options": [
+                "const PI = 3.14159;",
+                "const float PI = 3.14159;",
+                "constant PI = 3.14159;",
+                "constant float PI = 3.14159;"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "C Operators",
+          "content": "In this lesson, you'll dive into the world of operators in C programming. You'll understand the different types of operators, such as arithmetic, assignment, comparison, and logical operators, and learn how to use them effectively in your programs.",
+          "lesson": "#Operators in C\nOperators are symbols used to perform operations on variables and values. They are divided into various groups based on their functionality.\n\n#Arithmetic Operators\nArithmetic operators are used to perform mathematical operations such as addition, subtraction, multiplication, division, modulus, increment, and decrement.\n$./assets/images/c2.png\n\n#Assignment Operators\nAssignment operators are used to assign values to variables. They include the basic assignment operator (=) as well as compound assignment operators like +=, -=, *=, etc.\n$./assets/images/c3.png\n\n#Comparison Operators\nComparison operators are used to compare two values or variables. They return either true (1) or false (0) based on the comparison result.\n$./assets/images/c4.png\n\n#Logical Operators\nLogical operators are used to determine the logic between variables or values. They include logical AND (&&), logical OR (||), and logical NOT (!).\n$./assets/images/c5.png\n\n#Cheat Sheet\n1) Arithmetic Operators: Perform mathematical operations like addition, subtraction, multiplication, etc.\n2) Assignment Operators: Assign values to variables, including compound assignment operators.\n3) Comparison Operators: Compare two values or variables and return true or false.\n4) Logical Operators: Determine the logic between variables or values.\n\nNOTE: Understanding operators is crucial for performing various operations in C programming. Practice using different operators to enhance your programming skills.",
+          "quiz": [
+            {
+              "question": "Which operator is used to perform addition in C?",
+              "options": [
+                "*",
+                "/",
+                "+",
+                "-"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will the following expression return: 10 > 5?",
+              "options": [
+                "1",
+                "0",
+                "True",
+                "False"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which assignment operator is equivalent to x = x + 5?",
+              "options": [
+                "+=",
+                "=+",
+                "/=",
+                "-="
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Mastering C Booleans",
+          "content": "In this lesson, you'll delve into the world of booleans in C programming. You'll understand the bool data type, how to declare boolean variables, compare values using boolean expressions, and utilize boolean operators effectively.",
+          "lesson": "#Booleans in C\nBooleans are a fundamental data type in programming that represent values of true or false. In C, the bool data type is used for boolean variables.\n\n#Declaring Boolean Variables\nTo use boolean variables in C, you need to include the <stdbool.h> header file. Boolean variables are declared using the bool keyword and can have values of true or false.\n\n#Printing Boolean Values\nBoolean values are represented as integers: 1 for true and 0 for false. Use the %d format specifier to print boolean values.\n\n#Comparing Values with Booleans\nYou can compare values using boolean expressions and comparison operators such as greater than (>), equal to (==), etc. The result of a comparison is a boolean value: 1 for true and 0 for false.\n##Examples:\nComparing numeric values: \n`printf(\"%d\", 10 > 5); // Returns 1 (true)`\nComparing boolean variables: \n`bool isHamburgerTasty = true; \nprintf(\"%d\", isHamburgerTasty == true);`\n\n#Cheat Sheet\n1) Boolean Variables: Declared using the bool keyword, representing true or false values.\n2) Comparing Values: Use comparison operators to compare values and get boolean results.\n3) Printing Boolean Values: Represented as integers: 1 for true, 0 for false.\n\nNOTE: Understanding booleans and boolean expressions is essential for making decisions and controlling program flow in C programming. Practice using boolean variables and expressions to strengthen your understanding.",
+          "quiz": [
+            {
+              "question": "What header file should you include to use boolean variables in C?",
+              "options": [
+                "<stdio.h>",
+                "<stdbool.h>",
+                "<stdlib.h>",
+                "stdboolean.h>"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What will the following expression return: \"bool isTasty = true; printf(\"%d\", isTasty);\"?",
+              "options": [
+                "True",
+                "False",
+                "1",
+                "0"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How are boolean values represented in C?",
+              "options": [
+                " 'true' and 'false' strings",
+                "0 for true, 1 for false",
+                "1 for true, 0 for false",
+                "'yes' and 'no' strings"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "Flow Control in C Programming",
+          "content": "In this lesson, you'll dive into the various flow control constructs in C programming. You'll understand how to make decisions using conditional statements (if, if-else, if-else if) and switch statements. Additionally, you'll learn about executing code repeatedly using while and for loops, as well as controlling loop execution using the break and continue statements.",
+          "lesson": "#Conditional Statements\nConditional statements allow you to execute code based on certain conditions.\n\n##if Statement\nThe if statement evaluates a condition and executes a block of code if the condition is true.\n##Example\n`if (condition) {\n    // code to be executed if condition is true\n}`\nThis snippet checks the condition. If the condition evaluates to true, the code inside the curly braces is executed.\n\n##if-else Statement\nThe if-else statement executes one block of code if the condition is true, and another block if the condition is false.\n##Example\n`if (condition) {\n    // code to be executed if condition is true\n} else {\n    // code to be executed if condition is false\n}`\nIf the condition is true, the code inside the first block is executed. If the condition is false, the code inside the else block is executed.\n\n##if-else if Statement\nThe if-else if statement allows you to evaluate multiple conditions sequentially and execute different blocks of code accordingly.\n##Example\n`if (condition1) {\n    // code to be executed if condition1 is true\n} else if (condition2) {\n    // code to be executed if condition2 is true\n} else {\n    // code to be executed if all conditions are false\n}`\nThis snippet evaluates multiple conditions sequentially. If condition1 is true, the code inside the first block is executed. If condition1 is false and condition2 is true, the code inside the second block is executed. If all conditions are false, the code inside the else block is executed.\n\n\n#Switch Statement\nThe switch statement allows you to select one of many code blocks to be executed.\n##Example\n`switch (expression) {\n    case value1:\n        // code to be executed if expression equals value1\n        break;\n    case value2:\n        // code to be executed if expression equals value2\n        break;\n    default:\n        // code to be executed if expression doesn't match any case\n}`\nThe switch statement evaluates an expression and executes the code block associated with the matching case. If no case matches the expression, the code block inside the default case is executed.\n\n#Loops\nLoops allow you to execute a block of code repeatedly.\n\n##while Loop\nThe while loop repeatedly executes a block of code as long as the condition remains true. It is used when we do not know the number of times the block of code is needed to be repeated.\n##Example\n`while (condition) {\n    // code to be executed repeatedly while condition is true\n}`\n\n##for Loop\nThe for loop executes a block of code a specified number of times. It is used when we know the number of times the block of code is needed to be repeated.\n`for (initialization; condition; increment/decrement) {\n    // code to be executed repeatedly until condition becomes false\n}`\n\n\n#Loop Control Statements\nLoop control statements allow you to control the flow of execution within loops.\n\n##break Statement\nThe break statement terminates the loop prematurely and transfers control to the next statement after the loop.\n`for (int i = 0; i < 10; i++) {\n    if (condition) {\n        break;\n    }\n}`\n\n##continue Statement\nThe continue statement skips the remaining code inside the loop for the current iteration and proceeds to the next iteration.\n`for (int i = 0; i < 10; i++) {\n    if (condition) {\n        continue;\n    }\n    // code here will be skipped if condition is true\n}`\n\n\n#Cheatsheet\n1) Conditional Statements: if, if-else, if-else if\n2) Switch Statement: switch, case, default\n3) Loops: while, for\n4) Loop Control Statements: break, continue\n\nNOTE: Understanding control flow constructs is essential for writing efficient and structured code in C programming. Practice using conditional statements, loops, and loop control statements to master the concept.",
+          "quiz": [
+            {
+              "question": "Which statement allows you to select one of many code blocks to be executed?",
+              "options": [
+                "if",
+                "while",
+                "for",
+                "switch"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What is the purpose of the break statement in a loop?",
+              "options": [
+                "Skips the remaining code inside the loop for the current iteration",
+                "Terminates the loop prematurely",
+                "Executes the next iteration of the loop",
+                "None of the above"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How does the while loop differ from the for loop?",
+              "options": [
+                "while loop requires an initialization expression",
+                "for loop executes a block of code as long as a condition remains true",
+                "while loop iterates a specified number of times",
+                "for loop executes a block of code a specified number of times"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        },
+        {
+          "title": "Exploring Arrays in C Programming",
+          "content": "-> Understanding the concept of arrays in C programming.\n-> How to create, access, modify, and loop through one-dimensional (1D) arrays.\n-> Introduction to two-dimensional (2D) arrays and their manipulation.",
+          "lesson": "#Arrays in C Programming:\nArrays are used to store multiple values of the same data type in a single variable.\nThey provide a convenient way to manage collections of data without the need for separate variables.\nArrays can be one-dimensional or multi-dimensional.\n\n#Creating and Accessing Elements of 1D Arrays:\nTo create a 1D array, specify the data type and the array name followed by square brackets [].\n##Example\n`int myNumbers[] = {25, 50, 75, 100};`\nAccessing elements of an array is done using index notation, where the first element has index 0.\n##Example\n`printf(\"%d\", myNumbers[0]); // Outputs 25`\nChanging the value of an element is as simple as assigning a new value to the corresponding index.\n##Example\n`myNumbers[0] = 33;\nprintf(\"%d\", myNumbers[0]); // Now outputs 33 instead of 25`\n\n\n#Looping Through 1D Arrays:\nYou can use a for loop to iterate through the elements of a 1D array.\n##Example\n`int i;\nfor (i = 0; i < 4; i++) {\n  printf(\"%d\\n\", myNumbers[i]);\n}`\n\n\n#Understanding Array Size:\nThe sizeof operator returns the size of a type in bytes, not the number of elements in an array.\n##Example\n`int length = sizeof(myNumbers) / sizeof(myNumbers[0]);`\nThis method ensures accurate determination of array length irrespective of its size.\n\n\n#Introduction to 2D Arrays:\nTwo-dimensional arrays, also known as matrices, are used to represent tabular data with rows and columns.\n##Example\n`int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };`\nAccessing elements of a 2D array requires providing both row and column indices.\n##Example\n`printf(\"%d\", matrix[0][2]);  // Outputs 2`\n\n\n#Manipulating 2D Arrays:\nYou can change the value of an element in a 2D array by specifying the indices of the element.\n##Example\n`matrix[0][0] = 9;\nprintf(\"%d\", matrix[0][0]);  // Now outputs 9 instead of 1`\nLooping through a 2D array involves using nested loops, one for each dimension.\n##Example\n`int i, j;\nfor (i = 0; i < 2; i++) {\n  for (j = 0; j < 3; j++) {\n    printf(\"%d\\n\", matrix[i][j]);\n  }\n}`\n\n\n#Cheatsheet:\n1) Arrays store multiple values of the same data type.\n2) Use index notation to access and modify elements of arrays.\n3) Loop through arrays using for loops, adapting the loop condition to array size.\n4) Use sizeof operator to determine the size of an array and calculate its length.\n5) Two-dimensional arrays represent tabular data and require row and column indices for element access.",
+          "quiz": [
+            {
+              "question": "What is the first step in creating a one-dimensional array in C?",
+              "options": [
+                "Declare the array size",
+                "Specify the data type",
+                " Initialize the array elements",
+                "Define the array name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you access the element in the second row and third column of a 2D array named \"matrix\"?",
+              "options": [
+                "matrix[1][3]",
+                "matrix[2][2]",
+                "matrix[2][3]",
+                "matrix[1][2]"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "How do you determine the number of elements in a C array named \"myArray\"?",
+              "options": [
+                "sizeof(myArray);",
+                "sizeof(myArray) / sizeof(myArray[0]);",
+                "sizeof(myArray) * sizeof(myArray[0]);",
+                "sizeof(myArray[0]) / sizeof(myArray);"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Strings in C",
+          "content": "-> Understanding the concept of strings in C programming.\n-> How to create, access, modify, and loop through strings.\n-> Differences between different ways of creating strings in C.",
+          "lesson": "#Strings in C Programming:\nStrings are used for storing text/characters.\nIn C, strings are represented as arrays of characters.\nTo create a string, you must use the char type and create an array of characters.\n\n#Creating and Accessing Strings:\nStrings are created using character arrays initialized with double quotes.\n##Example\n`char greetings[] = \"Hello World!\";`\nAccessing individual characters of a string is done using index notation.\n##Example\n`printf(\"%c\", greetings[0]); // Outputs 'H'`\nModifying strings is similar to modifying arrays, where you assign a new value to a specific index.\n##Example\n`greetings[0] = 'J';\nprintf(\"%s\", greetings); // Outputs \"Jello World!\"`\n\n#Looping Through Strings:\nStrings can be looped through using a for loop.\n##Example\n`char carName[] = \"Volvo\";\nint i;\n\nfor (i = 0; i < 5; ++i) {\n  printf(\"%c\\n\", carName[i]);\n}`\nUsing the sizeof formula makes the loop more adaptable to changes in string length.\n##Example\n`char carName[] = \"Volvo\";\nint length = sizeof(carName) / sizeof(carName[0]);\nint i;\n\nfor (i = 0; i < length; ++i) {\n  printf(\"%c\\n\", carName[i]);\n}`\n\n#Creating Strings:\nStrings can also be created using a set of characters, but must be terminated with a null character '\\0'.\n##Example\n`char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\\0'};`\nThe null terminating character indicates the end of the string.\n\n\n#Differences:\nThere are two ways to create strings in C: using string literals or character arrays.\nString literals are easier to write and automatically include the null terminating character.\nCharacter arrays require manual inclusion of the null character.\n##Example\n`char message[] = \"Good to see you,\";\nchar fname[] = \"John\";\n\nprintf(\"%s %s!\", message, fname);`\n\n#Summary/Cheatsheet:\n1) Strings in C are represented as arrays of characters.\n2) Access and modify strings using index notation.\n3) Loop through strings using for loops, adapting the loop condition to string length.\n4) Strings can be created using string literals or character arrays, with or without explicit null termination.",
+          "quiz": [
+            {
+              "question": "Which format specifier is used to print a single character in C?",
+              "options": [
+                "%c",
+                "%s",
+                "%d",
+                "%f"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What character indicates the end of a string in C?",
+              "options": [
+                "\\n",
+                "\\t",
+                "\\0",
+                "\\end"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What is the main difference between creating strings using string literals and character arrays in C?",
+              "options": [
+                "String literals require manual inclusion of the null character.",
+                "Character arrays automatically include the null character.",
+                " String literals are easier to write and automatically include the null character.",
+                "Character arrays are immutable once initialized."
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "User Input",
+          "content": "-> How to get user input in C using scanf() and fgets() functions.\n-> Handling single and multiple inputs from the user.\n-> Differences between scanf() and fgets() for string input.",
+          "lesson": "#User Input in C:\nIn C programming, you can obtain user input using the scanf() function for formatted input and fgets() for reading a line of text.\n\n#Getting Single Input with scanf():\nTo get a single input from the user using scanf(), you specify the format specifier and use the reference operator (&) to store the value in a variable.\n##Example\n`int myNum;\nprintf(\"Type a number: \\n\");\nscanf(\"%d\", &myNum);\nprintf(\"Your number is: %d\", myNum);`\n\n#Getting Multiple Inputs with scanf():\nscanf() can also handle multiple inputs by specifying multiple format specifiers.\n##Example\n`int myNum;\nchar myChar;\nprintf(\"Type a number AND a character: \\n\");\nscanf(\"%d %c\", &myNum, &myChar);\nprintf(\"Your number is: %d\\n\", myNum);\nprintf(\"Your character is: %c\\n\", myChar);`\n\n#Taking String Input with scanf():\nFor string input using scanf(), specify the size of the string/array and don't use the reference operator (&).\n##Example\n`char firstName[30];\nprintf(\"Enter your first name: \\n\");\nscanf(\"%s\", firstName);\nprintf(\"Hello %s\", firstName);`\n\n#Using fgets() for String Input:\nfgets() is preferred for reading strings as it handles whitespace characters correctly and avoids buffer overflow.\n##Example\n`char fullName[30];\nprintf(\"Type your full name: \\n\");\nfgets(fullName, sizeof(fullName), stdin);\nprintf(\"Hello %s\", fullName);`\n\n#Cheat sheet:\n1) Use scanf() for formatted input, fgets() for reading strings.\n2) For scanf(), use the format specifier and reference operator (&) for single inputs.\n3) scanf() can handle multiple inputs by specifying multiple format specifiers.\n4) For string input with scanf(), specify the size of the string and don't use the reference operator.\n5) fgets() is preferred for reading strings as it handles whitespace characters and avoids buffer overflow.",
+          "quiz": [
+            {
+              "question": "Which function is preferred for reading a line of text in C?",
+              "options": [
+                "printf()",
+                "scanf()",
+                "gets()",
+                "fgets()"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "How do you get multiple inputs from the user using scanf()?",
+              "options": [
+                "Use multiple scanf() functions",
+                "Separate format specifiers with commas",
+                "Specify multiple format specifiers in a single scanf() call",
+                "Use scanf() with loops"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What is the advantage of using fgets() over scanf() for reading strings?",
+              "options": [
+                " scanf() is faster",
+                " fgets() handles whitespace characters correctly",
+                "scanf() can handle multiple inputs",
+                "fgets() requires fewer arguments"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Memory Addresses",
+          "content": "-> What a memory address is in C programming.\n-> How to access and print memory addresses using the reference operator (&).\n-> Why understanding memory addresses is useful in C programming.",
+          "lesson": "#Memory Address in C:\nWhen you create a variable in C, it gets stored somewhere in the computer's memory. Each variable has its own unique memory address, which is the location where its value is stored.\n\n#Accessing Memory Addresses:\nYou can access the memory address of a variable using the reference operator (&).\n##Example\n`int myAge = 43;\nprintf(\"Memory address of myAge: %p\", &myAge);`\nHere, &myAge represents the memory address of the variable myAge. Printing it using %p format specifier gives us the hexadecimal representation of the memory address.\n\n#Why Know Memory Addresses?\nUnderstanding memory addresses and pointers is crucial in C programming. Pointers allow us to directly manipulate the data stored in memory, which can lead to more efficient and optimized code.\n\nPointers are a fundamental concept in C and are used extensively for dynamic memory allocation, data structures, and low-level manipulation.\n\n#Cheat sheet:\n1) Memory address is the location in the computer's memory where a variable's value is stored.\n2) Access memory addresses using the reference operator (&).\n3) Pointers allow manipulation of data stored in memory and are essential in C programming.",
+          "quiz": [
+            {
+              "question": "How do you access the memory address of a variable in C?",
+              "options": [
+                "Using the dereference operator (*)",
+                "Using the reference operator (&)",
+                "Using the arrow operator (->)",
+                "Using the dot operator (.)"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What does the reference operator (&) return in C?",
+              "options": [
+                "Value of the variable",
+                "Size of the variable",
+                "Type of the variable",
+                "Address of the variable"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "Why is understanding memory addresses important in C programming?",
+              "options": [
+                "It allows for direct manipulation of data in memory",
+                " It makes code more readable",
+                "It increases the speed of program execution",
+                "It allows for automatic memory management"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Understanding Pointers in C Programming",
+          "content": "-> What pointers are and how to create them in C.\n-> How to access memory addresses and values using pointers.\n-> The importance of pointers in C programming and their practical applications.",
+          "lesson": "#Introduction to Pointers\nIn C programming, a pointer is a variable that stores the memory address of another variable as its value. This allows us to indirectly access and manipulate data stored in memory.\n\n#Creating Pointers\nTo create a pointer variable, use the * operator followed by the data type it points to.\n##Example\n`int myAge = 43;     // Declare an int variable\nint* ptr = &myAge;  // Declare a pointer variable pointing to myAge's address`\nHere, ptr is a pointer variable that stores the memory address of myAge. The & operator is used to get the memory address of myAge and assign it to ptr.\n\n#Dereferencing Pointers\nYou can access the value of the variable a pointer points to using the * operator.\n##Example\n`printf(\"%d\\n\", *ptr); // Outputs the value of myAge using the pointer`\nThe * operator in this context is called the dereference operator. It retrieves the value stored at the memory address pointed to by the pointer.\n\n#Purpose and Importance of Pointers\nPointers are essential in C programming as they enable efficient memory management and manipulation. They are widely used in data structures, dynamic memory allocation, and low-level system programming.\n\n##Notes on Pointers:\nPointers must be handled with care to avoid unintended memory access and corruption.\nThere are two common ways to declare pointer variables in C: int* ptr; and int *ptr;.\n\n\n#Cheat sheet:\n1) Pointers store memory addresses of other variables.\n2) Create pointers using the * operator followed by the data type.\n3) Dereference pointers using the * operator to access the value stored at the pointed memory address.\n4) Pointers are crucial for efficient memory management and data manipulation in C programming.",
+          "quiz": [
+            {
+              "question": "How do you declare a pointer variable in C?",
+              "options": [
+                "Using the & operator",
+                "Using the -> operator",
+                "Using the . operator",
+                "Using the * operator"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What does the * operator do when used with a pointer variable?",
+              "options": [
+                "Returns the memory address of the variable",
+                "Returns the value stored at the memory address pointed to by the pointer",
+                "Assigns a value to the pointer variable",
+                "Deletes the pointer variable"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Why are pointers important in C programming?",
+              "options": [
+                "They make code more readable",
+                "They improve program execution speed",
+                "They enable efficient memory management and manipulation",
+                "They allow for automatic memory allocation"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        }
+      ],
       "cpp": []
     }
   },
@@ -5054,7 +6140,550 @@
           ]
         }
       ],
-      "c": [],
+      "c": [
+        {
+          "title": "Getting started with C",
+          "content": "#What is C?\nC is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in 1972.\n\nIt is a very popular language, despite being old. The main reason for its popularity is because it is a fundamental language in the field of computer science.\n\nC is strongly associated with UNIX, as it was developed to write the UNIX operating system.",
+          "lesson": "#Getting Started with C in Visual Studio Code: Detailed Steps\n\n##Step 1: Install Visual Studio Code\nFirst, you need to download and install Visual Studio Code. Head over to the Visual Studio Code download page. There, you'll find options to download the installer for your operating system, whether it's Windows, macOS, or Linux. Select the appropriate installer and download it. Once the download is complete, run the installer and follow the on-screen instructions to install VS Code on your computer.\n\n##Step 2: Install the C Compiler\nNext, you'll need a C compiler to compile your C programs. We'll use GCC (GNU Compiler Collection) for this purpose. To get GCC, we'll install MinGW-w64. Go to the MinGW-w64 download page and download the installer (mingw-w64-install.exe). Run the installer and follow these steps during the installation process:\n\n-> Select the architecture as x86_64.\n-> Set the threads to win32.\n-> Choose the latest version of the compiler.\n-> Complete the installation following the on-screen instructions.\n\nAfter installing MinGW, you need to add it to your system's PATH environment variable so that you can use the GCC compiler from the command line. Open the Start Menu and search for \"Environment Variables\". Click on \"Edit the system environment variables\", which opens the System Properties window. In this window, click on \"Environment Variables\". In the Environment Variables window, under \"System variables\", find the Path variable and click on \"Edit\". Add a new entry for the path to the MinGW bin directory, typically something like \"C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin.\" Once you've added the path, click \"OK\" to close all the windows.\n\n##Step 3: Install C/C++ Extension for VS Code\nNow that VS Code and the GCC compiler are set up, you need to install the C/C++ extension in VS Code to help with code editing and debugging. Open VS Code and click on the Extensions view icon on the Sidebar, or press Ctrl+Shift+X to open the Extensions view. In the search bar, type \"C/C++\" and look for the extension provided by Microsoft. Click the \"Install\" button to add this extension to your VS Code setup.\n\n##Step 4: Create and Run Your First C Program\nTo create your first C program, start by opening a new file in VS Code. Go to File > New File or press Ctrl+N. Save this new file with a .c extension, such as myfirstprogram.c, by going to File > Save As.\n\nWith your new file open, type the following C code into it:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello, World!\");\n  return 0;\n}`\nThis is a simple C program that prints \"Hello, World!\" to the console.\n\nBefore you can compile and run this program, you need to set up the build task in VS Code. Go to Terminal > Configure Default Build Task and select C/C++: gcc build active file. VS Code will create a tasks.json file in a .vscode directory with the necessary configurations.\n\nTo compile the program, open the terminal in VS Code by going to Terminal > New Terminal or pressing Ctrl+` . In the terminal, type the following command and press Enter:\n\n`gcc -o myfirstprogram myfirstprogram.c`\nThis command tells GCC to compile myfirstprogram.c and output an executable named myfirstprogram.\n\nOnce the compilation is complete, run the program by typing the following command in the terminal and pressing Enter:\n\n`./myfirstprogram`\nYou should see the output \"Hello, World!\" printed in the terminal, indicating that your program ran successfully.",
+          "quiz": [
+            {
+              "question": "What is the purpose of adding MinGW to the system's PATH environment variable?",
+              "options": [
+                "To enable the system to find and execute the GCC compiler from the command line.",
+                "To enhance the graphical user interface of Visual Studio Code.",
+                "To install additional programming languages in VS Code.",
+                "To enable auto-completion for C code in VS Code."
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which command is used to compile a C program using GCC in the terminal?",
+              "options": [
+                "gcc compile myfirstprogram.c",
+                "gcc myfirstprogram",
+                "gcc -o myfirstprogram myfirstprogram.c",
+                "gcc run myfirstprogram.c"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "After writing the \"Hello, World!\" program in VS Code, what are the correct steps to compile and run it?",
+              "options": [
+                "Open terminal, type gcc -o myfirstprogram myfirstprogram.c, then type ./myfirstprogram",
+                "Click Run > Start Debugging, then type ./myfirstprogram",
+                "Save the file, click Build > Build and Run",
+                "Open terminal, type gcc build myfirstprogram.c, then type run myfirstprogram"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "C Syntax",
+          "content": "In this lesson, you will learn the basic structure and syntax of a C program. By the end of this lesson, you will be able to understand and write simple C programs that include functions, statements, and proper use of header files.",
+          "lesson": "#Understanding a Simple C Program\nLet's break down a simple C program step by step:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  return 0;\n}`\n-> Line 1: #include <stdio.h>\nThis line includes the Standard Input Output library. It allows us to use functions like printf() to print text to the screen. Think of this as a tool that provides extra capabilities to your program.\n-> Line 2: A blank line.\nIn C, blank lines and white spaces are ignored by the compiler but are used by programmers to make the code more readable.\n-> Line 3: int main() {\nThis line starts the main function. Every C program must have a main() function. The code inside the curly brackets {} will be executed when the program runs.\n-> Line 4: printf(\"Hello World!\");\nThis is a statement that prints \"Hello World!\" to the screen. Note the use of ; at the end of the statement. Every statement in C ends with a semicolon.\n-> Line 5: return 0;\nThis statement ends the main() function and returns the value 0 to the operating system, indicating that the program finished successfully.\n-> Line 6: }\nThis closing curly bracket ends the main() function.\n\n#C Statements\nA computer program is a list of instructions to be executed by the computer. In C, these instructions are called statements. Each statement tells the compiler what to do.\n##Example:\n`printf(\"Hello World!\");`\nThis statement instructs the compiler to print the text \"Hello World!\" to the screen.\nIf you forget the semicolon at the end of a statement, the program will not run and an error will occur.\n##Example with Error:\n`printf(\"Hello World!\")\n// error: expected ';' before 'return'`\n\n#Multiple Statements\nMost C programs contain multiple statements. These statements are executed one by one, in the order they are written.\n##Example:\n`Copy code\nprintf(\"Hello World!\");\nprintf(\"Have a good day!\");\nreturn 0;`\nExplanation:\nThe first statement prints \"Hello World!\" to the screen.\nThe second statement prints \"Have a good day!\" to the screen.\nThe third statement ends the program successfully.\n\n#Cheat Sheet\n1) \\#include <stdio.h>: Includes the Standard Input Output library.\n2) int main(): Defines the main function.\n3) { }: Curly brackets enclose the body of a function.\n4) printf(): Function to print text to the screen.\n5) ;: Semicolon ends each statement.\n6) return 0;: Ends the main() function and returns 0 to indicate success.",
+          "quiz": [
+            {
+              "question": "What does #include <stdio.h> do in a C program?",
+              "options": [
+                "It defines the main function.",
+                "It includes the Standard Input Output library.",
+                "It prints text to the screen."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following statements is correct to print \"Hello World!\"?",
+              "options": [
+                "printf(\"Hello World!\")",
+                "print(\"Hello World!\");",
+                "printf(\"Hello World!\");"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will happen if you forget the semicolon at the end of a statement?",
+              "options": [
+                "The program will run normally.",
+                "The program will print an error and not run.",
+                "The program will ignore the statement."
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Mastering Output in C",
+          "content": "In this lesson, you will learn how to use the \"printf()\" function to print text and values to the screen. You will understand how to format text using escape sequences and how to manage multiple lines of output. By the end of this lesson, you will be able to produce well-formatted output in your C programs.",
+          "lesson": "#Using \"printf()\" to Print Text\nTo output values or print text in C, you use the printf() function.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  return 0;\n}`\nIn this example, the printf() function prints \"Hello World!\" to the screen.\n\n#Importance of Double Quotes\nWhen working with text, it must be enclosed in double quotation marks \"\".\n##Example:\n`printf(\"This sentence will work!\");\nprintf(This sentence will produce an error.); // This will cause an error`\nForgetting the double quotes around text will cause a compilation error.\n\n#Multiple printf() Functions\nYou can use multiple printf() functions to print several pieces of text. Note that printf() does not automatically add a new line at the end of its output.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\");\n  printf(\"I am learning C.\");\n  printf(\"And it is awesome!\");\n  return 0;\n}`\nThe output will be: \n`Hello World!I am learning C.And it is awesome!`\n\n#Using New Lines with \"\\n\"\nTo insert a new line, use the \"\\n\" character, which is an escape sequence that moves the cursor to the beginning of the next line.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}`\nThe output will be:\n`Hello World!\nI am learning C.`\nYou can also include multiple lines within a single printf() function, though this can reduce readability.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\nI am learning C.\\nAnd it is awesome!\");\n  return 0;\n}`\nThe output will be:\n`Hello World!\nI am learning C.\nAnd it is awesome!`\n\n#Creating Blank Lines\nUsing two \\n characters in a row will create a blank line.\n##Example:\n`#include <stdio.h>\n\nint main() {\n  printf(\"Hello World!\\n\\n\");\n  printf(\"I am learning C.\");\n  return 0;\n}`\nThe output will be:\n`Copy code\nHello World!\n\nI am learning C.`\n\n#Other Useful Escape Sequences\n$./assets/images/c1.png\n\n#Cheat Sheet\n1) printf(): Function to print text and values to the screen.\n2) Double Quotes: Text must be enclosed in double quotes \"\".\n3) \\n: Newline character, moves the cursor to the next line.\n4) Escape Sequences: Special characters used to format output (\\t, \\\\, \\\").\n\nNOTE: This lesson covers the basics of outputting text in C, ensuring you can display information and format it properly in your programs. Practice using \"printf()\" and escape sequences to become comfortable with producing output in C.",
+          "quiz": [
+            {
+              "question": "What will happen if you forget to put double quotes around text in printf()?",
+              "options": [
+                "The text will be printed as is.",
+                "An error will occur.",
+                "The text will be ignored."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you insert a new line in a C program?",
+              "options": [
+                "By using \\\\n",
+                " By using \\n",
+                "By using newLine()"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which escape sequence creates a horizontal tab?",
+              "options": [
+                "\\n",
+                "\\\\",
+                "\\t"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "Understanding Comments in C",
+          "content": "In this lesson, you will learn about comments in C and how to use them to make your code more readable and maintainable. You will understand the difference between single-line and multi-line comments and when to use each type. By the end of this lesson, you will be able to effectively comment your C programs.",
+          "lesson": "#Purpose of Comments\nComments in C are used to explain code and make it more readable. They can also be used to prevent code from being executed, which is helpful when testing different parts of your code. Comments are ignored by the compiler, meaning they do not affect the program's execution.\n\n#Single-line Comments\nSingle-line comments start with two forward slashes //. Any text following // until the end of the line is ignored by the compiler.\n##Example:\n`// This is a comment\nprintf(\"Hello World!\");`\n\nYou can also place a single-line comment at the end of a line of code.\n##Example:\n`printf(\"Hello World!\"); // This is a comment`\n\n#Multi-line Comments\nMulti-line comments start with /* and end with */. Any text between these markers is ignored by the compiler.\n##Example:\n`/* The code below will print the words Hello World!\nto the screen, and it is amazing */\nprintf(\"Hello World!\");`\n\n#Choosing Between Single and Multi-line Comments\nThe choice between single-line and multi-line comments depends on the length and complexity of the comment. Generally, // is used for short comments, while /* */ is used for longer comments or blocks of comments.\n\nIt's important to note that before the C99 standard (released in 1999), only multi-line comments were available in C.\n\n#Cheat Sheet\n1) Single-line comments: Start with //. Used for short comments.\n2) Multi-line comments: Start with /* and end with */. Used for longer comments or blocks of comments.\n3) Comments are ignored by the compiler and do not affect program execution.\n4) Use comments to explain your code and make it more readable.\n\nNOTE: This lesson covers the basics of using comments in C, ensuring you can add explanations and notes to your code effectively. Practice adding both single-line and multi-line comments to your programs to enhance readability and maintainability.",
+          "quiz": [
+            {
+              "question": "How do you start a single-line comment in C?",
+              "options": [
+                "/*",
+                "//",
+                "#"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you end a multi-line comment in C?",
+              "options": [
+                "*/",
+                "//",
+                "**"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Why are comments used in C?",
+              "options": [
+                "To change the program’s execution.",
+                "To explain code and make it more readable.",
+                "To compile the program faster."
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Introduction to C Variables",
+          "content": "In this lesson, you will learn about variables in C, how to declare and initialize them, and how to use them in your programs. You will also understand format specifiers and the rules for naming variables. By the end of this lesson, you will be able to effectively work with variables and print their values in C.",
+          "lesson": "#What Are Variables?\nVariables are containers for storing data values. In C, different types of variables are defined with different keywords:\n1) int for integers (whole numbers), such as 123 or -123\n2) float for floating point numbers, such as 19.99 or -19.99\n3) char for single characters, such as 'a' or 'B' (characters are surrounded by single quotes)\n\n#Declaring and Initializing Variables\nTo create a variable, specify the type and assign it a value:\n##Syntax:\n`type variableName = value;`\nHere, type is one of C's data types, variableName is the name of the variable, and the equal sign = assigns a value to the variable.\n##Example:\n`int myNum = 15;`\nYou can also declare a variable without assigning a value and assign it later:\n##Example:\n`// Declare a variable\nint myNum;\n\n// Assign a value to the variable\nmyNum = 15;`\n\n#Outputting Variables\nTo print values in C, you use the \"printf()\" function. Unlike some other programming languages, you need to use format specifiers to tell the compiler what type of data the variable is storing.\n#Example:\n`int myNum = 15;\nprintf(\"%d\", myNum);  // Outputs 15`\n\n#Format specifiers include:\n1) %d for integers\n2) %f for floating point numbers\n3) %c for characters\n##Example:\n`int myNum = 15;\nfloat myFloatNum = 5.99;\nchar myLetter = 'D';\n\nprintf(\"%d\\n\", myNum);\nprintf(\"%f\\n\", myFloatNum);\nprintf(\"%c\\n\", myLetter);`\n\nTo combine text and a variable, separate them with a comma inside printf():\n##Example:\n`int myNum = 15;\nprintf(\"My favorite number is: %d\", myNum);`\n\nYou can also print different types in a single printf() function:\n##Example:\n`int myNum = 15;\nchar myLetter = 'D';\nprintf(\"My number is %d and my letter is %c\", myNum, myLetter);`\n\n#Changing Variable Values\nYou can overwrite the value of an existing variable:\n##Example:\n`int myNum = 15;\nmyNum = 10;  // Now myNum is 10`\n\nYou can assign the value of one variable to another:\n##Example:\n`int myNum = 15;\nint myOtherNum = 23;\nmyNum = myOtherNum;  // myNum is now 23`\n\n#Adding Variables Together\nTo add the values of two variables:\n##Example:\n`int x = 5;\nint y = 6;\nint sum = x + y;\nprintf(\"%d\", sum);`\n\n#Declaring Multiple Variables\nTo declare multiple variables of the same type in a single line:\n##Example:\n`int x = 5, y = 6, z = 50;\nprintf(\"%d\", x + y + z);`\n\nYou can also assign the same value to multiple variables:\n##Example:\n`int x, y, z;\nx = y = z = 50;\nprintf(\"%d\", x + y + z);`\n\n#Naming Variables (Identifiers)\nVariable names in C must be unique and are called identifiers. Here are some general rules for naming variables:\n-> Names can contain letters, digits, and underscores.\n-> Names must begin with a letter or an underscore.\n-> Names are case-sensitive (myVar and myvar are different).\n-> Names cannot contain whitespaces or special characters like !, #, %, etc.\n-> Reserved words (such as int) cannot be used as names.\n##Example:\n`// Good variable name\nint minutesPerHour = 60;\n\n// OK, but not so clear\nint m = 60;`\n\n#Cheat Sheet\n1) int, float, char: Basic data types for variables.\n2) Variable Declaration: type variableName = value;\n3) Format Specifiers: %d for integers, %f for floats, %c for characters.\n4) Changing Values: Variables can be reassigned new values.\n5) Multiple Declarations: Multiple variables can be declared and initialized in a single line.\n6) Naming Rules: Follow the rules for valid and descriptive variable names.\n\nNOTE: This lesson provides a comprehensive introduction to variables in C, ensuring you can declare, initialize, and use variables effectively in your programs. Practice creating and manipulating variables to become proficient in C programming.",
+          "quiz": [
+            {
+              "question": "How do you declare an integer variable x and assign it the value 10?",
+              "options": [
+                "int x; x = 10;",
+                "int x = 10;",
+                "Both A and B"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What format specifier is used for a floating point number?",
+              "options": [
+                "%d",
+                "%f",
+                "%c"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following is a valid variable name?",
+              "options": [
+                "2ndVariable",
+                "variable_2",
+                "variable-2"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "C Data Types",
+          "content": "In this lesson, you'll dive into the fundamental data types in C, including integers, floating-point numbers, characters, and their usage. You'll also understand format specifiers, type conversion, and how to retrieve the memory size of variables. By the end, you'll be equipped to handle various data types effectively in your C programs.",
+          "lesson": "#Basic Data Types\nData types in C specify the size and type of information a variable can store. The most common ones are:\n1) int: Stores whole numbers without decimals.\n2) float: Stores fractional numbers with limited decimal precision.\n3) double: Stores fractional numbers with higher decimal precision.\n4) char: Stores a single character or ASCII values.\n\n#Format Specifiers\nTo print variables in C, you use format specifiers with the \"printf()\" function. Here are some common ones:\n1) %d or %i for integers\n2) %f for floats\n3) %lf for doubles\n4) %c for characters\n\n#Character Data Types\nThe char type stores a single character and is surrounded by single quotes. You can print characters using the %c specifier. ASCII values can also be used to represent characters.\n\n#Numeric Data Types\n1)int: Stores whole numbers.\n2) float: Stores floating-point numbers with limited precision.\n3) double: Stores floating-point numbers with higher precision.\n\n#Decimal Precision\nYou can control the decimal precision of floating-point numbers using format specifiers like %.2f to display two decimal places.\n\n#The sizeof Operator\nThe sizeof operator retrieves the memory size of a variable or data type in bytes.\n\n#Type Conversion\nImplicit Conversion: Automatically done by the compiler.\nExplicit Conversion: Manually performed by the programmer using type casting.\n\n#Cheat Sheet\n1) Basic Data Types: int, float, double, char.\n2) Format Specifiers: %d, %f, %lf, %c.\n3) Decimal Precision: Control the number of decimal places with format specifiers.\n4) sizeof Operator: Get the memory size of variables.\n5) Type Conversion: Implicit and explicit conversions for handling different data types.\n\nNOTE: With a solid understanding of C data types, you're now ready to handle various types of data and perform operations efficiently in your C programs. Practice using different data types and format specifiers to strengthen your skills.",
+          "quiz": [
+            {
+              "question": "What format specifier is used for integers in printf()?",
+              "options": [
+                "%i",
+                "%d",
+                "%f",
+                "A and B",
+                "B and C"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "Which data type stores a single character in C?",
+              "options": [
+                "int",
+                "float",
+                "char"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How do you control the decimal precision of a floating-point number to two decimal places?",
+              "options": [
+                "%.2f",
+                "%2f",
+                "%.f"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Understanding C Constants",
+          "content": "In this lesson, you'll grasp the concept of constants in C programming and understand how to use the \"const\" keyword to declare unchangeable variables. You'll learn the benefits of using constants, good practices for naming them, and how to avoid common pitfalls.",
+          "lesson": "#Constants in C\nConstants are variables whose values remain fixed throughout the execution of a program. They are declared using the const keyword, making them read-only and unchangeable.\n\n#Declaring Constants\nTo declare a constant in C, use the const keyword followed by the data type and the variable name, then assign it a value. Once declared, the value of a constant cannot be modified.\n##Example:\n`const int minutesPerHour = 60;\nconst float PI = 3.14;`\n\n##Notes on Constants\n-> Constant variables must be assigned a value during declaration. Attempting to assign a value later will result in an error.\n-> It's a good practice to declare constants with uppercase letters for better code readability.\n##Good Practice\nUsing constants helps improve code readability and maintainability, especially when dealing with values that are unlikely to change. By declaring constants, you make your code more self-explanatory and easier to understand for other programmers.\n##Example:\n`const int BIRTHYEAR = 1980;`\n\n#Cheat Sheet\n1) Constants: Variables whose values remain fixed.\n2) Declaration: Use the const keyword followed by the data type and variable name.\n3) Value Assignment: Constants must be assigned a value during declaration.\n4) Good Practice: Declare constants with uppercase letters for better readability.\n\nNOTE: Understanding how to use constants in C will enhance the clarity and maintainability of your code. Practice declaring and using constants in your programs to solidify your understanding.",
+          "quiz": [
+            {
+              "question": "What keyword is used to declare constants in C?",
+              "options": [
+                "var",
+                "let",
+                "const",
+                "final"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which of the following statements about constants is true?",
+              "options": [
+                "Constants can be modified after declaration.",
+                "Constants must be assigned a value during declaration.",
+                "Constants are declared using the \"volatile\" keyword.",
+                "Constants have dynamic values."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which of the following is a valid way to declare a constant with the value 3.14159 in C?",
+              "options": [
+                "const PI = 3.14159;",
+                "const float PI = 3.14159;",
+                "constant PI = 3.14159;",
+                "constant float PI = 3.14159;"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "C Operators",
+          "content": "In this lesson, you'll dive into the world of operators in C programming. You'll understand the different types of operators, such as arithmetic, assignment, comparison, and logical operators, and learn how to use them effectively in your programs.",
+          "lesson": "#Operators in C\nOperators are symbols used to perform operations on variables and values. They are divided into various groups based on their functionality.\n\n#Arithmetic Operators\nArithmetic operators are used to perform mathematical operations such as addition, subtraction, multiplication, division, modulus, increment, and decrement.\n$./assets/images/c2.png\n\n#Assignment Operators\nAssignment operators are used to assign values to variables. They include the basic assignment operator (=) as well as compound assignment operators like +=, -=, *=, etc.\n$./assets/images/c3.png\n\n#Comparison Operators\nComparison operators are used to compare two values or variables. They return either true (1) or false (0) based on the comparison result.\n$./assets/images/c4.png\n\n#Logical Operators\nLogical operators are used to determine the logic between variables or values. They include logical AND (&&), logical OR (||), and logical NOT (!).\n$./assets/images/c5.png\n\n#Cheat Sheet\n1) Arithmetic Operators: Perform mathematical operations like addition, subtraction, multiplication, etc.\n2) Assignment Operators: Assign values to variables, including compound assignment operators.\n3) Comparison Operators: Compare two values or variables and return true or false.\n4) Logical Operators: Determine the logic between variables or values.\n\nNOTE: Understanding operators is crucial for performing various operations in C programming. Practice using different operators to enhance your programming skills.",
+          "quiz": [
+            {
+              "question": "Which operator is used to perform addition in C?",
+              "options": [
+                "*",
+                "/",
+                "+",
+                "-"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will the following expression return: 10 > 5?",
+              "options": [
+                "1",
+                "0",
+                "True",
+                "False"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which assignment operator is equivalent to x = x + 5?",
+              "options": [
+                "+=",
+                "=+",
+                "/=",
+                "-="
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Mastering C Booleans",
+          "content": "In this lesson, you'll delve into the world of booleans in C programming. You'll understand the bool data type, how to declare boolean variables, compare values using boolean expressions, and utilize boolean operators effectively.",
+          "lesson": "#Booleans in C\nBooleans are a fundamental data type in programming that represent values of true or false. In C, the bool data type is used for boolean variables.\n\n#Declaring Boolean Variables\nTo use boolean variables in C, you need to include the <stdbool.h> header file. Boolean variables are declared using the bool keyword and can have values of true or false.\n\n#Printing Boolean Values\nBoolean values are represented as integers: 1 for true and 0 for false. Use the %d format specifier to print boolean values.\n\n#Comparing Values with Booleans\nYou can compare values using boolean expressions and comparison operators such as greater than (>), equal to (==), etc. The result of a comparison is a boolean value: 1 for true and 0 for false.\n##Examples:\nComparing numeric values: \n`printf(\"%d\", 10 > 5); // Returns 1 (true)`\nComparing boolean variables: \n`bool isHamburgerTasty = true; \nprintf(\"%d\", isHamburgerTasty == true);`\n\n#Cheat Sheet\n1) Boolean Variables: Declared using the bool keyword, representing true or false values.\n2) Comparing Values: Use comparison operators to compare values and get boolean results.\n3) Printing Boolean Values: Represented as integers: 1 for true, 0 for false.\n\nNOTE: Understanding booleans and boolean expressions is essential for making decisions and controlling program flow in C programming. Practice using boolean variables and expressions to strengthen your understanding.",
+          "quiz": [
+            {
+              "question": "What header file should you include to use boolean variables in C?",
+              "options": [
+                "<stdio.h>",
+                "<stdbool.h>",
+                "<stdlib.h>",
+                "stdboolean.h>"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What will the following expression return: \"bool isTasty = true; printf(\"%d\", isTasty);\"?",
+              "options": [
+                "True",
+                "False",
+                "1",
+                "0"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How are boolean values represented in C?",
+              "options": [
+                " 'true' and 'false' strings",
+                "0 for true, 1 for false",
+                "1 for true, 0 for false",
+                "'yes' and 'no' strings"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "Flow Control in C Programming",
+          "content": "In this lesson, you'll dive into the various flow control constructs in C programming. You'll understand how to make decisions using conditional statements (if, if-else, if-else if) and switch statements. Additionally, you'll learn about executing code repeatedly using while and for loops, as well as controlling loop execution using the break and continue statements.",
+          "lesson": "#Conditional Statements\nConditional statements allow you to execute code based on certain conditions.\n\n##if Statement\nThe if statement evaluates a condition and executes a block of code if the condition is true.\n##Example\n`if (condition) {\n    // code to be executed if condition is true\n}`\nThis snippet checks the condition. If the condition evaluates to true, the code inside the curly braces is executed.\n\n##if-else Statement\nThe if-else statement executes one block of code if the condition is true, and another block if the condition is false.\n##Example\n`if (condition) {\n    // code to be executed if condition is true\n} else {\n    // code to be executed if condition is false\n}`\nIf the condition is true, the code inside the first block is executed. If the condition is false, the code inside the else block is executed.\n\n##if-else if Statement\nThe if-else if statement allows you to evaluate multiple conditions sequentially and execute different blocks of code accordingly.\n##Example\n`if (condition1) {\n    // code to be executed if condition1 is true\n} else if (condition2) {\n    // code to be executed if condition2 is true\n} else {\n    // code to be executed if all conditions are false\n}`\nThis snippet evaluates multiple conditions sequentially. If condition1 is true, the code inside the first block is executed. If condition1 is false and condition2 is true, the code inside the second block is executed. If all conditions are false, the code inside the else block is executed.\n\n\n#Switch Statement\nThe switch statement allows you to select one of many code blocks to be executed.\n##Example\n`switch (expression) {\n    case value1:\n        // code to be executed if expression equals value1\n        break;\n    case value2:\n        // code to be executed if expression equals value2\n        break;\n    default:\n        // code to be executed if expression doesn't match any case\n}`\nThe switch statement evaluates an expression and executes the code block associated with the matching case. If no case matches the expression, the code block inside the default case is executed.\n\n#Loops\nLoops allow you to execute a block of code repeatedly.\n\n##while Loop\nThe while loop repeatedly executes a block of code as long as the condition remains true. It is used when we do not know the number of times the block of code is needed to be repeated.\n##Example\n`while (condition) {\n    // code to be executed repeatedly while condition is true\n}`\n\n##for Loop\nThe for loop executes a block of code a specified number of times. It is used when we know the number of times the block of code is needed to be repeated.\n`for (initialization; condition; increment/decrement) {\n    // code to be executed repeatedly until condition becomes false\n}`\n\n\n#Loop Control Statements\nLoop control statements allow you to control the flow of execution within loops.\n\n##break Statement\nThe break statement terminates the loop prematurely and transfers control to the next statement after the loop.\n`for (int i = 0; i < 10; i++) {\n    if (condition) {\n        break;\n    }\n}`\n\n##continue Statement\nThe continue statement skips the remaining code inside the loop for the current iteration and proceeds to the next iteration.\n`for (int i = 0; i < 10; i++) {\n    if (condition) {\n        continue;\n    }\n    // code here will be skipped if condition is true\n}`\n\n\n#Cheatsheet\n1) Conditional Statements: if, if-else, if-else if\n2) Switch Statement: switch, case, default\n3) Loops: while, for\n4) Loop Control Statements: break, continue\n\nNOTE: Understanding control flow constructs is essential for writing efficient and structured code in C programming. Practice using conditional statements, loops, and loop control statements to master the concept.",
+          "quiz": [
+            {
+              "question": "Which statement allows you to select one of many code blocks to be executed?",
+              "options": [
+                "if",
+                "while",
+                "for",
+                "switch"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What is the purpose of the break statement in a loop?",
+              "options": [
+                "Skips the remaining code inside the loop for the current iteration",
+                "Terminates the loop prematurely",
+                "Executes the next iteration of the loop",
+                "None of the above"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How does the while loop differ from the for loop?",
+              "options": [
+                "while loop requires an initialization expression",
+                "for loop executes a block of code as long as a condition remains true",
+                "while loop iterates a specified number of times",
+                "for loop executes a block of code a specified number of times"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        },
+        {
+          "title": "Exploring Arrays in C Programming",
+          "content": "-> Understanding the concept of arrays in C programming.\n-> How to create, access, modify, and loop through one-dimensional (1D) arrays.\n-> Introduction to two-dimensional (2D) arrays and their manipulation.",
+          "lesson": "#Arrays in C Programming:\nArrays are used to store multiple values of the same data type in a single variable.\nThey provide a convenient way to manage collections of data without the need for separate variables.\nArrays can be one-dimensional or multi-dimensional.\n\n#Creating and Accessing Elements of 1D Arrays:\nTo create a 1D array, specify the data type and the array name followed by square brackets [].\n##Example\n`int myNumbers[] = {25, 50, 75, 100};`\nAccessing elements of an array is done using index notation, where the first element has index 0.\n##Example\n`printf(\"%d\", myNumbers[0]); // Outputs 25`\nChanging the value of an element is as simple as assigning a new value to the corresponding index.\n##Example\n`myNumbers[0] = 33;\nprintf(\"%d\", myNumbers[0]); // Now outputs 33 instead of 25`\n\n\n#Looping Through 1D Arrays:\nYou can use a for loop to iterate through the elements of a 1D array.\n##Example\n`int i;\nfor (i = 0; i < 4; i++) {\n  printf(\"%d\\n\", myNumbers[i]);\n}`\n\n\n#Understanding Array Size:\nThe sizeof operator returns the size of a type in bytes, not the number of elements in an array.\n##Example\n`int length = sizeof(myNumbers) / sizeof(myNumbers[0]);`\nThis method ensures accurate determination of array length irrespective of its size.\n\n\n#Introduction to 2D Arrays:\nTwo-dimensional arrays, also known as matrices, are used to represent tabular data with rows and columns.\n##Example\n`int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };`\nAccessing elements of a 2D array requires providing both row and column indices.\n##Example\n`printf(\"%d\", matrix[0][2]);  // Outputs 2`\n\n\n#Manipulating 2D Arrays:\nYou can change the value of an element in a 2D array by specifying the indices of the element.\n##Example\n`matrix[0][0] = 9;\nprintf(\"%d\", matrix[0][0]);  // Now outputs 9 instead of 1`\nLooping through a 2D array involves using nested loops, one for each dimension.\n##Example\n`int i, j;\nfor (i = 0; i < 2; i++) {\n  for (j = 0; j < 3; j++) {\n    printf(\"%d\\n\", matrix[i][j]);\n  }\n}`\n\n\n#Cheatsheet:\n1) Arrays store multiple values of the same data type.\n2) Use index notation to access and modify elements of arrays.\n3) Loop through arrays using for loops, adapting the loop condition to array size.\n4) Use sizeof operator to determine the size of an array and calculate its length.\n5) Two-dimensional arrays represent tabular data and require row and column indices for element access.",
+          "quiz": [
+            {
+              "question": "What is the first step in creating a one-dimensional array in C?",
+              "options": [
+                "Declare the array size",
+                "Specify the data type",
+                " Initialize the array elements",
+                "Define the array name"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you access the element in the second row and third column of a 2D array named \"matrix\"?",
+              "options": [
+                "matrix[1][3]",
+                "matrix[2][2]",
+                "matrix[2][3]",
+                "matrix[1][2]"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "How do you determine the number of elements in a C array named \"myArray\"?",
+              "options": [
+                "sizeof(myArray);",
+                "sizeof(myArray) / sizeof(myArray[0]);",
+                "sizeof(myArray) * sizeof(myArray[0]);",
+                "sizeof(myArray[0]) / sizeof(myArray);"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Strings in C",
+          "content": "-> Understanding the concept of strings in C programming.\n-> How to create, access, modify, and loop through strings.\n-> Differences between different ways of creating strings in C.",
+          "lesson": "#Strings in C Programming:\nStrings are used for storing text/characters.\nIn C, strings are represented as arrays of characters.\nTo create a string, you must use the char type and create an array of characters.\n\n#Creating and Accessing Strings:\nStrings are created using character arrays initialized with double quotes.\n##Example\n`char greetings[] = \"Hello World!\";`\nAccessing individual characters of a string is done using index notation.\n##Example\n`printf(\"%c\", greetings[0]); // Outputs 'H'`\nModifying strings is similar to modifying arrays, where you assign a new value to a specific index.\n##Example\n`greetings[0] = 'J';\nprintf(\"%s\", greetings); // Outputs \"Jello World!\"`\n\n#Looping Through Strings:\nStrings can be looped through using a for loop.\n##Example\n`char carName[] = \"Volvo\";\nint i;\n\nfor (i = 0; i < 5; ++i) {\n  printf(\"%c\\n\", carName[i]);\n}`\nUsing the sizeof formula makes the loop more adaptable to changes in string length.\n##Example\n`char carName[] = \"Volvo\";\nint length = sizeof(carName) / sizeof(carName[0]);\nint i;\n\nfor (i = 0; i < length; ++i) {\n  printf(\"%c\\n\", carName[i]);\n}`\n\n#Creating Strings:\nStrings can also be created using a set of characters, but must be terminated with a null character '\\0'.\n##Example\n`char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\\0'};`\nThe null terminating character indicates the end of the string.\n\n\n#Differences:\nThere are two ways to create strings in C: using string literals or character arrays.\nString literals are easier to write and automatically include the null terminating character.\nCharacter arrays require manual inclusion of the null character.\n##Example\n`char message[] = \"Good to see you,\";\nchar fname[] = \"John\";\n\nprintf(\"%s %s!\", message, fname);`\n\n#Summary/Cheatsheet:\n1) Strings in C are represented as arrays of characters.\n2) Access and modify strings using index notation.\n3) Loop through strings using for loops, adapting the loop condition to string length.\n4) Strings can be created using string literals or character arrays, with or without explicit null termination.",
+          "quiz": [
+            {
+              "question": "Which format specifier is used to print a single character in C?",
+              "options": [
+                "%c",
+                "%s",
+                "%d",
+                "%f"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What character indicates the end of a string in C?",
+              "options": [
+                "\\n",
+                "\\t",
+                "\\0",
+                "\\end"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What is the main difference between creating strings using string literals and character arrays in C?",
+              "options": [
+                "String literals require manual inclusion of the null character.",
+                "Character arrays automatically include the null character.",
+                " String literals are easier to write and automatically include the null character.",
+                "Character arrays are immutable once initialized."
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "User Input",
+          "content": "-> How to get user input in C using scanf() and fgets() functions.\n-> Handling single and multiple inputs from the user.\n-> Differences between scanf() and fgets() for string input.",
+          "lesson": "#User Input in C:\nIn C programming, you can obtain user input using the scanf() function for formatted input and fgets() for reading a line of text.\n\n#Getting Single Input with scanf():\nTo get a single input from the user using scanf(), you specify the format specifier and use the reference operator (&) to store the value in a variable.\n##Example\n`int myNum;\nprintf(\"Type a number: \\n\");\nscanf(\"%d\", &myNum);\nprintf(\"Your number is: %d\", myNum);`\n\n#Getting Multiple Inputs with scanf():\nscanf() can also handle multiple inputs by specifying multiple format specifiers.\n##Example\n`int myNum;\nchar myChar;\nprintf(\"Type a number AND a character: \\n\");\nscanf(\"%d %c\", &myNum, &myChar);\nprintf(\"Your number is: %d\\n\", myNum);\nprintf(\"Your character is: %c\\n\", myChar);`\n\n#Taking String Input with scanf():\nFor string input using scanf(), specify the size of the string/array and don't use the reference operator (&).\n##Example\n`char firstName[30];\nprintf(\"Enter your first name: \\n\");\nscanf(\"%s\", firstName);\nprintf(\"Hello %s\", firstName);`\n\n#Using fgets() for String Input:\nfgets() is preferred for reading strings as it handles whitespace characters correctly and avoids buffer overflow.\n##Example\n`char fullName[30];\nprintf(\"Type your full name: \\n\");\nfgets(fullName, sizeof(fullName), stdin);\nprintf(\"Hello %s\", fullName);`\n\n#Cheat sheet:\n1) Use scanf() for formatted input, fgets() for reading strings.\n2) For scanf(), use the format specifier and reference operator (&) for single inputs.\n3) scanf() can handle multiple inputs by specifying multiple format specifiers.\n4) For string input with scanf(), specify the size of the string and don't use the reference operator.\n5) fgets() is preferred for reading strings as it handles whitespace characters and avoids buffer overflow.",
+          "quiz": [
+            {
+              "question": "Which function is preferred for reading a line of text in C?",
+              "options": [
+                "printf()",
+                "scanf()",
+                "gets()",
+                "fgets()"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "How do you get multiple inputs from the user using scanf()?",
+              "options": [
+                "Use multiple scanf() functions",
+                "Separate format specifiers with commas",
+                "Specify multiple format specifiers in a single scanf() call",
+                "Use scanf() with loops"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What is the advantage of using fgets() over scanf() for reading strings?",
+              "options": [
+                " scanf() is faster",
+                " fgets() handles whitespace characters correctly",
+                "scanf() can handle multiple inputs",
+                "fgets() requires fewer arguments"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Memory Addresses",
+          "content": "-> What a memory address is in C programming.\n-> How to access and print memory addresses using the reference operator (&).\n-> Why understanding memory addresses is useful in C programming.",
+          "lesson": "#Memory Address in C:\nWhen you create a variable in C, it gets stored somewhere in the computer's memory. Each variable has its own unique memory address, which is the location where its value is stored.\n\n#Accessing Memory Addresses:\nYou can access the memory address of a variable using the reference operator (&).\n##Example\n`int myAge = 43;\nprintf(\"Memory address of myAge: %p\", &myAge);`\nHere, &myAge represents the memory address of the variable myAge. Printing it using %p format specifier gives us the hexadecimal representation of the memory address.\n\n#Why Know Memory Addresses?\nUnderstanding memory addresses and pointers is crucial in C programming. Pointers allow us to directly manipulate the data stored in memory, which can lead to more efficient and optimized code.\n\nPointers are a fundamental concept in C and are used extensively for dynamic memory allocation, data structures, and low-level manipulation.\n\n#Cheat sheet:\n1) Memory address is the location in the computer's memory where a variable's value is stored.\n2) Access memory addresses using the reference operator (&).\n3) Pointers allow manipulation of data stored in memory and are essential in C programming.",
+          "quiz": [
+            {
+              "question": "How do you access the memory address of a variable in C?",
+              "options": [
+                "Using the dereference operator (*)",
+                "Using the reference operator (&)",
+                "Using the arrow operator (->)",
+                "Using the dot operator (.)"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What does the reference operator (&) return in C?",
+              "options": [
+                "Value of the variable",
+                "Size of the variable",
+                "Type of the variable",
+                "Address of the variable"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "Why is understanding memory addresses important in C programming?",
+              "options": [
+                "It allows for direct manipulation of data in memory",
+                " It makes code more readable",
+                "It increases the speed of program execution",
+                "It allows for automatic memory management"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Understanding Pointers in C Programming",
+          "content": "-> What pointers are and how to create them in C.\n-> How to access memory addresses and values using pointers.\n-> The importance of pointers in C programming and their practical applications.",
+          "lesson": "#Introduction to Pointers\nIn C programming, a pointer is a variable that stores the memory address of another variable as its value. This allows us to indirectly access and manipulate data stored in memory.\n\n#Creating Pointers\nTo create a pointer variable, use the * operator followed by the data type it points to.\n##Example\n`int myAge = 43;     // Declare an int variable\nint* ptr = &myAge;  // Declare a pointer variable pointing to myAge's address`\nHere, ptr is a pointer variable that stores the memory address of myAge. The & operator is used to get the memory address of myAge and assign it to ptr.\n\n#Dereferencing Pointers\nYou can access the value of the variable a pointer points to using the * operator.\n##Example\n`printf(\"%d\\n\", *ptr); // Outputs the value of myAge using the pointer`\nThe * operator in this context is called the dereference operator. It retrieves the value stored at the memory address pointed to by the pointer.\n\n#Purpose and Importance of Pointers\nPointers are essential in C programming as they enable efficient memory management and manipulation. They are widely used in data structures, dynamic memory allocation, and low-level system programming.\n\n##Notes on Pointers:\nPointers must be handled with care to avoid unintended memory access and corruption.\nThere are two common ways to declare pointer variables in C: int* ptr; and int *ptr;.\n\n\n#Cheat sheet:\n1) Pointers store memory addresses of other variables.\n2) Create pointers using the * operator followed by the data type.\n3) Dereference pointers using the * operator to access the value stored at the pointed memory address.\n4) Pointers are crucial for efficient memory management and data manipulation in C programming.",
+          "quiz": [
+            {
+              "question": "How do you declare a pointer variable in C?",
+              "options": [
+                "Using the & operator",
+                "Using the -> operator",
+                "Using the . operator",
+                "Using the * operator"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What does the * operator do when used with a pointer variable?",
+              "options": [
+                "Returns the memory address of the variable",
+                "Returns the value stored at the memory address pointed to by the pointer",
+                "Assigns a value to the pointer variable",
+                "Deletes the pointer variable"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Why are pointers important in C programming?",
+              "options": [
+                "They make code more readable",
+                "They improve program execution speed",
+                "They enable efficient memory management and manipulation",
+                "They allow for automatic memory allocation"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        }
+      ],
       "cpp": []
     }
   }
