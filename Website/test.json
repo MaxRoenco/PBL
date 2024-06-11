@@ -7,7 +7,7 @@
       "langPassword": "Password",
       "langMandatory2": "(mandatory)",
       "langRegister": "Register",
-      "buttonStart": "Start",
+      "buttonStart": "start",
       "langSFX": "Sound Effects",
       "titleSettings": "Languages",
       "langLogOut": "Logout",
@@ -461,7 +461,7 @@
                 "Using an asterisk (*) followed by the id name",
                 "Using the id keyword followed by the id name"
               ],
-              "correctAnswer": 1
+              "correctAnswer": -1
             },
             {
               "question": "Which selector selects all HTML elements on the page?",
@@ -471,7 +471,7 @@
                 "The universal selector (*)",
                 "The grouping selector"
               ],
-              "correctAnswer": 2
+              "correctAnswer": -1
             },
             {
               "question": "What type of selector is used to select elements based on a certain state, such as hovering over them?",
@@ -481,7 +481,7 @@
                 "Pseudo-class selectors",
                 "Attribute selectors"
               ],
-              "correctAnswer": 2
+              "correctAnswer": -1
             },
             {
               "question": "How can you select and style multiple HTML elements with the same style definitions in CSS?",
@@ -491,7 +491,7 @@
                 " Using a colon (:) followed by the elements' names",
                 " Using a semicolon (;) followed by the elements' names"
               ],
-              "correctAnswer": 0
+              "correctAnswer": -1
             }
           ]
         },
@@ -933,45 +933,340 @@
       ],
       "js": [
         {
-          "title": "DEMO LESSON",
-          "content": "# Did you know frogs can jump?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## frogs are very good animals because they:\n- Can jump high.\n- Can jump not high.\n- Can make quack sound.\n\n## how frogs' brains work:\nFrogs are very smart big brain animals, that can do many things, here is how their brain works:\n`while(!hungry && !sleepy) {\n  if(energy > 0) {\n    jump();\n    quack();\n  } else {\n    sleep();\n  }\n}`",
-          "lesson": "# Did you know frogs can jump?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## frogs are very good animals because they:\n- Can jump high.\n- Can jump not high.\n- Can make quack sound.\n\n## how frogs' brains work:\nFrogs are very smart big brain animals, that can do many things, here is how their brain works:\n`while(!hungry && !sleepy) {\n  if(energy > 0) {\n    jump();\n    quack();\n  } else {\n    sleep();\n  }\n}`",
-          "quiz": []
-        }
-      ],
-      "python": [
-        {
-          "title": "Gay",
-          "content": "#Gay\n##MiniGay\n",
-          "lesson": "# Blank lesson",
+          "title": "Introduction to JS",
+          "content": "##Welcome to the Introduction to JavaScript lesson! In this lesson, we'll discover the essential elements of JavaScript to get you started on your web development journey:\n\n1. The purpose and significance of JavaScript in web development.\n2. Basic syntax and structure of JavaScript.\n3. How to include JavaScript in an HTML document.\n",
+          "lesson": "# The Role of JavaScript\nJavaScript is a versatile programming language that enables interactive web pages. It runs on the client-side, meaning it executes in the user's browser, providing a dynamic and engaging experience.\n\n#Basic Syntax and Structure\nJavaScript code is written in script tags and can be included directly within an HTML document or linked as an external file.\n\nExample:\n`html\n<!DOCTYPE html>\n<html>\n<head>\n    <title>JavaScript Introduction</title>\n</head>\n<body>\n    <h1>Welcome to JavaScript!</h1>\n    <script>\n        alert('Hello, World!');\n    </script>\n</body>\n</html>\n`\n\n#Including JavaScript\n1. Inline Script: Placed within the `<script>` tags inside an HTML document.\n2. External Script: Stored in a separate file with a `.js` extension and linked using the `<script src=\"path/to/script.js\"></script>` tag.\n\n",
           "quiz": [
             {
-              "question": "GAy",
+              "question": "What is JavaScript primarily used for in web development?",
               "options": [
-                "Me",
-                "You"
+                "A) Styling web pages",
+                "B) Creating interactive and dynamic web pages",
+                "C) Structuring web content",
+                "D) Managing databases"
+              ],
+              "correctAnswer": -1
+            },
+            {
+              "question": "How can JavaScript be included in an HTML document?",
+              "options": [
+                "A) Using `<link>` tags",
+                "B) Using `<script>` tags",
+                "C) Using `<style>` tags",
+                "D) Using `<meta>` tags"
+              ],
+              "correctAnswer": -1
+            },
+            {
+              "question": "Where does JavaScript code execute?",
+              "options": [
+                "A) On the server",
+                "B) In the database",
+                "C) In the user's browser",
+                "D) In the HTML file"
+              ],
+              "correctAnswer": -1
+            }
+          ]
+        },
+        {
+          "title": "Variable and Data Types",
+          "content": "1. How to declare and use variables in JavaScript.\n2. Understanding different data types.\n3. Basic operations on variables.\n",
+          "lesson": "#Variables in JavaScript\nVariables are containers for storing data values. You can declare a variable using `var`, `let`, or `const`.\n\nExample:\n`javascript\nlet name = 'John';\nconst age = 25;\nvar isStudent = true;\n`\n\n#Data Types\n1. String: Text, enclosed in quotes (`'Hello'`, `\"World\"`).\n2. Number: Numeric values (`25`, `3.14`).\n3. Boolean: True or false values (`true`, `false`).\n4. Undefined: A variable without a value.\n5. Null: Represents the intentional absence of any object value.\n\n#Basic Operations\n`javascript\nlet x = 10;\nlet y = 20;\nlet sum = x + y; // 30\nlet message = 'Hello, ' + 'World!'; // \"Hello, World!\"\n`\n",
+          "quiz": [
+            {
+              "question": "Which keyword is used to declare a variable that cannot be reassigned?",
+              "options": [
+                "A) var",
+                " B) let",
+                " C) const",
+                "D) int"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What is the data type of `true` in JavaScript?",
+              "options": [
+                "A) String",
+                "B) Number",
+                "C) Boolean",
+                "D) Undefined"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will the following code output? `javascript    let a = 5;    let b = '5';    console.log(a + b);    `",
+              "options": [
+                "A) 10",
+                "B) '55'",
+                "C) '10'",
+                "D) '5'"
               ],
               "correctAnswer": 1
             }
           ]
         },
         {
-          "title": "Python Syntax",
-          "content": "##Python Syntax\n#Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n'if 5 > 2:\n    print(\"5 is greater than 2\")'\n",
-          "lesson": "Application: Pay attention to indentation when writing Python code. Proper indentation is crucial for readability and ensures that your code functions as intended.",
+          "title": "Functions and Scope",
+          "content": "1. How to define and call functions in JavaScript.\n2. Understanding function scope and variable scope.\n",
+          "lesson": "#Functions\nFunctions are blocks of code designed to perform a particular task. They are executed when called.\n\nExample:\n`javascript\nfunction greet(name) {\n    return 'Hello, ' + name + '!';\n}\nlet message = greet('Alice'); // \"Hello, Alice!\"\n`\n\n#Scope\n1. Global Scope: Variables declared outside any function, accessible anywhere in the code.\n2. Local Scope: Variables declared within a function, accessible only within that function.\n\nExample:\n`javascript\nlet globalVar = 'I am global';\n\nfunction checkScope() {\n    let localVar = 'I am local';\n    console.log(globalVar); // Accessible\n    console.log(localVar);  // Accessible\n}\nconsole.log(globalVar); // Accessible\nconsole.log(localVar);  // Uncaught ReferenceError\n`\n\n\n",
           "quiz": [
             {
-              "question": "How do we denote a multi-line block of code in Python?",
+              "question": "What is the correct way to define a function in JavaScript?",
               "options": [
-                " Using square brackets []",
-                " Using parentheses ()",
-                "Using curly braces {}",
-                " Using indentation"
+                " A) `function myFunction() {}`",
+                "B) `myFunction function() {}`",
+                "C) `define myFunction() {}`",
+                " D) `function: myFunction() {}`"
               ],
-              "correctAnswer": 3
+              "correctAnswer": 0
+            },
+            {
+              "question": "What will the following code output? `javascript    function test() {        let x = 1;        if (true) {            let x = 2;            console.log(x);        }        console.log(x);    }    test();    `",
+              "options": [
+                " A) 1, 1",
+                "B) 2, 1",
+                "C) 1, 2",
+                "D) 2, 2"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which scope is a variable in when declared within a function?",
+              "options": [
+                "A) Global",
+                " B) Local",
+                "C) Block",
+                "D) Module"
+              ],
+              "correctAnswer": 1
             }
           ]
         },
+        {
+          "title": "Conditionals and Loops",
+          "content": "1. Using conditional statements to control the flow of your program.\n2. Different types of loops for repetitive tasks.\n",
+          "lesson": "#Conditionals\nConditional statements execute code based on a condition (`if`, `else`, `else if`).\n\nExample:\n`javascript\nlet age = 18;\nif (age >= 18) {\n    console.log('You are an adult.');\n} else {\n    console.log('You are a minor.');\n}\n`\n\n#Loops\nLoops repeat a block of code as long as a condition is met (`for`, `while`, `do...while`).\n\nExample:\n`javascript\nfor (let i = 0; i < 5; i++) {\n    console.log(i); // 0, 1, 2, 3, 4\n}\n\nlet count = 0;\nwhile (count < 5) {\n    console.log(count);\n    count++;\n}\n`\n\n",
+          "quiz": [
+            {
+              "question": "Which of the following is a conditional statement in JavaScript?",
+              "options": [
+                "A) `loop`",
+                "B) `switch`",
+                "C) `if`",
+                "D) `function`"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will the following code output? `javascript    let i = 0;    while (i < 3) {        console.log(i);        i++;    }    `",
+              "options": [
+                "A) 0, 1",
+                "B) 1, 2, 3",
+                "C) 0, 1, 2",
+                "D) 0, 1, 2, 3"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How do you create a loop that executes at least once regardless of the condition?",
+              "options": [
+                "A) `for` loop",
+                "B) `while` loop",
+                "C) `do...while` loop",
+                "D) `foreach` loop"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "Arrays and Objects",
+          "content": "1. How to work with arrays and objects.\n2. Basic operations on arrays and objects.\n",
+          "lesson": "#Arrays\nArrays are used to store multiple values in a single variable.\n\nExample:\n`javascript\nlet fruits = ['Apple', 'Banana', 'Cherry'];\nconsole.log(fruits[0]); // \"Apple\"\nconsole.log(fruits.length); // 3\n`\n\n#Objects\nObjects are collections of key-value pairs.\n\nExample:\n`javascript\nlet person = {\n    firstName: 'John',\n    lastName: 'Doe',\n    age: 30\n};\nconsole.log(person.firstName); // \"John\"\nconsole.log(person['lastName']); // \"Doe\"\n`\n",
+          "quiz": [
+            {
+              "question": "What is the correct way to declare an array in JavaScript?",
+              "options": [
+                "A) `let arr = 'Apple', 'Banana', 'Cherry';`",
+                "B) `let arr = ['Apple', 'Banana', 'Cherry'];`",
+                "C) `let arr = (Apple, Banana, Cherry);`",
+                "D) `let arr = {Apple, Banana, Cherry};`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you access the value \"Doe\" from the following object? `javascript    let person = { firstName: 'John', lastName: 'Doe', age: 30 };    `",
+              "options": [
+                "A) `person.name`",
+                "B) `person.lastName`",
+                "C) `person['age']`",
+                "D) `person[1]`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What will the following code output? `javascript    let colors = ['Red', 'Green', 'Blue'];    console.log(colors.length);    `",
+              "options": [
+                " A) 2",
+                "B) 3",
+                "C) 4",
+                "D) 5"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "DOM Manipulation",
+          "content": "1. How to access and modify the DOM (Document Object Model).\n2. Using JavaScript to change HTML content and styles.\n",
+          "lesson": "#Accessing the DOM\nYou can use methods like `getElementById`, `getElements\n\nByClassName`, and `querySelector` to access HTML elements.\n\nExample:\n`javascript\nlet element = document.getElementById('myElement');\n`\n\n#Modifying HTML Content\n`javascript\nlet header = document.getElementById('header');\nheader.innerHTML = 'New Header Text';\n`\n\n#Changing Styles\n`javascript\nheader.style.color = 'blue';\n`\n",
+          "quiz": [
+            {
+              "question": " Which method is used to access an element by its ID?",
+              "options": [
+                "A) `document.getElementById`",
+                "B) `document.querySelectorAll`",
+                "C) `document.getElementByClassName`",
+                "D) `document.querySelector`"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What will the following code do? `javascript    let paragraph = document.querySelector('p');    paragraph.style.fontSize = '20px';    `",
+              "options": [
+                "A) Change the font size of the first paragraph to 20px",
+                "B) Change the font size of all paragraphs to 20px",
+                "C) Change the font size of the paragraph with ID 'p' to 20px",
+                "D) Change the font size of the last paragraph to 20px"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": " How do you change the inner HTML of an element with the ID 'content'?",
+              "options": [
+                "A)`document.getElementById('content').innerHTML = 'New Content';`",
+                "B) `document.querySelector('content').innerHTML = 'New Content';`",
+                "C)`document.getElementByClassName('content').innerHTML = 'New Content';`",
+                "D)`document.getElementByTagName('content').innerHTML = 'New Content';`"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Event Handling",
+          "content": "1. How to handle events in JavaScript.\n2. Common events like click, mouseover, and keypress.\n",
+          "lesson": "#Adding Event Listeners\nUse `addEventListener` to attach events to elements.\n\nExample:\n`javascript\nlet button = document.getElementById('myButton');\nbutton.addEventListener('click', function() {\n    alert('Button clicked!');\n});\n`\n\n#Common Events:\n1. click: Triggered when an element is clicked.\n2. mouseover: Triggered when the mouse hovers over an element.\n3. keypress: Triggered when a key is pressed.\n\n",
+          "quiz": [
+            {
+              "question": "What is the correct way to attach a click event to a button with the ID 'submitBtn'?",
+              "options": [
+                "A) `submitBtn.on('click', function() {});`",
+                "B) `submitBtn.addEventListener('click', function() {});`",
+                "C) `submitBtn.click(function() {});`",
+                "D) `submitBtn.attachEvent('click', function() {});`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What event is triggered when a user hovers over an element?",
+              "options": [
+                "A) `hover`",
+                "B) `mouseover`",
+                "C) `mouseenter`",
+                "D) `mouseleave`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you remove an event listener?",
+              "options": [
+                "A) `element.removeEventListener('event', function);`",
+                "B) `element.detachEvent('event', function);`",
+                "C) `element.off('event', function);`",
+                "D) `element.deleteEventListener('event', function);`"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Working with Forms",
+          "content": "1. How to interact with form elements using JavaScript.\n2. Validating form inputs.\n",
+          "lesson": "#Accessing Form Elements\nYou can use `document.forms` to access form elements.\n\nExample:\n`javascript\nlet form = document.forms['myForm'];\nlet nameInput = form['name'];\n`\nInteracting with forms is a crucial aspect of web development. The document.forms property allows you to access form elements by their name or index. This is particularly useful when you need to retrieve user input or perform form validation using JavaScript.\n\n#Form Validation\n`javascript\nfunction validateForm() {\n    let x = document.forms['myForm']['name'].value;\n    if (x == '') {\n        alert('Name must be filled out');\n        return false;\n    }\n}\n`\n",
+          "quiz": [
+            {
+              "question": "How do you access the value of an input field with the name 'username' in a form named 'loginForm'?",
+              "options": [
+                "A) `document.forms['loginForm']['username'].value`",
+                "B) `document.forms['loginForm'].username.value`",
+                "C) `document.getElementById('username').value'",
+                " D) `document.forms.username.value`"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What will the following function do? `javascript    function validate() {        let email = document.forms['contactForm']['email'].value;        if (email == '') {            alert('Email must be filled out');            return false;        }    }    `",
+              "options": [
+                "A) Submit the form",
+                "B) Check if the email field is empty",
+                " C) Clear the email field",
+                "D) Return true if the email field is filled"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What method is used to prevent the default form submission?",
+              "options": [
+                "A) `stopPropagation`",
+                "B) `preventDefault`",
+                "C) `return false`",
+                "D) `stopDefault`"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Introduction to ES6",
+          "content": "1. New features in ES6 (ECMAScript 2015).\n2. Arrow functions, template literals, and `let`/`const`.\n",
+          "lesson": "ES6 introduced several new features and enhancements to JavaScript, making it more expressive and concise. Arrow functions provide a shorter syntax for defining functions, template literals allow interpolation of variables within strings, and let and const offer block-scoped variable declarations, providing more predictable behavior compared to var.\n\n#Arrow Functions\nConcise syntax for writing functions.\n\nExample:\n`javascript\nlet add = (a, b) => a + b;\nconsole.log(add(2, 3)); // 5\n`\n\n#Template Literals\nAllows embedding expressions within strings.\n\nExample:\n`javascript\nlet name = 'John';\nlet message = 'Hello, ${name}!';\nconsole.log(message); // \"Hello, John!\"\n`\n\n#'let' and 'const'\nBlock-scoped variables.\n\nExample:\n`javascript\nlet age = 30;\nconst birthYear = 1994;\n`\n",
+          "quiz": [
+            {
+              "question": "What is the advantage of using arrow functions in JavaScript?",
+              "options": [
+                "A) They are more powerful than regular functions.",
+                "B) They have a shorter syntax and bind the 'this' value lexically.",
+                "C) They can be used only in classes.",
+                "D) They are used for asynchronous operations."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you define a block-scoped variable in ES6?",
+              "options": [
+                "A) `var`",
+                "B) `let`",
+                "C) `const`",
+                "D) Both B and C"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What will the following code output? `javascript    let name = 'Alice';    let greeting = `Hello, ${name}!`;    console.log(greeting);    `",
+              "options": [
+                "A) \"Hello, Alice!\"",
+                "B) 'Hello, ${name}!'",
+                "C) \"Hello, name!\"",
+                "D) 'Hello, Alice!'"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        }
+      ],
+      "python": [
         {
           "title": "Python Syntax",
           "content": "#Python Syntax\n##Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n",
@@ -2439,9 +2734,337 @@
           "content": "# Знали ли вы, что лягушки могут прыгать?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## лягушки - очень хорошие животные, потому что они:\n- Могут прыгать высоко.\n- Могут не очень высоко прыгать.\n- Могут издавать кряк-кряк.\n\n## как работает мозг лягушки:\nЛягушки - очень умные большие мозги, которые могут делать многое, вот как работает их мозг:\n`while(!голоден && !сонлив) {\n  if(энергия > 0) {\n    прыгать();\n    крякать();\n  } else {\n    спать();\n  }\n}`",
           "lesson": "# Знали ли вы, что лягушки могут прыгать?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## лягушки - очень хорошие животные, потому что они:\n- Могут прыгать высоко.\n- Могут не очень высоко прыгать.\n- Могут издавать кряк-кряк.\n\n## как работает мозг лягушки:\nЛягушки - очень умные большие мозги, которые могут делать многое, вот как работает их мозг:\n`while(!голоден && !сонлив) {\n  if(энергия > 0) {\n    прыгать();\n    крякать();\n  } else {\n    спать();\n  }\n}`",
           "quiz": []
+        },
+        {
+          "title": "Variable and Data Types",
+          "content": "#1. How to declare and use variables in JavaScript.\n2. Understanding different data types.\n3. Basic operations on variables.\n",
+          "lesson": "#Variables in JavaScript\nVariables are containers for storing data values. You can declare a variable using `var`, `let`, or `const`.\n\nExample:\n`javascript\nlet name = 'John';\nconst age = 25;\nvar isStudent = true;\n`\n\n#Data Types\n1. String: Text, enclosed in quotes (`'Hello'`, `\"World\"`).\n2. Number: Numeric values (`25`, `3.14`).\n3. Boolean: True or false values (`true`, `false`).\n4. Undefined: A variable without a value.\n5. Null: Represents the intentional absence of any object value.\n\n#Basic Operations\n`javascript\nlet x = 10;\nlet y = 20;\nlet sum = x + y; // 30\nlet message = 'Hello, ' + 'World!'; // \"Hello, World!\"\n`\n",
+          "quiz": [
+            {
+              "question": "Which keyword is used to declare a variable that cannot be reassigned?",
+              "options": [
+                "A) var",
+                "B) let",
+                "C) const",
+                "D) int"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What is the data type of `true` in JavaScript?",
+              "options": [
+                "A) String",
+                "B) Number",
+                "C) Boolean",
+                "D) Undefined"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will the following code output? `javascript    let a = 5;    let b = '5';    console.log(a + b);    `",
+              "options": [
+                "A) 10",
+                "B) '55'",
+                "C) '10'",
+                "D) '5'"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Functions and Scope",
+          "content": "1. How to define and call functions in JavaScript.\n2. Understanding function scope and variable scope.\n",
+          "lesson": "#Functions\nFunctions are blocks of code designed to perform a particular task. They are executed when called.\n\nExample:\n`javascript\nfunction greet(name) {\n    return 'Hello, ' + name + '!';\n}\nlet message = greet('Alice'); // \"Hello, Alice!\"\n`\n\n#Scope\n1. Global Scope: Variables declared outside any function, accessible anywhere in the code.\n2. Local Scope: Variables declared within a function, accessible only within that function.\n\nExample:\n`javascript\nlet globalVar = 'I am global';\n\nfunction checkScope() {\n    let localVar = 'I am local';\n    console.log(globalVar); // Accessible\n    console.log(localVar);  // Accessible\n}\nconsole.log(globalVar); // Accessible\nconsole.log(localVar);  // Uncaught ReferenceError\n`\n\n\n",
+          "quiz": [
+            {
+              "question": "What is the correct way to define a function in JavaScript?",
+              "options": [
+                " A) `function myFunction() {}`",
+                "B) `myFunction function() {}`",
+                "C) `define myFunction() {}`",
+                " D) `function: myFunction() {}`"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What will the following code output? `javascript    function test() {        let x = 1;        if (true) {            let x = 2;            console.log(x);        }        console.log(x);    }    test();    `",
+              "options": [
+                " A) 1, 1",
+                "B) 2, 1",
+                "C) 1, 2",
+                "D) 2, 2"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which scope is a variable in when declared within a function?",
+              "options": [
+                "A) Global",
+                " B) Local",
+                "C) Block",
+                "D) Module"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Conditionals and Loops",
+          "content": "1. Using conditional statements to control the flow of your program.\n2. Different types of loops for repetitive tasks.\n",
+          "lesson": "#Conditionals\nConditional statements execute code based on a condition (`if`, `else`, `else if`).\n\nExample:\n`javascript\nlet age = 18;\nif (age >= 18) {\n    console.log('You are an adult.');\n} else {\n    console.log('You are a minor.');\n}\n`\n\n#Loops\nLoops repeat a block of code as long as a condition is met (`for`, `while`, `do...while`).\n\nExample:\n`javascript\nfor (let i = 0; i < 5; i++) {\n    console.log(i); // 0, 1, 2, 3, 4\n}\n\nlet count = 0;\nwhile (count < 5) {\n    console.log(count);\n    count++;\n}\n`\n\n",
+          "quiz": [
+            {
+              "question": "Which of the following is a conditional statement in JavaScript?",
+              "options": [
+                "A) `loop`",
+                "B) `switch`",
+                "C) `if`",
+                "D) `function`"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will the following code output? `javascript    let i = 0;    while (i < 3) {        console.log(i);        i++;    }    `",
+              "options": [
+                "A) 0, 1",
+                "B) 1, 2, 3",
+                "C) 0, 1, 2",
+                "D) 0, 1, 2, 3"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How do you create a loop that executes at least once regardless of the condition?",
+              "options": [
+                "A) `for` loop",
+                "B) `while` loop",
+                "C) `do...while` loop",
+                "D) `foreach` loop"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "Arrays and Objects",
+          "content": "1. How to work with arrays and objects.\n2. Basic operations on arrays and objects.\n",
+          "lesson": "#Arrays\nArrays are used to store multiple values in a single variable.\n\nExample:\n`javascript\nlet fruits = ['Apple', 'Banana', 'Cherry'];\nconsole.log(fruits[0]); // \"Apple\"\nconsole.log(fruits.length); // 3\n`\n\n#Objects\nObjects are collections of key-value pairs.\n\nExample:\n`javascript\nlet person = {\n    firstName: 'John',\n    lastName: 'Doe',\n    age: 30\n};\nconsole.log(person.firstName); // \"John\"\nconsole.log(person['lastName']); // \"Doe\"\n`\n",
+          "quiz": [
+            {
+              "question": "What is the correct way to declare an array in JavaScript?",
+              "options": [
+                "A) `let arr = 'Apple', 'Banana', 'Cherry';`",
+                "B) `let arr = ['Apple', 'Banana', 'Cherry'];`",
+                "C) `let arr = (Apple, Banana, Cherry);`",
+                "D) `let arr = {Apple, Banana, Cherry};`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you access the value \"Doe\" from the following object? `javascript    let person = { firstName: 'John', lastName: 'Doe', age: 30 };    `",
+              "options": [
+                "A) `person.name`",
+                "B) `person.lastName`",
+                "C) `person['age']`",
+                "D) `person[1]`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What will the following code output? `javascript    let colors = ['Red', 'Green', 'Blue'];    console.log(colors.length);    `",
+              "options": [
+                " A) 2",
+                "B) 3",
+                "C) 4",
+                "D) 5"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "DOM Manipulation",
+          "content": "1. How to access and modify the DOM (Document Object Model).\n2. Using JavaScript to change HTML content and styles.\n",
+          "lesson": "#Accessing the DOM\nYou can use methods like `getElementById`, `getElements\n\nByClassName`, and `querySelector` to access HTML elements.\n\nExample:\n`javascript\nlet element = document.getElementById('myElement');\n`\n\n#Modifying HTML Content\n`javascript\nlet header = document.getElementById('header');\nheader.innerHTML = 'New Header Text';\n`\n\n#Changing Styles\n`javascript\nheader.style.color = 'blue';\n`\n",
+          "quiz": [
+            {
+              "question": " Which method is used to access an element by its ID?",
+              "options": [
+                "A) `document.getElementById`",
+                "B) `document.querySelectorAll`",
+                "C) `document.getElementByClassName`",
+                "D) `document.querySelector`"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What will the following code do? `javascript    let paragraph = document.querySelector('p');    paragraph.style.fontSize = '20px';    `",
+              "options": [
+                "A) Change the font size of the first paragraph to 20px",
+                "B) Change the font size of all paragraphs to 20px",
+                "C) Change the font size of the paragraph with ID 'p' to 20px",
+                "D) Change the font size of the last paragraph to 20px"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": " How do you change the inner HTML of an element with the ID 'content'?",
+              "options": [
+                "A)`document.getElementById('content').innerHTML = 'New Content';`",
+                "B) `document.querySelector('content').innerHTML = 'New Content';`",
+                "C)`document.getElementByClassName('content').innerHTML = 'New Content';`",
+                "D)`document.getElementByTagName('content').innerHTML = 'New Content';`"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Event Handling",
+          "content": "1. How to handle events in JavaScript.\n2. Common events like click, mouseover, and keypress.\n",
+          "lesson": "#Adding Event Listeners\nUse `addEventListener` to attach events to elements.\n\nExample:\n`javascript\nlet button = document.getElementById('myButton');\nbutton.addEventListener('click', function() {\n    alert('Button clicked!');\n});\n`\n\n#Common Events:\n1. click: Triggered when an element is clicked.\n2. mouseover: Triggered when the mouse hovers over an element.\n3. keypress: Triggered when a key is pressed.\n\n",
+          "quiz": [
+            {
+              "question": "What is the correct way to attach a click event to a button with the ID 'submitBtn'?",
+              "options": [
+                "A) `submitBtn.on('click', function() {});`",
+                "B) `submitBtn.addEventListener('click', function() {});`",
+                "C) `submitBtn.click(function() {});`",
+                "D) `submitBtn.attachEvent('click', function() {});`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What event is triggered when a user hovers over an element?",
+              "options": [
+                "A) `hover`",
+                "B) `mouseover`",
+                "C) `mouseenter`",
+                "D) `mouseleave`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you remove an event listener?",
+              "options": [
+                "A) `element.removeEventListener('event', function);`",
+                "B) `element.detachEvent('event', function);`",
+                "C) `element.off('event', function);`",
+                "D) `element.deleteEventListener('event', function);`"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Working with Forms",
+          "content": "1. How to interact with form elements using JavaScript.\n2. Validating form inputs.\n",
+          "lesson": "#Accessing Form Elements\nYou can use `document.forms` to access form elements.\n\nExample:\n`javascript\nlet form = document.forms['myForm'];\nlet nameInput = form['name'];\n`\nInteracting with forms is a crucial aspect of web development. The document.forms property allows you to access form elements by their name or index. This is particularly useful when you need to retrieve user input or perform form validation using JavaScript.\n\n#Form Validation\n`javascript\nfunction validateForm() {\n    let x = document.forms['myForm']['name'].value;\n    if (x == '') {\n        alert('Name must be filled out');\n        return false;\n    }\n}\n`\n",
+          "quiz": [
+            {
+              "question": "How do you access the value of an input field with the name 'username' in a form named 'loginForm'?",
+              "options": [
+                "A) `document.forms['loginForm']['username'].value`",
+                "B) `document.forms['loginForm'].username.value`",
+                "C) `document.getElementById('username').value'",
+                " D) `document.forms.username.value`"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What will the following function do? `javascript    function validate() {        let email = document.forms['contactForm']['email'].value;        if (email == '') {            alert('Email must be filled out');            return false;        }    }    `",
+              "options": [
+                "A) Submit the form",
+                "B) Check if the email field is empty",
+                " C) Clear the email field",
+                "D) Return true if the email field is filled"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What method is used to prevent the default form submission?",
+              "options": [
+                "A) `stopPropagation`",
+                "B) `preventDefault`",
+                "C) `return false`",
+                "D) `stopDefault`"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Introduction to ES6",
+          "content": "1. New features in ES6 (ECMAScript 2015).\n2. Arrow functions, template literals, and `let`/`const`.\n",
+          "lesson": "ES6 introduced several new features and enhancements to JavaScript, making it more expressive and concise. Arrow functions provide a shorter syntax for defining functions, template literals allow interpolation of variables within strings, and let and const offer block-scoped variable declarations, providing more predictable behavior compared to var.\n\n#Arrow Functions\nConcise syntax for writing functions.\n\nExample:\n`javascript\nlet add = (a, b) => a + b;\nconsole.log(add(2, 3)); // 5\n`\n\n#Template Literals\nAllows embedding expressions within strings.\n\nExample:\n`javascript\nlet name = 'John';\nlet message = 'Hello, ${name}!';\nconsole.log(message); // \"Hello, John!\"\n`\n\n#'let' and 'const'\nBlock-scoped variables.\n\nExample:\n`javascript\nlet age = 30;\nconst birthYear = 1994;\n`\n",
+          "quiz": [
+            {
+              "question": "What is the advantage of using arrow functions in JavaScript?",
+              "options": [
+                "A) They are more powerful than regular functions.",
+                "B) They have a shorter syntax and bind the 'this' value lexically.",
+                "C) They can be used only in classes.",
+                "D) They are used for asynchronous operations."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you define a block-scoped variable in ES6?",
+              "options": [
+                "A) `var`",
+                "B) `let`",
+                "C) `const`",
+                "D) Both B and C"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What will the following code output? `javascript    let name = 'Alice';    let greeting = `Hello, ${name}!`;    console.log(greeting);    `",
+              "options": [
+                "A) \"Hello, Alice!\"",
+                "B) 'Hello, ${name}!'",
+                "C) \"Hello, name!\"",
+                "D) 'Hello, Alice!'"
+              ],
+              "correctAnswer": 0
+            }
+          ]
         }
       ],
       "python": [
+        {
+          "title": "Gay",
+          "content": "#Gay\n##MiniGay\n",
+          "lesson": "# Blank lesson",
+          "quiz": [
+            {
+              "question": "GAy",
+              "options": [
+                "Me",
+                "You"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Python Syntax",
+          "content": "##Python Syntax\n#Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n'if 5 > 2:\n    print(\"5 is greater than 2\")'\n",
+          "lesson": "Application: Pay attention to indentation when writing Python code. Proper indentation is crucial for readability and ensures that your code functions as intended.",
+          "quiz": [
+            {
+              "question": "How do we denote a multi-line block of code in Python?",
+              "options": [
+                " Using square brackets []",
+                " Using parentheses ()",
+                "Using curly braces {}",
+                " Using indentation"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        },
         {
           "title": "Python Syntax",
           "content": "#Python Syntax\n##Python syntax is designed to be clear and concise, making it easy to write and understand code. Statements are typically written on separate lines, and indentation is used to indicate code blocks.\n",
@@ -3909,6 +4532,302 @@
           "content": "# Stiati ca broastele pot sari?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## broastele sunt animale foarte bune pentru ca ele:\n- Pot sari inalt.\n- Pot sari nu foarte inalt.\n- Pot face sunetul quack.\n\n## cum functioneaza creierul broastei:\nBroastele sunt animale cu creier mare foarte inteligente, care pot face multe, iata cum functioneaza creierul lor:\n`while(!flamanzi && !somnoros) {\n  if(energie > 0) {\n    sare();\n    quack();\n  } else {\n    doarme();\n  }\n}`",
           "lesson": "# Stiati ca broastele pot sari?\n$https://i.natgeofe.com/k/8fa25ea4-6409-47fb-b3cc-4af8e0dc9616/red-eyed-tree-frog-on-leaves-3-2_3x4.jpg\n## broastele sunt animale foarte bune pentru ca ele:\n- Pot sari inalt.\n- Pot sari nu foarte inalt.\n- Pot face sunetul quack.\n\n## cum functioneaza creierul broastei:\nBroastele sunt animale cu creier mare foarte inteligente, care pot face multe, iata cum functioneaza creierul lor:\n`while(!flamanzi && !somnoros) {\n  if(energie > 0) {\n    sare();\n    quack();\n  } else {\n    doarme();\n  }\n}`",
           "quiz": []
+        },
+        {
+          "title": "Variable and Data Types",
+          "content": "#1. How to declare and use variables in JavaScript.\n2. Understanding different data types.\n3. Basic operations on variables.\n",
+          "lesson": "#Variables in JavaScript\nVariables are containers for storing data values. You can declare a variable using `var`, `let`, or `const`.\n\nExample:\n`javascript\nlet name = 'John';\nconst age = 25;\nvar isStudent = true;\n`\n\n#Data Types\n1. String: Text, enclosed in quotes (`'Hello'`, `\"World\"`).\n2. Number: Numeric values (`25`, `3.14`).\n3. Boolean: True or false values (`true`, `false`).\n4. Undefined: A variable without a value.\n5. Null: Represents the intentional absence of any object value.\n\n#Basic Operations\n`javascript\nlet x = 10;\nlet y = 20;\nlet sum = x + y; // 30\nlet message = 'Hello, ' + 'World!'; // \"Hello, World!\"\n`\n",
+          "quiz": [
+            {
+              "question": "Which keyword is used to declare a variable that cannot be reassigned?",
+              "options": [
+                "A) var",
+                "B) let",
+                "C) const",
+                "D) int"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What is the data type of `true` in JavaScript?",
+              "options": [
+                "A) String",
+                "B) Number",
+                "C) Boolean",
+                "D) Undefined"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will the following code output? `javascript    let a = 5;    let b = '5';    console.log(a + b);    `",
+              "options": [
+                "A) 10",
+                "B) '55'",
+                "C) '10'",
+                "D) '5'"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Functions and Scope",
+          "content": "1. How to define and call functions in JavaScript.\n2. Understanding function scope and variable scope.\n",
+          "lesson": "#Functions\nFunctions are blocks of code designed to perform a particular task. They are executed when called.\n\nExample:\n`javascript\nfunction greet(name) {\n    return 'Hello, ' + name + '!';\n}\nlet message = greet('Alice'); // \"Hello, Alice!\"\n`\n\n#Scope\n1. Global Scope: Variables declared outside any function, accessible anywhere in the code.\n2. Local Scope: Variables declared within a function, accessible only within that function.\n\nExample:\n`javascript\nlet globalVar = 'I am global';\n\nfunction checkScope() {\n    let localVar = 'I am local';\n    console.log(globalVar); // Accessible\n    console.log(localVar);  // Accessible\n}\nconsole.log(globalVar); // Accessible\nconsole.log(localVar);  // Uncaught ReferenceError\n`\n\n\n",
+          "quiz": [
+            {
+              "question": "What is the correct way to define a function in JavaScript?",
+              "options": [
+                " A) `function myFunction() {}`",
+                "B) `myFunction function() {}`",
+                "C) `define myFunction() {}`",
+                " D) `function: myFunction() {}`"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What will the following code output? `javascript    function test() {        let x = 1;        if (true) {            let x = 2;            console.log(x);        }        console.log(x);    }    test();    `",
+              "options": [
+                " A) 1, 1",
+                "B) 2, 1",
+                "C) 1, 2",
+                "D) 2, 2"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which scope is a variable in when declared within a function?",
+              "options": [
+                "A) Global",
+                " B) Local",
+                "C) Block",
+                "D) Module"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Conditionals and Loops",
+          "content": "1. Using conditional statements to control the flow of your program.\n2. Different types of loops for repetitive tasks.\n",
+          "lesson": "#Conditionals\nConditional statements execute code based on a condition (`if`, `else`, `else if`).\n\nExample:\n`javascript\nlet age = 18;\nif (age >= 18) {\n    console.log('You are an adult.');\n} else {\n    console.log('You are a minor.');\n}\n`\n\n#Loops\nLoops repeat a block of code as long as a condition is met (`for`, `while`, `do...while`).\n\nExample:\n`javascript\nfor (let i = 0; i < 5; i++) {\n    console.log(i); // 0, 1, 2, 3, 4\n}\n\nlet count = 0;\nwhile (count < 5) {\n    console.log(count);\n    count++;\n}\n`\n\n",
+          "quiz": [
+            {
+              "question": "Which of the following is a conditional statement in JavaScript?",
+              "options": [
+                "A) `loop`",
+                "B) `switch`",
+                "C) `if`",
+                "D) `function`"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "What will the following code output? `javascript    let i = 0;    while (i < 3) {        console.log(i);        i++;    }    `",
+              "options": [
+                "A) 0, 1",
+                "B) 1, 2, 3",
+                "C) 0, 1, 2",
+                "D) 0, 1, 2, 3"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How do you create a loop that executes at least once regardless of the condition?",
+              "options": [
+                "A) `for` loop",
+                "B) `while` loop",
+                "C) `do...while` loop",
+                "D) `foreach` loop"
+              ],
+              "correctAnswer": 2
+            }
+          ]
+        },
+        {
+          "title": "Arrays and Objects",
+          "content": "1. How to work with arrays and objects.\n2. Basic operations on arrays and objects.\n",
+          "lesson": "#Arrays\nArrays are used to store multiple values in a single variable.\n\nExample:\n`javascript\nlet fruits = ['Apple', 'Banana', 'Cherry'];\nconsole.log(fruits[0]); // \"Apple\"\nconsole.log(fruits.length); // 3\n`\n\n#Objects\nObjects are collections of key-value pairs.\n\nExample:\n`javascript\nlet person = {\n    firstName: 'John',\n    lastName: 'Doe',\n    age: 30\n};\nconsole.log(person.firstName); // \"John\"\nconsole.log(person['lastName']); // \"Doe\"\n`\n",
+          "quiz": [
+            {
+              "question": "What is the correct way to declare an array in JavaScript?",
+              "options": [
+                "A) `let arr = 'Apple', 'Banana', 'Cherry';`",
+                "B) `let arr = ['Apple', 'Banana', 'Cherry'];`",
+                "C) `let arr = (Apple, Banana, Cherry);`",
+                "D) `let arr = {Apple, Banana, Cherry};`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you access the value \"Doe\" from the following object? `javascript    let person = { firstName: 'John', lastName: 'Doe', age: 30 };    `",
+              "options": [
+                "A) `person.name`",
+                "B) `person.lastName`",
+                "C) `person['age']`",
+                "D) `person[1]`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What will the following code output? `javascript    let colors = ['Red', 'Green', 'Blue'];    console.log(colors.length);    `",
+              "options": [
+                " A) 2",
+                "B) 3",
+                "C) 4",
+                "D) 5"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "DOM Manipulation",
+          "content": "1. How to access and modify the DOM (Document Object Model).\n2. Using JavaScript to change HTML content and styles.\n",
+          "lesson": "#Accessing the DOM\nYou can use methods like `getElementById`, `getElements\n\nByClassName`, and `querySelector` to access HTML elements.\n\nExample:\n`javascript\nlet element = document.getElementById('myElement');\n`\n\n#Modifying HTML Content\n`javascript\nlet header = document.getElementById('header');\nheader.innerHTML = 'New Header Text';\n`\n\n#Changing Styles\n`javascript\nheader.style.color = 'blue';\n`\n",
+          "quiz": [
+            {
+              "question": " Which method is used to access an element by its ID?",
+              "options": [
+                "A) `document.getElementById`",
+                "B) `document.querySelectorAll`",
+                "C) `document.getElementByClassName`",
+                "D) `document.querySelector`"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What will the following code do? `javascript    let paragraph = document.querySelector('p');    paragraph.style.fontSize = '20px';    `",
+              "options": [
+                "A) Change the font size of the first paragraph to 20px",
+                "B) Change the font size of all paragraphs to 20px",
+                "C) Change the font size of the paragraph with ID 'p' to 20px",
+                "D) Change the font size of the last paragraph to 20px"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": " How do you change the inner HTML of an element with the ID 'content'?",
+              "options": [
+                "A)`document.getElementById('content').innerHTML = 'New Content';`",
+                "B) `document.querySelector('content').innerHTML = 'New Content';`",
+                "C)`document.getElementByClassName('content').innerHTML = 'New Content';`",
+                "D)`document.getElementByTagName('content').innerHTML = 'New Content';`"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Event Handling",
+          "content": "1. How to handle events in JavaScript.\n2. Common events like click, mouseover, and keypress.\n",
+          "lesson": "#Adding Event Listeners\nUse `addEventListener` to attach events to elements.\n\nExample:\n`javascript\nlet button = document.getElementById('myButton');\nbutton.addEventListener('click', function() {\n    alert('Button clicked!');\n});\n`\n\n#Common Events:\n1. click: Triggered when an element is clicked.\n2. mouseover: Triggered when the mouse hovers over an element.\n3. keypress: Triggered when a key is pressed.\n\n",
+          "quiz": [
+            {
+              "question": "What is the correct way to attach a click event to a button with the ID 'submitBtn'?",
+              "options": [
+                "A) `submitBtn.on('click', function() {});`",
+                "B) `submitBtn.addEventListener('click', function() {});`",
+                "C) `submitBtn.click(function() {});`",
+                "D) `submitBtn.attachEvent('click', function() {});`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What event is triggered when a user hovers over an element?",
+              "options": [
+                "A) `hover`",
+                "B) `mouseover`",
+                "C) `mouseenter`",
+                "D) `mouseleave`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you remove an event listener?",
+              "options": [
+                "A) `element.removeEventListener('event', function);`",
+                "B) `element.detachEvent('event', function);`",
+                "C) `element.off('event', function);`",
+                "D) `element.deleteEventListener('event', function);`"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "Working with Forms",
+          "content": "1. How to interact with form elements using JavaScript.\n2. Validating form inputs.\n",
+          "lesson": "#Accessing Form Elements\nYou can use `document.forms` to access form elements.\n\nExample:\n`javascript\nlet form = document.forms['myForm'];\nlet nameInput = form['name'];\n`\nInteracting with forms is a crucial aspect of web development. The document.forms property allows you to access form elements by their name or index. This is particularly useful when you need to retrieve user input or perform form validation using JavaScript.\n\n#Form Validation\n`javascript\nfunction validateForm() {\n    let x = document.forms['myForm']['name'].value;\n    if (x == '') {\n        alert('Name must be filled out');\n        return false;\n    }\n}\n`\n",
+          "quiz": [
+            {
+              "question": "How do you access the value of an input field with the name 'username' in a form named 'loginForm'?",
+              "options": [
+                "A) `document.forms['loginForm']['username'].value`",
+                "B) `document.forms['loginForm'].username.value`",
+                "C) `document.getElementById('username').value'",
+                " D) `document.forms.username.value`"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What will the following function do? `javascript    function validate() {        let email = document.forms['contactForm']['email'].value;        if (email == '') {            alert('Email must be filled out');            return false;        }    }    `",
+              "options": [
+                "A) Submit the form",
+                "B) Check if the email field is empty",
+                " C) Clear the email field",
+                "D) Return true if the email field is filled"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What method is used to prevent the default form submission?",
+              "options": [
+                "A) `stopPropagation`",
+                "B) `preventDefault`",
+                "C) `return false`",
+                "D) `stopDefault`"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "Introduction to ES6",
+          "content": "1. New features in ES6 (ECMAScript 2015).\n2. Arrow functions, template literals, and `let`/`const`.\n",
+          "lesson": "ES6 introduced several new features and enhancements to JavaScript, making it more expressive and concise. Arrow functions provide a shorter syntax for defining functions, template literals allow interpolation of variables within strings, and let and const offer block-scoped variable declarations, providing more predictable behavior compared to var.\n\n#Arrow Functions\nConcise syntax for writing functions.\n\nExample:\n`javascript\nlet add = (a, b) => a + b;\nconsole.log(add(2, 3)); // 5\n`\n\n#Template Literals\nAllows embedding expressions within strings.\n\nExample:\n`javascript\nlet name = 'John';\nlet message = 'Hello, ${name}!';\nconsole.log(message); // \"Hello, John!\"\n`\n\n#'let' and 'const'\nBlock-scoped variables.\n\nExample:\n`javascript\nlet age = 30;\nconst birthYear = 1994;\n`\n",
+          "quiz": [
+            {
+              "question": "What is the advantage of using arrow functions in JavaScript?",
+              "options": [
+                "A) They are more powerful than regular functions.",
+                "B) They have a shorter syntax and bind the 'this' value lexically.",
+                "C) They can be used only in classes.",
+                "D) They are used for asynchronous operations."
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How do you define a block-scoped variable in ES6?",
+              "options": [
+                "A) `var`",
+                "B) `let`",
+                "C) `const`",
+                "D) Both B and C"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "What will the following code output? `javascript    let name = 'Alice';    let greeting = `Hello, ${name}!`;    console.log(greeting);    `",
+              "options": [
+                "A) \"Hello, Alice!\"",
+                "B) 'Hello, ${name}!'",
+                "C) \"Hello, name!\"",
+                "D) 'Hello, Alice!'"
+              ],
+              "correctAnswer": 0
+            }
+          ]
         }
       ],
       "python": [
@@ -4128,7 +5047,7 @@
                 " Using the break keyword",
                 "Using the continue keyword",
                 "Using the return keyword",
-                "None of the aboveee"
+                "None of the above"
               ],
               "correctAnswer": 0
             }
