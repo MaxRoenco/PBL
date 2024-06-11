@@ -97,8 +97,8 @@ trackDragDirection();
 unMute()
 
 
-setInterval(_=>{
-    updateHearts(progression["hearts"]+1);
-}, 1000);
+// setInterval(_=>{
+//     updateHearts(progression["hearts"]+1);
+// }, 1000);
 
 
