@@ -423,8 +423,6 @@ function createLesson() {
             })
         } else {
             dataSet["en"]["categories"][cat].push(obj);
-            dataSet["ru"]["categories"][cat].push(obj);
-            dataSet["ro"]["categories"][cat].push(obj);
             saveData(dataSet);
             moveToLesson(cat, dataSet, 'r');
             resetAreas();
