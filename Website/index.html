@@ -43,10 +43,10 @@
         <img src="./assets/images/home.png" alt="" class="profileImage" onclick="openProfile()">
     </div>
     <div class="returnContainer" id="categoriesReturn">
-        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="openTab('home', 'l')">
+        <button class="returnButton" onclick="openTab('home', 'l')">Go back</button>
     </div>
     <div class="returnContainer" id="lessonsReturn">
-        <img src="./assets/images/return.png" alt="" class="returnImage" onclick="lessonsReturnHandler()">
+        <button class="returnButton" onclick="lessonsReturnHandler()">Go back</button>
     </div>
     <div id="createBtn" onclick="openTab('actions')">+</div>
     <div id="notificationAdd">Added 5 diamonds</div>
@@ -75,9 +75,11 @@
         <div class="container homeContainer" data-tab="home">
             <div class="titleContainer">
                 <p class="title" id="titleMain"></p>
+                <img src="./assets/images/codify.png" alt="" class="codify">
+            
             </div>
-            <img src="./assets/images/codify.png" alt="" class="codify">
             <div class="buttonContainer">
+                <p>Discover a new programming language with us!</p>
                 <button class="button" id="buttonStart" onclick="openTab('categories', 'r')">Start</button>
             </div>
         </div>
