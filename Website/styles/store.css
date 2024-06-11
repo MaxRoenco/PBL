@@ -4,9 +4,15 @@
 
 .storeItem {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 50%;
     border: 3px solid white;
     border-radius: 5px;
-    padding: 20px 30px;
+    padding: 10px 15px;
+    align-items: center;
+}
+
+.storeItem>img {
+    max-width: 100px;
+    aspect-ratio: 1/1;
 }
