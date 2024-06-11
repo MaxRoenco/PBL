@@ -99,6 +99,11 @@ function openTab(tabName, dir) {
         }, 15)
     }, 250)
     currentTab = tabName;
+    
+    if(tabName === "actions" || tabName === "home") {
+        editMode = false;
+        previewMode = false;
+    }
 
     if(tabName === 'categories') {
         let cats = ['html', 'css', 'js', 'python', 'c', 'cpp'];
@@ -411,6 +416,7 @@ function createLesson() {
         previewMode = true;
     })
     addBtn.addEventListener("click", _ => {
+        console.log(editMode)
         if(editMode) {
             console.log(editCategory);
             dataSet["en"]["categories"][editCategory].forEach((ele, i) => {
@@ -500,7 +506,7 @@ function removeLessonHandler() {
         clearQuestions();
         document.getElementById("allQuestions").replaceChildren();
         less["quiz"].forEach(ele => {
-            addQuestionElement(ele["question"], ele["correctAnswer"], ele["options"]);
+            addQuestionElement(ele["question"], ele["options"][ele["correctAnswer"]], ele["options"]);
         })
         openTab('titleCreator', 'r');
         editCategory = cat;
@@ -630,7 +636,6 @@ function resultsHome() {
         openTab('home', 'l');
     }
     previewMode = false;
-    editMode = false;
 }
 
 function openProfile() {
@@ -977,5 +982,6 @@ window.logOut = logOut;
 window.claim = claim;
 window.editLesson = editLesson;
 window.removeLesson = removeLesson;
+window.editMode = editMode;
 
 export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
