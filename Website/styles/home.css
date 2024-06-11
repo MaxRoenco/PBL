@@ -1,6 +1,13 @@
 .homeContainer {
-    width: 70%;
-    width: 70%;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+
+    img {
+        width: 45vh;
+        height: 15vh;
+    }
 }
 
 .settingsContainer {
@@ -13,7 +20,7 @@
 
 .profileImage,
 .settingsImage {
-    width: 100%;
+    width: 60%;
     filter: invert(1);
     transition: filter 0.5s ease;
 }
@@ -51,14 +58,14 @@
 
 .codify {
 
-    width: 70%;
+    width: 50%;
     max-width: 700px;
     transition: filter 0.5s ease;
 }
 
 @media (max-height: 450px) {
     .codify {
-        margin-top: 20px;
+        margin-top: 25px;
     }
 }
 

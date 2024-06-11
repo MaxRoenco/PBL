@@ -12,7 +12,7 @@ let defaultProgression = {
     "c":0,
     "cpp": 0,
     "diamonds": 0,
-    "hearts": 10,
+    "hearts": 100,
     "language": 'en',
     "soundOn": true,
     "swipeOn": true,
@@ -23,7 +23,20 @@ let defaultProgression = {
     "pythonDone": false,
     "cDone": false,
     "cppDone": false,
+    "giga": 0,
+    "gigaClaimed": false,
+    "gigaDone": false,
+    "crazy": 0,
+    "crazyClaimed": false,
+    "crazyDone": false,
+    "designer": 0,
+    "designerClaimed": 0,
+    "designerDone": false,
+    "doom": 0,
+    "doomClaimed": 0,
+    "doomDone": false,
 }
+
 let progression = JSON.parse(JSON.stringify(defaultProgression));
 let currCategory = "";
 let currLevel = 0;
@@ -36,6 +49,7 @@ let muted = false;
 let editMode = false;
 let editTitle = "";
 let editCategory = "";
+let boosted = false;
 
 
 function loadProgression() {
@@ -291,7 +305,7 @@ function showResults(total) {
         per.textContent = `${Math.floor(correct*100/total)}%`
         cir.style.display = '';
         if(currLevel === progression[currCategory] && !previewMode && completedQuiz) {
-            updateDiamonds(progression["diamonds"]+100);
+            updateDiamonds(progression["diamonds"]+100*(boosted+1));
         }
     } else {
         if(lang === 'ru') {
@@ -748,11 +762,20 @@ function updateDiamonds(count, silent) {
         } else {
             thingo = 'diamonds';
         }
+        if(diff>0) updateAch("giga", progression["giga"]+diff, 1000);
         notify((diff > 0 ? "+"+diff : diff) + " " + thingo, "./assets/images/diamands.png");
     }
     updateProgression("diamonds", count);
     let profileDiamonds = document.getElementById("diamondsCount")
     profileDiamonds.textContent = count;
+}
+
+function updateAch(ach, value, total) {
+    if(value > total) value = total;
+    updateProgression(ach, value);
+    let ele = document.querySelector("#" + ach + "Progress");
+    ele.textContent = value + "/" + total;
+
 }
 
 function updateHearts(count, silent) {

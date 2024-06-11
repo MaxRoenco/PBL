@@ -32,7 +32,7 @@ body {
 .container {
     width: 70%;
     height: 70%;
-    background-color: #2D3250;
+    /* background-color: #2D3250;
     border-radius: 40px;
     border: solid rgb(255, 255, 255) 4px;
     color: white;
@@ -41,17 +41,35 @@ body {
     justify-content: space-around;
     align-items: center;
     box-shadow: 0 8px 12px rgba(0.2, 0.2, 0.2, 0.5);
-    transition: transform 250ms ease;
-    overflow-y: scroll;
+    transition: transform 250ms ease; */
+    /* overflow-y: scroll; */
 }
 
 .titleContainer {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 30%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-color: #2D3250;
+    border-radius: 40px;
+    margin-top: 60px;
+    margin-left: 70px;
+    /* border: solid rgb(255, 255, 255) 4px; */
+    color: white;
     display: flex;
-    align-items: start;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 8px 12px rgba(0.2, 0.2, 0.2, 0.5);
+    transition: transform 250ms ease;
 }
+
+.codify {
+    margin-bottom: 15px;
+    /* background-color: aqua; */
+}
+
 
 .title {
     font-size: 64px;
@@ -114,6 +132,20 @@ img {
     filter: invert(1) drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 }
 
+.returnButton {
+    width: 85px;
+    height: 55px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color:#2D3250;
+    border-color: #2D3250;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 12px rgba(0.2, 0.2, 0.2, 0.5);
+    transition: transform 250ms ease;
+    font-size: 16px;
+}
+
 .hidden {
     opacity: 0;
     pointer-events: none;
@@ -121,29 +153,48 @@ img {
 
 .buttonContainer {
     width: 100%;
-    height: 100%;
+    /* height: 60%; */
+    margin-top: 8%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
+
+    p {
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 10px;
+        font-family: 'Trebuchet MS', sans-serif;
+        text-align: center;
+        overflow: hidden;
+        width: 30em;
+        white-space: nowrap;
+        animation: type 4s steps(300, end); 
+    }
 }
 
+@keyframes type{ 
+    from { width: 0px; } 
+  } 
+
 .button {
-    margin-top: 10px;
-    padding: 20px 40px;
-    max-width: 400px;
+    margin-top: 10%;
     height: 80px;
-    border: 3px solid;
+    padding: 10px 40px;
+    max-width: 400px;
+    /* height: 25%; */
+    border: 1px solid;
     border-radius: 20px;
-    background: #424769;
+    background-color:#2D3250;
     color: white;
     /* Font */
-    font-size: 32px;
+    font-size: 30px;
     font-family: "Manrope", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
-    text-align: center;
 
     transform: translateY(0px);
     filter: drop-shadow(2px 4px 1px white);
