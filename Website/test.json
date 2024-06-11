@@ -1504,27 +1504,27 @@
             {
               "question": "What does #include <stdio.h> do in a C program?",
               "options": [
-                "It defines the main function.",
-                "It includes the Standard Input Output library.",
-                "It prints text to the screen."
+                "A) It defines the main function.",
+                "B) It includes the Standard Input Output library.",
+                "C) It prints text to the screen."
               ],
               "correctAnswer": 1
             },
             {
               "question": "Which of the following statements is correct to print \"Hello World!\"?",
               "options": [
-                "printf(\"Hello World!\")",
-                "print(\"Hello World!\");",
-                "printf(\"Hello World!\");"
+                "A) printf(\"Hello World!\")",
+                "B) print(\"Hello World!\");",
+                "C) printf(\"Hello World!\");"
               ],
               "correctAnswer": 2
             },
             {
               "question": "What will happen if you forget the semicolon at the end of a statement?",
               "options": [
-                "The program will run normally.",
-                "The program will print an error and not run.",
-                "The program will ignore the statement."
+                "A)The program will run normally.",
+                "B) The program will print an error and not run.",
+                "C) The program will ignore the statement."
               ],
               "correctAnswer": 1
             }
@@ -1538,27 +1538,27 @@
             {
               "question": "What will happen if you forget to put double quotes around text in printf()?",
               "options": [
-                "The text will be printed as is.",
-                "An error will occur.",
-                "The text will be ignored."
+                "A) The text will be printed as is.",
+                "B) An error will occur.",
+                "C) The text will be ignored."
               ],
               "correctAnswer": 1
             },
             {
               "question": "How do you insert a new line in a C program?",
               "options": [
-                "By using \\\\n",
-                " By using \\n",
-                "By using newLine()"
+                "A) By using \\\\n",
+                "B) By using \\n",
+                "C) By using newLine()"
               ],
               "correctAnswer": 1
             },
             {
               "question": "Which escape sequence creates a horizontal tab?",
               "options": [
-                "\\n",
-                "\\\\",
-                "\\t"
+                "A) \\n",
+                "B) \\\\",
+                "C) \\t"
               ],
               "correctAnswer": 2
             }
@@ -1572,27 +1572,27 @@
             {
               "question": "How do you start a single-line comment in C?",
               "options": [
-                "/*",
-                "//",
-                "#"
+                "A) /*",
+                "B) //",
+                "C) #"
               ],
               "correctAnswer": 1
             },
             {
               "question": "How do you end a multi-line comment in C?",
               "options": [
-                "*/",
-                "//",
-                "**"
+                "A) */",
+                "B) //",
+                "C) **"
               ],
               "correctAnswer": 0
             },
             {
               "question": "Why are comments used in C?",
               "options": [
-                "To change the program’s execution.",
-                "To explain code and make it more readable.",
-                "To compile the program faster."
+                "A) To change the program’s execution.",
+                "B) To explain code and make it more readable.",
+                "C) To compile the program faster."
               ],
               "correctAnswer": 1
             }
@@ -1606,27 +1606,27 @@
             {
               "question": "How do you declare an integer variable x and assign it the value 10?",
               "options": [
-                "int x; x = 10;",
-                "int x = 10;",
-                "Both A and B"
+                "A) int x; x = 10;",
+                "B) int x = 10;",
+                "C) Both A and B"
               ],
               "correctAnswer": 2
             },
             {
               "question": "What format specifier is used for a floating point number?",
               "options": [
-                "%d",
-                "%f",
-                "%c"
+                "A) %d",
+                "B) %f",
+                "C) %c"
               ],
               "correctAnswer": 1
             },
             {
               "question": "Which of the following is a valid variable name?",
               "options": [
-                "2ndVariable",
-                "variable_2",
-                "variable-2"
+                "A) 2ndVariable",
+                "B) variable_2",
+                "C) variable-2"
               ],
               "correctAnswer": 1
             }
@@ -1640,29 +1640,29 @@
             {
               "question": "What format specifier is used for integers in printf()?",
               "options": [
-                "%i",
-                "%d",
-                "%f",
-                "A and B",
-                "B and C"
+                "A) %i",
+                "B) %d",
+                "C) %f",
+                "D) A and B",
+                "E) B and C"
               ],
               "correctAnswer": 3
             },
             {
               "question": "Which data type stores a single character in C?",
               "options": [
-                "int",
-                "float",
-                "char"
+                "A) int",
+                "B) float",
+                "C) char"
               ],
               "correctAnswer": 2
             },
             {
               "question": "How do you control the decimal precision of a floating-point number to two decimal places?",
               "options": [
-                "%.2f",
-                "%2f",
-                "%.f"
+                "A) %.2f",
+                "B) %2f",
+                "C) %.f"
               ],
               "correctAnswer": 0
             }
@@ -1676,30 +1676,30 @@
             {
               "question": "What keyword is used to declare constants in C?",
               "options": [
-                "var",
-                "let",
-                "const",
-                "final"
+                "A) var",
+                "B) let",
+                "C) const",
+                "D) final"
               ],
               "correctAnswer": 2
             },
             {
               "question": "Which of the following statements about constants is true?",
               "options": [
-                "Constants can be modified after declaration.",
-                "Constants must be assigned a value during declaration.",
-                "Constants are declared using the \"volatile\" keyword.",
-                "Constants have dynamic values."
+                "A) Constants can be modified after declaration.",
+                "B) Constants must be assigned a value during declaration.",
+                "C) Constants are declared using the \"volatile\" keyword.",
+                "D) Constants have dynamic values."
               ],
               "correctAnswer": 1
             },
             {
               "question": "Which of the following is a valid way to declare a constant with the value 3.14159 in C?",
               "options": [
-                "const PI = 3.14159;",
-                "const float PI = 3.14159;",
-                "constant PI = 3.14159;",
-                "constant float PI = 3.14159;"
+                "A) const PI = 3.14159;",
+                "B) const float PI = 3.14159;",
+                "C) constant PI = 3.14159;",
+                "D) constant float PI = 3.14159;"
               ],
               "correctAnswer": 1
             }
@@ -1713,30 +1713,30 @@
             {
               "question": "Which operator is used to perform addition in C?",
               "options": [
-                "*",
-                "/",
-                "+",
-                "-"
+                "A) *",
+                "B) /",
+                "C) +",
+                "D) -"
               ],
               "correctAnswer": 2
             },
             {
               "question": "What will the following expression return: 10 > 5?",
               "options": [
-                "1",
-                "0",
-                "True",
-                "False"
+                "A) 1",
+                "B) 0",
+                "C) True",
+                "D) False"
               ],
               "correctAnswer": 0
             },
             {
               "question": "Which assignment operator is equivalent to x = x + 5?",
               "options": [
-                "+=",
-                "=+",
-                "/=",
-                "-="
+                "A) +=",
+                "B) =+",
+                "C) /=",
+                "D) -="
               ],
               "correctAnswer": 0
             }
@@ -1750,30 +1750,30 @@
             {
               "question": "What header file should you include to use boolean variables in C?",
               "options": [
-                "<stdio.h>",
-                "<stdbool.h>",
-                "<stdlib.h>",
-                "stdboolean.h>"
+                "A) <stdio.h>",
+                "B) <stdbool.h>",
+                "C) <stdlib.h>",
+                "D) stdboolean.h>"
               ],
               "correctAnswer": 1
             },
             {
               "question": "What will the following expression return: \"bool isTasty = true; printf(\"%d\", isTasty);\"?",
               "options": [
-                "True",
-                "False",
-                "1",
-                "0"
+                "A) True",
+                "B) False",
+                "C) 1",
+                "D) 0"
               ],
               "correctAnswer": 2
             },
             {
               "question": "How are boolean values represented in C?",
               "options": [
-                " 'true' and 'false' strings",
-                "0 for true, 1 for false",
-                "1 for true, 0 for false",
-                "'yes' and 'no' strings"
+                "A) 'true' and 'false' strings",
+                "B) 0 for true, 1 for false",
+                "C) 1 for true, 0 for false",
+                "D) 'yes' and 'no' strings"
               ],
               "correctAnswer": 2
             }
@@ -1787,30 +1787,30 @@
             {
               "question": "Which statement allows you to select one of many code blocks to be executed?",
               "options": [
-                "if",
-                "while",
-                "for",
-                "switch"
+                "A) if",
+                "B) while",
+                "C) for",
+                "D) switch"
               ],
               "correctAnswer": 3
             },
             {
               "question": "What is the purpose of the break statement in a loop?",
               "options": [
-                "Skips the remaining code inside the loop for the current iteration",
-                "Terminates the loop prematurely",
-                "Executes the next iteration of the loop",
-                "None of the above"
+                "A) Skips the remaining code inside the loop for the current iteration",
+                "B) Terminates the loop prematurely",
+                "C) Executes the next iteration of the loop",
+                "D) None of the above"
               ],
               "correctAnswer": 1
             },
             {
               "question": "How does the while loop differ from the for loop?",
               "options": [
-                "while loop requires an initialization expression",
-                "for loop executes a block of code as long as a condition remains true",
-                "while loop iterates a specified number of times",
-                "for loop executes a block of code a specified number of times"
+                "A) while loop requires an initialization expression",
+                "B) for loop executes a block of code as long as a condition remains true",
+                "C) while loop iterates a specified number of times",
+                "D) for loop executes a block of code a specified number of times"
               ],
               "correctAnswer": 3
             }
@@ -1824,30 +1824,30 @@
             {
               "question": "What is the first step in creating a one-dimensional array in C?",
               "options": [
-                "Declare the array size",
-                "Specify the data type",
-                " Initialize the array elements",
-                "Define the array name"
+                "A) Declare the array size",
+                "B) Specify the data type",
+                "C) Initialize the array elements",
+                "D) Define the array name"
               ],
               "correctAnswer": 1
             },
             {
               "question": "How do you access the element in the second row and third column of a 2D array named \"matrix\"?",
               "options": [
-                "matrix[1][3]",
-                "matrix[2][2]",
-                "matrix[2][3]",
-                "matrix[1][2]"
+                "A) matrix[1][3]",
+                "B) matrix[2][2]",
+                "C) matrix[2][3]",
+                "D) matrix[1][2]"
               ],
               "correctAnswer": 3
             },
             {
               "question": "How do you determine the number of elements in a C array named \"myArray\"?",
               "options": [
-                "sizeof(myArray);",
-                "sizeof(myArray) / sizeof(myArray[0]);",
-                "sizeof(myArray) * sizeof(myArray[0]);",
-                "sizeof(myArray[0]) / sizeof(myArray);"
+                "A) sizeof(myArray);",
+                "B) sizeof(myArray) / sizeof(myArray[0]);",
+                "C) sizeof(myArray) * sizeof(myArray[0]);",
+                "D) sizeof(myArray[0]) / sizeof(myArray);"
               ],
               "correctAnswer": 1
             }
@@ -1861,30 +1861,30 @@
             {
               "question": "Which format specifier is used to print a single character in C?",
               "options": [
-                "%c",
-                "%s",
-                "%d",
-                "%f"
+                "A) %c",
+                "B) %s",
+                "C) %d",
+                "D) %f"
               ],
               "correctAnswer": 0
             },
             {
               "question": "What character indicates the end of a string in C?",
               "options": [
-                "\\n",
-                "\\t",
-                "\\0",
-                "\\end"
+                "A) \\n",
+                "B) \\t",
+                "C) \\0",
+                "D) \\end"
               ],
               "correctAnswer": 2
             },
             {
               "question": "What is the main difference between creating strings using string literals and character arrays in C?",
               "options": [
-                "String literals require manual inclusion of the null character.",
-                "Character arrays automatically include the null character.",
-                " String literals are easier to write and automatically include the null character.",
-                "Character arrays are immutable once initialized."
+                "A) String literals require manual inclusion of the null character.",
+                "B) Character arrays automatically include the null character.",
+                "C) String literals are easier to write and automatically include the null character.",
+                "D) Character arrays are immutable once initialized."
               ],
               "correctAnswer": 2
             }
@@ -1898,30 +1898,30 @@
             {
               "question": "Which function is preferred for reading a line of text in C?",
               "options": [
-                "printf()",
-                "scanf()",
-                "gets()",
-                "fgets()"
+                "A) printf()",
+                "B) scanf()",
+                "C) gets()",
+                "D) fgets()"
               ],
               "correctAnswer": 3
             },
             {
               "question": "How do you get multiple inputs from the user using scanf()?",
               "options": [
-                "Use multiple scanf() functions",
-                "Separate format specifiers with commas",
-                "Specify multiple format specifiers in a single scanf() call",
-                "Use scanf() with loops"
+                "A) Use multiple scanf() functions",
+                "B) Separate format specifiers with commas",
+                "C) Specify multiple format specifiers in a single scanf() call",
+                "D) Use scanf() with loops"
               ],
               "correctAnswer": 2
             },
             {
               "question": "What is the advantage of using fgets() over scanf() for reading strings?",
               "options": [
-                " scanf() is faster",
-                " fgets() handles whitespace characters correctly",
-                "scanf() can handle multiple inputs",
-                "fgets() requires fewer arguments"
+                "A) scanf() is faster",
+                "B) fgets() handles whitespace characters correctly",
+                "C) scanf() can handle multiple inputs",
+                "D) fgets() requires fewer arguments"
               ],
               "correctAnswer": 1
             }
@@ -1935,30 +1935,30 @@
             {
               "question": "How do you access the memory address of a variable in C?",
               "options": [
-                "Using the dereference operator (*)",
-                "Using the reference operator (&)",
-                "Using the arrow operator (->)",
-                "Using the dot operator (.)"
+                "A) Using the dereference operator (*)",
+                "B) Using the reference operator (&)",
+                "C) Using the arrow operator (->)",
+                "D) Using the dot operator (.)"
               ],
               "correctAnswer": 1
             },
             {
               "question": "What does the reference operator (&) return in C?",
               "options": [
-                "Value of the variable",
-                "Size of the variable",
-                "Type of the variable",
-                "Address of the variable"
+                "A) Value of the variable",
+                "B) Size of the variable",
+                "C) Type of the variable",
+                "D) Address of the variable"
               ],
               "correctAnswer": 3
             },
             {
               "question": "Why is understanding memory addresses important in C programming?",
               "options": [
-                "It allows for direct manipulation of data in memory",
-                " It makes code more readable",
-                "It increases the speed of program execution",
-                "It allows for automatic memory management"
+                "A) It allows for direct manipulation of data in memory",
+                "B) It makes code more readable",
+                "C) It increases the speed of program execution",
+                "D) It allows for automatic memory management"
               ],
               "correctAnswer": 0
             }
@@ -1972,30 +1972,30 @@
             {
               "question": "How do you declare a pointer variable in C?",
               "options": [
-                "Using the & operator",
-                "Using the -> operator",
-                "Using the . operator",
-                "Using the * operator"
+                "A) Using the & operator",
+                "B) Using the -> operator",
+                "C) Using the . operator",
+                "D) Using the * operator"
               ],
               "correctAnswer": 3
             },
             {
               "question": "What does the * operator do when used with a pointer variable?",
               "options": [
-                "Returns the memory address of the variable",
-                "Returns the value stored at the memory address pointed to by the pointer",
-                "Assigns a value to the pointer variable",
-                "Deletes the pointer variable"
+                "A) Returns the memory address of the variable",
+                "B) Returns the value stored at the memory address pointed to by the pointer",
+                "C) Assigns a value to the pointer variable",
+                "D) Deletes the pointer variable"
               ],
               "correctAnswer": 1
             },
             {
               "question": "Why are pointers important in C programming?",
               "options": [
-                "They make code more readable",
-                "They improve program execution speed",
-                "They enable efficient memory management and manipulation",
-                "They allow for automatic memory allocation"
+                "A) They make code more readable",
+                "B) They improve program execution speed",
+                "C) They enable efficient memory management and manipulation",
+                "D) They allow for automatic memory allocation"
               ],
               "correctAnswer": 2
             }
