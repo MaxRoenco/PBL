@@ -99,7 +99,7 @@ function openTab(tabName, dir) {
         }, 15)
     }, 250)
     currentTab = tabName;
-    
+
     if(tabName === "actions" || tabName === "home") {
         editMode = false;
         previewMode = false;
@@ -175,11 +175,16 @@ function moveToLesson(lessonName, data, dir) {
         lessonElement.append(lessonContentSpan);
 
         lessonElement.addEventListener("click", _ => {
+            if(progression["hearts"] < 1) {
+                notify("You don't have enough hearts!");
+                return;
+            };
             currCategory = lessonName;
             currLevel = i;
             numberOfQuestions = data[progression["language"]]["categories"][lessonName][i]["quiz"].length;
             isLastLesson = i+1 === data[progression["language"]]["categories"][lessonName].length;
             openContent(ele);
+            updateHearts(progression["hearts"]-1);
         })
     })
 }
@@ -950,6 +955,12 @@ function logOut() {
     localStorage.removeItem("registered");
 }
 
+function heartsGenerator(seconds) {
+    setInterval(_=>{
+        updateHearts(progression["hearts"]+1);
+    }, seconds*1000)
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
@@ -984,4 +995,4 @@ window.editLesson = editLesson;
 window.removeLesson = removeLesson;
 window.editMode = editMode;
 
-export { openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
+export { heartsGenerator, openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};

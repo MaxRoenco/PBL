@@ -1,4 +1,4 @@
-import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, loadSettings } from './script.js';
+import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, loadSettings, heartsGenerator } from './script.js';
 mute()
 let oldTab = currentTab;
 window.oldTab = oldTab;
@@ -97,8 +97,4 @@ trackDragDirection();
 unMute()
 
 
-// setInterval(_=>{
-//     updateHearts(progression["hearts"]+1);
-// }, 1000);
-
-
+heartsGenerator(60*10);
