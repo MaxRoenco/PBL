@@ -7,7 +7,7 @@
       "langPassword": "Password",
       "langMandatory2": "(mandatory)",
       "langRegister": "Register",
-      "buttonStart": "start",
+      "buttonStart": "Start",
       "langSFX": "Sound Effects",
       "titleSettings": "Languages",
       "langLogOut": "Logout",
@@ -2002,7 +2002,279 @@
           ]
         }
       ],
-      "cpp": []
+      "cpp": [
+        {
+          "title": "C++ Syntax",
+          "content": "`#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello World!\";\n  return 0;\n}`\n\n##Let's break up the following code to understand it better\n\n##Line 1: #include <iostream> is a header file library that lets us work with input and output objects, such as cout (used in line 5). Header files add functionality to C++ programs.\n\nLine 2: using namespace std means that we can use names for objects and variables from the standard library.\n\nDon't worry if you don't understand how #include <iostream> and using namespace std works. Just think of it as something that (almost) always appears in your program.\n\nLine 3: A blank line. C++ ignores white space. But we use it to make the code more readable.\n\nLine 4: Another thing that always appear in a C++ program is int main(). This is called a function. Any code inside its curly brackets {} will be executed.\n\nLine 5: cout (pronounced \"see-out\") is an object used together with the insertion operator (<<) to output/print text. In our example, it will output \"Hello World!\".\n\nNote: Every C++ statement ends with a semicolon ;.\n\nNote: The body of int main() could also been written as:\nint main () { cout << \"Hello World! \"; return 0; }\n\nRemember: The compiler ignores white spaces. However, multiple lines makes the code more readable.\n\nLine 6: return 0 ends the main function.\n\nLine 7: Do not forget to add the closing curly bracket } to actually end the main function.",
+          "lesson": "##Omitting Namespace\nYou might see some C++ programs that runs without the standard namespace library. The using namespace std line can be omitted and replaced with the std keyword, followed by the :: operator for some objects:\n\nExample\n`#include <iostream>\n\nint main() {\n  std::cout << \"Hello World!\";\n  return 0;\n}`",
+          "quiz": []
+        },
+        {
+          "title": "C++ Output",
+          "content": "#C++ Output\n\n##The cout object, together with the << operator, is used to output values/print text\n\n`#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello World!\";\n  return 0;\n}`\n\n##You can add as many cout objects as you want. However, note that it does not insert a new line at the end of the output.\n\n`#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello World!\";\n  cout << \"I am learning C++\";\n  return 0;\n}`\n\nAlso important part of the output\n#C++ New Lines\n`#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello World! \\n\";\n  cout << \"I am learning C++\";\n  return 0;\n}`\n\n##You can also use another << operator and place the \\n character after the text, like this:\n`#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello World!\" << \"\\n\";\n  cout << \"I am learning C++\";\n  return 0;\n}`\n",
+          "lesson": "# Blank lesson",
+          "quiz": [
+            {
+              "question": "What header file is needed to use cout?",
+              "options": [
+                "iostream",
+                "iomanip",
+                "stdio.h",
+                "fstream"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which of the following is used to end a line of output in C++",
+              "options": [
+                "\\e",
+                "\\n",
+                ";",
+                "<<"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What is the correct way to print \"Hello, World!\" to the console in C++",
+              "options": [
+                "cout << \"Hello, World!\"",
+                "print(\"Hello, World!\");",
+                "echo \"Hello, World!\";",
+                "cout << \"Hello, World!\";"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        },
+        {
+          "title": "C++ Comments",
+          "content": "#C++ Comments\n\n##Comments can be used to explain C++ code, and to make it more readable. It can also be used to prevent execution when testing alternative code. Comments can be singled-lined or multi-lined.\n\n##Single-line Comments\nSingle-line comments start with two forward slashes (//).\n\nAny text between // and the end of the line is ignored by the compiler (will not be executed).\n\nThis example uses a single-line comment before a line of code:\n\n`// This is a comment\ncout << \"Hello World!\";`",
+          "lesson": "##C++ Multi-line Comments\nMulti-line comments start with /* and ends with */.\n\nAny text between /* and */ will be ignored by the compiler:\n\n`/* The code below will print the words Hello World!\nto the screen, and it is amazing */\ncout << \"Hello World!\";`\n\n##Single or multi-line comments?\nIt is up to you which you want to use. Normally, we use // for short comments, and /* */ for longer.",
+          "quiz": [
+            {
+              "question": "How do you write a single-line comment in C++?",
+              "options": [
+                "`// This is a comment`",
+                "`# This is a comment`",
+                "`/* This is a comment */`",
+                "`<!-- This is a comment -->`"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "How do you write a multi-line comment in C++?",
+              "options": [
+                "`# This is a comment`",
+                " `/* This is a comment */`",
+                "`// This is a comment`",
+                "`<!-- This is a comment -->`"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "What is the purpose of comments in code?",
+              "options": [
+                "To execute alternative code",
+                "To provide explanations or notes for developers",
+                " To include additional data",
+                "To optimize the code"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "C++ Variables",
+          "content": "#C++ Variables\n\n##Variables are containers for storing data values.\n\nIn C++, there are different types of variables (defined with different keywords), for example:\n\nint - stores integers (whole numbers), without decimals, such as 123 or -123\ndouble - stores floating point numbers, with decimals, such as 19.99 or -19.99\nchar - stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes\nstring - stores text, such as \"Hello World\". String values are surrounded by double quotes\nbool - stores values with two states: true or false\n",
+          "lesson": "##Declaring (Creating) Variables\n\n`type variableName = value;`\n\n##Where type is one of C++ types (such as int), and variableName is the name of the variable (such as x or myName). The equal sign is used to assign values to the variable.\n\nTo create a variable that should store a number, look at the following example:\n\n`int myNum = 15;\ncout << myNum;`\n\n##You can also declare a variable without assigning the value, and assign the value later:\n\n`int myNum;\nmyNum = 15;\ncout << myNum;`\n\n`int myNum = 15;  // myNum is 15\nmyNum = 10;  // Now myNum is 10\ncout << myNum;  // Outputs 10`\n\n`int myNum = 5;               // Integer (whole number without decimals)\ndouble myFloatNum = 5.99;    // Floating point number (with decimals)\nchar myLetter = 'D';         // Character\nstring myText = \"Hello\";     // String (text)\nbool myBoolean = true;  `\n\n\n##Display Variables\nThe cout object is used together with the << operator to display variables.\n\nTo combine both text and a variable, separate them with the << operator:\n\n`int myAge = 35;\ncout << \"I am \" << myAge << \" years old.\";`\n\n\n`int x = 5;\nint y = 6;\nint sum = x + y;\ncout << sum;`\n",
+          "quiz": [
+            {
+              "question": "Which of the following declares an integer variable num?",
+              "options": [
+                "int num;",
+                "integer num;",
+                "var num;",
+                "num int;"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "What is the correct way to assign a value to a variable in C++?",
+              "options": [
+                "num := 5;",
+                "num = 5;",
+                "5 = num;",
+                "num <- 5;"
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "How can you define a constant variable in C++?",
+              "options": [
+                "constant int num = 10;",
+                "const int num = 10;",
+                "var const int num = 10;",
+                "int constant num = 10;"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "C++ User Input",
+          "content": "#C++ User Input\n\n##You have already learned that cout is used to output (print) values. Now we will use cin to get user input.\n\ncin is a predefined variable that reads data from the keyboard with the extraction operator (>>).\n\nIn the following example, the user can input a number, which is stored in the variable x. Then we print the value of x:\n\n`int x; \ncout << \"Type a number: \"; // Type a number and press enter\ncin >> x; // Get user input from the keyboard\ncout << \"Your number is: \" << x; // Display the input value`",
+          "lesson": "##Good To Know\ncout is pronounced \"see-out\". Used for output, and uses the insertion operator (<<)\n\ncin is pronounced \"see-in\". Used for input, and uses the extraction operator (>>)\n\n##Creating a Simple Calculator\nIn this example, the user must input two numbers. Then we print the sum by calculating (adding) the two numbers:\n\n`int x, y;\nint sum;\ncout << \"Type a number: \";\ncin >> x;\ncout << \"Type another number: \";\ncin >> y;\nsum = x + y;\ncout << \"Sum is: \" << sum;`\n\n##Complete <iostream> Reference\nTip: Both cin and cout belongs to the <iostream> library, which is short for standard input / output streams. For a complete reference of <iostream> objects along with detailed information, go to our C++ iostream Reference.\n\n",
+          "quiz": [
+            {
+              "question": "Which of the following is used to read user input in C++?",
+              "options": [
+                "cin",
+                "cout",
+                "printf",
+                "scanf"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "How do you read an integer input from the user and store it in a variable age?",
+              "options": [
+                "cin >> age;",
+                "cin << age;",
+                "scanf(\"%d\", &age);",
+                "cin.read(age);"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "How do you read a string input from the user and store it in a variable name?",
+              "options": [
+                "cin << name;",
+                "getline(cin, name);",
+                "cin.read(name);",
+                "name = cin;"
+              ],
+              "correctAnswer": 1
+            }
+          ]
+        },
+        {
+          "title": "C++ Data Types",
+          "content": "#C++ Data Types\n\n##As explained in the Variables chapter, a variable in C++ must be a specified data type:\n\n`int myNum = 5;               // Integer (whole number)\nfloat myFloatNum = 5.99;     // Floating point number\ndouble myDoubleNum = 9.98;   // Floating point number\nchar myLetter = 'D';         // Character\nbool myBoolean = true;       // Boolean\nstring myText = \"Hello\";     // String`\n\n##Basic Data Types\nThe data type specifies the size and type of information the variable will store:\n\nData Type\tSize\tDescription\nboolean\t1 byte\tStores true or false values\nchar\t1 byte\tStores a single character/letter/number, or ASCII values\nint\t2 or 4 bytes\tStores whole numbers, without decimals\nfloat\t4 bytes\tStores fractional numbers, containing one or more decimals. Sufficient for storing 6-7 decimal digits\ndouble\t8 bytes\tStores fractional numbers, containing one or more decimals. Sufficient for storing 15 decimal digits",
+          "lesson": "# Blank lesson",
+          "quiz": []
+        },
+        {
+          "title": "C++ Operators",
+          "content": "#C++ Operators\n\n##Operators are used to perform operations on variables and values.\n\nIn the example below, we use the + operator to add together two values: \n`int x = 100 + 50;`\n\n##Although the + operator is often used to add together two values, like in the example above, it can also be used to add together a variable and a value, or a variable and another variable:\n\n`int sum1 = 100 + 50;        // 150 (100 + 50)\nint sum2 = sum1 + 250;      // 400 (150 + 250)\nint sum3 = sum2 + sum2;     // 800 (400 + 400)`",
+          "lesson": "##C++ divides the operators into the following groups:\n\nArithmetic operators\nAssignment operators\nComparison operators\nLogical operators\nBitwise operators\nArithmetic Operators\nArithmetic operators are used to perform common mathematical operations.\n\nOperator\tName\tDescription\tExample\tTry it\n+\tAddition\tAdds together two values\tx + y\t\n-\tSubtraction\tSubtracts one value from another\tx - y\t\n*\tMultiplication\tMultiplies two values\tx * y\t\n/\tDivision\tDivides one value by another\tx / y\t\n%\tModulus\tReturns the division remainder\tx % y\t\n++\tIncrement\tIncreases the value of a variable by 1\t++x\t\n--\tDecrement\tDecreases the value of a variable by 1\t--x]\n\n\n##Assignment Operators\nAssignment operators are used to assign values to variables.\n\nIn the example below, we use the assignment operator (=) to assign the value 10 to a variable called x:\n\nExample\n`int x = 10;`\n\n\n=\tx = 5\tx = 5\t\n+=\tx += 3\tx = x + 3\t\n-=\tx -= 3\tx = x - 3\t\n*=\tx *= 3\tx = x * 3\t\n/=\tx /= 3\tx = x / 3\t\n%=\tx %= 3\tx = x % 3\t\n&=\tx &= 3\tx = x & 3\t\n|=\tx |= 3\tx = x | 3\t\n^=\tx ^= 3\tx = x ^ 3\t\n>>=\tx >>= 3\tx = x >> 3\t\n<<=\tx <<= 3\tx = x << 3\n\n##Comparison operators\n\n==\tEqual to\tx == y\t\n!=\tNot equal\tx != y\t\n>\tGreater than\tx > y\t\n<\tLess than\tx < y\t\n>=\tGreater than or equal to\tx >= y\t\n<=\tLess than or equal to\tx <= y\t\n\n##Logical Operators\n&& \tLogical and\tReturns true if both statements are true\tx < 5 &&  x < 10\t\n|| \tLogical or\tReturns true if one of the statements is true\tx < 5 || x < 4\t\n!\tLogical not\tReverse the result, returns false if the result is true\t!(x < 5 && x < 10)\n\n",
+          "quiz": [
+            {
+              "question": "What does the ++ operator do in C++?",
+              "options": [
+                "Decrements the value by 1",
+                "Increments the value by 2",
+                "Multiplies the value by 2",
+                "Increments the value by 1"
+              ],
+              "correctAnswer": 3
+            },
+            {
+              "question": "Which of the following is the equality operator in C++?",
+              "options": [
+                "=",
+                "==",
+                "===",
+                "!="
+              ],
+              "correctAnswer": 1
+            },
+            {
+              "question": "Which operator is used for addition in C++?",
+              "options": [
+                "+",
+                "=",
+                "-",
+                "-_-"
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        },
+        {
+          "title": "C++ Strings",
+          "content": "#C++ Strings\n\n##Strings are used for storing text/characters.\n\nFor example, \"Hello World\" is a string.\n\nA string variable contains a collection of characters surrounded by double quotes:\n\n`string greeting = \"Hello\";`",
+          "lesson": "##C++ String Concatenation\n\nString Concatenation\nThe + operator can be used between strings to add them together to make a new string. This is called concatenation:\n\n`string firstName = \"John \";\nstring lastName = \"Doe\";\nstring fullName = firstName + lastName;\ncout << fullName;`\n\n##Append\nA string in C++ is actually an object, which contain functions that can perform certain operations on strings. For example, you can also concatenate strings with the append() function:\n`string firstName = \"John \";\nstring lastName = \"Doe\";\nstring fullName = firstName.append(lastName);\ncout << fullName;`\n\n##Adding Numbers and Strings\n\n##If you add two strings, the result will be a string concatenation:\n\nExample\n`string x = \"10\";\nstring y = \"20\";\nstring z = x + y;   `\n\n##String Length\nTo get the length of a string, use the length() function:\n`string txt = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\ncout << \"The length of the txt string is: \" << txt.length();`\n\n##Access Strings\nYou can access the characters in a string by referring to its index number inside square brackets [].\n\nThis example prints the first character in myString:\n`string myString = \"Hello\";\ncout << myString[0];\n// Outputs H`",
+          "quiz": [
+            {
+              "question": "Which of the following is the correct way to declare a string in C++?",
+              "options": [
+                "string name;",
+                "char name[];",
+                "std::string name;",
+                "string name[100];"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "How do you concatenate two strings str1 and str2",
+              "options": [
+                "str1 + str2",
+                "str1.str2()",
+                "str1.concatenate(str2)",
+                "concat(str1, str2)"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "Which function is used to find the length of a std::string?",
+              "options": [
+                "length()",
+                "size()",
+                "len()",
+                "Both A and B"
+              ],
+              "correctAnswer": 3
+            }
+          ]
+        },
+        {
+          "title": "C++ What is OOP",
+          "content": "##C++ What is OOP?\n\n##Why We Jumped Here and Skipped All Topics Between the Last Topic and This\nWe skipped the intervening topics because they are approximately the same as in C. The key moment in C++ is the introduction of Object-Oriented Programming (OOP).\n\n##Explanation of Edits:\nTitle Correction: Added \"the\" for clarity and capitalization for proper title format.\nGrammar and Spelling: Corrected \"skiped\" to \"skipped\" and \"betwwent\" to \"between.\"\nPunctuation and Sentence Structure: Improved sentence structure and punctuation for better readability.\nClarification: Specified that the skipped topics are similar to those in the C language, and highlighted the importance of OOP in C++.",
+          "lesson": "##C++ Classes/Objects\nC++ is an object-oriented programming language.\n\nEverything in C++ is associated with classes and objects, along with its attributes and methods. For example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.\n\nAttributes and methods are basically variables and functions that belongs to the class. These are often referred to as \"class members\".\n\nA class is a user-defined data type that we can use in our program, and it works as an object constructor, or a \"blueprint\" for creating objects.\n\n`class MyClass {       // The class\n  public:             // Access specifier\n    int myNum;        // Attribute (int variable)\n    string myString;  // Attribute (string variable)\n};`\n\n\n##Create an Object\nIn C++, an object is created from a class. We have already created the class named MyClass, so now we can use this to create objects.\n\nTo create an object of MyClass, specify the class name, followed by the object name.\n\nTo access the class attributes (myNum and myString), use the dot syntax (.) on the object:\n\n`class MyClass {       // The class\n  public:             // Access specifier\n    int myNum;        // Attribute (int variable)\n    string myString;  // Attribute (string variable)\n};\n\nint main() {\n  MyClass myObj;  // Create an object of MyClass\n\n  // Access attributes and set values\n  myObj.myNum = 15; \n  myObj.myString = \"Some text\";\n\n  // Print attribute values\n  cout << myObj.myNum << \"\\n\";\n  cout << myObj.myString;\n  return 0;\n}`\n\n##Multiple Objects\n\n`class Car {\n  public:\n    string brand;   \n    string model;\n    int year;\n};\n\nint main() {\n  // Create an object of Car\n  Car carObj1;\n  carObj1.brand = \"BMW\";\n  carObj1.model = \"X5\";\n  carObj1.year = 1999;\n\n  // Create another object of Car\n  Car carObj2;\n  carObj2.brand = \"Ford\";\n  carObj2.model = \"Mustang\";\n  carObj2.year = 1969;\n\n  // Print attribute values\n  cout << carObj1.brand << \" \" << carObj1.model << \" \" << carObj1.year << \"\\n\";\n  cout << carObj2.brand << \" \" << carObj2.model << \" \" << carObj2.year << \"\\n\";\n  return 0;\n}`\n\n",
+          "quiz": [
+            {
+              "question": "Why did we skip topics that are approximately the same as in C when learning C++",
+              "options": [
+                "Because those topics are irrelevant",
+                "Because those topics are simpler in C++",
+                "Because those topics do not change between C and C++",
+                "Because C++ does not support those topics"
+              ],
+              "correctAnswer": 2
+            },
+            {
+              "question": "Which keyword is used to create a class called MyClass.",
+              "options": [
+                "class ",
+                "public ",
+                "myNum ",
+                "MyClass"
+              ],
+              "correctAnswer": 0
+            },
+            {
+              "question": "How is called variables which are declared in the class",
+              "options": [
+                "attributes",
+                "specifier",
+                "access ",
+                "public "
+              ],
+              "correctAnswer": 0
+            }
+          ]
+        }
+      ]
     }
   },
   "ru": {

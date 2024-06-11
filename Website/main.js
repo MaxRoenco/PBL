@@ -26,7 +26,7 @@ buttons.forEach(ele => {
 })
 
 if (isRegistered) {
-    openTab("store");
+    openTab("home");
 } else {
     openTab("register")
 }
