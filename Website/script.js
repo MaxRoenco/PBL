@@ -456,9 +456,10 @@ function resetAreas() {
 }
 
 function lessonsReturnHandler() {
-    if(previewMode) {
+    if(previewMode || editMode) {
         openTab("finalCreator", 'l');
         previewMode = false;
+        editMode = false;
     } else {
         openTab("categories", 'l');
     }
@@ -631,6 +632,7 @@ function resultsHome() {
         openTab('home', 'l');
     }
     previewMode = false;
+    editMode = false;
 }
 
 function openProfile() {
