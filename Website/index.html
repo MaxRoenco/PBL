@@ -133,27 +133,38 @@
         <!-- STORE TAB -->
 
         <div class="containerStore container" data-tab="store">
-            <div class="storeItem">
-                <img src="" alt="">
-                <p>Mouse skin</p>
+            <div class="leftSideStore">
+                <div class="storeCategory">Hearts</div>
+                <div class="storeCategory">Diamonds</div>
+                <div class="storeCategory">Mouse Skin</div>
             </div>
-            <div class="storeItem">
-                <img src="./assets/images/jack.png" alt="">
-                <p>Get 1 heart</p>
-            </div>
-            <div class="storeItem">
-                <img src="./assets/images/queen.png" alt="">
-                <p>Get 5 heart</p>
-            </div>
-            <div class="storeItem">
-                <img src="./assets/images/king.png" alt="">
-                <p>Get 10 heart</p>
-            </div>
-            <div class="storeItem">
-                <img src="./assets/images/diamonds.png" alt="">
-                <p>Get double diamandsBoost on 1 hour</p>
+            <div class="holster">
+                <div class="containerStore2 x mandatory-scroll-snapping" dir="ltr">
+                    <div class="mouseSkin">
+                        <img src="./assets/images/mouse1.png" alt="">
+                        <span>First Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <img src="./assets/images/mouse2.png" alt="">
+                        <span>Second Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <div class="mouseSkinContainer"></div>
+                        <img src="./assets/images/mouse3.png" alt="">
+                        <span>Third Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <img src="./assets/images/mouse4.png" alt="">
+                        <span>Fourth Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                </div>
             </div>
         </div>
+
 
         <!-- PROFILE TAB -->
         <div class="containerProfile" data-tab="profile">
@@ -536,7 +547,8 @@
                     </ul>
                     <div class="creatorAddAnswerContainer">
                         <input type="text" id="addAnswerInput" class="creatorAddAnswer">
-                        <button id="addAnwerBtn" class="creatorQuizButton textLittle" onclick="addAnswer()">Add answer
+                        <button id="addAnwerBtn" class="creatorQuizButton textLittle" onclick="addAnswer()">Add
+                            answer
                         </button>
                     </div>
                     <div style="display: flex; flex-direction: column; align-items: center;">
