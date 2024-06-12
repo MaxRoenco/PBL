@@ -167,8 +167,8 @@
     height: 50px;
     background: #ccc;
     clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
-    visibility: hidden;
     transition: all 400ms ease-in;
+    opacity: 0;
 }
 
 .returnHome::before {
@@ -180,18 +180,18 @@
     width: 40px;
     height: 15px;
     background: #ccc;
-    visibility: hidden;
+    opacity: 0;
     transition: all 400ms ease-in;
 }
 
 .returnHome:hover::before {
     left: -90px;
-    visibility: visible;
+    opacity: 1;
 }
 
 .returnHome:hover::after {
     left: -110px;
-    visibility: visible;
+    opacity: 1;
 }
 
 .returnHome:hover {
