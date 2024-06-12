@@ -5,6 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     overflow: hidden;
+    position: relative;
 }
 
 .leftSideStore {
@@ -15,6 +16,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .holster {
@@ -141,5 +144,57 @@
 .diamondsStore {
     width: 50%;
     border: 3px solid white;
+}
 
+.returnHome {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 300ms ease-in;
+}
+
+.returnHome::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -70px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 50px;
+    background: #ccc;
+    clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
+    visibility: hidden;
+    transition: all 400ms ease-in;
+}
+
+.returnHome::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 15px;
+    background: #ccc;
+    visibility: hidden;
+    transition: all 400ms ease-in;
+}
+
+.returnHome:hover::before {
+    left: -90px;
+    visibility: visible;
+}
+
+.returnHome:hover::after {
+    left: -110px;
+    visibility: visible;
+}
+
+.returnHome:hover {
+    background: white;
+    color: #424769;
 }
