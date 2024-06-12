@@ -340,9 +340,6 @@ function showResults(total) {
     }
     if(currLevel >= progression[currCategory] && !previewMode && completedQuiz) {
         updateProgression(currCategory, currLevel+1);
-        if(currCategory === "css") {
-            updateAch("designer", progression["css"]);
-        }
     }
     if(dataSet[progression["language"]]["categories"][currCategory][currLevel]["quiz"].length) {
         showBtn.style.display = '';
@@ -682,6 +679,7 @@ function openProfile() {
         let total = dataSet[progression["language"]]["categories"][cat].length;
         let done = progression[cat];
         let percentage = total ? Math.floor(done*100/total) : 0;
+        if(percentage > 100) percentage = 100;
         bar.style.background = `linear-gradient(to right, rgb(219, 176, 56) ${percentage}%, rgb(153, 153, 153) ${1 - percentage}%)`;
         perc.textContent = percentage+"%";
         if(progression[`${cat}Done`]) {
@@ -689,18 +687,18 @@ function openProfile() {
             completed++;
         } else {
             document.getElementById(`${cat}Img`).src = "./assets/images/treasure.png"
-            if(percentage === 100) {
+            if(percentage >= 100) {
                 document.getElementById(`${cat}Stat`).classList.add("canClaim");
                 document.getElementById(`${cat}Img`).classList.add("shake");
                 completed++;
             }
         }
     })
-    console.log("Done: "+ completed);
     updateAch("doom", completed);
     achs.forEach(ach => {
         updateAch(ach, progression[ach]["value"]);
     })
+    updateAch("designer", progression["css"]);
     updateDiamonds();
     updateHearts();
     openTab("profile", 'r');
@@ -805,6 +803,27 @@ function updateAch(ach, value) {
     console.log(value);
     let per = Math.floor(value/total*100);
     bar.setAttribute("style", `background: linear-gradient(to right, rgb(59, 181, 59) ${per}%, rgb(157, 157, 157) 0%);`);
+    if(value === total) {
+        console.log("OMGOMGOGM")
+        let box = document.querySelector("#"+ach+"Cont");
+        if(!progression[ach]["claimed"]) {
+            box.classList.add("shake2");
+            box.style.backgroundColor = "yellow";
+            box.addEventListener("click", e => {
+                if(progression[ach]["claimed"]) return;
+                updateDiamonds(progression["diamonds"]+500);
+                updateProgression(ach, {
+                    "value": progression[ach]["value"],
+                    "total": progression[ach]["total"],
+                    "claimed": true,
+                });
+                box.classList.remove("shake2");
+                box.style.backgroundColor = "green";
+            })
+        } else {
+            box.style.backgroundColor = "green";
+        }
+    }
 }
 
 function updateHearts(count, silent) {
