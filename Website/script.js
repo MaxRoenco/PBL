@@ -44,6 +44,12 @@ let defaultProgression = {
         "total": 6,
         "calimed": false,
     },
+    "skins": {
+        "skin1": false,
+        "skin2": false,
+        "skin3": false,
+        "skin4": false,
+    }
 }
 
 let progression = JSON.parse(JSON.stringify(defaultProgression));
@@ -314,7 +320,8 @@ function showResults(total) {
         per.textContent = `${Math.floor(correct*100/total)}%`
         cir.style.display = '';
         if(currLevel === progression[currCategory] && !previewMode && completedQuiz) {
-            updateDiamonds(progression["diamonds"]+100*(boosted+1));
+            let amount = 100*(boosted+1);
+            updateDiamonds(progression["diamonds"]+amount);
         }
     } else {
         if(lang === 'ru') {
@@ -1082,6 +1089,24 @@ function buyHearts(num, cost) {
     });
 }
 
+function unlockAlllessons() {
+    let cats = ["html", "css", "js", "c", "cpp", "python"];
+    cats.forEach(ele=>{
+        updateProgression(ele, 100);
+    })
+}
+
+function manyHearts() {
+    updateHearts(9999);
+}
+
+function manyDiamonds() {
+    updateDiamonds(9999);
+}
+
+window.unlockAlllessons = unlockAlllessons;
+window.manyDiamonds = manyDiamonds;
+window.manyHearts = manyHearts;
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
