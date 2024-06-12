@@ -1046,20 +1046,36 @@ function shopSetUp() {
     })  
     document.querySelector("#heart10").addEventListener("click", _ => {
         buyHearts(10, 700);
-    })  
+    })
+    document.querySelector("#diamondBoostBtn").addEventListener("click", _ => {
+        buy(500, _=>{
+            boosted = true;
+            notify("2x boost applied!");
+            setTimeout(() => {
+                boosted = false;
+                notify("2x boost expired!");
+            }, 1000*60*60);
+        })
+    })
 }
 
-function buyHearts(num, cost) {
-    canBuy = false;
+function buy(cost, callback) {
     if(progression["diamonds"] < cost) {
         notify("Not enough diamonds!", "./assets/images/diamands.png", 1500);
         return;
     }
+    canBuy = false;
     updateDiamonds(progression["diamonds"]-cost);
     setTimeout(() => {
-        updateHearts(progression["hearts"]+num);
-        canBuy = true;
+        callback();
+        canBuy = true
     }, 1500);
+}
+
+function buyHearts(num, cost) {
+    buy(cost, _=>{
+        updateHearts(progression["hearts"]+num);
+    });
 }
 
 window.openTab = openTab;
