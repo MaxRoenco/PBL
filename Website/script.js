@@ -45,8 +45,8 @@ let defaultProgression = {
         "calimed": false,
     },
     "skins": {
-        "cursorMouse1": true,
-        "cursorMouse2": true,
+        "cursorMouse1": false,
+        "cursorMouse2": false,
         "cursorMouse3": false,
         "cursorMouse4": false,
     }
@@ -1079,7 +1079,11 @@ function shopSetUp() {
         document.querySelector("#cursorMouse"+n).addEventListener("click", _ => {
             if(!progression["skins"]["cursorMouse"+n]) {
                 buy(1000, _=>{
-                    progression["skins"]["cursorMouse"+n] = true;
+                    let oldObj = progression["skins"];
+                    oldObj["cursorMouse"+n] = true;
+                    updateProgression("skins", oldObj);
+                    document.body.style.cursor = `url('./assets/images/cursorMouse${n}.png'), auto`;
+                    unlockCursor("cursorMouse"+n);
                 })
             }
             if(progression["skins"]["cursorMouse"+n]) {
