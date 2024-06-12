@@ -45,10 +45,10 @@ let defaultProgression = {
         "calimed": false,
     },
     "skins": {
-        "skin1": false,
-        "skin2": false,
-        "skin3": false,
-        "skin4": false,
+        "cursorMouse1": true,
+        "cursorMouse2": true,
+        "cursorMouse3": false,
+        "cursorMouse4": false,
     }
 }
 
@@ -1068,6 +1068,12 @@ function shopSetUp() {
             }, 1000*60*60);
         })
     })
+
+    for (const [key, value] of Object.entries(progression["skins"])) {
+        if(value) {
+            unlockCursor(key);
+        }
+    }
 }
 
 function buy(cost, callback) {
@@ -1089,7 +1095,7 @@ function buyHearts(num, cost) {
     });
 }
 
-function unlockAlllessons() {
+function unlockAllLessons() {
     let cats = ["html", "css", "js", "c", "cpp", "python"];
     cats.forEach(ele=>{
         updateProgression(ele, 100);
@@ -1104,7 +1110,12 @@ function manyDiamonds() {
     updateDiamonds(9999);
 }
 
-window.unlockAlllessons = unlockAlllessons;
+function unlockCursor(cursor) {
+    let ele = document.querySelector("#"+cursor);
+    ele.textContent = "Use";
+}
+
+window.unlockAllLessons = unlockAllLessons;
 window.manyDiamonds = manyDiamonds;
 window.manyHearts = manyHearts;
 window.openTab = openTab;
