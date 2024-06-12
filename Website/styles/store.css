@@ -198,3 +198,46 @@
     background: white;
     color: #424769;
 }
+
+.storeHeart {
+    position: absolute;
+    top: 5%;
+    left: 70%;
+    width: 100px;
+    height: 50px;
+    border: 3px solid white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 18px;
+    background: #393d5a;
+}
+
+.storeDiamond {
+    position: absolute;
+    top: 5%;
+    left: 85%;
+    width: 100px;
+    height: 50px;
+    border: 3px solid white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 18px;
+    background: #393d5a;
+}
+
+.storeHeart>img {
+    width: 35px;
+}
+
+.storeDiamond>img {
+    width: 50px;
+}
+
+.storeDiamond:hover,
+.storeHeart:hover {
+    filter: brightness(1.3);
+}
