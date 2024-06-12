@@ -1048,6 +1048,10 @@ function shopSetUp() {
         buyHearts(10, 700);
     })
     document.querySelector("#diamondBoostBtn").addEventListener("click", _ => {
+        if(boosted) {
+            notify("You already have a boost on!");
+            return;
+        }
         buy(500, _=>{
             boosted = true;
             notify("2x boost applied!");
