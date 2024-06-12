@@ -134,9 +134,9 @@
 
         <div class="containerStore container" data-tab="store">
             <div class="leftSideStore">
-                <div class="storeCategory">Hearts</div>
-                <div class="storeCategory">Diamonds</div>
-                <div class="storeCategory">Mouse Skin</div>
+                <div class="storeCategory" id="hearts" onclick="">Hearts</div>
+                <div class="storeCategory" id="diamonds">Diamonds</div>
+                <div class="storeCategory" id="mouseSkins">Mouse Skins</div>
             </div>
             <div class="holster">
                 <div class="containerStore2 x mandatory-scroll-snapping" dir="ltr">
@@ -159,6 +159,35 @@
                     <div class="mouseSkin">
                         <img src="./assets/images/mouse4.png" alt="">
                         <span>Fourth Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="holsterDiamonds">
+                <div class="containerStore2 x mandatory-scroll-snapping" dir="ltr">
+                    <div class="mouseSkin">
+                        <img src="./assets/images/diamonds.png" alt="">
+                        <span>First Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="holsterHearts">
+                <div class="containerStore2 x mandatory-scroll-snapping" dir="ltr">
+                    <div class="mouseSkin">
+                        <img src="./assets/images/jack.png" alt="">
+                        <span>First Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <img src="./assets/images/queen.png" alt="">
+                        <span>Second Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <div class="mouseSkinContainer"></div>
+                        <img src="./assets/images/king.png" alt="">
+                        <span>Third Skin: 1000 diamonds</span>
                         <button class="storeButton">Buy</button>
                     </div>
                 </div>
@@ -630,5 +659,6 @@
 <script type="module" src="./script.js"></script>
 <script type="module" src="./main.js"></script>
 <script type="module" src="./JavaScript/arkanoid.js"></script>
+<script type="module" src="./JavaScript/store.js"></script>
 
 </html>
