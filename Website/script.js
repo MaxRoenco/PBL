@@ -23,18 +23,26 @@ let defaultProgression = {
     "pythonDone": false,
     "cDone": false,
     "cppDone": false,
-    "giga": 0,
-    "gigaClaimed": false,
-    "gigaDone": false,
-    "crazy": 0,
-    "crazyClaimed": false,
-    "crazyDone": false,
-    "designer": 0,
-    "designerClaimed": 0,
-    "designerDone": false,
-    "doom": 0,
-    "doomClaimed": 0,
-    "doomDone": false,
+    "giga" : {
+        "value": 0,
+        "total": 1000,
+        "calimed": false,
+    },
+    "crazy" : {
+        "value": 0,
+        "total": 2000,
+        "calimed": false,
+    },
+    "designer" : {
+        "value": 0,
+        "total": 5,
+        "calimed": false,
+    },
+    "doom" : {
+        "value": 0,
+        "total": 6,
+        "calimed": false,
+    },
 }
 
 let progression = JSON.parse(JSON.stringify(defaultProgression));
@@ -332,6 +340,9 @@ function showResults(total) {
     }
     if(currLevel >= progression[currCategory] && !previewMode && completedQuiz) {
         updateProgression(currCategory, currLevel+1);
+        if(currCategory === "css") {
+            updateAch("designer", progression["css"]);
+        }
     }
     if(dataSet[progression["language"]]["categories"][currCategory][currLevel]["quiz"].length) {
         showBtn.style.display = '';
@@ -663,7 +674,8 @@ function openProfile() {
     document.getElementById("profileUsername").textContent = progression["username"];
 
     let categs = ["html", "css", "js", "python", "c", "cpp"];
-
+    let achs = ["giga", "crazy", "designer", "doom"];
+    let completed = 0;
     categs.forEach(cat => {
         let bar = document.querySelector(`#${cat}Line`);
         let perc = document.querySelector(`#${cat}Perc`);
@@ -674,13 +686,20 @@ function openProfile() {
         perc.textContent = percentage+"%";
         if(progression[`${cat}Done`]) {
             document.getElementById(`${cat}Img`).src = "./assets/images/treasureOpen.png"
+            completed++;
         } else {
             document.getElementById(`${cat}Img`).src = "./assets/images/treasure.png"
             if(percentage === 100) {
                 document.getElementById(`${cat}Stat`).classList.add("canClaim");
                 document.getElementById(`${cat}Img`).classList.add("shake");
+                completed++;
             }
         }
+    })
+    console.log("Done: "+ completed);
+    updateAch("doom", completed);
+    achs.forEach(ach => {
+        updateAch(ach, progression[ach]["value"]);
     })
     updateDiamonds();
     updateHearts();
@@ -762,7 +781,7 @@ function updateDiamonds(count, silent) {
         } else {
             thingo = 'diamonds';
         }
-        if(diff>0) updateAch("giga", progression["giga"]+diff, 1000);
+        if(diff>0) updateAch("giga", progression["giga"]["value"]+diff);
         notify((diff > 0 ? "+"+diff : diff) + " " + thingo, "./assets/images/diamands.png");
     }
     updateProgression("diamonds", count);
@@ -770,12 +789,22 @@ function updateDiamonds(count, silent) {
     profileDiamonds.textContent = count;
 }
 
-function updateAch(ach, value, total) {
+function updateAch(ach, value) {
+    let total = progression[ach]["total"];
+    let claimed = progression[ach]["claimed"];
     if(value > total) value = total;
-    updateProgression(ach, value);
+    let obj = {
+        "value": value,
+        "total": total,
+        "claimed": claimed,
+    }
+    updateProgression(ach, obj);
     let ele = document.querySelector("#" + ach + "Progress");
+    let bar = document.querySelector("#" + ach + "Bar");
     ele.textContent = value + "/" + total;
-
+    console.log(value);
+    let per = Math.floor(value/total*100);
+    bar.setAttribute("style", `background: linear-gradient(to right, rgb(59, 181, 59) ${per}%, rgb(157, 157, 157) 0%);`);
 }
 
 function updateHearts(count, silent) {
@@ -982,6 +1011,10 @@ function heartsGenerator(seconds) {
     setInterval(_=>{
         updateHearts(progression["hearts"]+1);
     }, seconds*1000)
+}
+
+function total(cat) {
+    return dataSet["en"]["categories"][cat].length;
 }
 
 window.openTab = openTab;

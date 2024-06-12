@@ -343,7 +343,7 @@
 
 .achieveContainer>.bar {
     width: 100%;
-    background: linear-gradient(to right, rgb(59, 181, 59) 75%, rgb(157, 157, 157) 25%);
+    background: linear-gradient(to right, rgb(59, 181, 59) 0%, rgb(157, 157, 157) 0%);
     padding: 10px;
     border-radius: 20px;
 }
