@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./styles/wifi.css">
     <link rel="stylesheet" href="./styles/creator.css">
     <link rel="stylesheet" href="./styles/notification.css">
+    <link rel="stylesheet" href="./styles/store.css">
     <link rel="stylesheet" href="./styles/register.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,6 +130,70 @@
             </div>
         </div>
 
+        <!-- STORE TAB -->
+
+        <div class="containerStore container" data-tab="store">
+            <div class="leftSideStore">
+                <div class="storeCategory" id="hearts" onclick="">Hearts</div>
+                <div class="storeCategory" id="diamonds">Diamonds</div>
+                <div class="storeCategory" id="mouseSkins">Mouse Skins</div>
+            </div>
+            <div class="holster">
+                <div class="containerStore2 x mandatory-scroll-snapping" dir="ltr">
+                    <div class="mouseSkin">
+                        <img src="./assets/images/mouse1.png" alt="">
+                        <span>First Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <img src="./assets/images/mouse2.png" alt="">
+                        <span>Second Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <div class="mouseSkinContainer"></div>
+                        <img src="./assets/images/mouse3.png" alt="">
+                        <span>Third Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <img src="./assets/images/mouse4.png" alt="">
+                        <span>Fourth Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="holsterDiamonds">
+                <div class="containerStore2 x mandatory-scroll-snapping" dir="ltr">
+                    <div class="mouseSkin">
+                        <img src="./assets/images/diamonds.png" alt="">
+                        <span>First Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="holsterHearts">
+                <div class="containerStore2 x mandatory-scroll-snapping" dir="ltr">
+                    <div class="mouseSkin">
+                        <img src="./assets/images/jack.png" alt="">
+                        <span>First Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <img src="./assets/images/queen.png" alt="">
+                        <span>Second Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                    <div class="mouseSkin">
+                        <div class="mouseSkinContainer"></div>
+                        <img src="./assets/images/king.png" alt="">
+                        <span>Third Skin: 1000 diamonds</span>
+                        <button class="storeButton">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- PROFILE TAB -->
         <div class="containerProfile" data-tab="profile">
             <div class="sidesProfile">
@@ -142,6 +207,14 @@
                         </div>
                         <div class="diamandContainer">
                             <div class="diamand">
+                                <div id="tooltip-content">
+                                    <img src="./assets/images/store.png" class="storeIcon" alt="Cool store"
+                                        onclick="openTab('store')">
+                                    <div class="span">
+                                        Go to store boi4ik and buy some cool items.
+                                        Girls will be yours😎
+                                    </div>
+                                </div>
                                 <img src="./assets/images/diamands.png">
                                 <span class="diamandText" id="diamondsCount">500</span>
                             </div>
@@ -586,5 +659,6 @@
 <script type="module" src="./script.js"></script>
 <script type="module" src="./main.js"></script>
 <script type="module" src="./JavaScript/arkanoid.js"></script>
+<script type="module" src="./JavaScript/store.js"></script>
 
 </html>
