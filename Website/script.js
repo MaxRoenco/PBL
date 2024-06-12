@@ -788,6 +788,7 @@ function updateDiamonds(count, silent) {
             thingo = 'diamonds';
         }
         if(diff>0) updateAch("giga", progression["giga"]["value"]+diff);
+        if(diff<0) updateAch("crazy", progression["crazy"]["value"]+Math.abs(diff))
         notify((diff > 0 ? "+"+diff : diff) + " " + thingo, "./assets/images/diamands.png");
     }
     updateProgression("diamonds", count);
@@ -1107,7 +1108,7 @@ function buy(cost, callback) {
     updateDiamonds(progression["diamonds"]-cost);
     setTimeout(() => {
         callback();
-        canBuy = true
+        canBuy = true;
     }, 1500);
 }
 
