@@ -1,7 +1,7 @@
 .containerStore {
     width: 100%;
     height: 100vh;
-    display: flexbox;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     overflow: hidden;
@@ -80,7 +80,7 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    line-height: 128px;
+    line-height: 64px;
     font-size: 26px;
     width: 100%;
     height: 428px;
