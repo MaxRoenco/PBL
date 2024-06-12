@@ -1074,6 +1074,23 @@ function shopSetUp() {
             unlockCursor(key);
         }
     }
+
+    [1,2,3,4].forEach( n => {
+        document.querySelector("#cursorMouse"+n).addEventListener("click", _ => {
+            if(!progression["skins"]["cursorMouse"+n]) {
+                buy(1000, _=>{
+                    progression["skins"]["cursorMouse"+n] = true;
+                })
+            }
+            if(progression["skins"]["cursorMouse"+n]) {
+                document.body.style.cursor = `url('./assets/images/cursorMouse${n}.png'), auto`;
+                unlockCursor("cursorMouse"+n);
+            }
+        })
+    })
+    document.querySelector("#cursorMouse5").addEventListener('click', () => {
+        document.body.style.cursor = "auto";
+    })
 }
 
 function buy(cost, callback) {
