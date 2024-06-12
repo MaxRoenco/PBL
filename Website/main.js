@@ -1,4 +1,4 @@
-import { openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, loadSettings, heartsGenerator } from './script.js';
+import { shopSetUp, progression, openTab, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, loadSettings, heartsGenerator } from './script.js';
 mute()
 let oldTab = currentTab;
 window.oldTab = oldTab;
@@ -94,7 +94,7 @@ function trackDragDirection() {
     });
 }
 trackDragDirection();
+heartsGenerator(60*10);
+shopSetUp();
 unMute()
 
-
-heartsGenerator(60*10);

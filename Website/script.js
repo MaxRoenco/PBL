@@ -4,6 +4,7 @@ let currentTab = "home";
 let questionIndex = 0;
 let correct = 0;
 let previewMode = false;
+let canBuy = true;
 let defaultProgression = {
     "html": 0,
     "css": 0,
@@ -11,7 +12,7 @@ let defaultProgression = {
     "python": 0,
     "c":0,
     "cpp": 0,
-    "diamonds": 0,
+    "diamonds": 5000,
     "hearts": 100,
     "language": 'en',
     "soundOn": true,
@@ -1036,6 +1037,47 @@ function total(cat) {
     return dataSet["en"]["categories"][cat].length;
 }
 
+function shopSetUp() {
+    document.querySelector("#heart1").addEventListener("click", _ => {
+       buyHearts(1, 100); 
+    })
+    document.querySelector("#heart5").addEventListener("click", _ => {
+        buyHearts(5, 400); 
+    })  
+    document.querySelector("#heart10").addEventListener("click", _ => {
+        buyHearts(10, 700);
+    })
+    document.querySelector("#diamondBoostBtn").addEventListener("click", _ => {
+        buy(500, _=>{
+            boosted = true;
+            notify("2x boost applied!");
+            setTimeout(() => {
+                boosted = false;
+                notify("2x boost expired!");
+            }, 1000*60*60);
+        })
+    })
+}
+
+function buy(cost, callback) {
+    if(progression["diamonds"] < cost) {
+        notify("Not enough diamonds!", "./assets/images/diamands.png", 1500);
+        return;
+    }
+    canBuy = false;
+    updateDiamonds(progression["diamonds"]-cost);
+    setTimeout(() => {
+        callback();
+        canBuy = true
+    }, 1500);
+}
+
+function buyHearts(num, cost) {
+    buy(cost, _=>{
+        updateHearts(progression["hearts"]+num);
+    });
+}
+
 window.openTab = openTab;
 window.moveToLesson = moveToLesson;
 window.setActiveLanguage = setActiveLanguage;
@@ -1070,4 +1112,4 @@ window.editLesson = editLesson;
 window.removeLesson = removeLesson;
 window.editMode = editMode;
 
-export { heartsGenerator, openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
+export { shopSetUp, progression, heartsGenerator, openTab, fetchData, getData, loadProgression, currentTab, offlineMode, mute, unMute, updateDiamonds, updateHearts, goRight, goLeft, removeAllEventListeners, loadSettings};
