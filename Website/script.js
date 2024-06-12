@@ -791,8 +791,9 @@ function updateDiamonds(count, silent) {
         notify((diff > 0 ? "+"+diff : diff) + " " + thingo, "./assets/images/diamands.png");
     }
     updateProgression("diamonds", count);
-    let profileDiamonds = document.getElementById("diamondsCount")
-    profileDiamonds.textContent = count;
+    Array.from(document.querySelectorAll(".diamondsCount")).forEach(ele => {
+        ele.textContent = count;
+    })
 }
 
 function updateAch(ach, value) {
@@ -851,11 +852,11 @@ function updateHearts(count, silent) {
             thingo = 'hearts';
         }
         notify((diff > 0 ? "+"+diff : diff) + " " + thingo, "./assets/images/heart.png");
-    }
-    
+    } 
     updateProgression("hearts", count);
-    let profileHearts = document.getElementById("heartsCount")
-    profileHearts.textContent = count;
+    Array.from(document.querySelectorAll(".heartsCount")).forEach(ele => {
+        ele.textContent = count;
+    })
 }
 
 function notify(text, imgPath, duration = 3500) {
